@@ -1,2 +1,8 @@
-https://github.com/Namtranvn1991/thuchanhGIT.git
-https://github.com/Namtranvn1991/ThuchanhHTML.git
+Thực hành git
+*https://github.com/Namtranvn1991/thuchanhGIT.git
+*git clone
+git clone https://github.com/codegym-vn/wf-hello.git
+Tác dụng: Copy 1 git repository từ remote source, cụ thể là từ remote repository https://github.com/codegym-vn/wf-hello.git
+----------------------------------------------
+Thực hành HTML
+*https://github.com/Namtranvn1991/ThuchanhHTML.git
