@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73862770-b0f1-4ec9-b1e5-14501e067073" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/[Bài tập] Tạo bảng nâng cao 1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/[Bài tập] Tạo bảng nâng cao 2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/[Bài tập] Tạo bảng đơn giản.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../[Bài tập] Tạo form đơn giản/[Bài tập] Tạo form đơn giản 1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../[Bài tập] Tạo form đơn giản/[Bài tập] Tạo form đơn giản 2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../[Bài tập] Tạo giao diện form đăng ký người dùng/[Bài tập] Tạo giao diện form đăng ký người dùng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuchanh/[Thực hành] Tạo một form tìm kiếm Google.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuchanh/[Thực hành] Tạo một form tìm kiếm Google.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../[Bài tập] Tạo form lấy survey khách hàng/[Bài tập] Tạo form lấy survey khách hàng.html" beforeDir="false" afterPath="$PROJECT_DIR$/../[Bài tập] Tạo form lấy survey khách hàng/[Bài tập] Tạo form lấy survey khách hàng.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +31,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../[Bài tập] Tạo form lấy survey khách hàng" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../.." />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,6 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1627966024033</updated>
       <workItem from="1627966025078" duration="7061000" />
+      <workItem from="1627978373071" duration="1985000" />
     </task>
     <servers />
   </component>
@@ -62,9 +58,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="998" y="341" key="FileChooserDialogImpl" timestamp="1627974857784">
+    <state x="998" y="341" key="FileChooserDialogImpl" timestamp="1627980461967">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="998" y="341" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1627974857784" />
+    <state x="998" y="341" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1627980461967" />
   </component>
 </project>
