@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form đơn giản 1</title>
+    <style>
+        td {
+            font-family: monaco,Consolas,Lucida Console,monospace;
+        }
+    </style>
+</head>
+<body>
+<table border="8px solid #ffffff;" >
+    <!-- Câu hỏi: Sao không thay đổi được màu của border? -->
+    <tr>
+        <td>
+            <form action="https://www.google.com.vn/" method="post">
+                <fieldset>
+                    <legend STYLE="color: white; background-color: orange; font-family: monaco,Consolas,Lucida Console,monospace; font-size:20px; text-align: center"; >SỞ THÍCH CỦA BẠN</legend>
+                    <table>
+                        <tr>
+                            <td style="color: blue;text-align: right;" ma>Họ và tên</td>
+                            <td><input type="text" name="name"><br></td>
+                        </tr>
+                        <tr>
+                            <td style="color: blue;text-align: right;">Email</td>
+                            <td><input type="text" name="email"><br></td>
+                        </tr>
+                        <tr>
+                            <td style="color: blue;text-align: right;">Sở thích</td>
+                            <td><label style="color: chocolate;"><input type="checkbox" name="hobby" value="thethao"> Thể thao</label>
+                                <label style="color: chocolate;"><input type="checkbox" name="hobby" value="amnhac"> Âm nhạc</label>
+                                <label style="color: chocolate;"><input type="checkbox" name="hobby" value="docsach"> Đọc sách</label>
+                                <br/>
+                                <label style="color: chocolate;"><input type="checkbox" name="hobby" value="luotweb"> Lướt web</label>
+                                <label style="color: chocolate;"><input type="checkbox" name="hobby" value="amnhac"> Âm nhạc</label>
+                                <label style="color: chocolate;"><input type="checkbox" name="hobby" value="dienanh"> Điện ảnh</label>
+                                <br/>
+                                <label style="color: chocolate;"><input type="checkbox" name="hobby" value="dulich"> Du lịch</label></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Gởi thông tin"/>
+                                <input type="reset" value="Nhập lại"/>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

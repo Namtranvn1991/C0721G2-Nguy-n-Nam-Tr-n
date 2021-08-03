@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tạo form đơn giản 2</title>
+    <style>
+        td {
+            font-family:verdana
+        }
+    </style>
+</head>
+<body>
+<table style="background-color: orange">
+    <tr>
+        <td><h3 style=" color:blue; background-color: aqua;text-align: center">Đăng ký học viên</h3></td>
+    </tr>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>Họ và tên</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh</td>
+                    <td><input type="date" name="birthday"></td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td>
+                        <label><input type="radio" name="gender" value="male">Nam</label>
+                        <label><input type="radio" name="gender" value="female">Nữ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td>Lớp</td>
+                    <td>
+                        <select name="class">
+                            <option>-Chọn lớp-</option>
+                            <option value="class 1">Lớp 1</option>
+                            <option value="class 1">Lớp 2</option>
+                            <option value="class 1">Lớp 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Điện thoại</td>
+                    <td><input type="number" name="phonenumber"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Gởi thông tin"/>
+                        <input type="reset" value="Nhập lại"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
