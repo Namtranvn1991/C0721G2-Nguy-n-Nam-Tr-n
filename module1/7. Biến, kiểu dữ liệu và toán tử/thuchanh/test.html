@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <button type="button" onclick="inputwidth()">Width</button>
+ <p id="Width"></p>
+ <br>
+ <button type="button" onclick="inputheight()">Height</button>
+ <p id="Height"></p>
+ <br>
+ <button type="button" onclick="outputarea()">Area</button>
+ <script>
+     let inputWidth;
+     let inputHeight;
+     let area;
+     function inputwidth() {
+         inputWidth = prompt("Enter the width")
+         document.getElementById("Width").innerText = inputWidth;
+     };
+     let width = parseInt(inputWidth);
+     function inputheight() {
+         inputHeight = prompt("Enter the height")
+         document.getElementById("Height").innerText = inputHeight
+     };
+     let height = parseInt(inputHeight);
+     area = width*height;
+     function outputarea() {
+         document.write("the area is" + area)
+     }
+ </script>
+</body>
+</html>
