@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="73862770-b0f1-4ec9-b1e5-14501e067073" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../[Bài tập] Tạo form lấy survey khách hàng/[Bài tập] Tạo form lấy survey khách hàng.html" beforeDir="false" afterPath="$PROJECT_DIR$/../[Bài tập] Tạo form lấy survey khách hàng/[Bài tập] Tạo form lấy survey khách hàng.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +50,7 @@
       <updated>1627966024033</updated>
       <workItem from="1627966025078" duration="7061000" />
       <workItem from="1627978373071" duration="1985000" />
+      <workItem from="1628037108283" duration="1279000" />
     </task>
     <servers />
   </component>
