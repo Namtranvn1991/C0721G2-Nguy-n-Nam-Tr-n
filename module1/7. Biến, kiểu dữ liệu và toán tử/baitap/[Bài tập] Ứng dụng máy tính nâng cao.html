@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>caculator</title>
+</head>
+<body>
+<input type="number" id="num1">
+<input type="number" id="num2">
+<br>
+<br>
+<select id="calculation">
+    <option value="add">Addition(+)</option>
+    <option value="sub">Subtraction(-)</option>
+    <option value="mul">Multiplication(X)</option>
+    <option value="div">Division(/)</option>
+</select>
+<button onclick="caculate()">caculate</button>
+<br>
+<p>Result</p>
+<p id="result"></p>
+<script>
+    let result;
+    function caculate() {
+        let num1 = document.getElementById("num1").value;
+        let num2 = document.getElementById("num2").value;
+        let cal = document.getElementById("calculation").value;
+        if (cal=="add"){
+            result = num1*1+num2*1;
+        }else if (cal=="sub"){
+            result = num1-num2;
+        }else if (cal=="mul"){
+            result = num1*num2;
+        }else if (cal=="div"){
+            result = num1/num2;
+        };
+        document.getElementById("result").innerText = result.toLocaleString();
+    };
+</script>
+</body>
+</html>

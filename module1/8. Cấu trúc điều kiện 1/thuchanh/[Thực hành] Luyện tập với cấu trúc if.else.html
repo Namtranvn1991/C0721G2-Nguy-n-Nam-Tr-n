@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thuchanhifelse</title>
+</head>
+<body>
+<p>“What is the “official” name of JavaScript?”</p>
+<input type="text" id="answer">
+<button onclick="submit()">answer</button>
+<script>
+    function submit() {
+        let answer = document.getElementById("answer").value;
+        if (answer=="ECMAScript"){
+            alert("Right")
+        }else {
+            alert("Didn’t know? ECMAScript!")
+        }
+    };
+</script>
+</body>
+</html>

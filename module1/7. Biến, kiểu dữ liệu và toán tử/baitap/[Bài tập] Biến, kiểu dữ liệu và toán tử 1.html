@@ -9,13 +9,11 @@
     let F;
     let M;
     let B;
-    F = prompt("Nhập điểm Vật Lý");
-    M = prompt("Nhập điểm Toán");
-    B = prompt("Nhập điểm Sinh Học");
-    let f = parseInt(F);
-    let m = parseInt(M);
-    let b = parseInt(B);
-    let TB = (f+m+b)/3;
+    F = parseInt(prompt("Nhập điểm Vật Lý"));
+    M = parseInt(prompt("Nhập điểm Toán"));
+    B = parseInt(prompt("Nhập điểm Sinh Học"));
+    let TB = (F+M+B)/3;
+    alert("Điểm trung bình: " + TB);
     document.write("Điểm trung bình: " + TB)
 </script>
 </body>
