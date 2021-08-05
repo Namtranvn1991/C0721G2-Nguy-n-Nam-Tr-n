@@ -3,55 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Chuyển đổi tiền tệ</title>
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<form>
-    <table>
-        <tr>
-            <td>Amount</td>
-            <td>From Currency</td>
-            <<td>To Currency</td>
-        </tr>
-        <tr>
-            <td><input type="number" name="amount" id="amount"></td>
-            <td>
-                <select id="from">
-                    <option value="VND">VND</option>
-                    <option value="USD">USD</option>
-                    <option value="JPY">JPY</option>
-                </select>
-            </td>
-            <td>
-                <select id="to">
-                    <option value="VND">VND</option>
-                    <option value="USD">USD</option>
-                    <option value="JPY">JPY</option>
-                </select>
-            </td>
-            <td><button type="button" onclick="convert()">Convert</button></td>
-        </tr>
-    </table>
-    <p id="result"></p>
+<form style="width: 27%">
+    <fieldset style="background-color: aqua">
+        <legend style="color: white; background-color: blue; text-align: center"><h3>Currency Converter</h3></legend>
+        <table>
+            <tr>
+                <th>Amount</th>
+                <th>From Currency</th>
+                <th>To Currency</th>
+            </tr>
+            <tr>
+                <td><input type="number" name="amount" id="amount"></td>
+                <td>
+                    <select id="from">
+                        <option value="VND">VND</option>
+                        <option value="USD">USD</option>
+                        <option value="JPY">JPY</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="to">
+                        <option value="VND">VND</option>
+                        <option value="USD">USD</option>
+                        <option value="JPY">JPY</option>
+                    </select>
+                </td>
+                <td>
+                    <button type="button" onclick="convert()">Convert</button>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <span>RESULT: </span>
+        <span id="result"></span>
+    </fieldset>
 </form>
-<script>
-    let amount;
-    let from;
-    let to;
-    let result;
-    function convert() {
-    amount = document.getElementById("amount").value;
-    from = document.getElementById("from").value;
-    to = document.getElementById("to").value;
-    if (amount<0){alert("nhập lại giá trị lớn hơn 0")};
-    if (from=="VND"&&to=="USD"){result=amount/20000}
-    else if (from=="VND"&&to=="JPY"){result=amount/200}
-    else if (from=="USD"&&to=="VND"){result=amount*20000}
-    else if (from=="USD"&&to=="JPY"){result=amount*200}
-    else if (from=="JPY"&&to=="USD"){result=amount/200}
-    else if (from=="JPY"&&to=="VND"){result=amount*200}
-    else (alert("Trùng đơn vị"));
-    document.getElementById("result").innerText = result;
-    }
-</script>
+<script src="index1.js"></script>
 </body>
 </html>
