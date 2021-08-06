@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <style>
+        .myDiv {
+            border: 5px outset red;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<span>Move the ball to the right</span>
+<button onclick="moveRight()">Click Me</button>
+<br>
+<span>Move the ball to the left</span>
+<button onclick="moveLeft()">Click Me</button>
+<br>
+<span>Move down the ball</span>
+<button onclick="moveDown()">Click Me</button>
+<br>
+<span>Move up the ball</span>
+<button onclick="moveUp()">Click Me</button>
+<br>
+<div class="myDiv">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" id="myImg"
+         width="300px">
+</div>
+<script>
+    let imgObj = null;
+    function init() {
+        imgObj = document.getElementById("myImg");
+        imgObj.style.position = "relative";
+        imgObj.style.left = "0px";
+        imgObj.style.top = "0px";
+    };
+    window.load = init();
+    function moveRight() {
+        imgObj.style.left = parseInt(imgObj.style.left) + 10 + "px";
+    };
+    function moveLeft() {
+        imgObj.style.left = parseInt(imgObj.style.left) - 10 + "px";
+    };
+    function moveDown() {
+        imgObj.style.top = parseInt(imgObj.style.top) + 10 + "px";
+    };
+    function moveUp() {
+        imgObj.style.top = parseInt(imgObj.style.top) - 10 + "px";
+    };
+</script>
+</body>
+</html>

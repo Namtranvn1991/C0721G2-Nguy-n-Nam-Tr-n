@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bang1 tr{
+            color: white;
+            background-color: blue;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<h2>1. In ra 1 thông báo khi click vào button</h2>
+<button id="alert" onclick="xinChao()">ShowAlert</button>
+<br>
+<h2>2. Thay đổi nội dung của thẻ HTML</h2>
+<table class="bang1">
+    <tr>
+        <td id="thayDoiNoiDung">Thời tiết hôm nay thế nào</td>
+    </tr>
+</table>
+<br>
+<button onclick="sun()">Trời nắng</button>
+<button onclick="rain()">Trời mưa</button>
+<h2>3. Thêm thể HTML</h2>
+<input id="input1">
+<button onclick="addElement()">Add</button>
+<P id="add1"></P>
+<br>
+<h2>4. Xóa thể HTML</h2>
+<table id="parent1">
+    <tr id="title1">
+        <td>1</td>
+        <td>Tiêu đề 1</td>
+        <td><button onclick="delete1()">Delete</button></td>
+    </tr>
+    <tr id="title2">
+        <td>2</td>
+        <td>Tiêu đề 2</td>
+        <td><button onclick="delete2()">Delete</button></td>
+    </tr>
+    <tr id="title3">
+        <td>3</td>
+        <td>Tiêu đề 3</td>
+        <td><button onclick="delete3()">Delete</button></td>
+    </tr>
+    <tr id="title4">
+        <td>4</td>
+        <td>Tiêu đề 4</td>
+        <td><button onclick="delete4()">Delete</button></td>
+    </tr>
+</table>
+<h2>5. Tạo checkbox checked bằng JS</h2>
+<p>Bạn là thành viên của lớp C07</p>
+<input type="checkbox" id="checkBox"> Vâng, đúng rồi
+<br>
+<button onclick="Select()">Chọn</button>
+<button onclick="Unselect()">Bỏ Chọn</button>
+<h2>6. Lấy giá trị của thẻ HTML input và checkbox</h2>
+<form>
+    <span>Bạn tên gì?</span>
+    <input type="text" id="myName">
+    <p>Chọn sở thích của bạn</p>
+    <label><input name="hobby" type="checkbox" value="hobby1">Đi chơi</label>
+    <br>
+    <label><input name="hobby" type="checkbox" value="hobby2">Đi du lịch</label>
+    <br>
+    <label><input name="hobby" type="checkbox" value="hobby3">Đi ăn</label>
+    <br>
+    <label><input name="hobby" type="checkbox" value="hobby4">Đi siêu thị</label>
+    <br>
+    <label><input name="hobby" type="checkbox" value="hobby5">Học lập trình</label>
+    <br>
+    <button onclick="result()">Xem kết quả</button>
+</form>
+
+<script src="index1%202.js"></script>
+<script src="index3.js"></script>
+<script src="index4.js"></script>
+<script src="index5.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard</title>
+</head>
+<body onload="docReady()">
+<img id="nobita" width="100px" style="position: absolute; left: 0;top: 0" src="https://ae01.alicdn.com/kf/HTB1BV24MpXXXXc6XXXXq6xXFXXXs/202269631/HTB1BV24MpXXXXc6XXXXq6xXFXXXs.jpg?size=105573&height=1468&width=800&hash=1db6b7cef6b53afc6fc77c2dfdfe0804">
+</body>
+<script>
+    function leftArrowPressed() {
+        let element = document.getElementById("nobita")
+        element.style.left = parseInt(element.style.left) + 10 + "px";
+    };
+    function rightArrowPressed() {
+        let element = document.getElementById("nobita")
+        element.style.left = parseInt(element.style.left) - 10 + "px";
+    };
+    function upArrowPressed() {
+        let element = document.getElementById("nobita")
+        element.style.top = parseInt(element.style.top) + 10 + "px";
+    };
+    function downArrowPressed() {
+        let element = document.getElementById("nobita")
+        element.style.top = parseInt(element.style.top) - 10 + "px";
+    };
+    function moveselection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+            case 38:
+                upArrowPressed();
+                break;
+            case 40:
+                downArrowPressed();
+                break;
+        }
+    }
+    function docReady() {
+        window.addEventListener('keydown', moveSelection);
+    }
+</script>
+</html>
