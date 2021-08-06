@@ -7,20 +7,22 @@
 <body>
 <script>
     let year = parseInt(prompt("nhap nam"));
+    let leapyear = false;
+    let namnhuan;
     if (year % 4 == 0) {
         if (year % 100 == 0) {
             if (year % 400 == 0) {
-                alert("năm " + year + " là năm nhuận")
-            } else {
-                alert("năm " + year + " không phải là năm nhuận")
+                leapyear = true;
             }
         } else {
-            alert("năm " + year + " là năm nhuận")
+            leapyear = true;
         }
-    } else {
-        alert("năm " + year + " không phải là năm nhuận")
-    }
-    ;
+    };
+    if (leapyear)
+        namnhuan = "là năm nhuận";
+    else
+        namnhuan = "không phải năm nhuận";
+    alert("năm " + year + " " + namnhuan);
 </script>
 </body>
 </html>

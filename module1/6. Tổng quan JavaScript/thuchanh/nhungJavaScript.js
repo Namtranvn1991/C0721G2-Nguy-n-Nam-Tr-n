@@ -1,9 +1,9 @@
 var A;
-function a() {
+function ham1() {
     alert("hello!")
 }
 document.getElementById("123").innerHTML = "xin chao!";
-function b() {
+function ham2() {
     document.write("654321")
 }
 function type1() {
