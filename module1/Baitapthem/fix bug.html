@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div style="margin-top: 300px; position:absolute;">
+    <input id="number1" style="position: relative; ">
+    <input id="number2" style="position: relative; margin-left: 0px">
+    <input id="result" value="result">
+</div>
+<br>
+<input type="button" value="Add" onclick="cal('+')">
+<input type="button" value="Sub" onclick="cal('-')">
+<input type="button" value="Mul" onclick="cal('*')">
+<input type="button" value="Div" onclick="cal('/')">
+<script>
+    function cal(calculator) {
+        let number1 = document.getElementById("number1").value;
+        let number2 = document.getElementById("number2").value;
+        let result = 0;
+
+        switch (calculator) {
+
+            case '+' : {
+                result = (parseInt(number1) + parseInt(number2))
+                break;
+            }
+            case '-' : {
+                result = (parseInt(number1) - parseInt(number2))
+                break;
+            }
+            case '*': {
+                result = (parseInt(number1) * parseInt(number2))
+                break;
+            }
+            case '/': {
+                if ( number2 == 0) {
+                    result = "Không thể chia cho 0"
+                } else {
+                    result = (parseInt(number1) / parseInt(number2))
+                }
+                ;
+                break;
+            }
+        }
+        let Result = document.getElementById("result");
+        Result.value = result;
+        console.log("num1" + number1);
+        console.log("num2" + number2);
+        console.log(typeof number2.value)
+        console.log("result" + result);
+    }
+</script>
+</body>
+
+</html>
