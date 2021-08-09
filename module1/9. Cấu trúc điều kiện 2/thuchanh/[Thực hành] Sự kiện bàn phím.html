@@ -24,18 +24,19 @@
         let element = document.getElementById("nobita")
         element.style.top = parseInt(element.style.top) - 10 + "px";
     };
+    window.addEventListener("keydown",moveselection)
     function moveselection(evt) {
         switch (evt.keyCode) {
-            case 37:
+            case 39:
                 leftArrowPressed();
                 break;
-            case 39:
+            case 37:
                 rightArrowPressed();
                 break;
-            case 38:
+            case 40:
                 upArrowPressed();
                 break;
-            case 40:
+            case 38:
                 downArrowPressed();
                 break;
         }

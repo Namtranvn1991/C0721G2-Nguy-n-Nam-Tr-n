@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bt2</title>
+</head>
+<body>
+<h2>Bài 1: Chuyển từ độ C sang độ F.</h2>
+<input type="number" id="Celsius"> độ C
+<br>
+<br>
+<button onclick="tempConvert()">Chuyển sang độ F</button>
+<h2>Bài 2: Chuyển từ mét sang feet.</h2>
+<input type="number" id="meter"> mét
+<br>
+<br>
+<button onclick="lengthConvert()">Chuyển sang feet</button>
+<h2>Bài 3: Tính diện tích hình vuông khi biết cạnh a.</h2>
+Chiều dài cạnh a của hình vuông là <input type="number" id="canhA"> cm
+<br>
+<br>
+<button onclick="areaSquard()">Tính diện tích hình vuông</button>
+<h2>Bài 4: Tính diện tích hình chữ nhật khi biết 02 cạnh a, b.</h2>
+Chiều dài cạnh a của hình chữ nhật là <input type="number" id="canhaHCN"> cm
+<br>
+Chiều dài cạnh b của hình chữ nhật là <input type="number" id="canhbHCN"> cm
+<br>
+<br>
+<button onclick="dtHCN()">Tính diện tích hình chữ nhật</button>
+<h2>Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</h2>
+Chiều dài cạnh a của tam giác vuông là <input type="number" id="canhaTGV"> cm
+<br>
+Chiều dài cạnh b của tam giác vuông là <input type="number" id="canhbTGV"> cm
+<br>
+<br>
+<button onclick="dtTGV()">Tính diện tích tam giác vuông</button>
+<h2>Bài 6: Giải phương trình bậc 1.</h2>
+phương trình bậc nhất ax + b = 0
+<br>
+a= <input type="number" id="ptb1a">
+<br>
+b= <input type="number" id="ptb1b">
+<br>
+<br>
+<button onclick="ptb1()">Kết quả</button>
+<h2>Bài 7: Giải phương trình bậc 2.</h2>
+phương trình bậc hai ax2+bx+c=0
+<br>
+a= <input type="number" id="ptb2a">
+<br>
+b= <input type="number" id="ptb2b">
+<br>
+c= <input type="number" id="ptb2c">
+<br>
+<br>
+<button onclick="ptb2()">Kết quả</button>
+<h2>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.</h2>
+<input type="number" id="tuoi">
+<button onclick="kiemtra()">Kiểm tra</button>
+
+<script>
+    // Bài 1: Chuyển từ độ C sang độ F.
+    function tempConvert() {
+        let Celsius = document.getElementById("Celsius").value;
+        let Fahrenheit = (Celsius * 9 / 5) + 32;
+        alert(Celsius + " độ C bằng " + Fahrenheit + " độ F");
+    }
+</script>
+<script>
+    // Bài 2: Chuyển từ mét sang feet.
+    function lengthConvert() {
+        let meter = document.getElementById("meter").value;
+        if (meter < 0) {
+            alert("yêu cầu nhập lại");
+        } else {
+            let feet = meter * 3.2808;
+            alert(meter + " mét bằng " + feet + " feet");
+        }
+    }
+</script>
+<script>
+    // Bài 3: Tính diện tích hình vuông khi biết cạnh a.
+    function areaSquard() {
+        let canhA = document.getElementById("canhA").value;
+        if (canhA < 0) {
+            alert("yêu cầu nhập lại");
+        } else {
+            let area = canhA ** 2;
+            alert("diện tích hình vuông là " + area + " cm2");
+        }
+    }
+</script>
+<script>
+    // Bài 4: Tính diện tích hình chữ nhật khi biết 02 cạnh a, b.
+    function dtHCN() {
+        let aHCN = document.getElementById("canhaHCN").value;
+        let bHCN = document.getElementById("canhbHCN").value;
+        if (aHCN < 0 || bHCN < 0) {
+            alert("yêu cầu nhập lại");
+        } else {
+            let areaHCN = aHCN * bHCN
+            alert("diện tích hình chữ nhật là " + areaHCN + " cm2");
+        }
+    }
+</script>
+<script>
+    // Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.
+    function dtTGV() {
+        let aTGV = document.getElementById("canhaTGV").value;
+        let bTGV = document.getElementById("canhbTGV").value;
+        if (aTGV < 0 || bTGV < 0) {
+            alert("yêu cầu nhập lại");
+        } else {
+            let areaTGV = aTGV * bTGV / 2
+            alert("diện tích tam giác vuông là " + areaTGV + " cm2");
+        }
+    }
+</script>
+<script>
+    // Bài 6: Giải phương trình bậc 1.
+    function ptb1() {
+        let ptb1a = document.getElementById("ptb1a").value;
+        let ptb1b = document.getElementById("ptb1b").value;
+        if (ptb1a == 0 && ptb1b == 0) {
+            alert("phương trình có vô số nghiệm")
+        } else if (ptb1a == 0 && ptb1b !== 0) {
+            alert("phương trình vô nghiệm")
+        } else {
+            kqptb1 = -ptb1b / ptb1a;
+            alert("phương trình có 1 nghiệm duy nhất x = " + kqptb1)
+        }
+    }
+</script>
+<script>
+    // Bài 7: Giải phương trình bậc 2.
+    function ptb2() {
+        let ptb2a = document.getElementById("ptb2a").value;
+        let ptb2b = document.getElementById("ptb2b").value;
+        let ptb2c = document.getElementById("ptb2c").value;
+        let delta = ptb2b ** 2 - 4 * ptb2a * ptb2c;
+        console.log(delta);
+        if (delta > 0) {
+            let nghiem1 = (-ptb2b + Math.sqrt(delta)) / (2 * ptb2a);
+            let nghiem2 = (-ptb2b - Math.sqrt(delta)) / (2 * ptb2a);
+            alert("phương trình có 2 nghiệm" + "\r\n" + "x1 = " + nghiem1 + "\r\n" + "x2 = " + nghiem2)
+        } else if (delta == 0) {
+            let nghiem = -ptb2b / (2 * ptb2a);
+            alert("phương trình có 1 nghiệm kép x = " + nghiem)
+        } else {
+            alert("phương trình vô nghiệm")
+        }
+    }
+</script>
+<script>
+    // Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.
+    function kiemtra() {
+        let tuoi= document.getElementById("tuoi").value;
+        if (tuoi>0&&tuoi<120){
+            alert(tuoi+" là tuổi người")
+        } else {
+            alert(tuoi+" không phải là tuổi người")
+        }
+    }
+</script>
+</body>
+</html>

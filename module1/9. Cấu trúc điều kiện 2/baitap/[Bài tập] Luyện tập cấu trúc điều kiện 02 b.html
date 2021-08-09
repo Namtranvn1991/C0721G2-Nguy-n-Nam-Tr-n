@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bt2</title>
+</head>
+<body>
+<h2>Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một
+    tam giác là:</h2>
+Cạnh a <input type="number" id="a">
+<br>
+Cạnh b <input type="number" id="b">
+<br>
+Cạnh c <input type="number" id="c">
+<br>
+<br>
+<button onclick="kiemtra()">Kiểm tra</button>
+<h2>Bài 10: Viết chương trình tính giá điện.</h2>
+<!--Bậc thang 1	1678	50-->
+<!--Bậc thang 2	1734	50-->
+<!--Bậc thang 3	2014	100-->
+<!--Bậc thang 4	2536	100-->
+<!--Bậc thang 5	2834	100-->
+<!--Bậc thang 6	2927	0-->
+Tổng điện năng tiêu thụ <input type="number" id="sodien"> (kWh)
+<br>
+<br>
+<button onclick="tiendien()">Tiền điện</button>
+<h2>Bài 11: Viết chương trình tính thuế thu nhập cá nhân.</h2>
+<p>Cách tính thuế TNCN</p>
+<img src="https://cdn.thuvienphapluat.vn/tintuc/uploads/image/2020/12/21/tinh-thue-thu-nha-ca-nhan-2021.png">
+<br>
+<br>
+Thu nhập 1 tháng <input type="number" id="thunhap"> VND
+<button onclick="tinhthue()">tính thuế TNCN</button>
+<h2>Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi
+    xuất hàng tháng.</h2>
+<input type="number" id="tienbd">VND. Số tiền ban đầu
+<br>
+<input type="number" id="laixuat">%. Lãi xuất hằng tháng
+<br>
+<input type="number" id="thang">Tháng. Số tháng vay
+<br>
+<br>
+<button onclick="tinhlai()">Tiền lãi xuất</button>
+<p id="tienlai"></p>
+
+
+<script>
+    // Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một tam giác là:
+    function kiemtra() {
+        let canha = parseInt(document.getElementById("a").value);
+        let canhb = parseInt(document.getElementById("b").value);
+        let canhc = parseInt(document.getElementById("c").value);
+        if (canha > 0 && canhb > 0 && canhc > 0) {
+            if (canhc < (canhb + canha) && canhb < (canha + canhc) && canha < (canhb + canhc)) {
+                alert("a b c là 3 cạnh của tam giác");
+            } else {
+                alert("a b c không phải là 3 cạnh của tam giác");
+            }
+        } else {
+            alert("a b c không phải là 3 cạnh của tam giác");
+        }
+    }
+</script>
+<script>
+    // Bài 10: Viết chương trình tính giá điện.
+    function tiendien() {
+        let sodien = parseInt(document.getElementById("sodien").value);
+        let tiendien;
+        if (sodien > 0) {
+            if (sodien <= 50) {
+                tiendien = sodien * 1678;
+            } else if (sodien <= 100) {
+                tiendien = 50 * 1678 + (sodien - 50) * 1734;
+            } else if (sodien <= 200) {
+                tiendien = 50 * 1678 + 50 * 1734 + (sodien - 100) * 2014;
+            } else if (sodien <= 300) {
+                tiendien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (sodien - 200) * 2536;
+            } else if (sodien <= 400) {
+                tiendien = 50 * 1678 + 50 * 1734 + 100 * 2014 + +100 * 2536 + (sodien - 300) * 2833;
+            } else {
+                tiendien = 50 * 1678 + 50 * 1734 + 100 * 2014 + +100 * 2536 + 100 * 2833 + (sodien - 400) * 2927;
+            }
+        } else {
+            alert("số điện phải lớn hơn 0")
+        }
+        alert("tiền điện là " + tiendien + " VND")
+    }
+</script>
+<script>
+    // Bài 11: Viết chương trình tính thuế thu nhập cá nhân.
+    function tinhthue() {
+        let thunhap = parseInt(document.getElementById("thunhap").value);
+        let thue;
+        if (thunhap > 0) {
+            if (thunhap <= 5000000) {
+                thue = thunhap * 0.05;
+            } else if (thunhap <= 10000000) {
+                thue = thunhap * 0.1 - 250000;
+            } else if (thunhap <= 18000000) {
+                thue = thunhap * 0.15 - 750000;
+            } else if (thunhap <= 32000000) {
+                thue = thunhap * 0.2 - 1650000;
+            } else if (thunhap <= 52000000) {
+                thue = thunhap * 0.25 - 3250000;
+            } else if (thunhap <= 80000000) {
+                thue = thunhap * 0.3 - 5850000;
+            } else {
+                thue = thunhap * 0.35 - 9850000;
+            }
+        } else {
+            alert("nhập lại số tiền lớn hơn 0")
+        }
+        alert("Thuế TNCN bằng " + thue + " VND")
+    }
+</script>
+<script>
+    // Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.
+    function tinhlai() {
+        let tienbd = parseInt(document.getElementById("tienbd").value);
+        let laixuat = parseInt(document.getElementById("laixuat").value);
+        let thang = parseInt(document.getElementById("thang").value);
+        let tienlai =tienbd;
+        for (let i = 0; i < thang; i++) {
+            tienlai += tienlai * laixuat / 100;
+        }
+        document.getElementById("tienlai").innerText = parseInt(tienlai) + " VND";
+    }
+</script>
+</body>
+</html>

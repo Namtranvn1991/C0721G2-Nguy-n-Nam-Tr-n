@@ -8,6 +8,9 @@
             position: relative;
             top: 8px;
         }
+        h1 {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -15,21 +18,17 @@
 <button onclick="yes()">Yes</button>
 <img src="No.PNG" id="image">
 <script>
-    var random1 = Math.floor(Math.random() * 1000);
-    var random2 = Math.floor(Math.random() * 1000);
     function yes() {
     alert("<3")
     };
     let imgObj;
-    function init() {
         imgObj = document.getElementById("image");
-        imgObj.style.position = "relative";
-    };
-    window.load = init();
-    imgObj.addEventListener("click",function () {
-    imgObj.style.left = random1 + "px";
-    imgObj.style.top = random2 + "px";
-    console.log(imgObj)
+        imgObj.addEventListener("click",function () {
+        var random1 = Math.floor(Math.random() * 1000);
+        var random2 = Math.floor(Math.random() * 1000);
+        imgObj.style.left = random1 + "px";
+        imgObj.style.top = random2 + "px";
+        console.log(imgObj)
     })
 </script>
 </body>
