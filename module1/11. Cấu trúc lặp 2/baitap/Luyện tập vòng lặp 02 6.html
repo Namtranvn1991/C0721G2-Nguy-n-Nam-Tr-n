@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Bài 6: In hình trái tim</h2>
+<script>
+    let A = 11;//cột
+    let B = 11;//hàng
+    let symbol = "*";
+    for (let i = 1; i <= A; i++) {
+        if (i == 1) {
+            for (let j = 1; j <= B; j++) {
+                if (j == 3 || j == 4 || j == 8 || j == 9) {
+                    document.write(symbol);
+                } else {
+                    document.write("&nbsp&nbsp");
+                }
+            }
+        } else if (i == 2) {
+            for (let j = 1; j <= B; j++) {
+                if (j == 1 || j == 6 || j == 11) {
+                    document.write("&nbsp&nbsp");
+                } else {
+                    document.write(symbol);
+                }
+            }
+        } else if (i > 2 && i < 6) {
+            for (let j = 1; j <= B; j++) {
+                document.write(symbol);
+            }
+        } else {
+            for (let j = 1; j <= B; j++) {
+                    if (j>i-5&&j<17-i){
+                        document.write(symbol);
+                    } else {
+                        document.write("&nbsp&nbsp");
+                    }
+            }
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

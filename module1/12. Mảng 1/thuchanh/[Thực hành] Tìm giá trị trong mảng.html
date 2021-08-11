@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = [-3, 5, 1, 3, 2, 10];
+    let flag = true;
+    do {
+        flag = true;
+        let value = parseInt(prompt("nhập giá trị"));
+        for (let i = 0; i < numbers.length; i++) {
+            if (value == numbers[i]) {
+                alert(value + " trùng với giá trị " + numbers[i] + " tại vị trí " + i);
+                console.log(numbers[i]);
+                flag = false;
+                break;
+            }
+        }
+    } while (flag = false)
+
+
+</script>
+</body>
+</html>
