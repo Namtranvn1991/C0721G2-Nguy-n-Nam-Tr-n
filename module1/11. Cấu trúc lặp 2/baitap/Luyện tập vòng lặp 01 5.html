@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.</h2>
+<script>
+    let num1=0;
+    let num2=1;
+    let fib;
+    let total=0;
+    for (let i=0; i<20; i++){
+        fib=num1 +num2;
+        num1 =num2;
+        num2 = fib;
+        total += fib
+    }
+    document.write(total + "<br>")
+</script>
+</body>
+</html>
