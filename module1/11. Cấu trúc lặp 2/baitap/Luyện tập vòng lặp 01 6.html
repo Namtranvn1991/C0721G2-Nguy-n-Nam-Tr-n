@@ -2,10 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>done</title>
 </head>
 <body>
 <h2>Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.</h2>
-
+<script>
+    let number = 0;
+    let total=0;
+    for (let i = 0; i < 30;) {
+        if (number % 7 == 0) {
+            total += number;
+            i++;
+            console.log(number)
+        }
+        number++;
+    }
+    document.write(total);
+</script>
 </body>
 </html>

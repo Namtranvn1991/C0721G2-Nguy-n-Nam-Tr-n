@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8: Game đoán số</title>
+</head>
+<body>
+<script>
+    let num1 = parseInt(prompt("Nhập số bắt đầu"));
+    let num2 = parseInt(prompt("Nhập số kết thúc"));
+    let count = 1;
+    let result = Math.floor(Math.random() * (num2 - num1) + num1);
+    console.log(result);
+    do {
+        let guess = prompt("Nhập số cần đoán");
+        if (guess == result) {
+            alert("bạn đã trúng 20 tỉ đồng");
+            break;
+        } else if (guess < result) {
+            alert("Đoán lại số lớn hơn");
+        } else {
+            alert("Đoán lại số nhỏ hơn");
+        }
+        count++;
+    } while (count<=3)
+    if (count==4){
+        alert("Trúng gió và hết lượt");
+    }
+</script>
+</body>
+</html>

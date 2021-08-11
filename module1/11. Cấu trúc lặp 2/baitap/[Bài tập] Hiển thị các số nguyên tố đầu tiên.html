@@ -10,19 +10,16 @@
     let flag = true;
     let n = 0;
     while (n < 20) {
-        if (number < 2) {
-            flag = false;
-        } else {
-            for (let i = 2; i < number; i++) {
-                if (number % i == 0) {
-                    flag = false;
-                    break;
-                }
+        flag = true; //chú ý gán lại true cho flag khi mỗi vòng lặp bắt đầu
+        for (let i = 2; i < number; i++) {
+            if (number % i == 0) {
+                flag = false;
+                break;
             }
-            if (flag=true) {
-                document.write(number + "<br>");
-                n++;
-            }
+        }
+        if (flag) {
+            document.write(number + "<br>");
+            n++;
         }
         number++;
     }

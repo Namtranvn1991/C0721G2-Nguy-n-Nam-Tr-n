@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>done</title>
+</head>
+<body>
+<h2>Bài 1: In dãy Finonaci</h2>
+<script>
+    let num1 = 1;
+    let num2 = 1;
+    let fib;
+    let amount=20;
+    document.write("1, 1")
+    for (let i = 0; i < amount; i++) {
+        fib = num1 + num2;
+        num1 = num2;
+        num2 = fib;
+        document.write(", " + fib)
+    }
+</script>
+</body>
+</html>
