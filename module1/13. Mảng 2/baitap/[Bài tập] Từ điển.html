@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Vie = ["chó", "mèo", "gà", "vịt", "người", "hổ"]
+    let Eng = ["dog", "cat", "chicken", "duck", "human", "lion"]
+    let flag = true;
+    do {
+        flag = true;
+        let input = prompt("Nhập từ cần tra");
+        for (let i=0; i<Vie.length;i++){
+            if (input==Vie[i]){
+                flag = false;
+                alert(input + ":" + Eng[i])
+                break;
+            } else if (input==Eng[i]){
+                flag = false;
+                alert(input + ":" + Vie[i])
+                break;
+            }
+        }
+        if (flag==true){
+            alert("từ không có trong từ điển")
+        }
+    } while (true)
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Caro</h1>
+<p id="carogame"></p>
+<br>
+<button onclick="qqqq()">1</button>
+<script>
+    let board = [];
+    let data = "";
+    for (let i = 0; i < 5; i++) {
+        board[i] = new Array(0, 0, 0);
+    }
+    console.log(board.length);
+    for (let i = 0; i < 3; i++) {
+        data += "<br>"
+        for (let j = 0; j < 3; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;"
+
+        }
+    }
+    document.getElementById("carogame").innerHTML = data;
+
+function qqqq(){
+    let player1= prompt("nhập hàng và cột");
+    let player2= prompt("nhập hàng và cột");
+    let array1 = player1.split('');
+    let array2 = player2.split('')
+    // console.log(array1);
+    // console.log(array2);
+    let data = "";
+    let rowPlayer1 =array1[1];
+    let colPlayer1 =array1[2];
+    let rowPlayer2 =array2[1];
+    let colPlayer2 =array2[2];
+
+    // if (rowPlayer1 >= 0 && rowPlayer1 < 3 && colPlayer1 >= 0 && colPlayer1 < 3 &&
+    //     rowPlayer2 >= 0 && rowPlayer2 < 3 && colPlayer2 >= 0 && colPlayer2 < 3) {
+        board[rowPlayer1][colPlayer1] = "1";
+        for (let i = 0; i < 3; i++) {
+            data += "<br>";
+            for (let j = 0; j < 3; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;"
+            }
+        }
+        board[rowPlayer2][colPlayer2] = "2";
+        for (let i = 0; i < 3; i++) {
+            data += "<br>";
+            for (let j = 0; j < 3; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;"
+            }
+        }
+        document.getElementById("carogame").innerHTML = data;
+    // } else {
+    //     alert("nhập lại hàng và cột từ 1 đến 3")
+    // }
+
+}
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

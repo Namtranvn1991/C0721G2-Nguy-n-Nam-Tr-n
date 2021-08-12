@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 1, 2</title>
+</head>
+<body>
+<input type="number" id="input">
+<button onclick="chenDau()">submit</button>
+<br>
+<p id="result"></p>
+<br>
+<script>
+    let myColor = ["Red", "Green", "White", "Black"];
+    let result = myColor.join();
+    document.write(result)
+
+    function chenDau() {
+        let input = document.getElementById("input").value;
+        let result = [input[0]];
+        for (let i = 1; i < input.length; i++) {
+            if (input[i - 1] % 2 == 0 && input[i] % 2 == 0) {
+                result.push("-",input[i])
+            } else {
+                result.push(input[i])
+            }
+        }
+        let diplay = result.join('')
+        document.getElementById("result").innerHTML= diplay;
+    }
+
+
+
+</script>
+</body>
+</html>
