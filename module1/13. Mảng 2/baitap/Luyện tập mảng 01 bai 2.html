@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>done</title>
+</head>
+<body>
+<!--Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau.
+Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.-->
+<script>
+    let array = Array();
+    let length = 10;
+    let a = 1;
+    for (let i = 0; i < length;) {
+        let input = parseFloat(prompt('nhập số nguyên thứ ' + a));
+        console.log(Number.isInteger(input))
+        if (Number.isInteger(input)) {
+            array[i] = input;
+            i++;
+            a++;
+        } else {
+            alert('nhập lại số nguyên')
+        }
+    }
+    document.write(array.join('-') + '<br>');
+    console.log(array)
+    let index = Array();
+    let max = array[array.length - 1];
+    for (let i = 0; i < array.length; i++) {
+        if (max <= array[i]) {
+            max = array[i];
+        }
+    }
+    for (let i = 0; i < array.length; i++) {
+        if (max == array[i]) {
+            index.push(i)
+        }
+    }
+    console.log(index);
+    document.write("giá trị lớn nhất là " + max + " tại index " + index.join(", "));
+
+</script>
+</body>
+</html>

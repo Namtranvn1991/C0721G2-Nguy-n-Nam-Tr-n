@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>done</title>
+</head>
+<body>
+<!--Bài 3- Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng.-->
+<script>
+    let array = Array();
+    let length = 5;
+    for (let i = 0; i < length;) {
+        let input = parseFloat(prompt('nhập số nguyên'));
+        console.log(Number.isInteger(input))
+        if (Number.isInteger(input)) {
+            array[i] = input;
+            i++;
+        } else {
+            alert('nhập lại số nguyên')
+        }
+    }
+    document.write(array.join(', ') + '<br>');
+    console.log(array);
+    let max = array[array.length - 1];
+    let sum = 0;
+    let count = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+        count++;
+        if (max <= array[i]) {
+            max = array[i];
+        }
+    }
+    let average = sum / count;
+    document.write("giá trị lớn nhất là " + max + "<br>");
+    document.write("giá trị trung bình " + average)
+</script>
+</body>
+</html>

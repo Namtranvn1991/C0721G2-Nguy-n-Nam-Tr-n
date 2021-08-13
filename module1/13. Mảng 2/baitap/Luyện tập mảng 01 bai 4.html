@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>done</title>
+</head>
+<body>
+<!--Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.-->
+
+<script>
+    let array = Array();
+    let length= 5;
+    for (let i = 0; i < length;) {
+        let input = parseFloat(prompt('nhập số nguyên'));
+        console.log(Number.isInteger(input))
+        if (Number.isInteger(input)) {
+            array[i] = input;
+            i++;
+        } else {
+            alert('nhập lại số nguyên')
+        }
+    }
+    document.write(array.join(', ') + '<br>');
+    console.log(array);
+    let newArray = Array();
+    newArray = array.reverse();
+    document.write(newArray.join(', ') + '<br>')
+</script>
+
+
+</body>
+</html>

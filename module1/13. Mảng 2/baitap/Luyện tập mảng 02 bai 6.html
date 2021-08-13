@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("nhập mảng ký tự");
+    let array = Array()
+    for (let i = 0; i < str.length; i++) {
+        array[i] = str[i];
+    }
+    console.log(array);
+
+
+    for (let i = 0; i < array.length; i++){
+        let replace = array.indexOf("-")
+        if (replace==-1){
+            break;
+        }
+        array.splice(replace,1)
+        array.splice(replace,0,"_")
+    }
+    document.write(array.join(""));
+
+</script>
+</body>
+</html>

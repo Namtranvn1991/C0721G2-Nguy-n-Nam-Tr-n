@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>done</title>
+</head>
+<body>
+<!--Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. -->
+<!--Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.-->
+<script>
+    let array = Array();
+    let length = 10;
+    let count = 1;
+    for (let i = 0; i < length;) {
+        let input = parseFloat(prompt('nhập số nguyên thứ ' + count));
+        console.log(Number.isInteger(input))
+        if (Number.isInteger(input)) {
+            array[i] = input;
+            i++;
+            count++;
+        } else {
+            alert('nhập lại số nguyên')
+        }
+    }
+    document.write(array.join(', ') + '<br>');
+    for (let i = 0; i < array.length - 1; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+            let a = array[i]
+            if (array[i] < array[j]) {
+                array [i] = array [j];
+                array [j] = a;
+            }
+        }
+    }
+    document.write(array.join(', ') + '<br>');
+
+</script>
+</body>
+</html>

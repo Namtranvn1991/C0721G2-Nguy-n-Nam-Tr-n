@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>done</title>
+</head>
+<body>
+<!--Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. -->
+<!--Chương trình tìm xem V có nằm trong mảng số nguyên không? -->
+<!--Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".-->
+
+<script>
+    let array = Array();
+    let length = 10;
+    let a = 1;
+    for (let i = 0; i < length;) {
+        let input = parseFloat(prompt('nhập số nguyên thứ ' + a));
+        console.log(Number.isInteger(input))
+        if (Number.isInteger(input)) {
+            array[i] = input;
+            i++;
+            a++;
+        } else {
+            alert('nhập lại số nguyên')
+        }
+    }
+    let flag = false;
+    document.write(array.join(', ') + '<br>');
+    let V = parseInt(prompt("nhập số"));
+    for (let i = 0; i < length; i++) {
+        if (V == array[i]) {
+            flag = true;
+        }
+    }
+    if (flag) {
+        alert(V + " is in the array")
+    } else {
+        alert(V + " is not in the array")
+    }
+
+
+</script>
+</body>
+</html>

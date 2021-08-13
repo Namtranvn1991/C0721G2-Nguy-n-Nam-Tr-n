@@ -19,34 +19,28 @@ cột<input type="number" id="col" style="width: 25px">
         board[i] = new Array(0, 0, 0, 0, 0);
     }
     console.log(board.length);
-    for (let i = 0; i < 5; i++) {
-        data += "<br>"
-        for (let j = 0; j < 5; j++) {
-            data += board[i][j] + "&nbsp;&nbsp;"
-
-        }
-    }
-    document.getElementById("carogame").innerHTML = data;
-
+    display();
     function tick() {
-        let data = "";// chú ý gán lại data mỗi lần thực hiện function;
+        data = "";// chú ý gán lại data mỗi lần thực hiện function;
         let row = parseInt(document.getElementById("row").value) - 1;
         let col = parseInt(document.getElementById("col").value) - 1;
         if (row >= 0 && row < 5 && col >= 0 && col < 5) {
-            board[row][col] = "x"
-            for (let i = 0; i < 5; i++) {
-                data += "<br>"
-                for (let j = 0; j < 5; j++) {
-                    data += board[i][j] + "&nbsp;&nbsp;"
-                }
-            }
-            document.getElementById("carogame").innerHTML = data;
+            board[row][col] = "x";
+            display()
         } else {
             alert("nhập lại hàng và cột từ 1 đến 5")
         }
-
     }
 
+    function display() {
+        for (let i = 0; i < 5; i++) {
+            data += "<br>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;"
+            }
+        }
+        document.getElementById("carogame").innerHTML = data;
+    }
 </script>
 </body>
 </html>

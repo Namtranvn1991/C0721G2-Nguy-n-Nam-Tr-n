@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>done</title>
+</head>
+<body>
+<!--Bài 9- Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b. -->
+<!--Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên. -->
+<!--Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.-->
+<script>
+    let array1 = Array();
+    let array2 = Array();
+    let length = 4;
+    let count1 = 1;
+    let count2 = 1;
+    for (let i = 0; i < length;) {
+        let input1 = parseFloat(prompt('nhập số nguyên thứ ' + count1 + ' vào mảng a'));
+        if (Number.isInteger(input1)) {
+            array1[i] = input1;
+            i++;
+            count1++;
+        } else {
+            alert('nhập lại số nguyên')
+        }
+    }
+    for (let i = 0; i < length;) {
+        let input2 = parseFloat(prompt('nhập số nguyên thứ ' + count2 + ' vào mảng b'));
+        if (Number.isInteger(input2)) {
+            array2[i] = input2;
+            i++;
+            count2++;
+        } else {
+            alert('nhập lại số nguyên')
+        }
+    }
+    let array3 = Array();
+    array3 = array1.concat(array2);
+    document.write('mảng a: ' + array1.join(', ') + '<br>');
+    document.write('mảng b: ' + array2.join(', ') + '<br>');
+    document.write('mảng c: ' + array3.join(', ') + '<br>');
+
+</script>
+</body>
+</html>

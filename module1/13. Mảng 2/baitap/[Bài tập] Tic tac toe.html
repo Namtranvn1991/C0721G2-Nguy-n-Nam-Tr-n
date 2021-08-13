@@ -5,69 +5,67 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Caro</h1>
+<h2>Caro</h2>
 <p id="carogame"></p>
-<br>
-<button onclick="qqqq()">1</button>
 <script>
     let board = [];
-    let data = "";
+    let play = true;
     for (let i = 0; i < 5; i++) {
-        board[i] = new Array(0, 0, 0);
+        board[i] = [".", ".", ".", ".", "."]
     }
-    console.log(board.length);
-    for (let i = 0; i < 3; i++) {
-        data += "<br>"
-        for (let j = 0; j < 3; j++) {
-            data += board[i][j] + "&nbsp;&nbsp;"
+    console.log(board);
+    display();
 
-        }
-    }
-    document.getElementById("carogame").innerHTML = data;
-
-function qqqq(){
-    let player1= prompt("nhập hàng và cột");
-    let player2= prompt("nhập hàng và cột");
-    let array1 = player1.split('');
-    let array2 = player2.split('')
-    // console.log(array1);
-    // console.log(array2);
-    let data = "";
-    let rowPlayer1 =array1[1];
-    let colPlayer1 =array1[2];
-    let rowPlayer2 =array2[1];
-    let colPlayer2 =array2[2];
-
-    // if (rowPlayer1 >= 0 && rowPlayer1 < 3 && colPlayer1 >= 0 && colPlayer1 < 3 &&
-    //     rowPlayer2 >= 0 && rowPlayer2 < 3 && colPlayer2 >= 0 && colPlayer2 < 3) {
-        board[rowPlayer1][colPlayer1] = "1";
-        for (let i = 0; i < 3; i++) {
-            data += "<br>";
-            for (let j = 0; j < 3; j++) {
-                data += board[i][j] + "&nbsp;&nbsp;"
+    function display() {
+        let data = "<table border='1' style='width: 200px; height: 200px; text-align: center'>";
+        for (let i = 0; i < 5; i++) {
+            data += "<tr>";
+            for (let j = 0; j < 5; j++) {
+                data += "<td onclick='changeValue(  " + i + ", " + j + "  )'>" + board[i][j] + "</td>";
             }
+            data += "</tr>"
         }
-        board[rowPlayer2][colPlayer2] = "2";
-        for (let i = 0; i < 3; i++) {
-            data += "<br>";
-            for (let j = 0; j < 3; j++) {
-                data += board[i][j] + "&nbsp;&nbsp;"
-            }
-        }
+        data += "</table>";
         document.getElementById("carogame").innerHTML = data;
-    // } else {
-    //     alert("nhập lại hàng và cột từ 1 đến 3")
-    // }
+    }
 
-}
+    function changeValue(i, j) {
+        if (board[i][j] !== ".") {
+            alert("đánh lại ô khác")
+        } else {
+            if (play) {
+                board [i][j] = "X";
+                play = false;
+                display()
+            } else {
+                board [i][j] = "0";
+                play = true;
+                display()
+            }
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] == "X") {
+                        if (board[i][j + 1] == "X" && board[i][j + 2] == "X" ||
+                            board[i + 1][j] == "X" && board[i + 2][j] == "X" ||
+                            board[i + 1][j + 1] == "X" && board[i + 2][j + 2] == "X" ||
+                            board[i - 1][j + 1] == "X" && board[i - 2][j + 2] == "X") {
+                            alert("người chơi 1 thắng");
+                        }
+                    } else if (board[i][j] == "0") {
+                        if (board[i][j + 1] == "0" && board[i][j + 2] == "0" ||
+                            board[i + 1][j] == "0" && board[i + 2][j] == "0" ||
+                            board[i + 1][j + 1] == "0" && board[i + 2][j + 2] == "0" ||
+                            board[i - 1][j + 1] == "0" && board[i - 2][j + 2] == "0") {
+                            alert("người chơi 2 thắng");
+                        }
+                    }
+
+                }
+            }
+        }
 
 
-
-
-
-
-
-
+    }
 </script>
 </body>
 </html>
