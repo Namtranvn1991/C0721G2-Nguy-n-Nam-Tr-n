@@ -45,17 +45,17 @@
             for (let i = 0; i < 5; i++) {
                 for (let j = 0; j < 3; j++) {
                     if (board[i][j] == "X") {
-                        if (board[i][j + 1] == "X" && board[i][j + 2] == "X" ||
-                            board[i + 1][j] == "X" && board[i + 2][j] == "X" ||
-                            board[i + 1][j + 1] == "X" && board[i + 2][j + 2] == "X" ||
-                            board[i - 1][j + 1] == "X" && board[i - 2][j + 2] == "X") {
+                        if ((board[i][j + 1] == "X" && board[i][j + 2] == "X") ||
+                            (board[i + 1][j] == "X" && board[i + 2][j] == "X") ||
+                            (board[i + 1][j + 1] == "X" && board[i + 2][j + 2] == "X") ||
+                            (board[i + 1][j - 1] == "X" && board[i + 2][j - 2] == "X")) {
                             alert("người chơi 1 thắng");
                         }
                     } else if (board[i][j] == "0") {
-                        if (board[i][j + 1] == "0" && board[i][j + 2] == "0" ||
-                            board[i + 1][j] == "0" && board[i + 2][j] == "0" ||
-                            board[i + 1][j + 1] == "0" && board[i + 2][j + 2] == "0" ||
-                            board[i - 1][j + 1] == "0" && board[i - 2][j + 2] == "0") {
+                        if ((board[i][j + 1] == "0" && board[i][j + 2] == "0") ||
+                            (board[i + 1][j] == "0" && board[i + 2][j] == "0") ||
+                            (board[i + 1][j + 1] == "0" && board[i + 2][j + 2] == "0") ||
+                            (board[i + 1][j - 1] == "0" && board[i + 2][j - 2] == "0")) {
                             alert("người chơi 2 thắng");
                         }
                     }
