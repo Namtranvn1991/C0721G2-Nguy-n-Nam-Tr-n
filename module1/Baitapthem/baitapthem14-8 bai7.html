@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>done</title>
+</head>
+<body>
+<!--7.Tính tổng và tích các chữ số của một số nguyên dương m cho trước(Ví dụ : m=234=> S=2+3+4=9, P=2*3*4=24)-->
+</body>
+<script>
+    let number = parseFloat(prompt("nhập 1 số nguyên dương"))
+    let P = 1;
+    let S = 0;
+    let arr = Array();
+    if (Number.isInteger(number) && number > 0) {
+        let str = number.toString();
+        console.log(str);
+        console.log(typeof str);
+
+        for (let i = 0; i < str.length; i++) {
+            S += parseInt(str[i]);
+            P *= str[i]
+            arr[i] = str[i]
+        }
+        console.log(S)
+        console.log(P)
+    } else {
+        alert("nhập lại số nguyên dương")
+    }
+    document.write(number + " có S = " + arr.join("+") + " = " + S + "<br>")
+    document.write(number + " có P = " + arr.join("*") + " = " + P + "<br>")
+</script>
+
+
+</html>
