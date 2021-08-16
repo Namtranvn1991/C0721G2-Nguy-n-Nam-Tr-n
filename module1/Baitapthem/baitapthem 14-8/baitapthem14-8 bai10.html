@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("nhập mảng ký tự");
+    let array = Array()
+    for (let i = 0; i < str.length; i++) {
+        array[i] = str[i];
+    }
+    document.write(str)
+    document.write("<br>");
+    let count = str.split(" ").length;
+    let newArray = str.split(" ");
+    document.write("chuỗi trên có " + count + " từ")
+    document.write("<br>");
+    for (let i = 0; i < str.split(" ").length; i++) {
+        document.write(newArray[i] + "<br>")
+    }
+    document.write("<br>");
+
+    for (let i = 0; i < newArray.length; i++) {
+        let frequence = 1;
+        if (newArray[i] == "") {
+            continue;
+        }
+        for (let j = i + 1; j < newArray.length; j++) {
+            if (newArray[i] == newArray[j]) {
+                frequence++;
+                newArray[j] = "";
+                newArray.slice(newArray.indexOf(""), 1)
+            }
+        }
+        document.write(newArray[i] + " : " + frequence + "<br>")
+    }
+
+
+</script>
+</body>
+</html>

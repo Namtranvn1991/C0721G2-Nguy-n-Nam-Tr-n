@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt("nhập số a"));
+    let b = parseFloat(prompt("nhập số b"));
+    let A = a;
+    let B = b;
+    let P = a * b;
+    if (Number.isInteger(a) && Number.isInteger(b)) {
+        if (a >= b) {
+            do {
+                let mod1 = a % b;
+                a = b;
+                b = mod1;
+            } while (b !== 0);
+            var UCLN = a;
+        } else {
+            do {
+                let mod2 = b % a;
+                b = a;
+                a = mod2;
+            } while (a !== 0);
+            UCLN = b;
+        }
+        var BCNN = P / UCLN;
+    }
+    document.write("Ước chung lớn nhất của " + A + " và " + B + " là " + UCLN + "<br>");
+    document.write("Bội chung lớn nhất của " + A + " và " + B + " là " + BCNN + "<br>");
+</script>
+</body>
+</html>

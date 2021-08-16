@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m = 3;
+    let n = 3;
+    let array = Array();
+    for (let i = 0; i < m; i++) {
+        array[i] = Array(n)
+    }
+    console.log(array)
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            do {
+                array[i][j] = parseFloat(prompt("nhập phần tử [" + i + "][" + j + "]"))
+                if (!Number.isInteger(array[i][j])) {
+                    alert("nhập lại số nguyên")
+                }
+            } while (!Number.isInteger(array[i][j]))
+        }
+    }
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            document.write(array[i][j] + "&nbsp")
+        }
+        document.write("<br>")
+    }
+    let P = 1;
+    for (let i = 0; i < n; i++) {
+        if (array[0][i] > 0 && array[0][i] % 3 == 0) {
+            console.log(array[0][i])
+            P = P * array[0][i];
+        }
+    }
+    document.write("tích các số là bội số của 3 nằm trên dòng đầu tiên của ma trận là " + P);
+    document.write("<br>")
+
+    let arrayX = Array();
+
+    for (let i = 0; i < m; i++) {
+        let max = array[i][0]
+        for (let j = 0; j < n; j++) {
+            if (array[i][0] <= array[i][j]) {
+                max = array[i][j];
+                arrayX[i] = array[i][j]
+            }
+        }
+    }
+    console.log(arrayX)
+    document.write("mảng một chiều X[i] là các GTLN trên mỗi dòng của ma trận [" + arrayX.join(", ") + "]")
+    document.write("<br>");
+    arrayX.shift();
+    document.write("Xoá đi phần tử đầu tiên của mảng X[i] [" + arrayX.join(", ") + "]")
+
+</script>
+</body>
+</html>
