@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Type a value in the Fahrenheit field to convert the value to Celsius</h3>
+<span>Fahrenheit </span>
+<input type="number" oninput="convert()" id="Fahrenheit">
+<br>
+<span>Celsius: </span>
+<span id="celcius"></span>
+
+<script>
+    function convertFtoC(Fah) {
+        let Cel = (Fah - 32)/1.8
+        return Cel;
+    }
+    function convert() {
+        let Fahrenheit = document.getElementById("Fahrenheit").value;
+        let Celsius = convertFtoC(Fahrenheit);
+        document.getElementById("celcius").innerText = Celsius;
+    }
+</script>
+</body>
+</html>
