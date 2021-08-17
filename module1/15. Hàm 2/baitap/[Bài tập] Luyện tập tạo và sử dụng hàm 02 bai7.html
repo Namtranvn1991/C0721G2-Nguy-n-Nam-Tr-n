@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = Array();
+    let length = 2;
+    for (let i = 0; i < length;) {
+        let input = parseFloat(prompt('nhập số'));
+        if (!isNaN(input)) {
+            array[i] = input;
+            i++;
+        } else {
+            alert('nhập lại số')
+        }
+    }
+    function swap(arr) {
+        let temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+    }
+
+    swap(array)
+    console.log(array)
+</script>
+</body>
+</html>

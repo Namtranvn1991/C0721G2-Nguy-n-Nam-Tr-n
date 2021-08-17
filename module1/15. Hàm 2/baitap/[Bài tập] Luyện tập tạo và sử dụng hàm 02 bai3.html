@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input;
+    do {
+        input = parseFloat(prompt("nhập nguyên dương cần tính giai thừa"));
+        if ((!Number.isInteger(input))||(input<0)){
+            alert("nhập lại số nguyên dương")
+        }
+    } while ((!Number.isInteger(input))||(input<0))
+
+    function factorial(n) {
+        let P = 1;
+        for (let i = 1; i <= n; i++) {
+            P = P * i;
+        }
+        return P;
+    }
+
+    document.write(input + "! = "  +factorial(input))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input = prompt("nhập ký tự để kiểm tra");
+    let array = Array();
+    for (let i = 0; i < input.length; i++) {
+        array[i] = input[i];
+    }
+
+
+    function checkNumberic(n) {
+        if (isNaN(parseFloat(n))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    let flag = true;
+    for (let i = 0; i < input.length; i++) {
+        if (!checkNumberic(array[i])) {
+            alert(input + " không phải là kí tự số")
+            flag = false;
+            break;
+        }
+    }
+
+    if (flag) {
+        alert(input + " là kí tự số")
+    }
+</script>
+</body>
+</html>

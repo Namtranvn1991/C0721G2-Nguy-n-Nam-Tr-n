@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function alertMessage() {
+        alert("Xin chao");
+    }
+    alertMessage();
+
+
+    function increase(a) {
+        document.write(++a + "<br>")
+        return a;
+    }
+    let result1 = increase(5);
+    console.log(result1);
+    document.write("<hr>")
+    
+
+    function compare(a,b) {
+        if (a>b){
+            alert("a lớn hơn b")
+        } else {
+            let sum = a+b;
+            document.write("tổng 2 số là " + sum)
+            return sum;
+        }
+    }
+    let a = parseInt(prompt("nhập a"));
+    let b = parseInt(prompt("nhập b"));
+    compare(a,b);
+    document.write("<hr>");
+
+    function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum;
+        return result;
+    }
+    result = 0;
+    alert(result);
+    result = addNumbers();
+    alert(result);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input;
+    let array = Array();
+    let i=0;
+        do {
+            input = prompt("nhập số nguyên");
+            if (Number.isInteger(parseFloat(input))){
+                array [i] = parseInt(input);
+                i++;
+            }else {
+                alert("nhập lại số nguyên")
+            }
+        }while (input!==null);
+
+    document.write("[" + array.join(", ") + "]");
+    document.write("<br>");
+    function resever(arr) {
+        let newArr = Array()
+        let j=arr.length-1;
+        for (let i=0; i<arr.length;i++){
+            newArr[i]=arr[j];
+            j--;
+        }
+        return newArr;
+    }
+    let newArray = resever(array);
+    document.write("[" + newArray.join(", ") + "]");
+
+
+
+</script>
+</body>
+</html>

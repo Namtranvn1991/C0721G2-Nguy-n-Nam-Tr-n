@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = Array();
+    let length = 3;
+    for (let i = 0; i < length;) {
+        let input = parseFloat(prompt('nhập số nguyên'));
+        if (Number.isInteger(input)) {
+            array[i] = input;
+            i++;
+        } else {
+            alert('nhập lại số nguyên')
+        }
+    }
+
+    function min(arr) {
+        let min = arr[0]
+        for (let i = 0; i < arr.length; i++) {
+            if (min >= arr[i]) {
+                min = arr[i]
+            }
+        }
+        return min;
+    }
+
+    document.write("giá trị nhỏ nhất trong 3 số " + array.join(", ") + " là " + min(array))
+</script>
+</body>
+</html>

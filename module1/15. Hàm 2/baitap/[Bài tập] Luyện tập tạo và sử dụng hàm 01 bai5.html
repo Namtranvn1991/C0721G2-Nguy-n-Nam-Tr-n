@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let star = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let constellation = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    function check(a) {
+        let flag = false;
+        for (let i = 0; i < star.length; i++) {
+            if (a == star[i]) {
+                alert(a + " thuộc chòm sao " + constellation[i])
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            alert(a + " không thuộc chòm sao nào trong dữ liệu")
+        }
+
+    }
+
+    let input = prompt("nhập tên sao để kiểm tra thuộc chòm sao nào")
+    check(input);
+
+</script>
+</body>
+</html>

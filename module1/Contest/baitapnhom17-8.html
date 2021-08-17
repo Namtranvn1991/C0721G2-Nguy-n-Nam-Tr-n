@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = 10;
+    let arr=[2,2,3,4,5,7,8,9];
+
+    if (n>arr[arr.length-1]){
+        arr.push(n)
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            if (n <= arr[i]) {
+                arr.splice(i, 0, n);
+                break;
+            }
+        }
+    }
+    console.log(arr)
+    document.write("[" + arr.join(", ") + "]");
+</script>
+</body>
+</html>

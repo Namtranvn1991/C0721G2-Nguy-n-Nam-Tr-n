@@ -6,8 +6,26 @@
 </head>
 <body>
 <h3>Chuyển đổi từ feet sang meters:</h3>
-<input type="number" oninput="footToMeter()"> Feet
+<input type="number" oninput="footToMeter(this.value)" id="inputFeet"> feet
 <br>
-<span id="meter"></span>
+<span id="meter"></span> meter
+<br>
+<h3>Chuyển đổi từ meters sang feet:</h3>
+<input type="number" oninput="meterToFoot(this.value)" id="inputMeter"> meter
+<br>
+<span id="feet"></span> feet
+
+
+<script>
+    function footToMeter(vulueInput) {
+        document.getElementById("meter").innerHTML = vulueInput*0.3048;
+    }
+    function meterToFoot(vulueInput) {
+        document.getElementById("feet").innerHTML = vulueInput*3.28084;
+    }
+    
+    
+    
+</script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" oninput="square(this.value)"> Bình phương là
+<span id="square"></span>
+<br>
+<br>
+bánh kính r (m) = <input type="number" oninput="caculateAreaOfCircle(this.value)">
+có diện tích <span id="Area"></span>
+<br>
+<br>
+bánh kính r (m) = <input type="number" oninput="caculatePerimeterOfCircle(this.value)">
+có chu vi <span id="Perimeter"></span>
+<script>
+    const pi = 3.14;
+
+    function square(x) {
+        return document.getElementById("square").innerHTML = x * x;
+    }
+
+    function caculateAreaOfCircle(r) {
+        area = r * r * pi;
+        return document.getElementById("Area").innerHTML = area + "m2";
+    }
+
+    function caculatePerimeterOfCircle(r) {
+        perimeter = 2 * r * pi;
+        return document.getElementById("Perimeter").innerHTML = perimeter + "m";
+    }
+
+
+</script>
+</body>
+</html>

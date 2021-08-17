@@ -17,7 +17,7 @@
         }
     }
     console.log(array);
-    document.write(array.join(" "));
+    document.write("[" + array.join(", ") + "]");
     document.write("<br>");
     let totalOdd = 0;
     for (let i = 0; i < array.length; i++) {
@@ -46,17 +46,23 @@
             }
         }
     }
-    document.write(array.join(" "));
+    document.write("[" + array.join(", ") + "]");
     document.write("<br>");
 
     let p = 3;
-    for (let i = 0; i < array.length; i++) {
-        if (p <= array[i]) {
-            array.splice(array.indexOf(array[i]), 0, p);
-            break;
+    if (p > array[array.length - 1]) {
+        array.push(p)
+    } else {
+        for (let i = 0; i < array.length; i++) {
+            if (p <= array[i]) {
+                array.splice(i, 0, p);
+                break;
+            }
         }
     }
-    document.write(array.join(" "));
+    document.write("thêm phần tử p = " + p + " vào mảng trên");
+    document.write("<br>");
+    document.write("[" + array.join(", ") + "]");
     document.write("<br>");
 </script>
 </body>
