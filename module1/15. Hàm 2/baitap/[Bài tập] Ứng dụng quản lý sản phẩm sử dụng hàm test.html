@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td {
+            width: 50px;
+        }
+        button{
+            --color: #fff;
+            --background: #2B3044;
+            --tick: #16BF78;
+            --base: #0D0F18;
+            --wheel: #2B3044;
+            --wheel-inner: #646B8C;
+            --wheel-dot: #fff;
+            --back: #6D58FF;
+            --back-inner: #362A89;
+            --back-inner-shadow: #2D246B;
+            --front: #A6ACCD;
+            --front-shadow: #535A79;
+            --front-light: #FFF8B1;
+            --window: #2B3044;
+            --window-shadow: #404660;
+            --street: #646B8C;
+            --street-fill: #404660;
+            --box: #DCB97A;
+            --box-shadow: #B89B66;
+            padding: 12px 0;
+            width: 172px;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            border: none;
+            outline: none;
+            color: var(--color);
+            background: var(--background);
+            border-radius: var(--br, 5px);
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+            transform-style: preserve-3d;
+            transform: rotateX(var(--rx, 0deg)) translateZ(0);
+            transition: transform .5s, border-radius .3s linear var(--br-d, 0s);
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="addProduct">
+<button onclick="add()">Add product</button>
+<br>
+<p id="display"></p>
+
+<script>
+
+    let array = ["a", "b", "c", "d", "e", "f"];
+
+    function diplay(arr) {
+        let data = "<table border='1' style='border-collapse: collapse'>" + "<th colspan='4' style='text-align: center'>Sản phẩm</th>"
+        for (let i = 0; i < arr.length; i++) {
+            let stt = i + 1;
+            data += "<tr id=" + i + ">"
+            data += "<td style='width: 20px;text-align: center'>" + stt + "</td>"
+            data += "<td style='width: 200px'>" + arr[i] + "</td>"
+            data += "<td>" + "<button onclick='edit(" + i + ")'>edit</button>" + "</td>"
+            data += "<td>" + "<button onclick='remove(" + i + ")'>remove</button>" + "</td>"
+            data += "</tr>"
+
+        }
+        data += "</table>"
+        document.getElementById("display").innerHTML = data;
+    }
+
+    diplay(array)
+
+    function add() {
+        let input = document.getElementById("addProduct").value;
+        array.push(input);
+        diplay(array);
+        document.getElementById("addProduct").value = "";
+    }
+
+    function remove(a) {
+        if (confirm("Do you want to remove this product")) {
+            array.splice(a, 1);
+            diplay(array);
+        }
+    }
+
+
+    function edit(a) {
+        let data = "<table border='1' style='border-collapse: collapse'>" + "<th colspan='4' style='text-align: center'>Sản phẩm</th>"
+        for (let i = 0; i < array.length; i++) {
+            console.log(array.indexOf(a))
+            if (i == a) {
+                let stt = i + 1;
+                data += "<tr id=" + i + ">"
+                data += "<td style='width: 20px;text-align: center'>" + stt + "</td>"
+                data += "<td style='width: 200px'>" + "<input id='productEdit' value='" + array[i] + "'>" + "</td>"
+                data += "<td>" + "<button onclick='editProduct(" + a + ")'>save</button>" + "</td>"
+                data += "<td>" + "<button onclick='cancelEdit()'>cancel</button>" + "</td>"
+                data += "</tr>"
+            } else {
+                let stt = i + 1;
+                data += "<tr id=" + i + ">"
+                data += "<td style='width: 20px;text-align: center'>" + stt + "</td>"
+                data += "<td style='width: 200px'>" + array[i] + "</td>"
+                data += "<td>" + "<button onclick='edit(" + i + ")'>edit</button>" + "</td>"
+                data += "<td>" + "<button onclick='remove(" + i + ")'>remove</button>" + "</td>"
+                data += "</tr>"
+            }
+        }
+        data += "</table>"
+        document.getElementById("display").innerHTML = data;
+
+    }
+
+    function editProduct(a) {
+        let productEdit = document.getElementById("productEdit").value;
+        array[a] = productEdit;
+        diplay(array);
+    }
+    function cancelEdit() {
+        diplay(array);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("nhập chuỗi bất kì");
+    let input = prompt("nhập kí tự")
+    let array = Array(str.length);
+    for (let i = 0; i < str.length; i++) {
+        array[i] = str[i]
+    }
+    document.write(str);
+    document.write("<br>")
+    document.write(input);
+    document.write("<br>")
+
+
+    function check(arr, n) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (n == arr[i]) {
+                count++;
+            }
+        }
+        if (count == 0){
+            return -1;
+        } else {
+            return count
+        }
+    }
+
+    console.log(check(array,input))
+    document.write(input + " có số lần xuất hiện là " + check(array,input))
+</script>
+</body>
+</html>

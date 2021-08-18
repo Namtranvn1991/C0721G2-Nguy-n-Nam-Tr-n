@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="table" border="1">
+
+</table>
+<button onclick="add()">thêm sản phẩm</button>
+
+
+<script>
+    let array = ["a", "b", "c", "d", "e"];
+
+    function display(arr) {
+        let data = "<th colspan='2' style='width: 300px'>Sản phẩm</th>";
+        for (let i = 0; i < array.length; i++) {
+            let stt = i + 1;
+            data += "<tr id='" + i + "'>" + "<td width='20px'>" + stt + "</td>" + "<td onclick='changeValue(" + i + ")'>" + array[i] + "</td>" + "<tr>";
+        }
+        document.getElementById("table").innerHTML = data;
+    }
+
+    display(array);
+
+    function add() {
+        let input = prompt("Nhập thêm sản phẩm");
+        array.push(input);
+        display(array);
+    }
+
+    function changeValue(a) {
+        let input = prompt("Nhập tên sản phẩm thay thế. Nhập 0 hoặc để trống để xóa sản phẩm " + array[a]);
+        if (input == 0) {
+            array.splice(a, 1);
+        } else {
+            array.splice(a, 1);
+            array.splice(a, 0, input);
+        }
+        display(array);
+    }
+
+
+</script>
+
+</body>
+</html>
+

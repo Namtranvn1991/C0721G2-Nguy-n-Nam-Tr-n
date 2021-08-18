@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function isPalindrome(s) {
+        let flag = true;
+        while (s.length !== 0) {
+            if (s[0] == s[s.length - 1]) {
+                s = s.slice(1, -1)
+                isPalindrome(s)
+            } else {
+                flag = false;
+                return flag;
+            }
+        }
+        return flag;
+    }
+
+    let a = prompt("123");
+    let b = isPalindrome(a);
+    console.log(b)
+</script>
+</body>
+</html>
