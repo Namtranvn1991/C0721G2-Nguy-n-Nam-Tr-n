@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function checkIsLeapYear(year) {
+        flag = false;
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        }
+        return flag;
+    }
+
+    function checkDay(day, month, year) {
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                if (day > 31 || day < 0) {
+                    alert("Tháng " + month + " có 31 ngày")
+                } else {
+                    return day;
+                }
+                break;
+            case 2:
+                if (checkIsLeapYear(year)) {
+                    if (day > 29 || day < 0) {
+                        alert("tháng 2 năm nhuận " + year + " có 29 ngày")
+                    } else {
+                        return day;
+                    }
+                } else {
+                    if (day > 28 || day < 0) {
+                        alert("tháng 2 năm " + day + " có 28 ngày")
+                    } else {
+                        return day;
+                    }
+                }
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (day > 30 || day < 0) {
+                    alert("Tháng " + month + " có 30 ngày")
+                } else {
+                    return day;
+                }
+                break;
+        }
+    }
+    function checkYear(year) {
+        if (year<1900||year>9999){
+            alert("nhập năm từ 1990 đến 9999")
+        } else {
+            return year;
+        }
+    }
+    function checkMonth(month) {
+        if (month<1||month>12){
+            alert("nhập tháng từ 1 đến 12")
+        } else {
+            return month;
+        }
+    }
+
+
+    class Date {
+        constructor(day, month, year) {
+            this.year = checkYear(year);
+            this.month = checkMonth(month);
+            this.day = checkDay(day);
+        }
+
+        dateInput() {
+            do {
+                this.year = parseFloat(prompt("nhập năm"));
+                if (!Number.isInteger(this.year) || this.year < 1900 || this.year > 9999) {
+                    alert("nhập lại năm từ 1990 đến 9999")
+                }
+            } while (!Number.isInteger(this.year) || this.year < 1900 || this.year > 9999)
+
+            do {
+                this.month = parseInt(prompt("nhập tháng"));
+                if (!Number.isInteger(this.month) || this.month < 1 || this.month > 12) {
+                    alert("Nhập lại tháng từ 1 đến 12")
+                }
+            } while (!Number.isInteger(this.month) || this.month < 1 || this.month > 12)
+
+            do {
+                this.day = parseFloat(prompt("nhập ngày"));
+                if (!Number.isInteger(this.day)) {
+                    alert("nhập lại ngày")
+                }
+                let day = checkDay(this.day, this.month, this.year);
+                if (!isNaN(day)) {
+                    break;
+                }
+            } while (true)
+        }
+
+        getDay() {
+            return this.day;
+        }
+
+        getMonth() {
+            return this.month;
+        }
+
+        getYear() {
+            return this.year;
+        }
+
+        setDay(day) {
+            if (day==checkDay(day,this.month,this.year)){
+                return this.day = day;
+            }
+        }
+
+        setMonth(month) {
+            if (month==checkMonth(month)){
+                return this.month = month;
+            }
+        }
+
+        setYear(year) {
+            if (year==checkYear(year)){
+                return this.year = year;
+            }
+        }
+
+        toString() {
+            return this.day + "/" + this.month + "/" + this.year;
+        }
+    }
+
+    let date1 = new Date();
+    date1.dateInput();
+    console.log(date1)
+    document.write(date1.toString())
+    date1.setMonth(33)
+    console.log(date1)
+</script>
+</body>
+</html>

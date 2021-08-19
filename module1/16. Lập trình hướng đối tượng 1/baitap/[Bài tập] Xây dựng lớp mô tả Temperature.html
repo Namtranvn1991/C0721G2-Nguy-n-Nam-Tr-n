@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(cecilius) {
+            this.cecilius = cecilius
+        }
+
+        convertToFahrenheit() {
+            return this.cecilius * 9 / 5 + 32;
+        }
+
+        covertToKevin() {
+            return this.cecilius + 273;
+        }
+    }
+
+    let temp = new Temperature(25);
+    document.write(temp.cecilius + " độ C" + "<br>")
+    document.write(temp.convertToFahrenheit() + " độ F" + "<br>")
+    document.write(temp.covertToKevin() + " độ K" + "<br>")
+</script>
+</body>
+</html>

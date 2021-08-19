@@ -3,32 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .a {
+            display: flex;
+            justify-content: space-around;
+        }
+        .b {
+            display: flex;
+            justify-content: space-around;
+        }
+        .c {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+
 </head>
 <body>
 <script>
-    let array = [1, 2, 3, 4, 6, 7, 8, 9, 10];
-    let newArray = Array();
-    let n = 11;
-    if (n > array[array.length-1]) {
-        newArray = array;
-        newArray.push(n)
-        console.log(newArray)
-    } else {
-        for (let i = 0; i < array.length; i++) {
-            if (n <= array[i]) {
-                for (let j = 0; j < i; j++) {
-                    newArray[j] = array[j];
-                }
-                newArray[i] = n;
-                for (let j = i + 1; j <= array.length; j++) {
-                    newArray[j] = array[j - 1]
-                }
-                break;
-            }
-        }
-        console.log(newArray)
+    function printprops(o) {
+        for(var p in o)
+            console.log(p + ": " + o[p] + "\n");
     }
-
 </script>
 </body>
 </html>

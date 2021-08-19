@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    class MobilePhone {
+        constructor(id, name) {
+            this.id = id;
+            this.name = name;
+            this.draft = "";
+            this.inbox = "";
+            this.sent = "";
+            this.battery = 100;
+            this.onOff = true;
+        }
+
+        checkBattery() {
+            if (this.battery < 0) {
+                this.turnOff();
+                return this.battery = 0;
+            } else if (this.battery > 100) {
+                return this.battery = 100;
+            }
+        }
+
+        turnOn() {
+            this.onOff = true;
+        }
+
+        turnOff() {
+            this.onOff = false;
+        }
+
+        charge(n) {
+            this.battery += n;
+            this.checkBattery()
+        }
+
+        setBattery(n) {
+            this.battery = n;
+            this.checkBattery();
+        }
+
+        setMessenge(text) {
+            if (this.onOff) {
+                this.draft = text;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+        sendMessenge(mobilePhone) {
+            if (this.onOff) {
+                mobilePhone.receiveMessenge(this.draft);
+                this.sent = this.draft;
+                this.draft = "";
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+        receiveMessenge(messenger) {
+            if (this.onOff) {
+                this.inbox = messenger;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+        readInbox() {
+            if (this.onOff) {
+                return this.inbox;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+        readSent() {
+            if (this.onOff) {
+                return this.sent;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+        readDraft() {
+            if (this.onOff) {
+                return this.draft;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+    }
+
+    let mobile1 = new MobilePhone(1, "Ip");
+    let mobile2 = new MobilePhone(2, "Android");
+    mobile1.setMessenge("12345");
+    mobile1.sendMessenge(mobile2);
+    mobile1.setBattery(-17);
+    console.log(mobile1)
+    console.log(mobile2);
+
+</script>
+</body>
+</html>

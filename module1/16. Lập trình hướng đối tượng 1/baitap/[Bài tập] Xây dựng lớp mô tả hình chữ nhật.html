@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<script>
+    class Rectangle {
+        constructor(height,width) {
+            this.height = height;
+            this.width = width;
+        }
+        getPerimeter (){
+            return (this.height + this.width)*2
+        }
+        getArea(){
+            return this.width*this.height
+        }
+        draw (){
+            let c = document.getElementById("myCanvas");
+            let ctx = c.getContext("2d");
+            let grd = ctx.createLinearGradient(0,0,500,500);
+            grd.addColorStop(0,"red");
+            grd.addColorStop(1,"white");
+            ctx.fillStyle = grd;
+            ctx.fillRect(10,10,this.height,this.width);
+        }
+    }
+
+    let rectangle1 = new Rectangle(200,100)
+    rectangle1.draw()
+</script>
+</body>
+</html>
