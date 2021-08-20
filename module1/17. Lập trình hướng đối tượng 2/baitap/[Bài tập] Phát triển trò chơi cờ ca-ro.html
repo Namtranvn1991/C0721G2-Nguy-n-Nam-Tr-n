@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="start()">Start</button>
+<div id="game-board">
+</div>
+
+<div id="cell '+x+','+y+'" class="cell"
+     style="position: absolute;width: 40px;height: 40px;left: 10px;top: 10px; line-height: 40px"></div>
+
+<script>
+    const VALUE_EMPTY = 1;
+    const VALUE_X = 2;
+    const VALUE_O = 3;
+    const DEFAULT_COLS = 10;
+    const DEFAULT_ROWS = 10;
+    const DEFAULT_CELL_SIZE = 40;
+
+    class Cell {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.value = VALUE_EMPTY;
+        }
+
+        getHtml() {
+            let top = this.x * DEFAULT_CELL_SIZE;
+            let right = this.y * DEFAULT_CELL_SIZE;
+            let cellHtml = '<div id="cell ' + this.x + ',' + this.y + '" class="cell" style="position: absolute;width: ' + DEFAULT_CELL_SIZE + ' px;height: ' + DEFAULT_CELL_SIZE + ' px;left: ' + this.x + ' px;top: ' + this.y + ' px; line-height: ' + DEFAULT_CELL_SIZE + ' px"></div>';
+            return cellHtml;
+        }
+
+        cellDraw() {
+            let cell = document.getElementById("cell" + this.x + ',' + this.y)
+            switch (this.value) {
+                case VALUE_X:
+                    cell.innerHTML = "X"
+                    break;
+                case VALUE_O:
+                    cell.innerHTML = "0"
+                    break;
+                default:
+                    cell.innerHTML = ""
+                    break;
+
+            }
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

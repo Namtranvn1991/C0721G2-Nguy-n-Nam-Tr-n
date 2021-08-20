@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Television {
+        constructor(name) {
+            this.name = name;
+            this.volume = 100;
+            this.status = true;
+            this.chanel = 1;
+        }
+
+        checkVolume(){
+            if (this.volume<0){
+                this.volume = 0
+            } else if (this.volume>100){
+                this.volume = 100
+            }
+        }
+
+        checkChanel(){
+            if (this.chanel<1){
+                this.chanel = 99;
+            } else if (this.chanel>99){
+                this.chanel = 1;
+            }
+        }
+        turnOn() {
+            this.status = true;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+
+        changeChanel(n) {
+            this.chanel = n;
+        }
+    }
+
+    class Remote {
+        constructor(television) {
+            this.television = television;
+        }
+
+        turnOn() {
+            this.television.status = true;
+        }
+
+        turnOff() {
+            this.television.status = false;
+        }
+
+        increaseChanel() {
+            if (this.television.status = true) {
+                this.television.chanel++;
+                this.television.checkChanel()
+            }
+
+        }
+
+        decreaseChanel() {
+            if (this.television.status = true) {
+                this.television.chanel--;
+                this.television.checkChanel()
+            }
+        }
+
+        changeChanel(n) {
+            if (this.television.status = true) {
+                this.television.changeChanel(n)
+                this.television.checkChanel()
+            }
+        }
+
+        increaseVolume() {
+            if (this.television.status = true) {
+                this.television.volume++;
+                this.television.checkVolume()
+            }
+        }
+
+        decreaseVolume() {
+            if (this.television.status = true) {
+                this.television.volume--;
+                this.television.checkVolume()
+            }
+        }
+
+    }
+
+    let sony = new Television("sony");
+    let sonyRemote = new Remote(sony);
+    sonyRemote.decreaseChanel();
+    sonyRemote.increaseVolume()
+    console.log(sony)
+</script>
+</body>
+</html>

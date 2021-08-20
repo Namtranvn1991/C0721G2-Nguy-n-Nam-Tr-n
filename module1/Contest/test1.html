@@ -5,55 +5,49 @@
     <title>Title</title>
 </head>
 <body>
+<div id="game-board">
+</div>
 <script>
-    function checkIsLeapYear(year) {
-        flag = false;
-        if (year % 4 == 0) {
-            if (year % 100 == 0) {
-                if (year % 400 == 0) {
-                    return true;
-                }
-            } else {
-                return true;
+    const VALUE_EMPTY = 1;
+    const VALUE_X = 2;
+    const VALUE_O = 3;
+    const DEFAULT_COLS = 10;
+    const DEFAULT_ROWS = 10;
+    const DEFAULT_CELL_SIZE = 40;
+    function Cell(x, y) {
+        this.x = x;
+        this.y = y;
+        this.value = VALUE_EMPTY;
+        this.getHtml = function(){
+            var top = x * DEFAULT_CELL_SIZE;
+            var left = y * DEFAULT_CELL_SIZE;
+            var cellHtml = '<div id="cell-'+x+'-'+y+'" onclick="play('+x+','+y+')" class="cell" style="position: absolute; width: '+
+                DEFAULT_CELL_SIZE+'px; height:'+
+                DEFAULT_CELL_SIZE+'px; left:'+
+                left+'px; top:'+
+                top+'px; line-height: '+
+                DEFAULT_CELL_SIZE+'px;"></div>';
+            return cellHtml;
+        };
+
+        this.draw = function () {
+            var cellDiv = document.getElementById("cell-"+x+"-"+y);
+            switch (this.value){
+                case VALUE_X:
+                    cellDiv.innerHTML = "X";
+                    break;
+                case VALUE_O:
+                    cellDiv.innerHTML = "O";
+                    break;
+                default:
+                    cellDiv.innerHTML = "";
+                    break;
             }
         }
-        return flag;
     }
-    function checkDate(date, month, year) {
-        switch (month) {
-            case 1, 3, 5, 7, 8, 10, 12:
-                if (date > 31 || date < 0) {
-                    alert("Tháng có 31 ngày")
-                } else {
-                    return date;
-                }
-                break;
-            case 2:
-                if (checkIsLeapYear(year)) {
-                    if (date > 29 || date < 0) {
-                        alert("tháng 2 năm nhuận có 29 ngày")
-                    } else {
-                        return date;
-                    }
-                } else {
-                    if (date > 28 || date < 0) {
-                        alert("tháng 2 có 28 ngày")
-                    } else {
-                        return date;
-                    }
-                }
-                break;
-            default:
-                if (date > 30|| date < 0) {
-                    alert("Tháng có 30 ngày")
-                } else {
-                    return date;
-                }
-                break;
-        }
-    }
-
-    console.log(checkDate(29,2,2001))
+    let cell = new Cell(10,10);
+    cell.getHtml()
+    cell.draw()
 </script>
 </body>
 </html>

@@ -10,17 +10,17 @@
 <script>
     let board = [];
     let play = true;
-    for (let i = 0; i < 5; i++) {
-        board[i] = [".", ".", ".", ".", "."]
+    for (let i = 0; i < 20; i++) {
+        board[i] = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]
     }
     console.log(board);
     display();
 
     function display() {
         let data = "<table border='1' style='width: 200px; height: 200px; text-align: center'>";
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 20; i++) {
             data += "<tr>";
-            for (let j = 0; j < 5; j++) {
+            for (let j = 0; j < 20; j++) {
                 data += "<td onclick='changeValue(  " + i + ", " + j + "  )'>" + board[i][j] + "</td>";
             }
             data += "</tr>"
@@ -42,8 +42,8 @@
                 play = true;
                 display()
             }
-            for (let i = 0; i < 5; i++) {
-                for (let j = 0; j < 5; j++) {
+            for (let i = 0; i < 20; i++) {
+                for (let j = 0; j < 20; j++) {
                     if (board[i][j] == "X") {
                         if ((board[i][j + 1] == "X" && board[i][j + 2] == "X") ||
                             (board[i + 1][j] == "X" && board[i + 2][j] == "X") ||

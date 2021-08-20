@@ -22,14 +22,15 @@
             let c = document.getElementById("myCanvas");
             let ctx = c.getContext("2d");
             let grd = ctx.createLinearGradient(0,0,500,500);
+            ctx.f
             grd.addColorStop(0,"red");
             grd.addColorStop(1,"white");
             ctx.fillStyle = grd;
-            ctx.fillRect(10,10,this.height,this.width);
+            ctx.fillRect(0,0,this.height,this.width);
         }
     }
 
-    let rectangle1 = new Rectangle(200,100)
+    let rectangle1 = new Rectangle(200,1600)
     rectangle1.draw()
 </script>
 </body>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(weight, color) {
+            this.weight = weight;
+            this.color = color;
+            this.status = true;
+        }
+
+        isEmpty() {
+            if (this.weight <= 0) {
+                this.weight = 0;
+                this.status = false;
+                return this.status;
+            } else {
+                this.status = true;
+                return this.status;
+            }
+        }
+
+
+        decrease(n) {
+            this.weight -= n;
+            this.isEmpty()
+        }
+
+        getInfor() {
+            return this.color + " Apple's weight is " + this.weight;
+        }
+    }
+
+    class Human {
+        constructor(name, weight) {
+            this.name = name;
+            this.weight = weight;
+            this.gender;
+        }
+
+        isMale() {
+            if (this.gender) {
+                return "Male"
+            } else {
+                return "Female"
+            }
+        }
+
+        setGender(boolean) {
+            if (boolean) {
+                this.gender = true;
+            } else {
+                this.gender = false;
+            }
+        }
+
+        checkApple(apple) {
+            if (apple.status) {
+                console.log("There is a Apple")
+            } else {
+                console.log("No more Apple")
+            }
+        }
+
+        eat(apple, n) {
+            if (n <= apple.weight) {
+                apple.decrease(n);
+                this.weight += n;
+            } else {
+                console.log("Apple only " + apple.weight + " left")
+            }
+        }
+
+        say(st) {
+            return this.name + " say " + st;
+        }
+
+        getName() {
+            return "Name is " + this.name
+        }
+
+        setName(newname) {
+            this.name = newname;
+        }
+
+        getWeight() {
+            return this.name + "'s weight is " + this.weight;
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+
+
+    }
+
+    let apple = new Apple(10, "red");
+    let adam = new Human("Adam", 50);
+    let eva = new Human("Eva", 45);
+    console.log(adam);
+    adam.checkApple(apple);
+    adam.eat(apple, 5);
+    eva.eat(apple, 4);
+    console.log(apple.status)
+    adam.eat(apple, 3);
+    console.log(adam);
+    console.log(eva);
+
+</script>
+</body>
+</html>
