@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #game-board {
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .cell {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: solid 1px blue;
+            text-align: center;
+            /*font-size:20pt;*/
+            /*cursor: pointer;*/
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <button onclick="start()">Start</button>
 <div id="game-board">
 </div>
 
-<div id="cell '+x+','+y+'" class="cell"
-     style="position: absolute;width: 40px;height: 40px;left: 10px;top: 10px; line-height: 40px"></div>
-
 <script>
     const VALUE_EMPTY = 1;
     const VALUE_X = 2;
     const VALUE_O = 3;
-    const DEFAULT_COLS = 10;
-    const DEFAULT_ROWS = 10;
+    const DEFAULT_COLS = 20;
+    const DEFAULT_ROWS = 20;
     const DEFAULT_CELL_SIZE = 40;
 
     class Cell {
@@ -29,28 +43,152 @@
 
         getHtml() {
             let top = this.x * DEFAULT_CELL_SIZE;
-            let right = this.y * DEFAULT_CELL_SIZE;
-            let cellHtml = '<div id="cell ' + this.x + ',' + this.y + '" class="cell" style="position: absolute;width: ' + DEFAULT_CELL_SIZE + ' px;height: ' + DEFAULT_CELL_SIZE + ' px;left: ' + this.x + ' px;top: ' + this.y + ' px; line-height: ' + DEFAULT_CELL_SIZE + ' px"></div>';
+            let left = this.y * DEFAULT_CELL_SIZE;
+            let cellHtml = '<div id="cell-' + this.x + ',' + this.y + '" class="cell" onclick="play(' + this.x + ', ' + this.y + ')" style="position: absolute; left: ' + left + 'px; top: ' + top + 'px; line-height: ' + DEFAULT_CELL_SIZE + 'px"></div>';
             return cellHtml;
         }
 
         cellDraw() {
-            let cell = document.getElementById("cell" + this.x + ',' + this.y)
+            let cell = document.getElementById("cell-" + this.x + ',' + this.y)
+            console.log(cell.id);
+            console.log(this.value)
             switch (this.value) {
                 case VALUE_X:
-                    cell.innerHTML = "X"
+                    cell.innerHTML = "X";
                     break;
                 case VALUE_O:
-                    cell.innerHTML = "0"
+                    cell.innerHTML = "0";
                     break;
                 default:
-                    cell.innerHTML = ""
+                    cell.innerHTML = "";
                     break;
-
             }
         }
 
     }
+
+    class BoardGame {
+        constructor(row, col, IdElement) {
+            this.row = row;
+            this.col = col;
+            this.IdElement = IdElement;
+            this.cell = [];
+            this.turn = VALUE_X;
+            this.isOver = false;
+        }
+
+        boardDraw() {
+            let gameBoardDiv = document.getElementById(this.IdElement);
+            gameBoardDiv.innerHTML = "";
+            for (let i = 0; i < this.row; i++) {
+                let row = [];
+                this.cell.push(row);
+                for (let j = 0; j < this.col; j++) {
+                    let box = new Cell(i, j);
+                    row.push(box);
+                    gameBoardDiv.innerHTML += box.getHtml()
+                }
+            }
+        }
+
+        play(x, y) {
+            if (!this.isOver) {
+                let cell = this.cell[x][y];
+                if (cell.value == VALUE_EMPTY) {
+                    cell.value = this.turn;
+                    cell.cellDraw();
+                    this.check(x, y);
+                    if (this.turn === VALUE_O) {
+                        this.turn = VALUE_X;
+                    } else {
+                        this.turn = VALUE_O;
+                    }
+                }
+            }
+
+        }
+
+        check(x, y) {
+            let cell = this.cell[x][y];
+            //Horizontal
+            let count = 1;
+            let i = 1;
+            while ((y + i) < this.col && this.cell[x][y + i].value === cell.value) {
+                count++;
+                i++;
+
+            }
+            while ((y - i) >= 0 && this.cell[x][y - i].value === cell.value) {
+                count++;
+                i++;
+            }
+            this.endGame(count);
+            count = 1;
+            i = 1;
+            //Vertical
+            while ((x + i) < this.col && this.cell[x + i][y].value === cell.value) {
+                count++;
+                i++;
+            }
+            while ((x - i) >= 0 && this.cell[x - i][y].value === cell.value) {
+                count++;
+                i++;
+            }
+            this.endGame(count);
+            //left diagonal
+            count = 1;
+            i = 1;
+            let j = 1
+            while ((x + i) < this.col && (y + j) < this.row && this.cell[x + i][y + j].value === cell.value) {
+                count++;
+                i++;
+                j++;
+            }
+            while ((x - i) >= 0 && (y - j) >= 0 && this.cell[x - i][y - j].value === cell.value) {
+                count++;
+                i++;
+                j++;
+            }
+            this.endGame(count);
+            //right diagonal
+            count = 1;
+            i = 1;
+            j = 1;
+            while ((x + i) < this.col && (y - j) >=0 && this.cell[x + i][y - j].value === cell.value) {
+                count++;
+                i++;
+                j++;
+            }
+            while ((x - i) >= 0 && (y + j) < this.row && this.cell[x - i][y + j].value === cell.value) {
+                count++;
+                i++;
+                j++;
+            }
+            this.endGame(count);
+
+        }
+
+        endGame(count) {
+            if (count == 5) {
+                this.isOver = true;
+                alert("U won")
+            }
+        }
+    }
+
+    let gameBoard;
+
+    function play(x, y) {
+        gameBoard.play(x, y);
+    }
+
+    function start() {
+        gameBoard = new BoardGame(DEFAULT_ROWS, DEFAULT_COLS, "game-board");
+        gameBoard.boardDraw();
+    };
+
+
+    start();
 
 
 </script>

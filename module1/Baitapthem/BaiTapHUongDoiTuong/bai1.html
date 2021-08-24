@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findGcd(a, b) {
+        let gcd;
+        if (a >= b) {
+            do {
+                let mod1 = a % b;
+                a = b;
+                b = mod1;
+            } while (b !== 0);
+            gcd = a;
+        } else {
+            do {
+                let mod2 = b % a;
+                b = a;
+                a = mod2;
+            } while (a !== 0);
+            gcd = b;
+        }
+        return gcd;
+    }
+
+    class Fraction {
+        constructor(numerator, denominator) {
+            this.numerator = numerator;
+            this.denominator = denominator;
+        }
+
+        value() {
+            return this.numerator / this.denominator;
+        }
+
+        simplify() {
+            let gcd = findGcd(this.numerator, this.denominator);
+            this.numerator = this.numerator / gcd;
+            this.denominator = this.denominator / gcd;
+        }
+
+        addends(fractionA, fractionB) {
+            this.numerator = fractionA.numerator * fractionB.denominator + fractionB.numerator * fractionA.denominator;
+            this.denominator = fractionA.denominator * fractionB.denominator;
+            this.simplify()
+        }
+
+        minuend(fractionA, fractionB) {
+            this.numerator = fractionA.numerator * fractionB.denominator - fractionB.numerator * fractionA.denominator;
+            this.denominator = fractionA.denominator * fractionB.denominator;
+            this.simplify()
+        }
+
+        multiplicand(fractionA, fractionB) {
+            this.numerator = fractionA.numerator * fractionB.numerator;
+            this.denominator = fractionA.denominator * fractionB.denominator;
+            this.simplify()
+        }
+
+        dividend(fractionA, fractionB) {
+            this.numerator = fractionA.numerator * fractionB.denominator;
+            this.denominator = fractionA.denominator * fractionB.numerator;
+            this.simplify()
+        }
+    }
+
+    let a;
+    let b;
+    let c;
+    let d;
+
+    do {
+        a = parseInt(prompt("tử số 1"));
+        b = parseInt(prompt("mẫu số 1"));
+        c = parseInt(prompt("tử số 2"));
+        d = parseInt(prompt("mẫu số 2"));
+        if (b == 0 || d == 0) {
+            alert("mẫu số phải khác 0")
+        }
+    } while (b == 0 || d == 0)
+
+    let fractionA = new Fraction(a, b);
+    let fractionB = new Fraction(c, c);
+    let sum = new Fraction();
+    sum.addends(fractionA, fractionB);
+    let difference = new Fraction();
+    difference.minuend(fractionA, fractionB);
+    let product = new Fraction();
+    product.multiplicand(fractionA, fractionB);
+    let quotient = new Fraction();
+    quotient.dividend(fractionA, fractionB);
+    document.write(sum.numerator + "/" + sum.denominator + "<br>");
+    document.write(difference.numerator + "/" + difference.denominator + "<br>");
+    document.write(product.numerator + "/" + product.denominator + "<br>");
+    document.write(quotient.numerator + "/" + quotient.denominator + "<br>");
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #game-board {
+            position: relative;
+            margin-top: 100px;
+        }
+
+        .cell {
+            border: solid 1px blue;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<button onclick="start()">Start</button>
+<div id="game-board"></div>
+
+
+<script>
+    const VALUE_EMPTY = 1;
+    const VALUE_X = 2;
+    const VALUE_0 = 3;
+    const DEFAULT_CELL_SIZE = 50;
+    const DEFAULT_COLS = 10;
+    const DEFAULT_ROWS = 10;
+
+    class Cell {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.value = VALUE_EMPTY;
+        }
+
+        getHtml() {
+            let top = this.x * DEFAULT_CELL_SIZE;
+            let left = this.y * DEFAULT_CELL_SIZE;
+            let data = '<div id="cell-' + this.x + ',' + this.y + '" class="cell" onclick="play(' + this.x + ',' + this.y + ')" style="position: absolute; top: ' + top + 'px; left: ' + left + 'px"></div>'
+            return data;
+        }
+
+        drawCell() {
+            let index = document.getElementById("cell-" + this.x + "," + this.y);
+            switch (this.value) {
+                case VALUE_X:
+                    index.innerHTML = "X";
+                    break;
+                case VALUE_0:
+                    index.innerHTML = "0";
+                    break;
+                default:
+                    index.innerHTML = "";
+                    break;
+
+            }
+        }
+    }
+
+    class BoardGame {
+        constructor(row, col, IdElement) {
+            this.row = row;
+            this.col = col;
+            this.IdElement = IdElement;
+            this.turn = VALUE_X;
+            this.gameOver = false;
+            this.cells = [];
+        }
+
+        draw() {
+            let board = document.getElementById(this.IdElement);
+            board.innerHTML = "";
+            for (let i = 0; i < this.row; i++) {
+                let row = [];
+                this.cells.push(row);
+                for (let j = 0; j < this.col; j++) {
+                    let box = new Cell(i, j);
+                    row.push(box);
+                    board.innerHTML += box.getHtml();
+                }
+            }
+        }
+
+        play(x, y) {
+            let cell = this.cells[x][y];
+            if (cell.value === VALUE_EMPTY) {
+                cell.value = this.turn;
+                cell.drawCell();
+                if (this.turn === VALUE_X) {
+                    this.turn = VALUE_0;
+                } else {
+                    this.turn = VALUE_X;
+                }
+            }
+
+
+        }
+
+        check(cell) {
+            let value = cell.value;
+            let count = 1;
+            let i = 1;
+
+    }
+
+    function play(x, y) {
+        boardGame.play(x, y)
+    }
+
+    let boardGame = new BoardGame(DEFAULT_ROWS, DEFAULT_COLS, "game-board")
+    boardGame.draw();
+
+
+</script>
+</body>
+</html>

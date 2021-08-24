@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = 4;
+    let y = 5;
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < y; j++) {
+            if (i == 0 || i == x - 1 || j == 0 || j == y - 1) {
+                document.write("*")
+            } else {
+                document.write("&nbsp&nbsp")
+            }
+        }
+        document.write("<br>")
+    }
+
+
+    let h = 5;
+    for (let i = 0; i < h; i++) {
+        for (let j = 0; j < i + 1; j++) {
+            if (i == j || i == h - 1 || j == 0) {
+                document.write("*")
+            } else {
+                document.write("&nbsp&nbsp")
+            }
+        }
+        document.write("<br>")
+    }
+    document.write("<br>")
+    let h2 = 5;
+    for (let i = 0; i < h2; i++) {
+        for (let j = 0; j < h2 + i; j++) {
+            if (i + j < h2 - 1) {
+                document.write("&nbsp&nbsp")
+            } else {
+                document.write("*")
+            }
+        }
+        document.write("<br>")
+    }
+
+    let h3 = 6;
+    for (let i = 0; i < h3; i++) {
+        for (let j = 0; j < h3 + i; j++) {
+            if (i + j < h3 - 1) {
+                document.write("&nbsp&nbsp")
+            } else {
+                if (j - i == h3 - 1 || i + j == h3 - 1 || i == h3 - 1) {
+                    document.write("*")
+                } else {
+                    document.write("&nbsp&nbsp")
+                }
+            }
+        }
+        document.write("<br>")
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Menu</h2>
+<p>1 (cafe), 2 (cam vắt), 3(nước ép cà rốt), 4(nước ép cà chua), 5(nước lọc), 6(nước dừa), 7(thoát gọi món và tính tiền)</p>
+<input type="number" id="drink">
+<button onclick="drinkOrder()">Order</button>
+<p id="display"></p>
+
+<script>
+    let total = 0;
+    function drinkOrder() {
+        let drink = parseInt(document.getElementById("drink").value);
+        let display = document.getElementById("display");
+        let price = 0;
+        if (drink > 0 && drink < 8) {
+            if (drink < 7) {
+                let quantity = parseInt(prompt("quantity"));
+                if (quantity>0&&quantity<11){
+                    price = quantity * priceCal(drink);
+                    let data = quantity + " x " + name(drink) + " = " + price + "$"
+                    display.innerHTML += data + "<br>";
+                    total += price;
+                    document.getElementById("drink").value = "";
+                }
+            } else {
+                display.innerHTML += "total= " + total + "$";
+                alert("total= " + total + "$")
+            }
+        } else {
+            alert("menu 1-7");
+            document.getElementById("drink").value = "";
+        }
+
+    }
+
+
+    function name(number) {
+        switch (number) {
+            case 1:
+                return "cafe";
+            case 2:
+                return "cam vắt";
+            case 3:
+                return "nước ép cà rốt";
+            case 4:
+                return "nước ép cà chua";
+            case 5:
+                return "nước lọc";
+            case 6:
+                return "nước dừa";
+        }
+    }
+
+    function priceCal(number) {
+        switch (number) {
+            case 1:
+                return 3;
+            case 2:
+                return 5;
+            case 3:
+                return 5;
+            case 4:
+                return 4;
+            case 5:
+                return 1;
+            case 6:
+                return 7;
+        }
+    }
+
+
+</script>
+
+
+</body>
+
+
+</html>

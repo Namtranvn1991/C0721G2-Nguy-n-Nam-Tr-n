@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        .a {
-            display: flex;
-            justify-content: space-around;
-        }
-        .b {
-            display: flex;
-            justify-content: space-around;
-        }
-        .c {
-            display: flex;
-            justify-content: space-around;
-        }
-    </style>
 
 </head>
 <body>
+
+
 <script>
-    function printprops(o) {
-        for(var p in o)
-            console.log(p + ": " + o[p] + "\n");
+    function gradingStudents(grades) {
+        if ((grades+1)%5==0){
+            return grades++;
+        }
+        if ((grades+2)%5==0){
+            return grades+2;
+        }
+        return grades
     }
+
+    console.log(gradingStudents(73))
+
+
 </script>
 </body>
 </html>

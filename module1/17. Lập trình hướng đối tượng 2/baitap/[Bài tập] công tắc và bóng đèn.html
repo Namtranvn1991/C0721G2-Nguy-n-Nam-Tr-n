@@ -43,12 +43,11 @@
     }
 
     let lampBedRoom = new ElectriLamp("Bedroom",)
-    let switch1 = new SwitchButton(true,)
+    let switch1 = new SwitchButton(true,lampBedRoom)
     console.log(switch1);
     console.log(lampBedRoom);
-    switch1.connectToLamp(lampBedRoom);
     switch1.switchOn();
-    switch1.switchOff()
+    switch1.switchOff();
 
 </script>
 </body>

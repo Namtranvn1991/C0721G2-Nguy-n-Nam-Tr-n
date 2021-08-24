@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function convert(number) {
+        switch (number) {
+            case 1:
+                return "một";
+            case 2:
+                return "hai";
+            case 3:
+                return "ba";
+            case 4:
+                return "bốn";
+            case 5:
+                return "năm";
+            case 6:
+                return "sáu";
+            case 7:
+                return "bảy";
+            case 8:
+                return "tám";
+            case 9:
+                return "chín";
+            case 0:
+                return "không";
+        }
+    }
+
+    let input = prompt("nhập số");
+    let arr = input.split("");
+    for (let i=0;i<arr.length;i++){
+        arr[i] = convert(parseInt(arr[i]))
+    }
+    let str = arr.join(" ");
+    alert(str);
+</script>
+</body>
+</html>

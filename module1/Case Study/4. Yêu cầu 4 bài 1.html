@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = "tRuong    TaN   HAI ";
+
+    let arr = str.split(" ");
+    let newArr = Array();
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== "") {
+            newArr.push(arr[i])
+        }
+    }
+    console.log(newArr);
+    let array = new Array(newArr.length);
+    for (let i = 0; i < newArr.length; i++) {
+        array[i] = Array()
+        newArr[i] = newArr[i].toLocaleLowerCase()
+        array[i].push(newArr[i][0].toLocaleUpperCase());
+        for (let j = 1; j < newArr[i].length; j++)
+            array[i].push(newArr[i][j]);
+    }
+    for (let i = 0; i < newArr.length; i++){
+        array[i]=array[i].join("")
+    }
+    let newStr = array.join(" ")
+    document.write(newStr)
+
+</script>
+</body>
+</html>

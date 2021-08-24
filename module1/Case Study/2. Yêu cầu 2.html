@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Bài 1: Viết chương trình tính thuế thu nhập cá nhân.</h2>
+<p>Cách tính thuế TNCN và lương ròng</p>
+Thu nhập 1 tháng <input type="number" id="thunhap"> VND
+<button onclick="tinhthue()">tính thuế TNCN và lương ròng</button>
+<br>
+<br>
+<h2>Bài 2: Kiểm tra nguyên âm, phụ âm</h2>
+<input id="input" type="text"> nhập kí tự kiểm tra.
+<br>
+<button onclick="check()">Kiểm tra</button>
+
+
+<script>
+    function tinhthue() {
+        let thunhap = parseInt(document.getElementById("thunhap").value);
+        let thue;
+        let luong;
+        if (thunhap > 0) {
+            if (thunhap <= 7000000) {
+                thue = thunhap * 0.05;
+            } else if (thunhap <= 15000000) {
+                thue = thunhap * 0.1;
+            } else {
+                thue = thunhap * 0.2;
+            }
+        } else {
+            alert("nhập lại số tiền lớn hơn 0")
+        }
+        luong = thunhap - thue;
+        alert("Thuế TNCN " + thue + " VND. Lương " + luong + " VND")
+    }
+
+    function check() {
+        let input = document.getElementById("input").value;
+        switch (input) {
+            case "a":
+            case "i":
+            case "u":
+            case "e":
+            case "o":
+            case "A":
+            case "I":
+            case "U":
+            case "E":
+            case "O":
+                alert("kí tự " + input + ' là nguyên âm');
+                break;
+            default:
+                alert("kí tự " + input + ' không phải là nguyên âm')
+
+        }
+    }
+
+</script>
+</body>
+</html>
