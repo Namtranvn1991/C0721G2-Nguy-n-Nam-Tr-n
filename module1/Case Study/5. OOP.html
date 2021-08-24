@@ -5,18 +5,50 @@
     <title>Title</title>
     <style>
         input {
-            width: 30px;
+            width: 50px;
             height: 20px;
         }
     </style>
 </head>
 <body>
-<input type="number"><input type="number"><input type="number"><input type="number"><input type="number"><input type="number">
+<input type="number" id="a" min="1" max="99">
+<input type="number" id="b" min="1" max="99">
+<input type="number" id="c" min="1" max="99">
+<input type="number" id="d" min="1" max="99">
+<input type="number" id="e" min="1" max="99">
+<input type="number" id="f" min="1" max="99">
 <br>
-<input type="number"><input type="number"><input type="number"><input type="number"><input type="number"><input type="number">
-
+<!--<input type="number" id="a2">-->
+<!--<input type="number" id="b2">-->
+<!--<input type="number" id="c2">-->
+<!--<input type="number" id="d2">-->
+<!--<input type="number" id="e2">-->
+<!--<input type="number" id="f2">-->
+<!--<br>-->
+<button onclick="buy()">Mua vé</button>
+<button onclick="randomTicket()">Random</button>
+<button onclick="checkResult()">Kiểm tra kết quả</button>
 <script>
-    let arr = [22, 33, 44, 55, 66, 77]
+    let result = Array(6)
+    let flagResult = true;
+    do {
+        let a = Math.floor(Math.random() * 99) + 1;
+        let b = Math.floor(Math.random() * 99) + 1;
+        let c = Math.floor(Math.random() * 99) + 1;
+        let d = Math.floor(Math.random() * 99) + 1;
+        let e = Math.floor(Math.random() * 99) + 1;
+        let f = Math.floor(Math.random() * 99) + 1;
+        result = [a, b, c, d, e, f];
+        for (let i = 0; i < result.length - 1; i++) {
+            for (let j = i + 1; j < result.length; j++) {
+                if (result[i] == result[j]) {
+                    flagResult = false;
+                }
+            }
+        }
+    } while (!flagResult);
+    console.log(result)
+
 
     function sortArr(array) {
         for (let i = 0; i < array.length - 1; i++) {
@@ -31,17 +63,112 @@
         return array;
     }
 
-    console.log(sortArr(arr))
+    let arr123 = [Array(), Array(), Array(), Array()];
+    let i = 0;
+
+    function randomTicket() {
+        let flag = true;
+        let arrRandom = []
+        do {
+            let a = Math.floor(Math.random() * 99) + 1;
+            let b = Math.floor(Math.random() * 99) + 1;
+            let c = Math.floor(Math.random() * 99) + 1;
+            let d = Math.floor(Math.random() * 99) + 1;
+            let e = Math.floor(Math.random() * 99) + 1;
+            let f = Math.floor(Math.random() * 99) + 1;
+            arrRandom = [a, b, c, d, e, f];
+            for (let i = 0; i < arrRandom.length - 1; i++) {
+                for (let j = i + 1; j < arrRandom.length; j++) {
+                    if (arrRandom[i] == arrRandom[j]) {
+                        flag = false;
+                    }
+                }
+            }
+        } while (!flag)
+        if (i < 4) {
+            arr123[i].push(arrRandom[0]);
+            arr123[i].push(arrRandom[1]);
+            arr123[i].push(arrRandom[2]);
+            arr123[i].push(arrRandom[3]);
+            arr123[i].push(arrRandom[4]);
+            arr123[i].push(arrRandom[5]);
+            i++;
+        } else {
+            alert("Đã mua đủ 4 vé")
+        }
+        console.log(arr123);
+    }
+
+    function buy() {
+        if (confirm("Bạn có muốn mua vé này?")) {
+            let valueA = parseInt(document.getElementById("a").value);
+            let valueB = parseInt(document.getElementById("b").value);
+            let valueC = parseInt(document.getElementById("c").value);
+            let valueD = parseInt(document.getElementById("d").value);
+            let valueE = parseInt(document.getElementById("e").value);
+            let valueF = parseInt(document.getElementById("f").value);
+            let arrCheck = [valueA, valueB, valueC, valueD, valueE, valueF]
+            document.getElementById("a").value = "";
+            document.getElementById("b").value = "";
+            document.getElementById("c").value = "";
+            document.getElementById("d").value = "";
+            document.getElementById("e").value = "";
+            document.getElementById("f").value = "";
+
+            let flag = true;
+            for (let i = 0; i < arrCheck.length - 1; i++) {
+                for (let j = i + 1; j < arrCheck.length; j++) {
+                    if (arrCheck[i] == arrCheck[j]) {
+                        flag = false;
+                    }
+                }
+            }
+            if (!flag) {
+                alert("trùng số, yêu cầu nhập lại")
+                return;
+            }
+            if (i < 4) {
+                arr123[i].push(valueA);
+                arr123[i].push(valueB);
+                arr123[i].push(valueC);
+                arr123[i].push(valueD);
+                arr123[i].push(valueE);
+                arr123[i].push(valueF);
+
+                i++;
+            } else {
+                alert("Đã mua đủ 4 vé")
+            }
+            console.log(arr123);
+        } else {
+            document.getElementById("a").value = "";
+            document.getElementById("b").value = "";
+            document.getElementById("c").value = "";
+            document.getElementById("d").value = "";
+            document.getElementById("e").value = "";
+            document.getElementById("f").value = "";
+        }
+    }
+
 
     class Ticket {
-        constructor(a, b, c, d, e, f) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-            this.d = d;
-            this.e = e;
-            this.f = f;
-            this.value;
+        constructor(arr) {
+            this.a = arr[0];
+            this.b = arr[1];
+            this.c = arr[2];
+            this.d = arr[3];
+            this.e = arr[4];
+            this.f = arr[5];
+            this.value = 0;
+        }
+
+        setTicket(array) {
+            this.a = array[0];
+            this.b = array[1];
+            this.c = array[2];
+            this.d = array[3];
+            this.e = array[4];
+            this.f = array[5];
         }
 
         check(array) {
@@ -51,35 +178,66 @@
             let flagNo1 = true;
             let flagNo2 = true;
             let flagNo3 = true;
-            for (let i = 0; i < array.length; i++){
-                if (ticketArray[i]!==array[i]){
+            for (let i = 0; i < array.length; i++) {
+                if (ticketArray[i] !== array[i]) {
                     flagNo1 = false;
                 }
             }
-            if (flagNo1){
+            if (flagNo1) {
                 return this.value = 1;
             }
-            for (let i = 1; i < array.length; i++){
-                if (ticketArray[i]!==array[i]){
+            for (let i = 1; i < array.length; i++) {
+                if (ticketArray[i] !== array[i]) {
                     flagNo2 = false;
                 }
             }
-            if (flagNo2){
+            if (flagNo2) {
                 return this.value = 2;
             }
-            for (let i = 3; i < array.length; i++){
-                if (ticketArray[i]!==array[i]){
+            for (let i = 3; i < array.length; i++) {
+                if (ticketArray[i] !== array[i]) {
                     flagNo3 = false;
                 }
             }
-            if (flagNo3){
+            if (flagNo3) {
                 return this.value = 3;
             }
+            return this.value;
         }
     }
 
-    let ticket = new Ticket(23,33,44,55,66,77)
-    console.log(ticket.check(arr))
+    function checkResult() {
+        let countTachLoto = 0;
+        let arrCheck = []
+        let ticket1 = new Ticket(arr123[0]);
+        let ticket2 = new Ticket(arr123[1]);
+        let ticket3 = new Ticket(arr123[2]);
+        let ticket4 = new Ticket(arr123[3]);
+        arrCheck.push(ticket1.check(result));
+        arrCheck.push(ticket2.check(result));
+        arrCheck.push(ticket3.check(result));
+        arrCheck.push(ticket4.check(result));
+        for (let i = 0; i < 4; i++) {
+            switch (arrCheck[i]) {
+                case 1:
+                    alert("Bạn đã trúng giải nhất");
+                    break;
+                case 2:
+                    alert("Bạn đã trúng giải nhì");
+                    break;
+                case 3:
+                    alert("Bạn đã trúng giải khuyến khích");
+                    break;
+                default:
+                    countTachLoto ++
+            }
+        }
+        if (countTachLoto == 4){
+            alert("tạch loto")
+        }
+    }
+
+
 </script>
 </body>
 </html>
