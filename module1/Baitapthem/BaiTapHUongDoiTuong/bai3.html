@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="main"></div>
+<script>
+    class Student {
+        constructor(id) {
+            this.id = id;
+            this.name;
+            this.birtday;
+            this.gender;
+            this.className;
+            this.schoolYear;
+        }
+
+        setAll(name, birthday, gender, className, schoolYear) {
+            this.name = name;
+            this.gender = gender;
+            this.className = className;
+            this.schoolYear = schoolYear;
+            this.birthday = new Date(birthday[0], birthday[1], birthday[2])
+        }
+
+        setInfor(name, birthday, gender) {
+            this.name = name;
+            let birthDay = new Date(birthday[0], birthday[1], birthday[2])
+            this.birthday = birthDay;
+        }
+
+        getId() {
+            return this.id
+        }
+
+        getName() {
+            return this.name
+        }
+
+        getBirthday() {
+            let date = this.birthday.getDate();
+            let month = this.birthday.getMonth();
+            let year = this.birthday.getYear();
+            let str = date + "-" + month + "-" + year;
+            return str;
+        }
+
+        printStudent() {
+            let data = "<tr>"
+            data += "<td>" + this.id + "</td>"
+            data += "<td>" + this.name + "</td>"
+            data += "<td>" + this.gender + "</td>"
+            data += "<td>" + this.getBirthday() + "</td>"
+            data += "<td>" + this.className + "</td>"
+            data += "<td>" + this.schoolYear + "</td>"
+            data += "</tr>"
+            return data;
+        }
+
+    }
+
+    class ListOfStudents {
+        constructor() {
+            this.students = Array()
+        }
+
+        setStudent(student) {
+            this.students.push(student)
+        }
+
+        removeId(id) {
+            for (let i = 0; i < this.students.length; i++) {
+                if (this.students[i].getId() == id) {
+                    this.students.splice(i, 1)
+                }
+            }
+            this.print()
+        }
+
+        removeIndex(n) {
+            this.students.splice(n - 1, 1);
+            this.print()
+        }
+
+        search(str) {
+            for (let i = 0; i < this.students.length; i++) {
+                if (this.students[i].getId() == str || this.students[i].getName() == str) {
+                    return this.students[i];
+                }
+            }
+        }
+
+        print() {
+            let data = "<table border='1'>"
+            for (let i=0;i<this.students.length;i++){
+                data += this.students[i].printStudent();
+            }
+            data += "</table>"
+            document.getElementById("main").innerHTML = data;
+        }
+
+        sortId(){
+            for (let i=0;i<this.students.length-1;i++){
+                for (let j = i+1;j<this.students.length;j++){
+                    if ( this.students[i].getId()>this.students[j].getId()){
+                        let temp = this.students[i];
+                        this.students[i] = this.students[j];
+                        this.students[j] = temp;
+                    }
+                }
+            }
+            this.print()
+        }
+    }
+
+    let list = new ListOfStudents()
+    let sv4 = new Student(4);
+    sv4.setAll("Nguyen A",[1991,4,5],"male","A",2000);
+    list.setStudent(sv4);
+    let sv3 = new Student(3);
+    sv3.setAll("Nguyen B",[1992,2,5],"male","A",2001);
+    list.setStudent(sv3);
+    let sv1 = new Student(1);
+    sv1.setAll("Nguyen C",[1994,2,6],"female","B",2002);
+    list.setStudent(sv1);
+    list.print();
+    list.sortId();
+    console.log(list)
+
+
+</script>
+</body>
+</html>

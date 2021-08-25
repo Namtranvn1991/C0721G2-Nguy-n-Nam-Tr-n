@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    Mã số <input id="id">
+    Tên <input id="name">
+    <select id="gender">
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+    </select>
+    Nơi sinh <input id="birthPlace">
+    <input id="birthday" type="date">
+    <br>
+    Chuyên môn <input id="technique">
+    <select id="level">
+        <option value="1">Tốt nghiệp cấp 3</option>
+        <option value="2">Trung cấp</option>
+        <option value="3">Cao đẳng</option>
+        <option value="4">Đại học</option>
+        <option value="5">Cao học</option>
+    </select>
+    Hệ số lương <input type="number" id="HSL">
+    Phụ cấp <input type="number" id="PC">
+    <br>
+    <button onclick="input()">Nhập</button>
+    <button onclick="print()">In danh sách</button>
+    <button onclick="printCNTT()">In danh sách CNTT</button>
+    <button onclick="tongluong()">Tính tổng lương</button>
+    <span id="tongluong"></span>
+</div>
+<div id="dsCB"></div>
+<div id="CNTT"></div>
+
+
+<script>
+    class CanBo {
+        constructor(id, name, gender, birthPlace, birthday, technique, level, HSL, PC) {
+            this.id = id;
+            this.name = name;
+            this.gender = gender;
+            this.birthPlace = birthPlace;
+            this.birthday = birthday;
+            this.technique = technique;
+            this.level = level;
+            this.HSL = HSL;
+            this.PC = PC;
+        }
+
+        setAll(id, name, gender, birthPlace, birthday, technique, level, HSL, PC) {
+            this.id = id;
+            this.name = name;
+            this.gender = gender;
+            this.birthPlace = birthPlace;
+            this.birthday = birthday;
+            this.technique = technique;
+            this.level = level;
+            this.HSL = HSL;
+            this.PC = PC;
+        }
+
+        getAll() {
+            return this.id + " " + this.name + " " + this.gender + " " + this.birthPlace + " " + this.birthday + " " + this.technique + " " + this.level + " " + this.HSL + " " + this.PC
+        }
+
+        thucLinh() {
+            return (this.HSL + this.PC) * 450000
+        }
+
+        printCanbo() {
+            let data = "<tr>"
+            data += "<td>" + this.id + "</td>";
+            data += "<td>" + this.name + "</td>";
+            data += "<td>" + this.gender + "</td>";
+            data += "<td>" + this.birthPlace + "</td>";
+            data += "<td>" + this.birthday + "</td>";
+            data += "<td>" + this.technique + "</td>";
+            data += "<td>" + this.level + "</td>";
+            data += "<td>" + this.HSL + "</td>";
+            data += "<td>" + this.PC + "</td>";
+            data += "</tr>"
+            return data;
+        }
+    }
+
+    class DsCanBo {
+        constructor() {
+            this.dsCanBo = Array()
+        }
+
+        setDs(canbo1) {
+            this.dsCanBo.push(canbo1)
+        }
+
+        printDs() {
+            let data = "<table border='1'>"
+            for (let i = 0; i < this.dsCanBo.length; i++) {
+                data += this.dsCanBo[i].printCanbo()
+            }
+            data += "</table>"
+            document.getElementById("dsCB").innerHTML = data;
+        }
+
+        numberOfFemale() {
+            let count = 0;
+            for (let i = 0; i < this.dsCanBo.length; i++) {
+                if (this.dsCanBo[i].gender == "Nữ") {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        printDsCNTT() {
+            let data = "<table border='1'>"
+            for (let i = 0; i < this.dsCanBo.length; i++) {
+                if (this.dsCanBo[i].technique == "Công nghệ thông tin") {
+                    data += this.dsCanBo[i].printCanbo()
+                }
+            }
+            data += "</table>"
+            document.getElementById("CNTT").innerHTML = data;
+        }
+
+        tongLuong() {
+            let sum = 0;
+            for (let i = 0; i < this.dsCanBo.length; i++) {
+                sum += this.dsCanBo[i].thucLinh()
+                }
+            return sum;
+        }
+
+    }
+
+
+    let dsCanBo = new DsCanBo();
+
+    function input() {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let gender = document.getElementById("gender").value;
+        let birthPlace = document.getElementById("birthPlace").value;
+        let birthday = document.getElementById("birthday").value;
+        let technique = document.getElementById("technique").value;
+        let level = parseInt(document.getElementById("level").value);
+        switch (level) {
+            case 1:
+                level = "Tốt nghiệp cấp 3";
+                break;
+            case 2:
+                level = "Trung cấp";
+                break;
+            case 3:
+                level = "Cao đẳng";
+                break;
+            case 4:
+                level = "Đại học";
+                break;
+            case 5:
+                level = "Cao học";
+                break;
+        }
+        let HSC = document.getElementById("HSL").value;
+        let PC = document.getElementById("PC").value;
+        if (id == "" || name == "" || birthPlace == "" || technique == "" || HSC == "" || PC == "") {
+            alert("yêu cầu nhập lại")
+        } else {
+            let canbo = new CanBo();
+            canbo.setAll(id, name, gender, birthPlace, birthday, technique, level, HSC, PC);
+            console.log(canbo);
+            if (confirm(canbo.getAll())) {
+                dsCanBo.setDs(canbo);
+                console.log(dsCanBo)
+            }
+        }
+        document.getElementById("id").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("birthPlace").value = "";
+        document.getElementById("birthday").value = "1991-01-01";
+        document.getElementById("technique").value = "";
+        document.getElementById("level").value = "1";
+        document.getElementById("HSL").value = "";
+        document.getElementById("PC").value = "";
+
+    }
+
+    function print() {
+        dsCanBo.printDs()
+    }
+
+    function printCNTT() {
+        dsCanBo.printDsCNTT()
+    }
+    function tongluong() {
+        let total = dsCanBo.tongLuong();
+        document.getElementById("tongluong").innerHTML = total;
+    }
+
+
+</script>
+</body>
+</html>

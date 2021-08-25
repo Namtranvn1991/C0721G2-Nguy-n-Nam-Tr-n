@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Candidate {
+        constructor(id) {
+            this.id = id;
+            this.name;
+            this.birthday;
+            this.math;
+            this.vie;
+            this.eng;
+        }
+
+        setAll(name, birthday, math, vie, eng) {
+            this.name = name;
+            this.math = math;
+            this.vie = vie;
+            this.eng = eng;
+            this.birthday = new Date(birthday[0], birthday[1], birthday[2])
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setBirthday(birthday) {
+            let birthDay = new Date(birthday[0], birthday[1], birthday[2])
+            this.birthday = birthDay;
+        }
+
+        setInfor(name, birthday) {
+            this.name = name;
+            let birthDay = new Date(birthday[0], birthday[1], birthday[2])
+            this.birthday = birthDay;
+        }
+
+        setScores(arr) {
+            this.math = arr[0];
+            this.vie = arr[1];
+            this.eng = arr[2];
+        }
+
+        getId() {
+            return this.id
+        }
+
+        getInfor() {
+            let arr = [this.id, this.name, this.birthday];
+            return arr
+        }
+
+        getScores() {
+            let arr = [this.math, this.vie, this.eng];
+            return arr;
+        }
+    }
+
+    class TestCandidate {
+        constructor(size) {
+            this.size = size;
+            this.candidate = Array()
+        }
+
+        setCandidate(candidate) {
+            if (this.candidate.length <= this.size) {
+                this.candidate.push(candidate);
+            }
+        }
+
+        getCandidatesScoreOver15() {
+            let arr = Array()
+            for (let i = 0; i < this.size; i++) {
+                let arrTotal = this.candidate[i].getScores();
+                let total = arrTotal[0] + arrTotal[1] + arrTotal[2];
+                if (total > 15) {
+                    arr.push(this.candidate[i])
+                }
+            }
+            return arr;
+        }
+    }
+
+    let classSize = parseInt(prompt("nhập số thí sinh"))
+    let danhSachThiSinh = new TestCandidate(classSize);
+    let i = 0;
+    while (i < classSize) {
+        let count = i + 1
+        let ts = new Candidate(count);
+        ts.setName(prompt("nhập tên thí sinh thứ " + count));
+        let birthday = prompt("nhập ngày tháng năm sinh. Year-month-day");
+        let birthdayArr = birthday.split("-");
+        ts.setBirthday(birthdayArr);
+        let scores = prompt("nhập điểm toán, văn, anh. toán-văn-anh");
+        let scoresArr = scores.split("-");
+        for (let i = 0; i < 3; i++) {
+            scoresArr[i] = parseInt(scoresArr[i])
+        }
+        ts.setScores(scoresArr);
+        danhSachThiSinh.setCandidate(ts);
+        i++
+    }
+
+    console.log(danhSachThiSinh);
+    let scoreOver15 = danhSachThiSinh.getCandidatesScoreOver15();
+    let idScoreOver15 = Array()
+    for (let i = 0; i < scoreOver15.length; i++) {
+        idScoreOver15.push(scoreOver15[i].getId());
+    }
+    console.log(scoreOver15);
+    document.write("ID các thí sinh có tổng điểm 3 môn trên 15 là: " + idScoreOver15.join(" "))
+
+
+</script>
+</body>
+</html>
