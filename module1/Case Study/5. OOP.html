@@ -46,8 +46,9 @@
 
     //result
     let result = Array(6);
-    let flagResult = true;
+    let flagResult;
     do {
+        flagResult = true;
         let a = Math.floor(Math.random() * 99) + 1;
         let b = Math.floor(Math.random() * 99) + 1;
         let c = Math.floor(Math.random() * 99) + 1;
@@ -70,9 +71,10 @@
     let i = 0;
 
     function randomTicket() {
-        let flag = true;
+        let flag;
         let arrRandom = [];
         do {
+            flag = true;
             let a = Math.floor(Math.random() * 99) + 1;
             let b = Math.floor(Math.random() * 99) + 1;
             let c = Math.floor(Math.random() * 99) + 1;
@@ -86,7 +88,7 @@
                     flag = false;
                 }
             }
-        } while (!flag)
+        } while (!flag);
         if (i < 4) {
             arr123[i].push(arrRandom[0]);
             arr123[i].push(arrRandom[1]);

@@ -151,8 +151,8 @@ class MobilePhone {
 }
 
 let phone = Array();
-let ip = new MobilePhone("Ip");
-let android = new MobilePhone("Android");
+let Ip = new MobilePhone("Ip");
+let Android = new MobilePhone("Android");
 
 ip.setMobile();
 phone.push(ip);
@@ -165,13 +165,10 @@ phone.push(android);
 //     console.log(Ip.onOff)
 // }
 
+
+
 function turnon(name) {
-    for (let i = 0; i < phone.length; i++) {
-        if (name == phone[i].name) {
-            phone[i].turnOn();
-            console.log(phone[i].onOff)
-        }
-    }
+name.turnOn();
 }
 
 // function turnoff(name) {

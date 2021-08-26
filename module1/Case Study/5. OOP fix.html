@@ -39,8 +39,9 @@
 
     //result
     let result = Array(6)
-    let flagResult = true;
+    let flagResult;
     do {
+        flagResult = true;
         let a = Math.floor(Math.random() * 99) + 1;
         let b = Math.floor(Math.random() * 99) + 1;
         let c = Math.floor(Math.random() * 99) + 1;
@@ -82,6 +83,7 @@
             f = Math.floor(Math.random() * 99) + 1;
         } while (f==a||f==b||f==c||f==d||f==e);
         arrRandom = [a, b, c, d, e, f];
+        console.log(arrRandom)
         sortArr(arrRandom);
         if (i < 4) {
             arr123[i].push(arrRandom[0]);
