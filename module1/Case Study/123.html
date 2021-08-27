@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-rows: 500px 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="grid">
+    <canvas id="ball" width="500px" , height="500px"></canvas>
+    <canvas id="board" width="500px" height="10px"></canvas>
+</div>
+
+<script>
+    const BALL_SIZE = 5;
+
+    function run() {
+    }
+
+    class Board {
+        constructor() {
+            this.left = 10;
+            this.length = 100;
+            this.speed = 20;
+            this.drawBoard();
+        }
+
+        moveRight() {
+            if (this.left < 500 - this.length) {
+                this.left += this.speed;
+                this.drawBoard()
+            }
+
+        }
+
+        moveLeft() {
+            if (this.left > 0) {
+                this.left -= this.speed;
+            }
+            this.drawBoard()
+        }
+
+        drawBoard() {
+            let ball = document.getElementById("board");
+            let ctx = ball.getContext("2d");
+            ctx.clearRect(0, 0, 500, 10);
+            ctx.beginPath();
+            ctx.fillRect(this.left, 0, this.length, 10)
+            ctx.fillStyle = 'red'
+        }
+
+
+    }
+
+
+    class Ball {
+        constructor(board) {
+            this.top;
+            this.left;
+            this.angle;
+            this.speed = 5;
+            this.status = true;
+            this.board = board;
+            this.randomBall()
+        }
+
+        randomBall() {
+            let top = Math.floor(Math.random() * 100) + 10;
+            let left = Math.floor(Math.random() * 200) + 100;
+            let angle = Math.floor(Math.random() * 4) + 1;
+            this.top = top;
+            this.left = left;
+            this.angle = angle;
+        }
+
+
+        ballRun() {
+            if (this.angle == 1) {
+                this.top += this.speed;
+                this.left += this.speed;
+                this.drawBall(this.left, this.top);
+                this.bound(this.board)
+
+            }
+            if (this.angle == 2) {
+                this.top -= this.speed;
+                this.left -= this.speed;
+                this.drawBall(this.left, this.top);
+                this.bound(this.board)
+            }
+            if (this.angle == 3) {
+                this.top += this.speed;
+                this.left -= this.speed;
+                this.drawBall(this.left, this.top);
+                this.bound(this.board)
+            }
+            if (this.angle == 4) {
+                this.top -= this.speed;
+                this.left += this.speed;
+                this.drawBall(this.left, this.top);
+                this.bound(this.board)
+            }
+        }
+
+        drawBall(left, top) {
+            let ball = document.getElementById("ball");
+            let ctx = ball.getContext("2d");
+            ctx.clearRect(0, 0, 500, 500);
+            ctx.beginPath();
+            ctx.arc(left, top, BALL_SIZE, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+
+        bound(board) {
+            let random = Math.floor(Math.random() * 30) - 30;
+            let randomAngle = Math.floor(Math.random() * 2) + 1;
+            let angle123;
+
+            switch (randomAngle) {
+                case 1:
+                    angle123 = 2;
+                    break;
+                case 2:
+                    angle123 = 4;
+                    break;
+            }
+
+            //bound Top
+            if (this.angle == 2 && this.top < 0) {
+                this.angle = 3
+            }
+            if (this.angle == 4 && this.top < 0) {
+                this.angle = 1
+            }
+
+            //bound left
+            if (this.angle == 2 && this.left < 0) {
+                this.angle = 4
+            }
+            if (this.angle == 3 && this.left < 0) {
+                this.angle = 1
+            }
+            //bound right
+            if (this.angle == 4 && this.left > 500) {
+                this.angle = 2
+            }
+            if (this.angle == 1 && this.left > 500) {
+                this.angle = 3
+            }
+
+            //bound Bot
+            if (this.top < 510 && this.top > 500 && this.left > board.left && this.left < (board.left + board.length)) {
+                    this.left = this.left + random;
+                    this.angle = angle123;
+            } else if (this.top > 550) {
+                clearInterval(run);
+                alert("quá gà")
+            }
+        }
+    }
+
+    window.addEventListener("keydown", moveSelection)
+
+
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+        }
+    }
+
+    let board = new Board();
+    board.drawBoard()
+
+    function leftArrowPressed() {
+        board.moveLeft()
+    }
+
+    function rightArrowPressed() {
+        board.moveRight()
+    }
+
+
+    let ball = new Ball(board);
+    run = setInterval(function () {
+        ball.ballRun()
+    }, 20)
+
+
+</script>
+</body>
+</html>

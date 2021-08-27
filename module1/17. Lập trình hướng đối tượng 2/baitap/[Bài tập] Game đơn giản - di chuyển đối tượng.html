@@ -34,9 +34,7 @@
     }
 
     function leftArrowPressed() {
-        run = setInterval(function () {
             hero.moveLeft()
-        }, 50)
     }
 
     function rightArrowPressed() {
@@ -73,7 +71,11 @@
         }
 
         moveLeft() {
-            this.left -= 1;
+            const that = this;
+            run = setInterval(function () {
+                that.left -= 1;
+            },50)
+
         }
 
         moveRight() {
