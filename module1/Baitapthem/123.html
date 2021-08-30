@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            text-align: center;
+            border: solid 1px black;
+        }
+        tr{
+            border: solid 1px;
+        }
+        td{
+            width: 200px;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+
+<label>Name: </label>
+<input id="name">
+<label>Price: </label>
+<input id="price">
+<label>Description: </label>
+<input id="description">
+<button onclick="createProduct()">Create Product</button>
+<div id="display"></div>
+<div id="edit"></div>
+<script>
+    class Product {
+        constructor(name, price, description) {
+            this.name = name;
+            this.price = price;
+            this.description = description;
+            this.id;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getHTML() {
+            let data = ""
+            data += "<td>" + this.name + "</td>"
+            data += "<td>" + this.price + "</td>"
+            data += "<td>" + this.description + "</td>"
+            data += "<td>" + "<button onclick='edit(" + this.id + ")'>Edit</button>" + "</td>"
+            data += "<td>" + "<button onclick='remove(" + this.id + ")'>Remove</button>" + "</td>"
+            return data;
+        }
+
+        getEditHTML(){
+            let data = ""
+            data += "<td>" + "<input id='editName' value='"+this.name+"'>" + "</td>"
+            data += "<td>" + "<input id='editPrice' value='"+this.price+"'>" + "</td>"
+            data += "<td>" + "<input id='editDescription' value='"+this.description+"'>" + "</td>"
+            data += "<td>" + "<button onclick='edit123(" + this.id + ")'>Edit</button>" + "</td>"
+            data += "<td>" + "<button onclick='cancel()'>Cancel</button>" + "</td>"
+            return data;
+        }
+
+        editProduct() {
+            this.name = document.getElementById('editName').value
+            this.price = document.getElementById('editPrice').value
+            this.description = document.getElementById('editDescription').value
+        }
+
+    }
+
+    function edit123(id) {
+        let index;
+        for (let i = 0; i < list.listProduct.length; i++) {
+            if (list.listProduct[i].getId() == id) {
+                index = i
+            }
+        }
+        list.listProduct[index].editProduct();
+        list.displayList();
+    }
+
+    function cancel() {
+        list.displayList()
+    }
+
+    class ListProduct {
+        constructor() {
+            this.listProduct = Array();
+        }
+
+        addProduct(product) {
+            this.listProduct.push(product);
+            product.setId(this.listProduct.length - 1)
+        }
+
+        displayList() {
+
+            let data = "<table>";
+            for (let i = 0; i < this.listProduct.length; i++) {
+                let j = i + 1
+                data += "<tr>"
+                data += "<th>" + j + "</th>"
+                data += this.listProduct[i].getHTML()
+                data += "</tr>"
+            }
+            data += "</table>"
+            document.getElementById("display").innerHTML = data
+        }
+
+        editProduct(index){
+            let data = "<table>";
+            for (let i = 0; i < this.listProduct.length; i++) {
+                if (index == i){
+                    let j = i + 1
+                    data += "<tr>"
+                    data += "<th>" + j + "</th>"
+                    data += this.listProduct[i].getEditHTML()
+                    data += "</tr>"
+
+                } else {
+                    let j = i + 1
+                    data += "<tr>"
+                    data += "<th>" + j + "</th>"
+                    data += this.listProduct[i].getHTML()
+                    data += "</tr>"
+                }
+            }
+            data += "</table>"
+            document.getElementById("display").innerHTML = data
+        }
+
+    }
+
+    let list = new ListProduct()
+
+    function createProduct() {
+        let name = document.getElementById("name").value;
+        document.getElementById("name").value = "";
+        let price = document.getElementById("price").value;
+        document.getElementById("price").value = "";
+        let description = document.getElementById("description").value;
+        document.getElementById("description").value = "";
+        list.addProduct(new Product(name, price, description))
+        console.log(list)
+        list.displayList();
+    }
+
+    function remove(id) {
+        let index;
+        for (let i = 0; i < list.listProduct.length; i++) {
+            if (list.listProduct[i].getId() == id) {
+                index = i
+            }
+        }
+        list.listProduct.splice(index, 1)
+        list.displayList();
+        console.log(list)
+    }
+
+    function edit(id) {
+        let index;
+        for (let i = 0; i < list.listProduct.length; i++) {
+            if (list.listProduct[i].getId() == id) {
+                index = i
+            }
+        }
+        list.editProduct(index)
+    }
+
+
+</script>
+</body>
+</html>

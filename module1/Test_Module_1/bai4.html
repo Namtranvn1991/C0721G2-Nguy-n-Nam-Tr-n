@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border: solid 1px;
+        }
+        td{
+            width: 300px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+<label>Id: </label>
+<input id="id">
+<label>Name: </label>
+<input id="name">
+<label>Brand: </label>
+<input id="brand">
+<label>Price: </label>
+<input id="price" type="number">
+
+<button onclick="createProduct()">Create Product</button>
+<button onclick="sortName()">Arrange by name</button>
+
+<div id="display"></div>
+<div id="edit"></div>
+
+
+<script>
+    class Mobile {
+        constructor(id, name, brand, price) {
+            this.id = id;
+            this.name = name;
+            this.brand = brand;
+            this.price = price;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(value) {
+            this.id = value;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        getBrand() {
+            return this.brand;
+        }
+
+        setBrand(value) {
+            this.brand = value;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(value) {
+            this.price = value;
+        }
+
+        toString() {
+            let str = "";
+            str = this.id + " - " + this.name + " - " + this.brand + " - " + this.price + "$";
+            return str;
+        }
+    }
+
+    let phoneArr = Array();
+
+    function display() {
+        let temp = "";
+        temp += "<table border='1'>";
+        temp += "<tr><th>ID</th><th>Name</th><th>Brand</th><th>Price</th><th>delete</th></tr>";
+        for (let i = 0; i < phoneArr.length; i++) {
+            temp += "<tr>"
+            temp += "<th>" + phoneArr[i].id + "</th>";
+            temp += "<td>" + phoneArr[i].name + "</td>";
+            temp += "<td>" + phoneArr[i].brand + "</td>";
+            temp += "<td>" + phoneArr[i].price + "</td>";
+            temp += "<td><button onclick='deleteMobile(" + i + ")'>Delete</button></td>";
+            temp += "</tr>"
+        }
+        temp += "</table>";
+        document.getElementById("display").innerHTML = temp;
+    }
+
+    function createProduct() {
+        let id = document.getElementById("id").value;
+        document.getElementById("id").value = "";
+        let name = document.getElementById("name").value;
+        document.getElementById("name").value = "";
+        let brand = document.getElementById("brand").value;
+        document.getElementById("brand").value = "";
+        let price = document.getElementById("price").value;
+        document.getElementById("price").value = "";
+        if (id == ""|| name == ""||brand==""||price==""){
+            alert("yêu cầu nhập lại sản phẩm");
+        } else {
+            phoneArr.push(new Mobile(id, name, brand, price))
+            display();
+            console.log(phoneArr[phoneArr.length-1].toString())
+        }
+    }
+
+    function deleteMobile(index) {
+        if (confirm("Bạn muốn xóa sản phẩm " + phoneArr[index].name + " ?")) {
+            phoneArr.splice(index, 1);
+            display();
+        }
+    }
+
+    function sortName() {
+        let newPhoneArr = [...phoneArr]
+        let arrayName = Array();
+        for (let i = 0; i < phoneArr.length; i++) {
+            arrayName.push(phoneArr[i].name)
+        }
+        arrayName.sort();
+        console.log(arrayName);
+        for (let i = 0; i < phoneArr.length; i++) {
+            for (let j = 0; j < phoneArr.length; j++)
+                if (arrayName[i] == newPhoneArr[j].name) {
+                    phoneArr[i] = newPhoneArr[j];
+                }
+        }
+        console.log(phoneArr);
+        display()
+    }
+
+</script>
+</body>
+</html>

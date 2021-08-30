@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkPrime(number){
+        let flag = true;
+        if (number<2){
+            flag = false;
+        } else {
+            flag = true;
+            for (let i=2; i<number;i++){
+                if (number%i==0){
+                    flag = false;
+                }
+            }
+        }
+        return flag;
+    }
+
+    function sortArr(array) {
+        for (let i = 0; i < array.length - 1; i++) {
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[i] > array[j]) {
+                    let a = array[i];
+                    array [i] = array [j];
+                    array [j] = a;
+                }
+            }
+        }
+        return array;
+    }
+
+    function check(array) {
+        let newArr = Array()
+        for (let i=0; i<array.length; i++){
+            if (checkPrime(array[i])){
+                newArr.push(array[i])
+            }
+        }
+        sortArr(newArr);
+        return newArr;
+    }
+
+    let arr = [1,5,6,23,8,47,10,3];
+    console.log(check(arr));
+
+
+</script>
+</body>
+</html>

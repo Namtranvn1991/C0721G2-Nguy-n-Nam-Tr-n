@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = 20;
+    let arr = Array();
+
+    for (let i = 0; i < n; i++) {
+        let input = parseInt(prompt("nhập 1 số nguyên. Cancel, để trống, hoặc nhập ký tự không phải số để ngừng nhập"));
+        if (Number.isInteger(input)) {
+            arr.push(input)
+        } else {
+            break;
+        }
+    }
+
+    document.write("[" + arr.join(", ") + "]");
+    document.write("<br>");
+    let oddArr = [];
+    let evenArr = [];
+    let sumOdd = 0;
+    let sumEven = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 == 0) {
+            sumEven += arr[i];
+            evenArr.push(arr[i])
+        } else {
+            sumOdd += arr[i];
+            oddArr.push(arr[i])
+        }
+    }
+    let data = "( " + evenArr.join("+") + " ) - ( " + oddArr.join("+") + " )";
+    let result = sumEven - sumOdd;
+    document.write("result = " + data + " = " + result)
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    let input = prompt("nhập chuỗi kí tự");
+    document.write("The string: " + input + "<br>");
+
+
+    function check(str) {
+        let count = 0;
+        for (let i=0;i<input.length;i++){
+            if(UPPER.indexOf(str[i])!==-1){
+                count++;
+            }
+        }
+        if (count==0){
+            alert("The Strings is not contain upper char");
+            return 0;
+        } else {
+            return count;
+        }
+    }
+
+
+    let n = check(input);
+    document.write("The string has " + n + " uppercase char");
+
+</script>
+</body>
+</html>
