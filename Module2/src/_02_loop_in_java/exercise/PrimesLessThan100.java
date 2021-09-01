@@ -1,12 +1,11 @@
-package _02_Loop_in_Java.Exercise;
+package _02_loop_in_java.exercise;
 
-public class First20PrimeNumber {
+public class PrimesLessThan100 {
     public static void main(String[] args) {
-        int n = 0;
         int number = 2;
         boolean flag = true;
-        System.out.printf("First 20 prime number \n");
-        while (n < 20) {
+        System.out.printf("Prime number less than 100 \n");
+        while (number < 100) {
             flag = true;
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
@@ -16,7 +15,6 @@ public class First20PrimeNumber {
             }
             if (flag) {
                 System.out.printf("%s ", number);
-                n++;
             }
             number++;
         }

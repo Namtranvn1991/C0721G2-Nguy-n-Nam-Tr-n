@@ -1,14 +1,14 @@
-package _01_Introduction_to_Java.Exercise;
+package _01_introduction_to_java.exercise;
 
 import java.util.Scanner;
 
 public class CurrencyConverter {
     public static void main(String[] args) {
         Scanner scanner= new Scanner(System.in);
-        double VND = 23000;
+        double vnd = 23000;
         System.out.printf("input USD ");
-        double USD = scanner.nextDouble();
-        double result = USD*VND;
+        double usd = scanner.nextDouble();
+        double result = usd*vnd;
         System.out.printf("%s VND",result);
     }
 }

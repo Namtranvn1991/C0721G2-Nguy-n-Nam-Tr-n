@@ -1,4 +1,4 @@
-package _02_Loop_in_Java.Pratice;
+package _02_loop_in_java.pratice;
 
 import java.util.Scanner;
 
