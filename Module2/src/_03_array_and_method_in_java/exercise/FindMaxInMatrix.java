@@ -27,7 +27,14 @@ public class FindMaxInMatrix {
             System.out.printf("\n");
         }
         int max = findMax(matrix);
-        System.out.println("Max in the Matrix is = " + max);
+        System.out.print("Max in the Matrix is: ");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (matrix[i][j] == max)
+                    System.out.print("[" + i + "," + j + "] ");
+            }
+        }
+        System.out.println("= " + max);
 
 //        int max = matrix[findMax(matrix)[0]][findMax(matrix)[1]];
 //        System.out.println("Max in the Matrix is " + "[" + findMax(matrix)[0] + "," + findMax(matrix)[1] + "] = " + max);
