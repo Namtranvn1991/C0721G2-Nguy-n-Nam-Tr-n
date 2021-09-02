@@ -36,20 +36,15 @@ public class FindMaxInMatrix {
         }
         System.out.println("= " + max);
 
-//        int max = matrix[findMax(matrix)[0]][findMax(matrix)[1]];
-//        System.out.println("Max in the Matrix is " + "[" + findMax(matrix)[0] + "," + findMax(matrix)[1] + "] = " + max);
 
     }
 
     public static int findMax(int[][] matrix) {
         int max = matrix[0][0];
-//        int[] indexMax = new int[2];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 if (max < matrix[i][j]) {
                     max = matrix[i][j];
-//                    indexMax[0] = i;
-//                    indexMax[1] = j;
                 }
             }
         }
