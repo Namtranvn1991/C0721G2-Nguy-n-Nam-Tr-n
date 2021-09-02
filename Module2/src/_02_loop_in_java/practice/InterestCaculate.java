@@ -1,4 +1,4 @@
-package _02_loop_in_java.pratice;
+package _02_loop_in_java.practice;
 
 import java.util.Scanner;
 
@@ -21,6 +21,6 @@ public class InterestCaculate {
             totalMoney += interest;
 //          totalInterest += money * (interestRate/100)/12 * month;
         }
-        System.out.println("Total of interest: " + totalInterest);
+        System.out.printf("Total of interest: %.2f ", totalInterest);
     }
 }
