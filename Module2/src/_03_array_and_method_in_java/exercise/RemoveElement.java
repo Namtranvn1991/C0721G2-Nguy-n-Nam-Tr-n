@@ -28,25 +28,30 @@ public class RemoveElement {
         int removeNunber = input.nextInt();
 
         int[] newArr = remove(arr, removeNunber);
-        System.out.printf("\n%-20s%s", "Element in new Array: ", "");
-        for (int i = 0; i < newArr.length; i++) {
-            System.out.print(newArr[i] + "\t");
+        System.out.printf("\n%-20s ", "Element in new Array: ");
+        for (int a :newArr) {
+            System.out.print(a + "\t");
         }
 
     }
 
     public static int[] remove(int[] arr, int number){
-        int[] newArr = new int[arr.length-1];
         int indexRemove=-1;
         for (int i = 0; i < arr.length; i++){
+
             if (arr[i]==number){
                 indexRemove = i;
                 break;
             }
         }
         if (indexRemove==-1){
-            return arr;
+            int[] newArr = new int[arr.length];
+            for (int i=0;i<arr.length;i++){
+                newArr[i]=arr[i];
+            }
+            return newArr;
         } else {
+            int[] newArr = new int[arr.length-1];
             for (int i = 0; i < indexRemove; i++){
                 newArr[i] = arr[i];
             }

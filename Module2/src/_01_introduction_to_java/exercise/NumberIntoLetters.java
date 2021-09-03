@@ -9,11 +9,11 @@ public class NumberIntoLetters {
         int input = scanner.nextInt();
         String output;
         int units = input % 10;
-        int dozens = (input % 100 - units) / 10;
-        int hundreds = (input % 1000 - dozens - units) / 100;
-//        System.out.printf("" + units + "\n");
-//        System.out.printf("" + dozens + "\n");
-//        System.out.printf("" + hundreds + "\n");
+        int dozens = input/10%10;
+        int hundreds = input/100%10;
+        System.out.printf("" + units + "\n");
+        System.out.printf("" + dozens + "\n");
+        System.out.printf("" + hundreds + "\n");
         String unitString = "";
         switch (units){
             case 0:
