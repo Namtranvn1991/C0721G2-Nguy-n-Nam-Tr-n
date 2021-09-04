@@ -27,7 +27,7 @@ public class RemoveElement {
         System.out.println("\nEnter the number remove to Array ");
         int removeNunber = input.nextInt();
 
-        int[] newArr = remove(arr, removeNunber);
+        int[] newArr = removeAllE(arr, removeNunber);
         System.out.printf("\n%-20s ", "Element in new Array: ");
         for (int a :newArr) {
             System.out.print(a + "\t");
@@ -35,10 +35,9 @@ public class RemoveElement {
 
     }
 
-    public static int[] remove(int[] arr, int number){
+    public static int[] removeFirstE(int[] arr, int number){
         int indexRemove=-1;
         for (int i = 0; i < arr.length; i++){
-
             if (arr[i]==number){
                 indexRemove = i;
                 break;
@@ -60,6 +59,35 @@ public class RemoveElement {
             }
             return newArr;
         }
+
+    }
+    public static int[] removeAllE(int[] arr, int number){
+        int count=0;
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i]==number){
+                count++;
+            }
+        }
+        if (count==0){
+            int[] newArr = new int[arr.length];
+            for (int i=0;i<arr.length;i++){
+                newArr[i]=arr[i];
+            }
+            return newArr;
+        } else {
+            int[] newArr = new int[arr.length-count];
+            for (int i=0,j=0;i<arr.length&&j<newArr.length;i++){
+                if (arr[i] == number){
+                    continue;
+                } else {
+                    newArr[j]= arr[i];
+                    j++;
+                }
+            }
+            return newArr;
+        }
+
+
 
     }
 }
