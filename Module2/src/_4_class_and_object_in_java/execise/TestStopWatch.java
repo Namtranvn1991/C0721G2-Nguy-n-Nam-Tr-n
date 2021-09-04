@@ -11,7 +11,6 @@ public class TestStopWatch {
         System.out.println("Enter anything to start");
         input.nextLine();
         StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
         System.out.println(stopWatch.starTime);
         System.out.println("Enter anything to stop");
         input.nextLine();
