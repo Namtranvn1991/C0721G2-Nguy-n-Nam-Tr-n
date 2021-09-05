@@ -6,7 +6,7 @@ public class TestQuadraticEquation {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Quadratic equation: ax2 + bx + x = 0");
-        System.out.println("Eter a, b, c");
+        System.out.println("Enter a, b, c");
         double a = scanner.nextDouble();
         double b = scanner.nextDouble();
         double c = scanner.nextDouble();

@@ -31,11 +31,13 @@ class StopWatch{
         this.endTime = LocalTime.now();
     }
 
-    int getElapsedTime(){
+    String getElapsedTime(){
         int elapsedHour = endTime.getHour() - starTime.getHour();
         int elapsedMinute = endTime.getMinute() - starTime.getMinute();
         int elapsedSecond = endTime.getSecond() - starTime.getSecond();
-        return elapsedHour*3600 + elapsedMinute*60 + elapsedSecond;
+        int elapsedMillisecond = (endTime.getNano() - starTime.getNano())/1000000;
+        int elapsed = elapsedHour*3600 + elapsedMinute*60 + elapsedSecond;
+        return elapsed + "." + elapsedMillisecond;
     }
 
 }
