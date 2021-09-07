@@ -1,17 +1,5 @@
-package _4_class_and_object_in_java.execise;
+package _4_class_and_object_in_java.execise.testFan;
 
-
-public class TestFan {
-    public static void main(String[] args) {
-        Fan fan1 = new Fan();
-        Fan fan2 = new Fan(Fan.MEDIUM,true,10,"yellow");
-        System.out.println(fan1.display());
-        System.out.println(fan2.display());
-        fan1.status = true;
-        System.out.println(fan1.display());
-
-    }
-}
 
 class Fan {
     public static final int SLOW = 1;
@@ -86,3 +74,4 @@ class Fan {
         }
     }
 }
+
