@@ -4,7 +4,7 @@ package _4_class_and_object_in_java.execise;
 public class TestFan {
     public static void main(String[] args) {
         Fan fan1 = new Fan();
-        Fan fan2 = new Fan(4,true,10,"yellow");
+        Fan fan2 = new Fan(Fan.MEDIUM,true,10,"yellow");
         System.out.println(fan1.display());
         System.out.println(fan2.display());
         fan1.status = true;
@@ -14,9 +14,9 @@ public class TestFan {
 }
 
 class Fan {
-    final int SLOW = 1;
-    final int MEDIUM = 2;
-    final int FAST = 3;
+    public static final int SLOW = 1;
+    public static final int MEDIUM = 2;
+    public static final int FAST = 3;
     int speed = SLOW;
     String speedDisplay;
     boolean status = false;
