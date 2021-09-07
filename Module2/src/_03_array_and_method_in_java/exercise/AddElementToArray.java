@@ -50,14 +50,12 @@ public class AddElementToArray {
                 newArr[i] = arr[i-1];
             }
             return newArr;
-        }
-        else {
+        } else {
             int [] newArr = new int[arr.length];
             for (int i = 0; i < arr.length; i++){
                 newArr[i] = arr [i];
             }
             return  newArr;
         }
-
     }
 }
