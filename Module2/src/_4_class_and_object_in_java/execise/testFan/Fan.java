@@ -11,6 +11,7 @@ class Fan {
     private int radius = 5;
     private String color = "blue";
 
+
     Fan(){
         speed = SLOW;
         status = false;

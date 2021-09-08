@@ -4,35 +4,34 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ManageStudent manageStudent = new ManageStudent();
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
 
 
-        while (flag){
+        while (flag) {
             System.out.println("Menu\n" +
-                    "1. Add \n"+
-                    "2. Remove \n"+
-                    "3. Display \n"+
-                    "4. Edit \n"+
-                    "5. Search \n"+
+                    "1. Add " +
+                    "2. Remove " +
+                    "3. Display " +
+                    "4. Edit " +
+                    "5. Search " +
                     "6. Exit \n");
             int input = scanner.nextInt();
-            switch (input){
+            switch (input) {
                 case 1:
-                    manageStudent.add();
+                    ManageStudent.add();
                     break;
                 case 2:
-                    manageStudent.remove();
+                    ManageStudent.remove();
                     break;
                 case 3:
-                    manageStudent.display();
+                    ManageStudent.display();
                     break;
                 case 4:
-                    manageStudent.edit();
+                    ManageStudent.edit();
                     break;
                 case 5:
-                    manageStudent.search();
+                    ManageStudent.search();
                     break;
                 case 6:
                     flag = false;

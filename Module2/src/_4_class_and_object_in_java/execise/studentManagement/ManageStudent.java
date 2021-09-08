@@ -3,10 +3,10 @@ package _4_class_and_object_in_java.execise.studentManagement;
 import java.util.Scanner;
 
 public class ManageStudent {
-    Student[] studentList = new Student[100];
-    Scanner scanner = new Scanner(System.in);
+    private static Student[] studentList = new Student[100];
+    private static Scanner scanner = new Scanner(System.in);
 
-    void add() {
+    public static void add() {
         System.out.println("Enter id");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter name");
@@ -22,7 +22,7 @@ public class ManageStudent {
         }
     }
 
-    void display() {
+    public static void display() {
         int number = 1;
         for (int i = 0; i < studentList.length; i++) {
             if (studentList[i] != null) {
@@ -33,7 +33,7 @@ public class ManageStudent {
         }
     }
 
-    void remove() {
+    public static void remove() {
         System.out.println("Remove menu 0. Return 1. ID  2. Name");
         int input = scanner.nextInt();
         switch (input) {
@@ -98,11 +98,9 @@ public class ManageStudent {
             default:
                 break;
         }
-
-
     }
 
-    void edit() {
+    public static void edit() {
         System.out.println("Enter the student number you want to edit. Enter 0 to return the menu");
         int indexEdit;
         boolean flag = true;
@@ -146,7 +144,7 @@ public class ManageStudent {
         }
     }
 
-    void search() {
+    public static void search() {
         System.out.println("0. Return 1. Search id 2. Search name 3. Search age");
         int input = scanner.nextInt();
         int count = 0;
@@ -157,7 +155,7 @@ public class ManageStudent {
                 scanner.nextLine();
                 for (int i = 0, j = 0; studentList[i] != null; i++) {
                     if (studentList[i].getId() == idSearch) {
-                        System.out.println((i + 1) + studentList[i].toString());
+                        System.out.println((i + 1) + "." + studentList[i].toString());
                         count++;
                     }
                 }
@@ -167,7 +165,7 @@ public class ManageStudent {
                 scanner.nextLine();
                 String nameSearch = scanner.nextLine();
 
-                for (int i = 0 ; studentList[i] != null; i++) {
+                for (int i = 0; studentList[i] != null; i++) {
                     if (studentList[i].getName().equals(nameSearch)) {
                         System.out.println((i + 1) + "." + studentList[i].toString());
                         count++;
@@ -180,7 +178,7 @@ public class ManageStudent {
                 scanner.nextLine();
                 for (int i = 0, j = 0; studentList[i] != null; i++) {
                     if (studentList[i].getAge() == ageSearch) {
-                        System.out.println((i + 1) + studentList[i].toString());
+                        System.out.println((i + 1) + "." + studentList[i].toString());
                         count++;
                     }
                 }
@@ -188,7 +186,7 @@ public class ManageStudent {
             default:
                 break;
         }
-        if (count==0){
+        if (count == 0) {
             System.out.println("Not found");
         }
     }

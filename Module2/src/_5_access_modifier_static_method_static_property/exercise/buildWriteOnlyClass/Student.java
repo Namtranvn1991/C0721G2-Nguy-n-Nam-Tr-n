@@ -1,13 +1,5 @@
-package _5_access_modifier_static_method_static_property.exercise;
+package _5_access_modifier_static_method_static_property.exercise.buildWriteOnlyClass;
 
-public class BuildWriteOnlyClass {
-    public static void main(String[] args) {
-        Student student = new Student();
-        student.setName("Tran");
-        student.setName("Nam");
-
-    }
-}
 class Student{
     private String name;
     private String classes;
