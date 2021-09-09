@@ -5,28 +5,22 @@ import java.util.Scanner;
 
 public class test123 {
     public static void main(String[] args) {
-        String str = "asdqweasd";
-        char[] arr = new char[str.length()];
-        boolean flag = false;
-        int count =0;
-        for (int i = 0; i < str.length(); i++) {
-            flag = false;
-            for (int j = 0; j < str.length(); j++) {
-                if (str.charAt(i) == arr[j]) {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag){
-                arr[i] = str.charAt(i);
-                count++;
-            }
-
-        }
-        System.out.println(count);
-
+        A a = new A();
+        a.p(10);
+        a.p(10.0);
     }
 
 
 }
 
+class A extends B {
+    public void p(double number) {
+        System.out.println(number);
+    }
+}
+
+class B {
+    public void p(double number) {
+        System.out.println(number * 2);
+    }
+}
