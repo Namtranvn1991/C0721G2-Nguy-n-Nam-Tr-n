@@ -1,8 +1,8 @@
 package _6_inheritance.exercise.class_point_and_moveable_point;
 
 public class Point {
-    protected float x = 0f;
-    protected float y = 0f;
+    private float x = 0f;
+    private float y = 0f;
 
     public Point() {
     }
