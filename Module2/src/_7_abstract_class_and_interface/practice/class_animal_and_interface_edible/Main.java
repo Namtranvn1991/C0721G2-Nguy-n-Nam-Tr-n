@@ -2,6 +2,7 @@ package _7_abstract_class_and_interface.practice.class_animal_and_interface_edib
 
 public class Main {
     public static void main(String[] args) {
+        Edible.beEat();
         Animal[] animals = new Animal[2];
         animals[0] = new Tiger();
         animals[1] = new Chicken();
@@ -18,6 +19,5 @@ public class Main {
         for (Fruit fruit : fruits) {
             System.out.println(fruit.howToEat());
         }
-
     }
 }
