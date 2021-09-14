@@ -9,7 +9,6 @@ public class MyListTest {
         listInteger.add(44);
         listInteger.add(55);
         listInteger.add(66);
-        listInteger.add(77);
         for (int i = 0; i < listInteger.size(); i++) {
             System.out.println(listInteger.get(i));
         }

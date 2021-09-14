@@ -86,7 +86,7 @@ public class MyLinkedList {
         return numNodes;
     }
 
-    public boolean contains(Object o){
+    public boolean contains(Object o) {
         Node temp = head;
         for (int i = 0; i < numNodes; i++) {
             if (temp.data == o) {
@@ -96,6 +96,7 @@ public class MyLinkedList {
         }
         return false;
     }
+
     public int indexOff(Object o) {
         Node temp = head;
         int index = -1;
@@ -116,7 +117,8 @@ public class MyLinkedList {
             temp = temp.next;
         }
     }
-    public MyLinkedList clone(){
+
+    public MyLinkedList clone() {
         MyLinkedList newLinkedList = new MyLinkedList(head.getData());
         Node temp = head;
         for (int i = 0; temp.next != null; i++) {
