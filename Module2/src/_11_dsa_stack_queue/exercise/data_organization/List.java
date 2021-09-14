@@ -8,7 +8,7 @@ import java.util.*;
 public class List {
     static ArrayList<Person> list = new ArrayList<>();
 
-    static {
+    public static void main(String[] args) {
         list.add(new Person("A", true, 23));
         list.add(new Person("B", true, 43));
         list.add(new Person("C", false, 44));
@@ -17,6 +17,10 @@ public class List {
         list.add(new Person("F", false, 42));
         list.add(new Person("G", true, 77));
         list.add(new Person("H", false, 23));
+        for (Person p : list) {
+            System.out.println(p);
+        }
+        System.out.println("_________________");
         Collections.sort(list);
         for (Person p : list) {
             System.out.println(p);
