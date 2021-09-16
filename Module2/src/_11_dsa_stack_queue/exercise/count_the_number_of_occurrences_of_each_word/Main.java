@@ -1,29 +1,24 @@
 package _11_dsa_stack_queue.exercise.count_the_number_of_occurrences_of_each_word;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        String str = "a aa mm ss ww co co ww";
+        String str = "aa aa, mm ss ww, co co ww";
+        System.out.println(str);
         System.out.println(countFrequency(str).toString());
+
     }
 
-    static Map<String,Integer> countFrequency(String str){
-        String [] arr = str.split(" ");
-        System.out.println(Arrays.toString(arr));
-        Map<String,Integer> map = new HashMap<>();
-        for(int i =0;i<arr.length;i++){
-            int count = 0;
-            for (int j =0;j<arr.length;j++){
-                if (arr[i].equals(arr[j])){
-                    count ++;
-                }
-            }
-            map.put(arr[i],count);
+    static Map<String, Integer> countFrequency(String str) {
+        str = str.replace(",", "");
+        String[] arr = str.split(" ");
+        TreeMap<String, Integer> map = new TreeMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (map.containsKey(arr[i])) map.replace(arr[i], map.get(arr[i])+1);
+            else map.put(arr[i],1);
         }
         return map;
     }
+
 }

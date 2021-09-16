@@ -6,11 +6,10 @@ public class Bracket {
     public static void main(String[] args) {
         String str = "(s * (s – a) * (s – b) * (s – c)) ";
         System.out.println(checkBracket(str));
-
-
     }
     static boolean checkBracket(String str){
         Stack<Integer> stack = new Stack<>();
+
         for (int i = 0; i <str.length() ; i++) {
             if (str.charAt(i) == '('){
                 stack.push(i);
@@ -22,6 +21,7 @@ public class Bracket {
                 }
             }
         }
+        System.out.println(stack.size());
         if (stack.empty()){
             return true;
         } else {
