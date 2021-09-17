@@ -13,7 +13,7 @@ public class Main {
     static Map<String, Integer> countFrequency(String str) {
         str = str.replace(",", "");
         String[] arr = str.split(" ");
-        TreeMap<String, Integer> map = new TreeMap<>();
+        HashMap<String, Integer> map = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
             if (map.containsKey(arr[i])) map.replace(arr[i], map.get(arr[i])+1);
             else map.put(arr[i],1);

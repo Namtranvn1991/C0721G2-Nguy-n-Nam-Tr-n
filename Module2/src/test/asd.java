@@ -7,10 +7,10 @@ import java.util.*;
 
 public class asd {
     public static void main(String[] args) {
-        Student stu1 = new Student(123, "a", 13);
-        Student stu2 = new Student(123, "A", 13);
+        Student stu1 = new Student(123, "A", 13);
+        Student stu2 = new Student(123, "A", 12);
         Student stu3 = new Student(444, "B", 12);
-        Set<Student> list = new TreeSet<>();
+        Set<Student> list = new LinkedHashSet<>();
         list.add(stu1);
         list.add(stu2);
         list.add(stu3);
@@ -38,6 +38,20 @@ class Student implements Comparable<Student> {
                 ", age=" + age +
                 "__" + hashCode() +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id &&
+                name.equals(((Student) o).name);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
     }
 
     @Override
