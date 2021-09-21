@@ -5,22 +5,32 @@ import java.util.*;
 public class code {
     public static void main(String[] args) {
 
+        Scanner input = new Scanner(System.in);
+        LinkedList<Character> max = new LinkedList<>();
+        LinkedList<Character> list = new LinkedList<>();
 
-    }
+        System.out.print("Nhập chuỗi: ");
+        String string = input.nextLine();
 
-    static int matrixElementsSum(int[][] matrix) {
-        int sum = 0;
-        for (int i=0;i<matrix[i].length;i++){
-            for (int j=0;j<matrix.length;j++){
-                sum+= matrix[j][i];
-                if (matrix[j][i] ==0){
-                    break;
-                }
+        // Tìm chuỗi liên tiếp có độ dài lớn nhất
+        for (int i = 0; i < string.length(); i++) { 		//1 Vòng lặp
+            if (list.size() > 1 && string.charAt(i) <= list.getLast()) {
+                list.clear(); //1 câu lệnh
+            }
+
+            list.add(string.charAt(i)); // 1 câu lệnh
+
+            if (list.size() > max.size()) { // 1 câu lệnh
+                max.clear();
+                max.addAll(list);
             }
         }
 
-        return sum;
+        // Hiển thị chuỗi liên tiếp dài nhất
+        for (Character ch: max) { // 1 vòng lặp
+            System.out.print(ch); // 1 câu lệnh
+        }
+        System.out.println();
     }
-
 
 }

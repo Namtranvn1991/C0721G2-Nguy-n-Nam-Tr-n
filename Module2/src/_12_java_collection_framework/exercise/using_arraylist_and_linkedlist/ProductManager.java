@@ -73,7 +73,7 @@ public class ProductManager {
                 System.out.println("Enter name");
                 String name = scanner.nextLine();
                 for (Product product : arrList) {
-                    if (product.getName().equals(name)) {
+                    if (product.getName().contains(name)) {
                         System.out.println(product);
                         flag = true;
                     }
