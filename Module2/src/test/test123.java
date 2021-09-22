@@ -10,8 +10,9 @@ import java.util.*;
 class UseMapCountElement {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) throws ParseException {
-        Date date = inputBirthday();
-        Date date1 = new Date(91,5,22);
+        Date date = new Date(91,5,22);
+        Date date1 = new Date(91,4,22);
+        System.out.println(date1.compareTo(date));
         System.out.println(date);
         System.out.println(date.getYear());
         System.out.println(date.getMonth());

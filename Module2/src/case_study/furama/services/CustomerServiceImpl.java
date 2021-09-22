@@ -15,6 +15,7 @@ public class CustomerServiceImpl implements CustomerService {
     static {
         customersList.add(new Customer("Nguyen A", new Date(91, 3, 25), true, 12345671, 80812301, "nguyena@gmail.com", 88801, Customer.DIAMOND, "Ha Noi"));
         customersList.add(new Customer("Nguyen B", new Date(92, 11, 15), true, 12345672, 80812302, "nguyenb@gmail.com", 88802, Customer.MEMBER, "HCM"));
+        customersList.add(new Customer("Nguyen B", new Date(92, 11, 15), true, 12345333, 80812302, "nguyenb@gmail.com", 88802, Customer.MEMBER, "HCM"));
     }
 
     public static void add() {

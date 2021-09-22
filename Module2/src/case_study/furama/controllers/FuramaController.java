@@ -1,5 +1,6 @@
 package case_study.furama.controllers;
 
+import case_study.furama.services.BookingServiceImpl;
 import case_study.furama.services.CustomerServiceImpl;
 import case_study.furama.services.EmployeeServiceImpl;
 import case_study.furama.services.FacilityServiceImpl;
@@ -147,10 +148,14 @@ public class FuramaController {
         String choice = scanner.nextLine();
         switch (choice) {
             case "1":
-
+                CustomerServiceImpl.display();
+                FacilityServiceImpl.displayFacility();
+                BookingServiceImpl.add();
+                displayBookingManagementMenu();
                 break;
             case "2":
-
+                BookingServiceImpl.display();
+                displayBookingManagementMenu();
                 break;
             case "3":
 

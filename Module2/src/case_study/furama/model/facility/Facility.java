@@ -2,7 +2,7 @@ package case_study.furama.model.facility;
 
 import java.util.Objects;
 
-public abstract class Facility {
+public class Facility implements Comparable<Facility> {
     private String facilityName;
     private double usingArea;
     private double cost;
@@ -87,5 +87,10 @@ public abstract class Facility {
                 ", cost=" + cost +
                 ", maximumPerson=" + maximumPerson +
                 ", typeOfRent=" + typeOfRent + ", ";
+    }
+
+    @Override
+    public int compareTo(Facility o) {
+        return this.getFacilityName().compareTo(o.getFacilityName());
     }
 }

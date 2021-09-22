@@ -1,8 +1,9 @@
 package case_study.furama.model.person;
 
 import java.util.Date;
+import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable<Person> {
     private String name;
     private Date birthday;
     private boolean gender;
@@ -72,6 +73,19 @@ public class Person {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return iDCardNumber == person.iDCardNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(iDCardNumber);
+    }
+
+    @Override
     public String toString() {
         String genderStr = "";
         if (gender) {
@@ -80,10 +94,15 @@ public class Person {
             genderStr = "Female";
         }
         return "name='" + name + '\'' +
-                ", birthday=" + birthday.getDate() + "/" + birthday.getMonth() + "/" + (birthday.getYear()+1900) +
+                ", birthday=" + birthday.getDate() + "/" + (birthday.getMonth()+1) + "/" + (birthday.getYear()+1900) +
                 ", gender=" + genderStr +
                 ", iDCardNumber=" + iDCardNumber +
                 ", phoneNumber=" + phoneNumber +
                 ", email='" + email + ", ";
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return this.getIDCardNumber()-o.getIDCardNumber();
     }
 }

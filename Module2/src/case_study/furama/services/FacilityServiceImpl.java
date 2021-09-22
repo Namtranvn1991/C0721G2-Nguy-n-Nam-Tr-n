@@ -20,10 +20,14 @@ public class FacilityServiceImpl implements FacilityService {
         Facility villa2 = new Villa("Villa A", 300, 2000, 10, Facility.DAILY_RENTAL, 1, 50, 2);
         Facility house1 = new House("House A", 100, 3000, 6, Facility.MONTHLY_RENTAL, 1, 1);
         Facility room1 = new Room("Room101", 30, 20, 2, Facility.HOURLY_RENTAL, Room.FREE_DRINK);
+        Facility room2 = new Room("Room102", 30, 20, 2, Facility.HOURLY_RENTAL, Room.FREE_GAMING);
+        Facility room3 = new Room("Room103", 30, 20, 2, Facility.HOURLY_RENTAL, Room.FREE_SPA);
         facilityList.put(villa1, 0);
+        facilityList.put(villa2, 3);
         facilityList.put(house1, 5);
         facilityList.put(room1, 0);
-        facilityList.put(villa2, 3);
+        facilityList.put(room2, 3);
+        facilityList.put(room3, 1);
     }
 
     public static void add() {
