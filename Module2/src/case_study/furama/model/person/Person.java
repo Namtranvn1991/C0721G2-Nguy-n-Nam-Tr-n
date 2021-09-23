@@ -101,6 +101,21 @@ public class Person implements Comparable<Person> {
                 ", email='" + email + ", ";
     }
 
+    public String toStringToFile() {
+        String genderStr = "";
+        if (gender) {
+            genderStr = "Male";
+        } else {
+            genderStr = "Female";
+        }
+        return  name + "," +
+                birthday.getDate() + "/" + (birthday.getMonth()+1) + "/" + (birthday.getYear()+1900) + ","+
+                genderStr +","+
+                iDCardNumber + "," +
+                phoneNumber + "," +
+                email;
+    }
+
     @Override
     public int compareTo(Person o) {
         return this.getIDCardNumber()-o.getIDCardNumber();

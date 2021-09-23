@@ -90,7 +90,7 @@ public class PersonInput {
         if (strDate.trim().equals("")) {
             return false;
         } else {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             simpleDateFormat.setLenient(false);
             try {
                 Date javaDate = simpleDateFormat.parse(strDate);

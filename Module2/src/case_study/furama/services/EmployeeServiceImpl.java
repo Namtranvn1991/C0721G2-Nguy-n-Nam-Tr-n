@@ -2,6 +2,7 @@ package case_study.furama.services;
 
 import case_study.furama.controllers.PersonInput;
 import case_study.furama.model.person.Employee;
+import case_study.furama.util.ReadEmployeeListAndWriteToCSV;
 
 import java.awt.image.RasterFormatException;
 import java.text.ParseException;
@@ -11,12 +12,17 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
-    static ArrayList<Employee> employeesList = new ArrayList<>();
+    static ArrayList<Employee> employeesList = ReadEmployeeListAndWriteToCSV.getListEmployeeFromCSV("src\\case_study\\furama\\data\\EmployeeList.csv");
     static Scanner scanner = new Scanner(System.in);
 
     static {
-        employeesList.add(new Employee("Nguyen Van A", new Date(88, 0, 25), true, 12345671, 80812301, "nguyena@gmail.com", 10001, Employee.VOCATIONAL, Employee.WAITER, 6000000));
-        employeesList.add(new Employee("Nguyen Van B", new Date(95, 2, 15), true, 12345672, 80812302, "nguyenb@gmail.com", 10002, Employee.COLLEGE, Employee.RECEPTIONIST, 7000000));
+//        employeesList.add(new Employee("Nguyen Van A", new Date(88, 0, 25), true, 12345671, 80812301, "nguyena@gmail.com", 10001, Employee.VOCATIONAL, Employee.WAITER, 6000000));
+//        employeesList.add(new Employee("Nguyen Van B", new Date(95, 2, 15), true, 12345672, 80812302, "nguyenb@gmail.com", 10002, Employee.COLLEGE, Employee.RECEPTIONIST, 7000000));
+//
+    }
+
+    public static ArrayList<Employee> getEmployeesList() {
+        return employeesList;
     }
 
     public static void add(){
@@ -37,6 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Employee employee = new Employee(name,birthday,gender,idCardNumber,phoneNumber,email,employeeID,degree,position,salary);
         employeesList.add(employee);
+        ReadEmployeeListAndWriteToCSV.readEmployeeListAndWriteToCSV(employeesList,"src\\case_study\\furama\\data\\EmployeeList.csv",true);
     }
 
     public static void display(){
@@ -48,6 +55,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public static void edit(){
+        display();
         while (true){
             System.out.println("Enter employee number to edit. Enter alphabet char to return");
             String indexStr= scanner.nextLine();
@@ -55,6 +63,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 int index = Integer.parseInt(indexStr)-1;
                 if (index<employeesList.size()&&index>=0){
                     editIndex(index);
+                    ReadEmployeeListAndWriteToCSV.readEmployeeListAndWriteToCSV(employeesList,"src\\case_study\\furama\\data\\EmployeeList.csv",true);
                 } else {
                     System.out.println(indexStr+ " isnt exist. Enter again");
                 }

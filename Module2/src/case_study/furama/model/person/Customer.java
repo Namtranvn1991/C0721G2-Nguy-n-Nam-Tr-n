@@ -56,4 +56,13 @@ public class Customer extends Person {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+    @Override
+    public String toStringToFile() {
+        return super.toStringToFile() +
+                "," + customerID +
+                "," + membershipTier +
+                "," + address;
+    }
+
 }

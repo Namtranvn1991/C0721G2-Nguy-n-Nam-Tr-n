@@ -73,4 +73,14 @@ public class Employee extends Person {
                 ", salary=" + salary +
                 '}';
     }
+
+    @Override
+    public String toStringToFile() {
+        return super.toStringToFile() +
+                "," + employeeID +
+                "," + degree +
+                "," + position +
+                "," + salary;
+    }
+
 }

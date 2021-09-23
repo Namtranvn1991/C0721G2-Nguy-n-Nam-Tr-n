@@ -5,29 +5,31 @@ import case_study.furama.model.facility.Facility;
 import case_study.furama.model.facility.House;
 import case_study.furama.model.facility.Room;
 import case_study.furama.model.facility.Villa;
+import case_study.furama.util.ReadFacilityListAndWriteToCSV;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityServiceImpl implements FacilityService {
-    static Map<Facility, Integer> facilityList = new LinkedHashMap<>();
+    static Map<Facility, Integer> facilityList = ReadFacilityListAndWriteToCSV.getListEmployeeFromCSV("src\\case_study\\furama\\data\\FacilityList.csv");
     static Scanner scanner = new Scanner(System.in);
     static int count;
 
     static {
-        Facility villa1 = new Villa("Villa A", 300, 2000, 10, Facility.DAILY_RENTAL, 1, 50, 2);
-        Facility villa2 = new Villa("Villa A", 300, 2000, 10, Facility.DAILY_RENTAL, 1, 50, 2);
-        Facility house1 = new House("House A", 100, 3000, 6, Facility.MONTHLY_RENTAL, 1, 1);
-        Facility room1 = new Room("Room101", 30, 20, 2, Facility.HOURLY_RENTAL, Room.FREE_DRINK);
-        Facility room2 = new Room("Room102", 30, 20, 2, Facility.HOURLY_RENTAL, Room.FREE_GAMING);
-        Facility room3 = new Room("Room103", 30, 20, 2, Facility.HOURLY_RENTAL, Room.FREE_SPA);
-        facilityList.put(villa1, 0);
-        facilityList.put(villa2, 3);
-        facilityList.put(house1, 5);
-        facilityList.put(room1, 0);
-        facilityList.put(room2, 3);
-        facilityList.put(room3, 1);
+//        Facility villa1 = new Villa("Villa A", 300, 2000, 10, Facility.DAILY_RENTAL, 1, 2, 50);
+//        Facility villa2 = new Villa("Villa A", 300, 2000, 10, Facility.DAILY_RENTAL, 1, 2, 50);
+//        Facility house1 = new House("House A", 100, 3000, 6, Facility.MONTHLY_RENTAL, 1, 1);
+//        Facility room1 = new Room("Room101", 30, 20, 2, Facility.HOURLY_RENTAL, Room.FREE_DRINK);
+//        Facility room2 = new Room("Room102", 30, 20, 2, Facility.HOURLY_RENTAL, Room.FREE_GAMING);
+//        Facility room3 = new Room("Room103", 30, 20, 2, Facility.HOURLY_RENTAL, Room.FREE_SPA);
+//        facilityList.put(villa1, 0);
+//        facilityList.put(villa2, 3);
+//        facilityList.put(house1, 5);
+//        facilityList.put(room1, 0);
+//        facilityList.put(room2, 3);
+//        facilityList.put(room3, 1);
+//        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv",true);
     }
 
     public static void add() {
@@ -57,9 +59,9 @@ public class FacilityServiceImpl implements FacilityService {
 
     }
 
-    public static void displayListFacilityMaintenance(){
+    public static void displayListFacilityMaintenance() {
         for (Map.Entry<Facility, Integer> facility : facilityList.entrySet()) {
-            if (facility.getValue()>=5){
+            if (facility.getValue() >= 5) {
                 System.out.println(facility.toString());
             }
         }
@@ -74,11 +76,12 @@ public class FacilityServiceImpl implements FacilityService {
         String typeOfRent = FacilityInput.inputTypeOfRent();
 
         int roomStandard = inputRoomStandard();
-        double poolArea = inputPoolArea();
         int floor = inputFloor();
+        double poolArea = inputPoolArea();
 
-        Villa villa = new Villa(facilityName, usingArea, cost, maximumPerson, typeOfRent, roomStandard, poolArea, floor);
+        Villa villa = new Villa(facilityName, usingArea, cost, maximumPerson, typeOfRent, roomStandard, floor, poolArea);
         facilityList.put(villa, 0);
+        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv",true);
     }
 
 
@@ -94,6 +97,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         House house = new House(facilityName, usingArea, cost, maximumPerson, typeOfRent, roomStandard, floor);
         facilityList.put(house, 0);
+        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv",true);
     }
 
     private static void addRoom() {
@@ -107,6 +111,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         Room room = new Room(facilityName, usingArea, cost, maximumPerson, typeOfRent, freeService);
         facilityList.put(room, 0);
+        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv",true);
     }
 
 

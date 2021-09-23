@@ -3,19 +3,21 @@ package case_study.furama.services;
 import case_study.furama.controllers.PersonInput;
 import case_study.furama.model.person.Customer;
 import case_study.furama.model.person.Employee;
+import case_study.furama.util.ReadCustomerListAndWriteToCSV;
 
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
-    static LinkedList<Customer> customersList = new LinkedList<>();
+    static LinkedList<Customer> customersList = ReadCustomerListAndWriteToCSV.getListCustomerFromCSV("src\\case_study\\furama\\data\\CustomerList.csv");
     static Scanner scanner = new Scanner(System.in);
 
     static {
-        customersList.add(new Customer("Nguyen A", new Date(91, 3, 25), true, 12345671, 80812301, "nguyena@gmail.com", 88801, Customer.DIAMOND, "Ha Noi"));
-        customersList.add(new Customer("Nguyen B", new Date(92, 11, 15), true, 12345672, 80812302, "nguyenb@gmail.com", 88802, Customer.MEMBER, "HCM"));
-        customersList.add(new Customer("Nguyen B", new Date(92, 11, 15), true, 12345333, 80812302, "nguyenb@gmail.com", 88802, Customer.MEMBER, "HCM"));
+//        customersList.add(new Customer("Nguyen A", new Date(91, 3, 25), true, 12345671, 80812301, "nguyena@gmail.com", 88801, Customer.DIAMOND, "Ha Noi"));
+//        customersList.add(new Customer("Nguyen B", new Date(92, 11, 15), true, 12345672, 80812302, "nguyenb@gmail.com", 88802, Customer.MEMBER, "HCM"));
+//        customersList.add(new Customer("Nguyen B", new Date(92, 11, 15), true, 12345333, 80812302, "nguyenb@gmail.com", 88802, Customer.MEMBER, "HCM"));
+//        ReadCustomerListAndWriteToCSV.readEmployeeListAndWriteToCSV(customersList,"src\\case_study\\furama\\data\\CustomerList.csv",true);
     }
 
     public static void add() {
@@ -34,6 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         Customer customer = new Customer(name,birthday,gender,idCardNumber,phoneNumber,email,customerID,membershipTier,address);
         customersList.add(customer);
+        ReadCustomerListAndWriteToCSV.readEmployeeListAndWriteToCSV(customersList,"src\\case_study\\furama\\data\\CustomerList.csv");
     }
 
 
@@ -54,6 +57,7 @@ public class CustomerServiceImpl implements CustomerService {
                 int index = Integer.parseInt(indexStr)-1;
                 if (index<customersList.size()&&index>=0){
                     editIndex(index);
+                    ReadCustomerListAndWriteToCSV.readEmployeeListAndWriteToCSV(customersList,"src\\case_study\\furama\\data\\CustomerList.csv");
                 } else {
                     System.out.println(indexStr+ " isnt exist. Enter again");
                 }

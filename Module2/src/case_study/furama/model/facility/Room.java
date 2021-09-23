@@ -30,4 +30,10 @@ public class Room extends Facility {
                 "freeService='" + freeService + '\'' +
                 '}';
     }
+
+    @Override
+    public String toStringToFile() {
+        return "Room," + super.toStringToFile() +
+                "," + freeService;
+    }
 }

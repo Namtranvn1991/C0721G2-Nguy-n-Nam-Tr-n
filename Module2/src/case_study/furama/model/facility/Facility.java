@@ -89,6 +89,15 @@ public class Facility implements Comparable<Facility> {
                 ", typeOfRent=" + typeOfRent + ", ";
     }
 
+    public String toStringToFile() {
+        return facilityName +
+                "," + usingArea +
+                "," + cost +
+                "," + maximumPerson +
+                "," + typeOfRent;
+    }
+
+
     @Override
     public int compareTo(Facility o) {
         return this.getFacilityName().compareTo(o.getFacilityName());

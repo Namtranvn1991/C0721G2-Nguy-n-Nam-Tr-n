@@ -94,6 +94,8 @@ public class Booking implements Comparable<Booking>{
         if (this.bookingID == o.bookingID){
             return this.bookingID - o.bookingID;
         }
+
+
         if (this.bookingDate.compareTo(o.bookingDate)==0){
             if (this.checkoutDate.compareTo(o.getCheckoutDate())==0){
                 if (this.getCustomer().getCustomerID()==o.getCustomer().getCustomerID()){
