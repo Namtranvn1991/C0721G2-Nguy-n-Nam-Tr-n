@@ -4,28 +4,62 @@ import case_study.furama.model.booking.Booking;
 import case_study.furama.model.facility.Facility;
 
 public class Contract {
-    private Booking booking;
-    private int number;
-    private int contractID;
-    private String paymentMethod;
 
-    public final String CASH = "cash";
-    public final String CREDIT = "credit";
+    private int contractID;
+    private Booking booking;
+    private int deposit;
+    private int totalPayment;
 
     public Contract() {
     }
 
+    public Contract(int contractID, Booking booking, int deposit, int totalPayment) {
+        this.contractID = contractID;
+        this.booking = booking;
+        this.deposit = deposit;
+        this.totalPayment = totalPayment;
+    }
 
+    public int getContractID() {
+        return contractID;
+    }
 
+    public void setContractID(int contractID) {
+        this.contractID = contractID;
+    }
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
+
+    public int getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(int deposit) {
+        this.deposit = deposit;
+    }
+
+    public int getTotalPayment() {
+        return totalPayment;
+    }
+
+    public void setTotalPayment(int totalPayment) {
+        this.totalPayment = totalPayment;
+    }
 
     @Override
     public String toString() {
         return "Contract{" +
-                "booking=" + booking.getCustomer().getName() + "/" + booking.getFacility().getFacilityName() +
-
-                ", number=" + number + " (" + booking.getFacility().getTypeOfRent() + ")" +
-                ", paymentMethod='" + paymentMethod + '\'' +
-                ", total=" + number * booking.getFacility().getCost() +
+                "contractID=" + contractID +
+                ", bookingID=" + booking.getBookingID() +
+                ", customerID=" + booking.getCustomer().getCustomerID() +
+                ", deposit=" + deposit +
+                ", totalPayment=" + totalPayment +
                 '}';
     }
 }
