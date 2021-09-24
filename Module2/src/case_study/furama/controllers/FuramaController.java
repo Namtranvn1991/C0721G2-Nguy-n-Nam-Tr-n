@@ -71,7 +71,6 @@ public class FuramaController {
                 displayEmployeeManagementMenu();
                 break;
             case "4":
-                displayMainMenu();
                 break;
             default:
                 System.out.println("Please enter again");
@@ -100,7 +99,6 @@ public class FuramaController {
                 displayCustomerManagementMenu();
                 break;
             case "4":
-                displayMainMenu();
                 break;
             default:
                 System.out.println("Please enter again");
@@ -129,7 +127,6 @@ public class FuramaController {
                 displayFacilityManagementMenu();
                 break;
             case "4":
-                displayMainMenu();
                 break;
             default:
                 System.out.println("Please enter again");
@@ -167,7 +164,6 @@ public class FuramaController {
 
                 break;
             case "6":
-                displayMainMenu();
                 break;
             default:
                 System.out.println("Please enter again");
@@ -189,7 +185,6 @@ public class FuramaController {
 
                 break;
             case "3":
-                displayMainMenu();
                 break;
             default:
                 System.out.println("Please enter again");

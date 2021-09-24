@@ -12,11 +12,10 @@ import java.util.Date;
 import java.util.List;
 
 public class ReadEmployeeListAndWriteToCSV {
-    public static void readEmployeeListAndWriteToCSV(ArrayList<Employee> employees, String pathFile, boolean append){
+    public static void readEmployeeListAndWriteToCSV(ArrayList<Employee> employees, String pathFile){
         File file = new File(pathFile);
         try {
-            clear(pathFile);
-            FileWriter fileWriter = new FileWriter(file,append);
+            FileWriter fileWriter = new FileWriter(file,false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for (Employee employee : employees){
                 bufferedWriter.write(employee.toStringToFile());
@@ -28,17 +27,6 @@ public class ReadEmployeeListAndWriteToCSV {
         }
     }
 
-    public static void clear(String pathFile){
-        File file = new File(pathFile);
-        try {
-            FileWriter fileWriter = new FileWriter(file);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("");
-            bufferedWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static ArrayList<Employee> getListEmployeeFromCSV(String pathFile){
         ArrayList<Employee> employeesList = new ArrayList<>();

@@ -43,7 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Employee employee = new Employee(name,birthday,gender,idCardNumber,phoneNumber,email,employeeID,degree,position,salary);
         employeesList.add(employee);
-        ReadEmployeeListAndWriteToCSV.readEmployeeListAndWriteToCSV(employeesList,"src\\case_study\\furama\\data\\EmployeeList.csv",true);
+        ReadEmployeeListAndWriteToCSV.readEmployeeListAndWriteToCSV(employeesList,"src\\case_study\\furama\\data\\EmployeeList.csv");
     }
 
     public static void display(){
@@ -63,7 +63,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 int index = Integer.parseInt(indexStr)-1;
                 if (index<employeesList.size()&&index>=0){
                     editIndex(index);
-                    ReadEmployeeListAndWriteToCSV.readEmployeeListAndWriteToCSV(employeesList,"src\\case_study\\furama\\data\\EmployeeList.csv",true);
+                    ReadEmployeeListAndWriteToCSV.readEmployeeListAndWriteToCSV(employeesList,"src\\case_study\\furama\\data\\EmployeeList.csv");
                 } else {
                     System.out.println(indexStr+ " isnt exist. Enter again");
                 }

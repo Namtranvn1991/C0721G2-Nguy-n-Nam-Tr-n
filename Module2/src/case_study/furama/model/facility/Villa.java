@@ -57,6 +57,5 @@ public class Villa extends Facility {
                 "," + roomStandard +
                 "," + floor +
                 "," + poolArea;
-
     }
 }

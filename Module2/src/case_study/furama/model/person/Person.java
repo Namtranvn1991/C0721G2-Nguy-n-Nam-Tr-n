@@ -1,9 +1,10 @@
 package case_study.furama.model.person;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Person implements Comparable<Person> {
+public class Person implements Comparable<Person>, Serializable {
     private String name;
     private Date birthday;
     private boolean gender;

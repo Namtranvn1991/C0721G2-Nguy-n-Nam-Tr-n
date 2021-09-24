@@ -14,11 +14,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ReadFacilityListAndWriteToCSV {
-    public static void readFacilityListAndWriteToCSV(Map<Facility, Integer> facilityList, String pathFile, boolean append) {
+    public static void readFacilityListAndWriteToCSV(Map<Facility, Integer> facilityList, String pathFile) {
         File file = new File(pathFile);
         try {
-            clear(pathFile);
-            FileWriter fileWriter = new FileWriter(file, append);
+            FileWriter fileWriter = new FileWriter(file, false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             facilityList.forEach((k, v) -> {
                 try {
@@ -38,17 +37,6 @@ public class ReadFacilityListAndWriteToCSV {
         }
     }
 
-    public static void clear(String pathFile) {
-        File file = new File(pathFile);
-        try {
-            FileWriter fileWriter = new FileWriter(file);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("");
-            bufferedWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static Map<Facility, Integer> getListEmployeeFromCSV(String pathFile) {
         Map<Facility, Integer> facilityList = new LinkedHashMap<>();

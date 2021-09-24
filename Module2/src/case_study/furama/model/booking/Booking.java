@@ -3,10 +3,11 @@ package case_study.furama.model.booking;
 import case_study.furama.model.facility.Facility;
 import case_study.furama.model.person.Customer;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Booking implements Comparable<Booking>{
+public class Booking implements Comparable<Booking>, Serializable {
     private int bookingID;
     private Customer customer;
     private Facility facility;

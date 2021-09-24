@@ -5,6 +5,7 @@ import case_study.furama.model.facility.Facility;
 import case_study.furama.model.facility.House;
 import case_study.furama.model.facility.Villa;
 import case_study.furama.model.person.Customer;
+import case_study.furama.util.ReadWriteBookingListBinaryFile;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,28 +15,27 @@ import java.util.TreeSet;
 
 public class BookingServiceImpl implements BookingService {
     static Scanner scanner = new Scanner(System.in);
-    static TreeSet<Booking> bookingList = new TreeSet<Booking>();
+    static TreeSet<Booking> bookingList = ReadWriteBookingListBinaryFile.readDataFromFile("src\\case_study\\furama\\data\\BookingList.dat");
     static {
-        Facility facility1 = null;
-        Facility facility2 = null;
-        Facility facility3 = null;
-        for (Facility facility: FacilityServiceImpl.facilityList.keySet()) {
-            if (facility.getFacilityName().equals("Villa A")){
-                facility1 = facility;
-            }
-            if (facility.getFacilityName().equals("Room101")){
-                facility2 = facility;
-            }
-            if (facility.getFacilityName().equals("Room103")){
-                facility3 = facility;
-            }
-        }
-
-        bookingList.add(new Booking(10001,CustomerServiceImpl.customersList.get(1),facility1,new Date(2020,5,4),new Date(2020,5,4)));
-        bookingList.add(new Booking(10002,CustomerServiceImpl.customersList.get(0),facility2,new Date(2020,5,4),new Date(2020,5,4)));
-        bookingList.add(new Booking(10003,CustomerServiceImpl.customersList.get(3),facility2,new Date(2020,5,4),new Date(2020,5,4)));
+//        Facility facility1 = null;
+//        Facility facility2 = null;
+//        Facility facility3 = null;
+//        for (Facility facility: FacilityServiceImpl.facilityList.keySet()) {
+//            if (facility.getFacilityName().equals("Villa A")){
+//                facility1 = facility;
+//            }
+//            if (facility.getFacilityName().equals("Room101")){
+//                facility2 = facility;
+//            }
+//            if (facility.getFacilityName().equals("Room103")){
+//                facility3 = facility;
+//            }
+//        }
+//        bookingList.add(new Booking(10001,CustomerServiceImpl.customersList.get(1),facility1,new Date(2020,5,4),new Date(2020,5,4)));
+//        bookingList.add(new Booking(10002,CustomerServiceImpl.customersList.get(0),facility2,new Date(2020,5,4),new Date(2020,5,4)));
+//        bookingList.add(new Booking(10003,CustomerServiceImpl.customersList.get(3),facility2,new Date(2020,5,4),new Date(2020,5,4)));
+//        ReadWriteBookingListBinaryFile.writeToFile("src\\case_study\\furama\\data\\BookingList.dat",bookingList);
     }
-
 
     public static void display(){
         for (Booking booking: bookingList) {
@@ -45,12 +45,24 @@ public class BookingServiceImpl implements BookingService {
 
     public static void add(){
         int bookingID = inputBookingID();
-        Customer customer = inputCustomer();
-        Facility facility = inputFacility();
+        Customer customer = null;
+        try {
+            customer = inputCustomer();
+        } catch (Exception e) {
+            return;
+        }
+
+        Facility facility = null;
+        try {
+            facility = inputFacility();
+        } catch (Exception e) {
+            return;
+        }
         Date booking = inputBookingDate();
         Date checkout = inputCheckoutDate();
 
         bookingList.add(new Booking(bookingID,customer,facility,booking,checkout));
+        ReadWriteBookingListBinaryFile.writeToFile("src\\case_study\\furama\\data\\BookingList.dat",bookingList);
     }
 
     static int inputBookingID() {
@@ -67,7 +79,7 @@ public class BookingServiceImpl implements BookingService {
 
 
 
-    public static Customer inputCustomer(){
+    public static Customer inputCustomer() throws Exception {
         while (true){
             System.out.println("Enter customer ID. 0/ return");
             String customerID = scanner.nextLine();
@@ -77,14 +89,15 @@ public class BookingServiceImpl implements BookingService {
                 }
             }
             if(customerID.equals("0")){
-                return null;
+                throw new Exception("Return");
             }
             System.out.println("Enter customer ID again");
         }
+
     }
 
 
-    public static Facility inputFacility(){
+    public static Facility inputFacility() throws Exception {
         while (true){
             System.out.println("Enter facility name. 0/ return");
             String facilityName = scanner.nextLine();
@@ -94,7 +107,7 @@ public class BookingServiceImpl implements BookingService {
                 }
             }
             if(facilityName.equals("0")){
-                return null;
+                throw new Exception("return");
             }
             System.out.println("Enter facility name again");
         }

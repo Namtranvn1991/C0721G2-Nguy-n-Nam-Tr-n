@@ -81,7 +81,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         Villa villa = new Villa(facilityName, usingArea, cost, maximumPerson, typeOfRent, roomStandard, floor, poolArea);
         facilityList.put(villa, 0);
-        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv",true);
+        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv");
     }
 
 
@@ -97,7 +97,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         House house = new House(facilityName, usingArea, cost, maximumPerson, typeOfRent, roomStandard, floor);
         facilityList.put(house, 0);
-        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv",true);
+        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv");
     }
 
     private static void addRoom() {
@@ -111,7 +111,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         Room room = new Room(facilityName, usingArea, cost, maximumPerson, typeOfRent, freeService);
         facilityList.put(room, 0);
-        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv",true);
+        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv");
     }
 
 

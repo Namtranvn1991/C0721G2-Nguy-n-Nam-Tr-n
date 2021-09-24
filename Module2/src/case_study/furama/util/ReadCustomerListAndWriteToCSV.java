@@ -25,18 +25,6 @@ public class ReadCustomerListAndWriteToCSV {
         }
     }
 
-    public static void clear(String pathFile){
-        File file = new File(pathFile);
-        try {
-            FileWriter fileWriter = new FileWriter(file);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("");
-            bufferedWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static LinkedList<Customer> getListCustomerFromCSV(String pathFile){
         LinkedList<Customer> customersList = new LinkedList<>();
         File file = new File(pathFile);
