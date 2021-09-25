@@ -1,4 +1,4 @@
-package _17_io_binary_file_and_serialization.exercise.productManagement;
+package _17_io_binary_file_and_serialization.exercise.product_management;
 
 import java.util.Scanner;
 

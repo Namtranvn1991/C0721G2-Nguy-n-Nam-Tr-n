@@ -1,4 +1,4 @@
-package _17_io_binary_file_and_serialization.exercise.copyFileBinary;
+package _17_io_binary_file_and_serialization.exercise.copy_file_binary;
 
 import java.util.Scanner;
 

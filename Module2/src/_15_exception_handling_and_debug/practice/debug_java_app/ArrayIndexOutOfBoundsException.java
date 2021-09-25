@@ -1,4 +1,4 @@
-package _15_exception_handling_and_debug.practice.DebugJavaApp;
+package _15_exception_handling_and_debug.practice.debug_java_app;
 
 import java.util.Random;
 import java.util.Scanner;

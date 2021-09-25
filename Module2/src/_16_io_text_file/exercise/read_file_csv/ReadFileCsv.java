@@ -1,7 +1,6 @@
-package _16_io_text_file.exercise.readFileCsv;
+package _16_io_text_file.exercise.read_file_csv;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class ReadFileCsv {

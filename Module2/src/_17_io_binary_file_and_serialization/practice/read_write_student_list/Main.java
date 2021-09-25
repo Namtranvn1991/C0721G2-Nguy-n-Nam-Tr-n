@@ -1,4 +1,4 @@
-package _17_io_binary_file_and_serialization.practice.readAndWriteStudentList;
+package _17_io_binary_file_and_serialization.practice.read_write_student_list;
 
 import java.io.*;
 import java.util.ArrayList;

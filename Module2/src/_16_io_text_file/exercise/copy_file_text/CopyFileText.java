@@ -1,4 +1,4 @@
-package _16_io_text_file.exercise.copyFileText;
+package _16_io_text_file.exercise.copy_file_text;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,10 +1,6 @@
-package _17_io_binary_file_and_serialization.exercise.productManagement;
-
-import _17_io_binary_file_and_serialization.practice.readAndWriteStudentList.Student;
+package _17_io_binary_file_and_serialization.exercise.product_management;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.TreeSet;
 
 public class ReadWrite {

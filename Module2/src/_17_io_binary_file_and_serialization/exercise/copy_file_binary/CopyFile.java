@@ -1,9 +1,6 @@
-package _17_io_binary_file_and_serialization.exercise.copyFileBinary;
-
-import _17_io_binary_file_and_serialization.exercise.productManagement.Product;
+package _17_io_binary_file_and_serialization.exercise.copy_file_binary;
 
 import java.io.*;
-import java.util.TreeSet;
 
 public class CopyFile {
     public static void writeToFile(String sourcePath, String targetPath) {

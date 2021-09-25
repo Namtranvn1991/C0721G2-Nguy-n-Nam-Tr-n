@@ -25,6 +25,8 @@ public class ContactServiceImpl implements ContactService {
         switch (choice) {
             case "y":
                 contractList.add(contract);
+                String facilityName = contract.getBooking().getFacility().getFacilityName();
+                FacilityServiceImpl.usedAFacility(facilityName);
                 BookingServiceImpl.bookingList.pollFirst();
             default:
                 return;
@@ -46,18 +48,15 @@ public class ContactServiceImpl implements ContactService {
             }
             for (Contract contract:contractList) {
                 if (contractID.equals(contract.getContractID()+"")){
-                    
-
-
+                    int newDeposit = inputDeposit();
+                    int newTotalPayment = inputTotalPayment();
+                    contract.setDeposit(newDeposit);
+                    contract.setTotalPayment(newTotalPayment);
                 }
+                return;
             }
-
-
+            System.out.println("Contract ID is not found");
         }
-
-
-
-
     }
 
 

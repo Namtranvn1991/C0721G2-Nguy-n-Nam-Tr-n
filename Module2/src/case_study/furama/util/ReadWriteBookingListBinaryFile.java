@@ -1,11 +1,8 @@
 package case_study.furama.util;
 
-import _17_io_binary_file_and_serialization.practice.readAndWriteStudentList.Student;
 import case_study.furama.model.booking.Booking;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.TreeSet;
 
 public class ReadWriteBookingListBinaryFile {

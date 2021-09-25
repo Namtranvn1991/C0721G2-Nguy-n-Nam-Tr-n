@@ -1,9 +1,6 @@
 package case_study.furama.controllers;
 
-import case_study.furama.services.BookingServiceImpl;
-import case_study.furama.services.CustomerServiceImpl;
-import case_study.furama.services.EmployeeServiceImpl;
-import case_study.furama.services.FacilityServiceImpl;
+import case_study.furama.services.*;
 
 import java.util.Scanner;
 
@@ -155,13 +152,16 @@ public class FuramaController {
                 displayBookingManagementMenu();
                 break;
             case "3":
-
+                ContactServiceImpl.add();
+                displayBookingManagementMenu();
                 break;
             case "4":
-
+                ContactServiceImpl.display();
+                displayBookingManagementMenu();
                 break;
             case "5":
-
+                ContactServiceImpl.edit();
+                displayBookingManagementMenu();
                 break;
             case "6":
                 break;

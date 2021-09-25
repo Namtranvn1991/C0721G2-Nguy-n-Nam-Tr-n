@@ -32,6 +32,15 @@ public class FacilityServiceImpl implements FacilityService {
 //        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv",true);
     }
 
+    public static void usedAFacility(String facilityName){
+        for (Map.Entry<Facility, Integer> facility : facilityList.entrySet()) {
+            if (facility.getKey().getFacilityName().equals(facilityName)){
+                facility.setValue(facility.getValue()+1);
+            }
+        }
+    }
+
+
     public static void add() {
         System.out.println("1.Add New Villa 2.Add New House 3.Add New Room 4.Back to menu");
         String choice = scanner.nextLine();
