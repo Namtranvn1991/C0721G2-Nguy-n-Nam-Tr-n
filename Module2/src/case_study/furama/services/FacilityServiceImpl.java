@@ -146,7 +146,11 @@ public class FacilityServiceImpl implements FacilityService {
             System.out.println("Enter pool Area");
             String poolArea = scanner.nextLine();
             if (isStringDouble(poolArea)) {
-                return Double.parseDouble(poolArea);
+                if (Double.parseDouble(poolArea)>=30){
+                    return Double.parseDouble(poolArea);
+                }else {
+                    System.out.println("Enter again");
+                }
             } else {
                 System.out.println("Enter again");
             }
@@ -158,7 +162,11 @@ public class FacilityServiceImpl implements FacilityService {
             System.out.println("Enter floors");
             String floor = scanner.nextLine();
             if (isStringInt(floor)) {
-                return Integer.parseInt(floor);
+                if (Integer.parseInt(floor)>0){
+                    return Integer.parseInt(floor);
+                }else {
+                    System.out.println("Enter again");
+                }
             } else {
                 System.out.println("Enter again");
             }

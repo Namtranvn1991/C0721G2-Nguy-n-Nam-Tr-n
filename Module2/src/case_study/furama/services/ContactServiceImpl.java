@@ -2,6 +2,7 @@ package case_study.furama.services;
 
 import case_study.furama.model.booking.Booking;
 import case_study.furama.model.contract.Contract;
+import case_study.furama.util.ReadWriteContractListBinaryFile;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,7 +10,8 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class ContactServiceImpl implements ContactService {
-    static public List<Contract> contractList = new LinkedList<>();
+    static final String CONTRACT_LIST_PATH = "src\\case_study\\furama\\data\\ContractList.dat";
+    static public List<Contract> contractList = ReadWriteContractListBinaryFile.readDataFromFile(CONTRACT_LIST_PATH);
     static Scanner scanner = new Scanner(System.in);
 
 
@@ -23,11 +25,13 @@ public class ContactServiceImpl implements ContactService {
         System.out.println("Do you want to create this contract. Y/N");
         String choice = scanner.nextLine();
         switch (choice) {
+            case "Y":
             case "y":
                 contractList.add(contract);
                 String facilityName = contract.getBooking().getFacility().getFacilityName();
                 FacilityServiceImpl.usedAFacility(facilityName);
                 BookingServiceImpl.bookingList.pollFirst();
+                ReadWriteContractListBinaryFile.writeToFile(CONTRACT_LIST_PATH,contractList);
             default:
                 return;
         }
@@ -52,6 +56,7 @@ public class ContactServiceImpl implements ContactService {
                     int newTotalPayment = inputTotalPayment();
                     contract.setDeposit(newDeposit);
                     contract.setTotalPayment(newTotalPayment);
+                    ReadWriteContractListBinaryFile.writeToFile(CONTRACT_LIST_PATH,contractList);
                 }
                 return;
             }

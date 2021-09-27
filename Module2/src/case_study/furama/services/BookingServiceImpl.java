@@ -14,8 +14,9 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 public class BookingServiceImpl implements BookingService {
+    static final String BOOKING_LIST_PATH = "src\\case_study\\furama\\data\\BookingList.dat";
     static Scanner scanner = new Scanner(System.in);
-    static TreeSet<Booking> bookingList = ReadWriteBookingListBinaryFile.readDataFromFile("src\\case_study\\furama\\data\\BookingList.dat");
+    static TreeSet<Booking> bookingList = ReadWriteBookingListBinaryFile.readDataFromFile(BOOKING_LIST_PATH);
     static {
 //        Facility facility1 = null;
 //        Facility facility2 = null;
@@ -62,7 +63,7 @@ public class BookingServiceImpl implements BookingService {
         Date checkout = inputCheckoutDate();
 
         bookingList.add(new Booking(bookingID,customer,facility,booking,checkout));
-        ReadWriteBookingListBinaryFile.writeToFile("src\\case_study\\furama\\data\\BookingList.dat",bookingList);
+        ReadWriteBookingListBinaryFile.writeToFile(BOOKING_LIST_PATH,bookingList);
     }
 
     static int inputBookingID() {

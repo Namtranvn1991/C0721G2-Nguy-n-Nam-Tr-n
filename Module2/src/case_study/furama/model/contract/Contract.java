@@ -3,7 +3,9 @@ package case_study.furama.model.contract;
 import case_study.furama.model.booking.Booking;
 import case_study.furama.model.facility.Facility;
 
-public class Contract {
+import java.io.Serializable;
+
+public class Contract implements Serializable {
 
     private int contractID;
     private Booking booking;
@@ -58,6 +60,7 @@ public class Contract {
                 "contractID=" + contractID +
                 ", bookingID=" + booking.getBookingID() +
                 ", customerID=" + booking.getCustomer().getCustomerID() +
+                ", facilityName=" + booking.getFacility().getFacilityName() +
                 ", deposit=" + deposit +
                 ", totalPayment=" + totalPayment +
                 '}';

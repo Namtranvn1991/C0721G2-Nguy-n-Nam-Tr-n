@@ -34,6 +34,7 @@ public class ReadFacilityListAndWriteToCSV {
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e){
         }
     }
 

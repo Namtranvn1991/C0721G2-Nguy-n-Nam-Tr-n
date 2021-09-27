@@ -8,9 +8,15 @@ public class FacilityInput {
     static Scanner scanner = new Scanner(System.in);
 
     public static String inputName() {
-        System.out.println("Enter Name");
-        String name = scanner.nextLine();
-        return name;
+        while (true) {
+            System.out.println("Enter Name");
+            String name = scanner.nextLine();
+            if (validateFacilityName(name)) {
+                return name;
+            } else {
+                System.out.println("Enter again");
+            }
+        }
     }
 
     public static double inputUsingArea() {
@@ -30,7 +36,11 @@ public class FacilityInput {
             System.out.println("Enter cost");
             String cost = scanner.nextLine();
             if (isStringDouble(cost)) {
-                return Double.parseDouble(cost);
+                if(Double.parseDouble(cost)>0){
+                    return Double.parseDouble(cost);
+                }else {
+                    System.out.println("Enter again");
+                }
             } else {
                 System.out.println("Enter again");
             }
@@ -51,11 +61,11 @@ public class FacilityInput {
     }
 
 
-    public static String inputTypeOfRent(){
+    public static String inputTypeOfRent() {
         while (true) {
             System.out.println("Type Of Rent 1.Hourly Rental 2.Daily Rental 3.Monthly Rental 4.Yearly Rental");
             String choice = scanner.nextLine();
-            switch (choice){
+            switch (choice) {
                 case "1":
                     return Facility.HOURLY_RENTAL;
                 case "2":
@@ -87,5 +97,10 @@ public class FacilityInput {
         } catch (NumberFormatException ex) {
             return false;
         }
+    }
+
+    static public boolean validateFacilityName(String facilityName) {
+        String regex = "[S][V][VHR][LO][-]\\d{4}";
+        return facilityName.matches(regex);
     }
 }

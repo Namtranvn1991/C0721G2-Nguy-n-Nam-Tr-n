@@ -60,6 +60,7 @@ public class ReadCustomerListAndWriteToCSV {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error");
+        } catch (Exception e){
         }
         return customersList;
     }

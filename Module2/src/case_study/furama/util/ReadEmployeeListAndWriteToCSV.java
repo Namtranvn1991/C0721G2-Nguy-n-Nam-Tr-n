@@ -61,9 +61,12 @@ public class ReadEmployeeListAndWriteToCSV {
                 employeesList.add(employee);
             }
             bufferedReader.close();
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error");
+        } catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error123");
         }
         return employeesList;
     }

@@ -2,6 +2,7 @@ package case_study.furama.controllers;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -15,9 +16,15 @@ public class PersonInput {
     }
 
     public static String inputEmail() {
-        System.out.println("Enter email");
-        String email = scanner.nextLine();
-        return email;
+        while (true) {
+            System.out.println("Enter email");
+            String email = scanner.nextLine();
+            if (validateEmail(email)) {
+                return email;
+            } else {
+                System.out.println("Enter email again");
+            }
+        }
     }
 
 
@@ -94,12 +101,24 @@ public class PersonInput {
             simpleDateFormat.setLenient(false);
             try {
                 Date javaDate = simpleDateFormat.parse(strDate);
-                System.out.println(strDate + " is valid date format");
+                int yearOld = LocalDate.now().getYear()-javaDate.getYear()-1900;
+                System.out.println(yearOld);
+                if (yearOld>17&&yearOld<100) {
+                    System.out.println(strDate + " is valid date format");
+                } else {
+                    System.out.println("Age must be between 18 and 100");
+                    return false;
+                }
             } catch (ParseException e) {
                 System.out.println(strDate + " is Invalid Date format");
                 return false;
             }
             return true;
         }
+    }
+
+    public static boolean validateEmail(String email) {
+        String regex = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+){1,2}$";
+        return email.matches(regex);
     }
 }
