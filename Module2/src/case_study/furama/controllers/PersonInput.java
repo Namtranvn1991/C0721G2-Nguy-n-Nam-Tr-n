@@ -27,7 +27,6 @@ public class PersonInput {
         }
     }
 
-
     public static Date inputBirthday() {
         while (true) {
             System.out.println("Enter birthday (dd/MM/yyyy) ");
@@ -104,7 +103,7 @@ public class PersonInput {
                 int yearOld = LocalDate.now().getYear()-javaDate.getYear()-1900;
                 System.out.println(yearOld);
                 if (yearOld>17&&yearOld<100) {
-                    System.out.println(strDate + " is valid date format");
+                    System.out.println(strDate + " is valid date");
                 } else {
                     System.out.println("Age must be between 18 and 100");
                     return false;

@@ -33,6 +33,7 @@ public class ContactServiceImpl implements ContactService {
                 BookingServiceImpl.bookingList.pollFirst();
                 ReadWriteContractListBinaryFile.writeToFile(CONTRACT_LIST_PATH,contractList);
             default:
+                System.out.println("contract is canceled");
                 return;
         }
     }
