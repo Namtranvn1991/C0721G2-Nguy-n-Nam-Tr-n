@@ -6,24 +6,12 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class code {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-
-        while (true){
-            String date = scanner.nextLine();
-            if (validateJavaDate(date)){
-                return;
-            }else {
-                System.out.println("123");
-            }
-        }
-
-
-
-
 
     }
+
+
 
     public static boolean validateJavaDate(String strDate) {
         if (strDate.trim().equals("")) {
@@ -48,9 +36,4 @@ public class code {
             return true;
         }
     }
-
-
-
-
-
 }

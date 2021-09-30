@@ -21,10 +21,10 @@ public class CrawlNew1 {
             System.out.println(content);
             scanner.close();
             content = content.replaceAll("\\n+", "");
-            Pattern p = Pattern.compile("title=\"(.*?)\"");
+            Pattern p = Pattern.compile("title=\"(.*?)\">(.*?)</a>");
             Matcher m = p.matcher(content);
             while (m.find()) {
-                System.out.println(m.group(1));
+                System.out.println(m.group(2));
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
