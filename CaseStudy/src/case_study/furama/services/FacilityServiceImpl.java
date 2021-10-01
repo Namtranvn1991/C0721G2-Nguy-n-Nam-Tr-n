@@ -1,13 +1,12 @@
 package case_study.furama.services;
 
-import case_study.furama.controllers.FacilityInput;
+import case_study.furama.util.FacilityInput;
 import case_study.furama.model.facility.Facility;
 import case_study.furama.model.facility.House;
 import case_study.furama.model.facility.Room;
 import case_study.furama.model.facility.Villa;
 import case_study.furama.util.ReadFacilityListAndWriteToCSV;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 

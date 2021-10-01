@@ -1,4 +1,4 @@
-package case_study.furama.controllers;
+package case_study.furama.util;
 
 import case_study.furama.model.facility.Facility;
 
@@ -7,6 +7,10 @@ import java.util.Scanner;
 public class FacilityInput {
     static Scanner scanner = new Scanner(System.in);
 
+    //-	Mã dịch vụ phải đúng định dạng: SVXX-YYYY, với YYYY là các số từ 0-9, XX là:
+    //-	Nếu là Villa thì XX sẽ là VL
+    //-	Nếu là House thì XX sẽ là HO
+    //-	Nếu Room thì XX sẽ là RO
     public static String inputName() {
         while (true) {
             System.out.println("Enter Name");
@@ -100,7 +104,7 @@ public class FacilityInput {
     }
 
     static public boolean validateFacilityName(String facilityName) {
-        String regex = "[S][V][VHR][LO][-]\\d{4}";
+        String regex = "(SV)(VL||HO||RO)-\\d{4}";
         return facilityName.matches(regex);
     }
 }

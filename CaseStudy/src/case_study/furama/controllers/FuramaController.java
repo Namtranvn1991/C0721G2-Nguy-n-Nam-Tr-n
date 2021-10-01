@@ -179,7 +179,8 @@ public class FuramaController {
         String choice = scanner.nextLine();
         switch (choice) {
             case "1":
-
+                PromotionServiceImpl.display();
+                displayPromotionManagementMenu();
                 break;
             case "2":
 

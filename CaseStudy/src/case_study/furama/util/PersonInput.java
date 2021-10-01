@@ -1,4 +1,4 @@
-package case_study.furama.controllers;
+package case_study.furama.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
