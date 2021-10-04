@@ -25,7 +25,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public static void add(){
         System.out.println("Enter employee name ");
-        String name = scanner.nextLine();
+        String name = PersonInput.inputName();
 
         Date birthday = PersonInput.inputBirthday();
         boolean gender = PersonInput.inputGender();
@@ -79,7 +79,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             switch (choice){
                 case "1":
                     System.out.println("Enter new name");
-                    employeesList.get(index).setName(scanner.nextLine());
+                    employeesList.get(index).setName(PersonInput.inputName());
                     employeesList.get(index).toString();
                     break;
                 case "2":

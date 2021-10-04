@@ -1,29 +1,28 @@
 package case_study.furama.services;
 
 import case_study.furama.model.booking.Booking;
+import case_study.furama.model.person.Customer;
 import case_study.furama.model.voucher.Voucher;
 import case_study.furama.util.ReadWriteBookingListBinaryFile;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Stack;
-import java.util.TreeSet;
+import java.util.*;
 
 public class PromotionServiceImpl {
     static final String ALL_BOOKING_LIST_PATH = "src\\case_study\\furama\\data\\AllBookingList.dat";
     static Scanner scanner = new Scanner(System.in);
     static TreeSet<Booking> allBookingList = ReadWriteBookingListBinaryFile.readDataFromFile(ALL_BOOKING_LIST_PATH);
-    static TreeSet<Booking> bookingsThisMonth = new TreeSet<>();
-    static List<Voucher> vouchers = new Stack<>();
+    static TreeSet<Customer> customerBookingsThisMonth = new TreeSet<>();
+    static Stack<Voucher> vouchers = new Stack<>();
+    static Map<Customer, Voucher> listCustomerGetVoucher = new LinkedHashMap<>();
 
     public static void display() {
         while (true) {
             boolean flag = true;
-            System.out.println("Enter years. 0/ display all.");
+            System.out.println("Enter years. x/ display all.");
             String years = scanner.nextLine();
-            if (years.equals("0")) {
+            if (years.equals("x")) {
                 for (Booking booking : allBookingList) {
                     System.out.println(booking);
                 }
@@ -32,7 +31,7 @@ public class PromotionServiceImpl {
             if (isStringInt(years)) {
                 int yearsInt = Integer.parseInt(years);
                 for (Booking booking : allBookingList) {
-                    if (yearsInt == (LocalDate.now().getYear() - booking.getBookingDate().getYear() - 1900)) {
+                    if (yearsInt == (LocalDate.now().getYear() - (booking.getBookingDate().getYear() + 1900))) {
                         System.out.println(booking);
                         flag = false;
                     }
@@ -47,19 +46,26 @@ public class PromotionServiceImpl {
         }
     }
 
-
-    private static void bookingsThisMonth (){
-        for (Booking booking:allBookingList) {
-            if (booking.getBookingDate().getYear()+1900==LocalDate.now().getYear()&&booking.getBookingDate().getMonth()+1==LocalDate.now().getMonthValue()){
-                bookingsThisMonth.add(booking);
+    public static void displayListCustomersGetVoucher() {
+        inputAllVoucher();
+        bookingsThisMonth();
+        for (Customer customer : customerBookingsThisMonth) {
+            if (!vouchers.empty()) {
+                listCustomerGetVoucher.put(customer, vouchers.pop());
             }
         }
-        for (Booking b: bookingsThisMonth) {
-            System.out.println(b);
+        listCustomerGetVoucher.forEach((k,v)-> System.out.println(k+" get "+v));
+    }
+
+    private static void bookingsThisMonth() {
+        for (Booking booking : allBookingList) {
+            if ((booking.getBookingDate().getYear() + 1900) == LocalDate.now().getYear() && booking.getBookingDate().getMonth() + 1 == LocalDate.now().getMonthValue()) {
+                customerBookingsThisMonth.add(booking.getCustomer());
+            }
         }
     }
 
-    public static void inputAllVoucher(){
+    public static void inputAllVoucher() {
         System.out.println("add voucher 10%");
         int voucher10 = addVoucher();
         for (int i = 0; i < voucher10; i++) {
@@ -78,13 +84,16 @@ public class PromotionServiceImpl {
             Voucher voucher = new Voucher(Voucher.VOUCHER_50);
             vouchers.add(voucher);
         }
+        for (Voucher v: vouchers) {
+            System.out.println(v);
+        }
     }
 
-     private static int addVoucher(){
-        while (true){
+    private static int addVoucher() {
+        while (true) {
             String voucher = scanner.nextLine();
-            if (isStringInt(voucher)){
-                if (Integer.parseInt(voucher)>0){
+            if (isStringInt(voucher)) {
+                if (Integer.parseInt(voucher) >= 0) {
                     return Integer.parseInt(voucher);
                 } else {
                     System.out.println("Enter again");
@@ -105,9 +114,19 @@ public class PromotionServiceImpl {
     }
 
     public static void main(String[] args) {
-        inputAllVoucher();
+        bookingsThisMonth();
+        for (Customer c : customerBookingsThisMonth) {
+            System.out.println(c);
+        }
+        displayListCustomersGetVoucher();
         for (Voucher v:vouchers) {
             System.out.println(v);
         }
+
+
+//        inputAllVoucher();
+//        for (Voucher v:vouchers) {
+//            System.out.println(v);
+//        }
     }
 }

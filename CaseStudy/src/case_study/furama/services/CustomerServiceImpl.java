@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     public static void add() {
         System.out.println("Enter customer name ");
-        String name = scanner.nextLine();
+        String name = PersonInput.inputName();
 
         Date birthday = PersonInput.inputBirthday();
         boolean gender = PersonInput.inputGender();
@@ -76,7 +76,7 @@ public class CustomerServiceImpl implements CustomerService {
             switch (choice){
                 case "1":
                     System.out.println("Enter new name");
-                    customersList.get(index).setName(scanner.nextLine());
+                    customersList.get(index).setName(PersonInput.inputName());
                     customersList.get(index).toString();
                     break;
                 case "2":

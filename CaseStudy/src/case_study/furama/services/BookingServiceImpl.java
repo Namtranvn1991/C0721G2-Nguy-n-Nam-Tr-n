@@ -5,6 +5,7 @@ import case_study.furama.model.facility.Facility;
 import case_study.furama.model.facility.House;
 import case_study.furama.model.facility.Villa;
 import case_study.furama.model.person.Customer;
+import case_study.furama.util.ReadBookingListAndWriteToCSV;
 import case_study.furama.util.ReadWriteBookingListBinaryFile;
 
 import java.text.ParseException;
@@ -16,9 +17,12 @@ import java.util.TreeSet;
 public class BookingServiceImpl implements BookingService {
     static final String BOOKING_LIST_PATH = "src\\case_study\\furama\\data\\BookingList.dat";
     static final String ALL_BOOKING_LIST_PATH = "src\\case_study\\furama\\data\\AllBookingList.dat";
+    static final String ALL_BOOKING_LIST_CSV_PATH = "src\\case_study\\furama\\data\\BookingList.csv";
     static Scanner scanner = new Scanner(System.in);
     static TreeSet<Booking> bookingList = ReadWriteBookingListBinaryFile.readDataFromFile(BOOKING_LIST_PATH);
     static TreeSet<Booking> allBookingList = ReadWriteBookingListBinaryFile.readDataFromFile(ALL_BOOKING_LIST_PATH);
+    static TreeSet<Booking> allBookingListCsv = ReadBookingListAndWriteToCSV.getListBookingFromCSV(ALL_BOOKING_LIST_CSV_PATH);
+
     static {
 //        Facility facility1 = null;
 //        Facility facility2 = null;
@@ -68,6 +72,7 @@ public class BookingServiceImpl implements BookingService {
         allBookingList.add(new Booking(bookingID,customer,facility,booking,checkout));
         ReadWriteBookingListBinaryFile.writeToFile(BOOKING_LIST_PATH,bookingList);
         ReadWriteBookingListBinaryFile.writeToFile(ALL_BOOKING_LIST_PATH,allBookingList);
+        ReadBookingListAndWriteToCSV.readEmployeeListAndWriteToCSV(allBookingList,ALL_BOOKING_LIST_CSV_PATH);
     }
 
     static int inputBookingID() {
@@ -180,12 +185,8 @@ public class BookingServiceImpl implements BookingService {
     }
 
     public static void main(String[] args) {
-
-        for (Booking b:allBookingList) {
+        for (Booking b: allBookingListCsv) {
             System.out.println(b);
         }
-
-
     }
-
 }

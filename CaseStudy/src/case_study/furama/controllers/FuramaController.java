@@ -183,7 +183,8 @@ public class FuramaController {
                 displayPromotionManagementMenu();
                 break;
             case "2":
-
+                PromotionServiceImpl.displayListCustomersGetVoucher();
+                displayPromotionManagementMenu();
                 break;
             case "3":
                 break;

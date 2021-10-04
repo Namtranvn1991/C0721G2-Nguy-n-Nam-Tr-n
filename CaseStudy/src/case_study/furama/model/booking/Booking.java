@@ -79,6 +79,14 @@ public class Booking implements Comparable<Booking>, Serializable {
         return Objects.hash(bookingID);
     }
 
+    public String toStringToFile(){
+        return  bookingID +
+                "," + customer.getCustomerID() +
+                "," + facility.getFacilityName() +
+                "," + bookingDate.getDate() + "/" + (bookingDate.getMonth()+1) + "/" + (bookingDate.getYear()+1900) +
+                "," + checkoutDate.getDate() + "/" + (checkoutDate.getMonth()+1) + "/" + (checkoutDate.getYear()+1900);
+    }
+
     @Override
     public String toString() {
         return "Booking{" +

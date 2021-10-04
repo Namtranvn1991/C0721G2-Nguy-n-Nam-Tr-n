@@ -3,7 +3,7 @@ package case_study.furama.model.facility;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Facility implements Comparable<Facility>, Serializable {
+public abstract class Facility implements Comparable<Facility>, Serializable {
     private String facilityName;
     private double usingArea;
     private double cost;

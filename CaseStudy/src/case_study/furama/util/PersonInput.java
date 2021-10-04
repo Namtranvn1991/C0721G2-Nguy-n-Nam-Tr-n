@@ -10,9 +10,15 @@ public class PersonInput {
     static Scanner scanner = new Scanner(System.in);
 
     public static String inputName() {
-        System.out.println("Enter Name");
-        String name = scanner.nextLine();
-        return name;
+        while (true){
+            System.out.println("Enter Name");
+            String name = scanner.nextLine();
+            if(validateName(name)){
+                return name;
+            }else {
+                System.out.println("Enter again");
+            }
+        }
     }
 
     public static String inputEmail() {
@@ -118,6 +124,11 @@ public class PersonInput {
 
     public static boolean validateEmail(String email) {
         String regex = "^[A-Za-z]+\\w*@\\w+(\\.[A-Za-z0-9]+){1,2}$";
+        return email.matches(regex);
+    }
+
+    public static boolean validateName(String email) {
+        String regex = "^[A-Z][a-z]+\\s([A-Z][a-z]*\\s)*[A-Z][a-z]*$";
         return email.matches(regex);
     }
 }

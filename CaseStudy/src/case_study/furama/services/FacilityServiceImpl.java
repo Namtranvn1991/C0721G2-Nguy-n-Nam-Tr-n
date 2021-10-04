@@ -11,9 +11,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityServiceImpl implements FacilityService {
-    static Map<Facility, Integer> facilityList = ReadFacilityListAndWriteToCSV.getListEmployeeFromCSV("src\\case_study\\furama\\data\\FacilityList.csv");
+    static final String FACILITY_LIST_PATH = "src\\case_study\\furama\\data\\FacilityList.csv";
+    static Map<Facility, Integer> facilityList = ReadFacilityListAndWriteToCSV.getListEmployeeFromCSV(FACILITY_LIST_PATH);
     static Scanner scanner = new Scanner(System.in);
-    static int count;
 
     static {
 //        Facility villa1 = new Villa("Villa A", 300, 2000, 10, Facility.DAILY_RENTAL, 1, 2, 50);
@@ -77,6 +77,7 @@ public class FacilityServiceImpl implements FacilityService {
 
 
     private static void addVilla() {
+        System.out.println("add Villa");
         String facilityName = FacilityInput.inputName();
         double usingArea = FacilityInput.inputUsingArea();
         double cost = FacilityInput.inputCost();
@@ -89,11 +90,12 @@ public class FacilityServiceImpl implements FacilityService {
 
         Villa villa = new Villa(facilityName, usingArea, cost, maximumPerson, typeOfRent, roomStandard, floor, poolArea);
         facilityList.put(villa, 0);
-        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv");
+        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,FACILITY_LIST_PATH);
     }
 
 
     private static void addHouse() {
+        System.out.println("add House");
         String facilityName = FacilityInput.inputName();
         double usingArea = FacilityInput.inputUsingArea();
         double cost = FacilityInput.inputCost();
@@ -105,10 +107,11 @@ public class FacilityServiceImpl implements FacilityService {
 
         House house = new House(facilityName, usingArea, cost, maximumPerson, typeOfRent, roomStandard, floor);
         facilityList.put(house, 0);
-        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv");
+        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,FACILITY_LIST_PATH);
     }
 
     private static void addRoom() {
+        System.out.println("add Room");
         String facilityName = FacilityInput.inputName();
         double usingArea = FacilityInput.inputUsingArea();
         double cost = FacilityInput.inputCost();
@@ -119,7 +122,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         Room room = new Room(facilityName, usingArea, cost, maximumPerson, typeOfRent, freeService);
         facilityList.put(room, 0);
-        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,"src\\case_study\\furama\\data\\FacilityList.csv");
+        ReadFacilityListAndWriteToCSV.readFacilityListAndWriteToCSV(facilityList,FACILITY_LIST_PATH);
     }
 
 
