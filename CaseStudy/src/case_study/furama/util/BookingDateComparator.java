@@ -1,4 +1,6 @@
-package case_study.furama.model.booking;
+package case_study.furama.util;
+
+import case_study.furama.model.booking.Booking;
 
 import java.util.Comparator;
 

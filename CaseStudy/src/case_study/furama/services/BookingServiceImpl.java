@@ -50,6 +50,7 @@ public class BookingServiceImpl implements BookingService {
         }
     }
 
+
     public static void add(){
         int bookingID = inputBookingID();
         Customer customer = null;
@@ -87,8 +88,6 @@ public class BookingServiceImpl implements BookingService {
         }
     }
 
-
-
     public static Customer inputCustomer() throws Exception {
         while (true){
             System.out.println("Enter customer ID. 0/ return");
@@ -103,9 +102,7 @@ public class BookingServiceImpl implements BookingService {
             }
             System.out.println("Enter customer ID again");
         }
-
     }
-
 
     public static Facility inputFacility() throws Exception {
         while (true){
@@ -157,7 +154,6 @@ public class BookingServiceImpl implements BookingService {
         }
     }
 
-
     public static boolean validateJavaDate(String strDate) {
         if (strDate.trim().equals("")) {
             return false;
@@ -185,8 +181,8 @@ public class BookingServiceImpl implements BookingService {
     }
 
     public static void main(String[] args) {
-        for (Booking b: allBookingListCsv) {
-            System.out.println(b);
-        }
+//        for (Booking b: allBookingListCsv) {
+//            System.out.println(b);
+//        }
     }
 }

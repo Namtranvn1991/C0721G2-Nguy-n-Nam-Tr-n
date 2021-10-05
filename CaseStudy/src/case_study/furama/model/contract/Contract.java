@@ -66,4 +66,12 @@ public class Contract implements Serializable {
                 '}';
     }
 
+    public String toStringToFile() {
+        return  contractID +
+                "," + booking.getBookingID() +
+                "," + booking.getCustomer().getCustomerID() +
+                "," + booking.getFacility().getFacilityName() +
+                "," + deposit +
+                "," + totalPayment;
+    }
 }

@@ -12,8 +12,7 @@ public class FuramaController {
     }
 
     static void displayMainMenu() {
-        boolean flag = true;
-        while (flag) {
+        while (true) {
             System.out.println("Main Menu\n" +
                     "1. Employee Management " +
                     "2. Customer Management " +
@@ -39,8 +38,7 @@ public class FuramaController {
                     displayPromotionManagementMenu();
                     break;
                 case "6":
-                    flag = false;
-                    break;
+                    return;
                 default:
                     System.out.println("Please enter again");
             }
