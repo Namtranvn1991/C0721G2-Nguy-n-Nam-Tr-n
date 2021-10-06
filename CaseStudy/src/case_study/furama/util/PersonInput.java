@@ -127,8 +127,8 @@ public class PersonInput {
         return email.matches(regex);
     }
 
-    public static boolean validateName(String email) {
+    public static boolean validateName(String name) {
         String regex = "^[A-Z][a-z]+\\s([A-Z][a-z]*\\s)*[A-Z][a-z]*$";
-        return email.matches(regex);
+        return name.matches(regex);
     }
 }
