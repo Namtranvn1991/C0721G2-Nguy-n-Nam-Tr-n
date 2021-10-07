@@ -33,7 +33,7 @@ public class Input {
                     System.out.println("Id does exist. Enter again");
                 }
             } else {
-                System.out.println("Enter again");
+                System.out.println("Wrong format. Enter again");
             }
         }
     }
@@ -111,7 +111,7 @@ public class Input {
                 Date javaDate = simpleDateFormat.parse(strDate);
                 LocalDate localDate = LocalDate.now();
                 Date now = java.sql.Date.valueOf(localDate);
-                if (javaDate.compareTo(now) < 0) {
+                if (javaDate.before(now)) {
                     System.out.println("today: " + localDate);
                     return false;
                 }

@@ -38,23 +38,31 @@ public class Service {
             if (id.equals("0")) {
                 return;
             }
+            int index = -1;
             for (Showtime showtime : showtimeArrayList) {
                 if (showtime.getId().equals(id)) {
+                    index = showtimeArrayList.indexOf(showtime);
                     System.out.println(showtime);
-                    System.out.println("Do U want to remove this Y/N");
-                    String choice = scanner.nextLine();
-                    switch (choice) {
-                        case "Y":
-                        case "y":
-                            showtimeArrayList.remove(showtime);
-                            ReadShowtimeListAndWriteToCSV.writeToCSV(showtimeArrayList);
-                            return;
-                        default:
-                            return;
-                    }
                 }
             }
-            System.out.println(id + " doest exist");
+            if (index != -1) {
+                System.out.println("Do U want to remove this Y/N");
+                String choice = scanner.nextLine();
+                switch (choice) {
+                    case "Y":
+                    case "y":
+                        showtimeArrayList.remove(index);
+                        ReadShowtimeListAndWriteToCSV.writeToCSV(showtimeArrayList);
+                        System.out.println("remove success");
+                        return;
+                    default:
+                        return;
+
+                }
+            } else {
+                System.out.println(id + " doest exist");
+            }
+
         }
     }
 }
