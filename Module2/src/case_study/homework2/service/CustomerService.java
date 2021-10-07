@@ -19,6 +19,7 @@ public class CustomerService {
         String type = CustomerInput.inputCustomerType();
         int consume = CustomerInput.inputConsume();
         CustomerVN customerVN = new CustomerVN(iD, name, type, consume);
+        System.out.println(customerVN);
         customers.add(customerVN);
         ReadCustomerListAndWriteToCSV.writeToCSV(customers);
     }
@@ -28,6 +29,7 @@ public class CustomerService {
         String name = CustomerInput.inputName();
         String country = CustomerInput.inputCountry();
         CustomerNN customerNN = new CustomerNN(iD, name, country);
+        System.out.println(customerNN);
         customers.add(customerNN);
         ReadCustomerListAndWriteToCSV.writeToCSV(customers);
     }

@@ -14,24 +14,27 @@ public class ReceiptService {
     static Scanner scanner = new Scanner(System.in);
 
     public static void add() {
-        String receiptID = ReceiptInput.inputReceiptID();
+        String id = "MHD-" + (receipts.size() + 1);
+        System.out.println(id);
+        //String receiptID = ReceiptInput.inputReceiptID();
         Customer customer = ReceiptInput.inputCustomer();
         Date receiptDate = ReceiptInput.inputDate();
         int quantity = ReceiptInput.inputQuantity();
         int unitPrice = ReceiptInput.inputUnitPrice();
-        Receipt receipt = new Receipt(receiptID,customer,receiptDate,quantity,unitPrice);
+        Receipt receipt = new Receipt(id, customer, receiptDate, quantity, unitPrice);
+        System.out.println(receipt);
         receipts.add(receipt);
         ReadReceiptListAndWriteToCSV.writeToCSV(receipts);
     }
 
-    public static void edit(){
-        while (true){
+    public static void edit() {
+        while (true) {
             display();
             System.out.println("Enter Receipt ID to edit");
             String receiptID = scanner.nextLine();
-            if (validateReceiptID(receiptID)){
-                for (Receipt receipt: receipts) {
-                    if (receipt.getReceiptID().equals(receiptID)){
+            if (validateReceiptID(receiptID)) {
+                for (Receipt receipt : receipts) {
+                    if (receipt.getReceiptID().equals(receiptID)) {
                         System.out.println(receipt);
                         editReceipt(receipt);
                         ReadReceiptListAndWriteToCSV.writeToCSV(receipts);
@@ -45,10 +48,10 @@ public class ReceiptService {
         }
     }
 
-    public static void editReceipt(Receipt receipt){
+    public static void editReceipt(Receipt receipt) {
         System.out.println("Edit 1. Customer 2. ReceiptDate 3. Quantity 4.UnitPrice 5. Return");
         String choice = scanner.nextLine();
-        switch (choice){
+        switch (choice) {
             case "1":
                 receipt.setCustomer(ReceiptInput.inputCustomer());
                 break;
@@ -67,18 +70,19 @@ public class ReceiptService {
     }
 
     public static void display() {
-        for (Receipt receipt: receipts) {
+        for (Receipt receipt : receipts) {
             System.out.println(receipt);
         }
     }
 
     public static void displayDetail() {
-        for (Receipt receipt: receipts) {
+        for (Receipt receipt : receipts) {
             System.out.println(receipt.toStringDetail());
         }
     }
+
     public static boolean validateReceiptID(String receiptID) {
-        String regex = "MHD-\\d{3}";
+        String regex = "MHD-\\d{0,3}";
         return receiptID.matches(regex);
     }
 
