@@ -1,5 +1,9 @@
 package controller;
 
+import model.ShortTermNoLimitPB;
+import service.LongTermPBService;
+import service.ShortTermPBService;
+
 import java.util.Scanner;
 
 public class Main {
@@ -12,34 +16,99 @@ public class Main {
     static void displayMainMenu() {
         while (true) {
             System.out.println("*************************");
-            System.out.println("Main Menu\n" +
-                    "1. Employee Management " +
-                    "2. Customer Management " +
-                    "3  Facility Management " +
-                    "4. Booking Management " +
-                    "5. Promotion Management " +
-                    "6. Exit \n");
+            System.out.println("1. Thêm mới sổ tiết kiệm\n" +
+                    "2. Xóa sổ tiết kiệm\n" +
+                    "3. Xem danh sách sổ tiết kiệm\n" +
+                    "4. Thoát");
             String choice = scanner.nextLine();
             switch (choice) {
                 case "1":
-
+                    add();
                     break;
                 case "2":
-
+                    remove();
                     break;
                 case "3":
-
+                    display();
                     break;
                 case "4":
-
-                    break;
-                case "5":
-
-                    break;
-                case "6":
                     return;
                 default:
                     System.out.println("Please enter again");
+            }
+        }
+    }
+
+    static void add(){
+        while (true){
+            System.out.println("1. dai han 2. ngan han 3. return");
+            String choice = scanner.nextLine();
+            switch (choice){
+                case "1":
+                    LongTermPBService.add();
+                    break;
+                case "2":
+                    addShort();
+                    break;
+                case "3":
+                    return;
+                default:
+                    break;
+            }
+        }
+    }
+
+    static void display(){
+        while (true){
+            System.out.println("1. dai han 2. ngan han 3.return");
+            String choice = scanner.nextLine();
+            switch (choice){
+                case "1":
+                    LongTermPBService.display();
+                    break;
+                case "2":
+                    ShortTermPBService.display();
+                    break;
+                case "3":
+                    return;
+                default:
+                    break;
+            }
+        }
+    }
+    static void remove(){
+        while (true){
+            System.out.println("1. dai han 2. ngan han 3.return");
+            String choice = scanner.nextLine();
+            switch (choice){
+                case "1":
+                    LongTermPBService.remove();
+                    break;
+                case "2":
+                    ShortTermPBService.remove();
+                    break;
+                case "3":
+                    return;
+                default:
+                    break;
+            }
+        }
+    }
+    static void addShort(){
+        while (true){
+            System.out.println("1. Limit 2. NoLimit 3.return");
+            String choice = scanner.nextLine();
+            switch (choice){
+                case "1":
+                    ShortTermPBService.addLimit();
+                    break;
+                case "2":
+                    ShortTermPBService.addNoLimit();
+                    break;
+                case "3":
+                    return;
+                default:
+                    break;
             }
         }
     }

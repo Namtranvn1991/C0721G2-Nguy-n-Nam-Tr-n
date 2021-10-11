@@ -57,6 +57,6 @@ public class Test implements Comparable<Test> {
 
     @Override
     public int compareTo(Test o) {
-        return 0;
+        return this.date.compareTo(o.date);
     }
 }

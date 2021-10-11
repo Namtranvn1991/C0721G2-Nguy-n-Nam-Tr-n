@@ -1,7 +1,5 @@
 package case_study.practice.util;
 
-
-import case_study.homework2.model.CustomerType;
 import case_study.practice.model.Film;
 
 import java.io.BufferedReader;

@@ -21,10 +21,17 @@ public class Input {
         }
     }
 
+
+    public static boolean validateEmail(String email) {
+        String regex = "^[A-Za-z]+\\w*@\\w+(\\.[A-Za-z0-9]+){1,2}$";
+        return email.matches(regex);
+    }
+
     public static boolean validateName(String name) {
-        String regex = "";
+        String regex = "^[A-Z][a-z]+\\s([A-Z][a-z]*\\s)*[A-Z][a-z]*$";
         return name.matches(regex);
     }
+
 
     static public boolean isStringInt(String s) {
         try {

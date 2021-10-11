@@ -3,12 +3,20 @@ package util;
 import model.Test;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
 public class ReadListAndWriteToCSV {
-    public static void readEmployeeListAndWriteToCSV(LinkedList<Test> tests, String pathFile){
-        File file = new File(pathFile);
+    static final String PATH = "";
+    private static LinkedList<Test> tests = getTestListFromCSV();
+
+    public static LinkedList<Test> getTests() {
+        return tests;
+    }
+
+    public static void writeToCSV(LinkedList<Test> tests){
+        File file = new File(PATH);
         try {
             FileWriter fileWriter = new FileWriter(file,false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -22,9 +30,9 @@ public class ReadListAndWriteToCSV {
         }
     }
 
-    public static LinkedList<Test> getTestListFromCSV(String pathFile){
+    public static LinkedList<Test> getTestListFromCSV(){
         LinkedList<Test> tests = new LinkedList<>();
-        File file = new File(pathFile);
+        File file = new File(PATH);
         try {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
