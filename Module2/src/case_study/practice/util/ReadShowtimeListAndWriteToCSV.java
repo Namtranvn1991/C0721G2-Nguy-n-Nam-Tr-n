@@ -62,6 +62,7 @@ public class ReadShowtimeListAndWriteToCSV {
             e.printStackTrace();
             System.out.println("Error");
         } catch (Exception e){
+            e.printStackTrace();
             //do nothing
         }
         return showtimeList;

@@ -18,6 +18,7 @@ public class Booking implements Comparable<Booking>, Serializable {
     public Booking() {
     }
 
+
     public Booking(int bookingID, Customer customer, Facility facility, Date bookingDate, Date checkoutDate) {
         this.bookingID = bookingID;
         this.customer = customer;
