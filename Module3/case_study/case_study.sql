@@ -112,7 +112,7 @@ unique (IDHopDong,IDDichVuDiKem)
 );
 
 insert into nhanvien (TenNhanVien,NgaySinh,DiaChi)
-value ("Hoang AAAAAAAAAA","1991-2-3","DaNang"),
+value ("Hoang AAA","1991-2-3","DaNang"),
 	  ("Hoa V","1991-2-3","DaNang"),
 	  ("Toa V","2010-2-3","QuangTri"),
 	  ("Aoa V","1999-2-3","SaiGon"),
@@ -126,13 +126,14 @@ value ("Diamond"),
 	  ("Silver"),   
       ("Member");
       
- insert into KhachHang (TenKhachHang,IDLoaiKhach,DiaChi)
- value ("Nguyen A",1,"DaNang"),
+insert into KhachHang (TenKhachHang,IDLoaiKhach,DiaChi)
+value ("Nguyen A",1,"DaNang"),
        ("Tran C",2,"Vinh"),
        ("Nguyen C",1,"QuangNgai"),
        ("Le C",1,"Vinh"),
        ("Nguyen C",3,"DaNang"),
-       ("Tran DDDD",3,"Vinh");
+       ("Tran DDDD",3,"Vinh");      
+       
        
 insert into LoaiDichVu (TenLoaiDichVu)
 value ("Villa"),
@@ -155,16 +156,17 @@ value ("AAA",5),
       ("CCC",3), 
       ("DDD",10); 
       
-insert into HopDong (IDKhachHang,IDDichVu,NgayLamHopDong) 
-value (1,2,"2018-2-3"),     
-      (1,2,"2019-2-3"), 
-      (2,3,"2018-2-3"), 
-      (3,1,"2019-2-3"), 
-      (4,4,"2029-2-3");
+insert into HopDong (IDNhanVien,IDKhachHang,IDDichVu,NgayLamHopDong) 
+value (2,1,2,"2018-2-3"),     
+      (1,1,2,"2019-2-3"), 
+      (2,2,3,"2018-2-3"), 
+      (4,3,4,"2019-11-3"), 
+      (3,4,5,"2019-4-3"),
+      (3,5,5,"2019-11-3");
        
 insert into HopDongChiTiet  (IDHopDong,IDDichVuDiKem,SoLuong)
 value (1,1,2),
-	  (1,2,3),
+	  (2,2,3),
 	  (2,1,2),
 	  (3,3,2),
 	  (4,4,2),
