@@ -51,7 +51,6 @@ value (1,'2006-3-21',null),
 	  (2,'2006-3-23',null),
 	  (1,'2006-3-16',null);
       
-      
 insert into oder_detail
 value (1,1,3),   
 	  (1,3,7),   
@@ -92,7 +91,6 @@ from oder_detail
 join product on product.pID = oder_detail.pID
 order by oID; 
 
-
 select oder.oID, oder.oDate, sum(oder_detail.odQTY*product.pPrice) as oTotalPrice
 from (
 oder_detail 
@@ -100,6 +98,9 @@ join product on product.pID = oder_detail.pID
 join oder on oder.oID = oder_detail.oID
 )
 group by oder.oID; 
+
+select ucase(cName), length(cName), now()
+from customer;
 
 
       
