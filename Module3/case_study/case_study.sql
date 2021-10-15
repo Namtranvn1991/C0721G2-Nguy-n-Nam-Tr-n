@@ -83,7 +83,7 @@ create table DichVuDiKem(
 IDDichVuDiKem int primary key auto_increment,
 TenDichVuDiKem varchar(45) not null,
 Gia int not null,
-DonVi int not null,
+DonVi int,
 TrangThaiKhaDung varchar(45)
 );
 
@@ -131,6 +131,42 @@ value ("Diamond"),
        ("Tran C",2,"Vinh"),
        ("Nguyen C",1,"QuangNgai"),
        ("Le C",1,"Vinh"),
-       ("Nguyen C",3,"DaNang");
-    
+       ("Nguyen C",3,"DaNang"),
+       ("Tran DDDD",3,"Vinh");
+       
+insert into LoaiDichVu (TenLoaiDichVu)
+value ("Villa"),
+	  ("House"),   
+	  ("Room"); 
+      
+insert into DichVu (TenDichVu,IDLoaiDichVu,ChiPhiThue)
+value ("Villa1",1,120),
+       ("Villa2",1,100),
+       ("Villa3",1,200),
+       ("House1",2,50),
+       ("House2",2,80),
+       ("House3",2,50),
+       ("Room1",3,10),
+       ("Room2",3,15);
+       
+insert into DichVuDiKem(TenDichVuDiKem,Gia)
+value ("AAA",5),
+      ("BBB",1), 
+      ("CCC",3), 
+      ("DDD",10); 
+      
+insert into HopDong (IDKhachHang,IDDichVu,NgayLamHopDong) 
+value (1,2,"2018-2-3"),     
+      (1,2,"2019-2-3"), 
+      (2,3,"2018-2-3"), 
+      (3,1,"2019-2-3"), 
+      (4,4,"2029-2-3");
+       
+insert into HopDongChiTiet  (IDHopDong,IDDichVuDiKem,SoLuong)
+value (1,1,2),
+	  (1,2,3),
+	  (2,1,2),
+	  (3,3,2),
+	  (4,4,2),
+	  (5,2,2);
     
