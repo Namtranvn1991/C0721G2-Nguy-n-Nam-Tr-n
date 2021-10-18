@@ -1,155 +1,247 @@
 use case_study;
 
 -- task 2 cach 1
-select *, length(TenNhanVien)
-from nhanvien
-where (TenNhanVien like 'H%' or TenNhanVien like 'T%' or TenNhanVien like 'K%') and length(TenNhanVien) <=15;
+select *, length(ten_nhan_vien)
+from nhan_vien
+where (ten_nhan_vien like 'H%' or ten_nhan_vien like 'T%' or ten_nhan_vien like 'K%') and length(ten_nhan_vien) <=15;
 -- task 2 cach 2
 select *
-from nhanvien
-where REGEXP_LIKE(TenNhanVien,'[HKT][a-z]+\\s([A-Z][a-z]*\\s)*[A-Z][a-z]*') and length(TenNhanVien) <=15;
+from nhan_vien
+where REGEXP_LIKE(ten_nhan_vien,'[HKT][a-z]+\\s([A-Z][a-z]*\\s)*[A-Z][a-z]*') and length(ten_nhan_vien) <=15;
 
 -- task 3 
-select *, TIMESTAMPDIFF(YEAR, NgaySinh, CURDATE()) as age 
-from nhanvien
-where DiaChi in ("DaNang","QuangTri") and (TIMESTAMPDIFF(YEAR, NgaySinh, CURDATE()) between 18 and 50);
+select *, TIMESTAMPDIFF(YEAR, ngay_sinh, CURDATE()) as age 
+from nhan_vien
+where dia_chi in ("DaNang","QuangTri") and (TIMESTAMPDIFF(YEAR, ngay_sinh, CURDATE()) between 18 and 50);
 
 -- task 4
-select KhachHang.IDKhachHang ,KhachHang.TenKhachHang , KhachHang.IDLoaiKhach , count(HopDong.IDKhachHang) as soLanDatPhong
-from KhachHang
-join HopDong on HopDong.IDKhachHang = KhachHang.IDKhachHang
--- where KhachHang.IDLoaiKhach = 1
-group by HopDong.IDKhachHang
-having KhachHang.IDLoaiKhach = 1
-order by count(HopDong.IDKhachHang);
+select khach_hang.id_khach_hang ,khach_hang.ten_khach_hang , khach_hang.id_loai_khach , count(hop_dong.id_khach_hang) as soLanDatPhong
+from khach_hang
+join hop_dong on hop_dong.id_khach_hang = khach_hang.id_khach_hang
+-- where khach_hang.id_loai_khach = 1
+group by hop_dong.id_khach_hang
+having khach_hang.id_loai_khach = 1
+order by count(hop_dong.id_khach_hang);
 
 -- task 5
-select KhachHang.IDKhachHang, KhachHang.TenKhachHang, LoaiKhach.TenLoaiKhach, HopDong.IDHopDong, DichVu.TenDichVu, HopDong.NgayLamHopDong, HopDong.NgayKetThuc, 
-		(DichVu.ChiPhiThue + sum(DichVuDiKem.Gia*HopDongChiTiet.SoLuong))as TongTien
-from HopDong
-right join KhachHang on HopDong.IDKhachHang = KhachHang.IDKhachHang
-left join LoaiKhach on KhachHang.IDLoaiKhach = LoaiKhach.IDLoaiKhach
-left join DichVu on DichVu.IDDichVu = HopDong.IDDichVu
-left join HopDongChiTiet on HopDongChiTiet.IDHopDong = HopDong.IDHopDong
-left join DichVuDiKem on DichVuDiKem.IDDichVuDiKem = HopDongChiTiet.IDDichVuDiKem
-group by HopDong.IDHopDong, KhachHang.IDKhachHang;
+select khach_hang.id_khach_hang, khach_hang.ten_khach_hang, loai_khach.ten_loai_khach, hop_dong.id_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc, 
+		(dich_vu.chi_phi_thue + sum(dich_vu_di_kem.gia*hop_dong_chi_tiet.so_luong))as tong_tien
+from hop_dong
+right join khach_hang on hop_dong.id_khach_hang = khach_hang.id_khach_hang
+left join loai_khach on khach_hang.id_loai_khach = loai_khach.id_loai_khach
+left join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+left join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+group by hop_dong.id_hop_dong, khach_hang.id_khach_hang;
 
 -- task 6
-select DichVu.IDDichVu, DichVu.TenDichVu, DichVu.DienTich, DichVu.ChiPhiThue, LoaiDichVu.TenLoaiDichVu, HopDong.NgayLamHopDong
-from DichVu
-join LoaiDichVu on LoaiDichVu.IDLoaiDichVu = DichVu.IDLoaiDichVu
-join HopDong on HopDong.IDDichVu = DichVu.IDDichVu
-where (year(HopDong.NgayLamHopDong ) = 2019) and (month(HopDong.NgayLamHopDong ) between 1 and 3);
+select dich_vu.id_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu, hop_dong.ngay_lam_hop_dong
+from dich_vu
+join loai_dich_vu on loai_dich_vu.id_loai_dich_vu = dich_vu.id_loai_dich_vu
+join hop_dong on hop_dong.id_dich_vu = dich_vu.id_dich_vu
+where (year(hop_dong.ngay_lam_hop_dong ) = 2019) and (month(hop_dong.ngay_lam_hop_dong ) between 1 and 3);
 
 -- task 7 cach 1
-select DichVu.IDDichVu, DichVu.TenDichVu, DichVu.DienTich, DichVu.SoNguoiToiDa, DichVu.ChiPhiThue, LoaiDichVu.TenLoaiDichVu, HopDong.NgayLamHopDong
-from DichVu
-join LoaiDichVu on LoaiDichVu.IDLoaiDichVu = DichVu.IDLoaiDichVu
-join HopDong on HopDong.IDDichVu = DichVu.IDDichVu
-where (year(HopDong.NgayLamHopDong ) = 2018 ) 
+select dich_vu.id_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu, hop_dong.ngay_lam_hop_dong
+from dich_vu
+join loai_dich_vu on loai_dich_vu.id_loai_dich_vu = dich_vu.id_loai_dich_vu
+join hop_dong on hop_dong.id_dich_vu = dich_vu.id_dich_vu
+where (year(hop_dong.ngay_lam_hop_dong ) = 2018 ) 
 	   and not exists (
-			select DichVu.IDDichVu
-			from HopDong
-			where HopDong.IDDichVu = DichVu.IDDichVu and (year(HopDong.NgayLamHopDong ) = 2019)
+			select dich_vu.id_dich_vu
+			from hop_dong
+			where hop_dong.id_dich_vu = dich_vu.id_dich_vu and (year(hop_dong.ngay_lam_hop_dong ) = 2019)
         ) ;
         
 -- task 7 cach 2     
-select DichVu.IDDichVu, DichVu.TenDichVu, DichVu.DienTich, DichVu.SoNguoiToiDa, DichVu.ChiPhiThue, LoaiDichVu.TenLoaiDichVu, HopDong.NgayLamHopDong
-from DichVu
-join LoaiDichVu on LoaiDichVu.IDLoaiDichVu = DichVu.IDLoaiDichVu
-join HopDong on HopDong.IDDichVu = DichVu.IDDichVu
-where (year(HopDong.NgayLamHopDong ) = 2018 ) 
-	   and DichVu.IDDichVu not in (
-			select DichVu.IDDichVu
-			from DichVu
-            join HopDong on HopDong.IDDichVu = DichVu.IDDichVu
-			where (year(HopDong.NgayLamHopDong ) = 2019)
+select dich_vu.id_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu, hop_dong.ngay_lam_hop_dong
+from dich_vu
+join loai_dich_vu on loai_dich_vu.id_loai_dich_vu = dich_vu.id_loai_dich_vu
+join hop_dong on hop_dong.id_dich_vu = dich_vu.id_dich_vu
+where (year(hop_dong.ngay_lam_hop_dong ) = 2018 ) 
+	   and dich_vu.id_dich_vu not in (
+			select dich_vu.id_dich_vu
+			from dich_vu
+            join hop_dong on hop_dong.id_dich_vu = dich_vu.id_dich_vu
+			where (year(hop_dong.ngay_lam_hop_dong ) = 2019)
         ) ; 
         
 -- task 8 cach 1         
-Select distinct TenKhachHang
-From KhachHang;
+Select distinct ten_khach_hang
+From khach_hang;
 
 -- task 8 cach 2   
-Select TenKhachHang
-From KhachHang
-group by TenKhachHang;
+Select ten_khach_hang
+From khach_hang
+group by ten_khach_hang;
 
 -- task 9
 -- cach 1 
 drop table if exists tempT; 
 create temporary table tempT (
-select HopDong.IDHopDong, DichVu.TenDichVu, HopDong.NgayLamHopDong, 
-		(DichVu.ChiPhiThue + sum(DichVuDiKem.Gia*HopDongChiTiet.SoLuong)) as TongTien
-from HopDong
-join DichVu on DichVu.IDDichVu = HopDong.IDDichVu
-join HopDongChiTiet on HopDongChiTiet.IDHopDong = HopDong.IDHopDong
-join DichVuDiKem on DichVuDiKem.IDDichVuDiKem = HopDongChiTiet.IDDichVuDiKem
-group by HopDong.IDHopDong
-having year(HopDong.NgayLamHopDong) = 2019 and month(HopDong.NgayLamHopDong) = 2);
+select hop_dong.id_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, 
+		(dich_vu.chi_phi_thue + sum(dich_vu_di_kem.gia*hop_dong_chi_tiet.so_luong)) as tong_tien
+from hop_dong
+join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
+join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+group by hop_dong.id_hop_dong
+having year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) = 2);
 
-select sum(TongTien) as TongDoanhThu
+select sum(tong_tien) as TongDoanhThu
 from tempT;  
 
 -- cach 2 
-select sum(TongTien)
-from (select HopDong.IDHopDong, DichVu.TenDichVu, HopDong.NgayLamHopDong, 
-		(DichVu.ChiPhiThue + sum(DichVuDiKem.Gia*HopDongChiTiet.SoLuong)) as TongTien
-from HopDong
-join DichVu on DichVu.IDDichVu = HopDong.IDDichVu
-join HopDongChiTiet on HopDongChiTiet.IDHopDong = HopDong.IDHopDong
-join DichVuDiKem on DichVuDiKem.IDDichVuDiKem = HopDongChiTiet.IDDichVuDiKem
-group by HopDong.IDHopDong
-having year(HopDong.NgayLamHopDong) = 2019 and month(HopDong.NgayLamHopDong) = 2) as A;
+select sum(tong_tien)
+from (select hop_dong.id_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, 
+		(dich_vu.chi_phi_thue + sum(dich_vu_di_kem.gia*hop_dong_chi_tiet.so_luong)) as tong_tien
+from hop_dong
+join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
+join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+group by hop_dong.id_hop_dong
+having year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) = 2) as A;
 
-select HopDong.IDHopDong, DichVu.TenDichVu, HopDong.NgayLamHopDong, 
-		(DichVu.ChiPhiThue + sum(DichVuDiKem.Gia*HopDongChiTiet.SoLuong)) as TongTien
-from HopDong
-join DichVu on DichVu.IDDichVu = HopDong.IDDichVu
-join HopDongChiTiet on HopDongChiTiet.IDHopDong = HopDong.IDHopDong
-join DichVuDiKem on DichVuDiKem.IDDichVuDiKem = HopDongChiTiet.IDDichVuDiKem
-group by HopDong.IDHopDong
-having year(HopDong.NgayLamHopDong) = 2019 and month(HopDong.NgayLamHopDong) = 2;
+select hop_dong.id_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, 
+		(dich_vu.chi_phi_thue + sum(dich_vu_di_kem.gia*hop_dong_chi_tiet.so_luong)) as tong_tien
+from hop_dong
+join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
+join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+group by hop_dong.id_hop_dong
+having year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) = 2;
 
 
-select count(HopDong.IDHopDong) as TongKhachHang
-from HopDong
-join KhachHang on HopDong.IDKhachHang = KhachHang.IDKhachHang
-where year(HopDong.NgayLamHopDong) = 2019 and month(HopDong.NgayLamHopDong) = 2;
+select count(hop_dong.id_hop_dong) as Tongkhach_hang
+from hop_dong
+join khach_hang on hop_dong.id_khach_hang = khach_hang.id_khach_hang
+where year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) = 2;
 
 -- task 10
-select HopDong.IDHopDong, DichVu.TenDichVu, HopDong.NgayLamHopDong, HopDong.NgayLamHopDong, HopDong.TienDatCoc,
-		count(HopDong.IDHopDong) as SoDichVuDiKem
-from HopDong
-join DichVu on DichVu.IDDichVu = HopDong.IDDichVu
-join HopDongChiTiet on HopDongChiTiet.IDHopDong = HopDong.IDHopDong
-join DichVuDiKem on DichVuDiKem.IDDichVuDiKem = HopDongChiTiet.IDDichVuDiKem
-group by HopDong.IDHopDong;
+select hop_dong.id_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.tien_dat_coc,
+		count(hop_dong.id_hop_dong) as Sodich_vu_di_kem
+from hop_dong
+join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
+join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+group by hop_dong.id_hop_dong;
 
 -- task 11 
-select DichVuDiKem.TenDichVuDiKem, HopDong.IDHopDong,KhachHang.TenKhachHang, KhachHang.IDLoaiKhach, KhachHang.DiaChi
-from HopDong
-join HopDongChiTiet on HopDongChiTiet.IDHopDong = HopDong.IDHopDong
-join DichVuDiKem on DichVuDiKem.IDDichVuDiKem = HopDongChiTiet.IDDichVuDiKem
-join KhachHang on KhachHang.IDKhachHang = HopDong.IDKhachHang
-where KhachHang.IDLoaiKhach = 1 and KhachHang.DiaChi = 'Vinh';
+select dich_vu_di_kem.ten_dich_vu_di_kem, hop_dong.id_hop_dong,khach_hang.ten_khach_hang, khach_hang.id_loai_khach, khach_hang.dia_chi
+from hop_dong
+join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+join khach_hang on khach_hang.id_khach_hang = hop_dong.id_khach_hang
+where khach_hang.id_loai_khach = 1 and khach_hang.dia_chi = 'Vinh';
 
 -- task 12 
-select HopDong.IDHopDong, NhanVien.TenNhanVien, KhachHang.TenKhachHang, KhachHang.SDT, DichVu.TenDichVu, HopDong.TienDatCoc
-		, HopDong.NgayLamHopDong, DichVuDiKem.TenDichVuDiKem , count(DichVuDiKem.IDDichVuDiKem) as SoDichVuDiKem
-from DichVu
-join HopDong on DichVu.IDDichVu = HopDong.IDDichVu
-join NhanVien on NhanVien.IDNhanVien = HopDong.IDNhanVien
-join KhachHang on KhachHang.IDKhachHang = HopDong.IDKhachHang
-left join HopDongChiTiet on HopDongChiTiet.IDHopDong = HopDong.IDHopDong
-left join DichVuDiKem on DichVuDiKem.IDDichVuDiKem = HopDongChiTiet.IDDichVuDiKem
-where year(HopDong.NgayLamHopDong) = 2019 and month(HopDong.NgayLamHopDong) between 10 and 12 
+select hop_dong.id_hop_dong, nhan_vien.ten_nhan_vien, khach_hang.ten_khach_hang, khach_hang.sdt, dich_vu.ten_dich_vu, hop_dong.tien_dat_coc
+		, hop_dong.ngay_lam_hop_dong, dich_vu_di_kem.ten_dich_vu_di_kem , count(dich_vu_di_kem.id_dich_vu_di_kem) as Sodich_vu_di_kem
+from dich_vu
+join hop_dong on dich_vu.id_dich_vu = hop_dong.id_dich_vu
+join nhan_vien on nhan_vien.id_nhan_vien = hop_dong.id_nhan_vien
+join khach_hang on khach_hang.id_khach_hang = hop_dong.id_khach_hang
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+left join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+where year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) between 10 and 12 
 and not exists (
-select HopDong.NgayLamHopDong
-from HopDong
-where (HopDong.IDDichVu = DichVu.IDDichVu) and (year(HopDong.NgayLamHopDong) = 2019 and month(HopDong.NgayLamHopDong) between 1 and 6)
+select hop_dong.ngay_lam_hop_dong
+from hop_dong
+where (hop_dong.id_dich_vu = dich_vu.id_dich_vu) and (year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) between 1 and 6)
 )
-group by HopDong.IDHopDong;
+group by hop_dong.id_hop_dong;
+
+-- task 13
+select dich_vu_di_kem.id_dich_vu_di_kem, dich_vu_di_kem.ten_dich_vu_di_kem, dich_vu_di_kem.gia, count(dich_vu_di_kem.id_dich_vu_di_kem)
+from dich_vu_di_kem
+join hop_dong_chi_tiet on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
+join hop_dong on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+group by dich_vu_di_kem.id_dich_vu_di_kem
+having count(dich_vu_di_kem.id_dich_vu_di_kem) =  
+(select count(dich_vu_di_kem.id_dich_vu_di_kem) as maxCount
+from dich_vu_di_kem
+join hop_dong_chi_tiet on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
+join hop_dong on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+group by dich_vu_di_kem.id_dich_vu_di_kem
+limit 1);
+
+-- task 14
+select dich_vu_di_kem.ten_dich_vu_di_kem, hop_dong.id_hop_dong, dich_vu.ten_dich_vu, count(dich_vu_di_kem.id_dich_vu_di_kem)
+from dich_vu_di_kem
+join hop_dong_chi_tiet on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
+join hop_dong on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
+group by dich_vu_di_kem.id_dich_vu_di_kem
+having count(dich_vu_di_kem.id_dich_vu_di_kem) = 1;
+
+-- task 15
+select nhan_vien.id_nhan_vien, nhan_vien.ten_nhan_vien ,nhan_vien.id_trinh_do, nhan_vien.dia_chi, nhan_vien.sdt
+, hop_dong.id_hop_dong, bo_phan.ten_bo_phan, count(nhan_vien.id_nhan_vien)
+from nhan_vien
+join hop_dong on hop_dong.id_nhan_vien = nhan_vien.id_nhan_vien
+join bo_phan on bo_phan.id_bo_phan = nhan_vien.id_bo_phan
+where (year(hop_dong.ngay_lam_hop_dong) between 2018 and 2019)
+group by nhan_vien.id_nhan_vien
+having count(nhan_vien.id_nhan_vien)<=3;
+
+-- task 16
+delete from nhan_vien
+where not exists (
+select nhan_vien.id_nhan_vien
+from hop_dong 
+where hop_dong.id_nhan_vien = nhan_vien.id_nhan_vien and year(hop_dong.ngay_lam_hop_dong) between 2017 and 2019
+);
+
+-- task 17
+SET SQL_SAFE_UPDATES = 0;
+update khach_hang
+set khach_hang.id_loai_khach = 1
+where khach_hang.id_khach_hang in (
+select *
+from (select khach_hang.id_khach_hang
+from khach_hang
+join hop_dong on hop_dong.id_khach_hang = khach_hang.id_khach_hang
+where year(hop_dong.ngay_lam_hop_dong) = 2019 and khach_hang.id_loai_khach = 2
+group by khach_hang.id_khach_hang
+having sum(tong_tien) > 100)
+tdlTmp
+);
+
+-- task 18
+delete from khach_hang
+where not exists (
+select khach_hang.id_khach_hang
+from hop_dong
+where hop_dong.id_khach_hang = khach_hang.id_khach_hang and year(hop_dong.ngay_lam_hop_dong) > 2016
+);
+
+-- task 19
+update dich_vu_di_kem
+set dich_vu_di_kem.gia = dich_vu_di_kem.gia*2
+where dich_vu_di_kem.id_dich_vu_di_kem in (
+select *
+from (select dich_vu_di_kem.id_dich_vu_di_kem
+from hop_dong
+join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+group by hop_dong.id_hop_dong
+having count(hop_dong.id_hop_dong) > 10)
+tdlTmp
+);
+
+-- task 20
+select id_nhan_vien as id, ten_nhan_vien as ho_ten , sdt, ngay_sinh, email, dia_chi
+from nhan_vien
+union
+select id_khach_hang as id, ten_khach_hang as ho_ten , sdt, ngay_sinh, email, dia_chi
+from khach_hang;
+
+
+
+
+
+
+
 
 
 

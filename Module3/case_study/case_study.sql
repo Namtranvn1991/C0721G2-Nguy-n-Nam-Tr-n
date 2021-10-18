@@ -4,143 +4,156 @@ create database case_study;
 
 use case_study;
 
-create table ViTri (
-IDViTri int primary key auto_increment,
-TenViTri varchar(45) not null
+create table vi_tri (
+id_vi_tri int primary key auto_increment,
+ten_vi_tri varchar(45) not null
 );
-create table TrinhDo(
-IDTrinhDo int primary key auto_increment,
-TenTrinhDo varchar(45) not null
-);
-
-create table BoPhan(
-IDBoPhan int primary key auto_increment,
-TenBoPhan varchar(45) not null
+create table trinh_do(
+id_trinh_do int primary key auto_increment,
+ten_trinh_do varchar(45) not null
 );
 
-
-create table NhanVien(
-IDNhanVien int primary key auto_increment,
-TenNhanVien varchar(45) not null,
-IDViTri int,
-IDTrinhDo int,
-IDBoPhan int,
-NgaySinh date,
-SoCMTND varchar(45),
-Luong varchar(45),
-SDT varchar(45),
-Email varchar(45),
-DiaChi varchar(45),
-foreign key (IDViTri) references ViTri(IDViTri),
-foreign key (IDTrinhDo) references TrinhDo(IDTrinhDo),
-foreign key (IDBoPhan) references BoPhan(IDBoPhan)
+create table bo_phan(
+id_bo_phan int primary key auto_increment,
+ten_bo_phan varchar(45) not null
 );
 
-create table LoaiKhach(
-IDLoaiKhach int primary key auto_increment,
-TenLoaiKhach varchar(45) not null
+
+create table nhan_vien(
+id_nhan_vien int primary key auto_increment,
+ten_nhan_vien varchar(45) not null,
+id_vi_tri int,
+id_trinh_do int,
+id_bo_phan int,
+ngay_sinh date,
+so_cmtnd varchar(45),
+luong varchar(45),
+sdt varchar(45),
+email varchar(45),
+dia_chi varchar(45),
+foreign key (id_vi_tri) references vi_tri(id_vi_tri),
+foreign key (id_trinh_do) references trinh_do(id_trinh_do),
+foreign key (id_bo_phan) references bo_phan(id_bo_phan)
+ON DELETE CASCADE
 );
 
-create table KhachHang(
-IDKhachHang int primary key auto_increment,
-TenKhachHang varchar(45) not null,
-IDLoaiKhach int,
-NgaySinh date,
-SoCMTND varchar(45),
-Luong varchar(45),
-SDT varchar(45),
-Email varchar(45),
-DiaChi varchar(45),
-foreign key (IDLoaiKhach) references LoaiKhach(IDLoaiKhach)
+create table loai_khach(
+id_loai_khach int primary key auto_increment,
+ten_loai_khach varchar(45) not null
 );
 
-create table KieuThue(
-IDKieuThue int primary key auto_increment,
-TenKieuThue varchar(45) not null,
-Gia int not null
+create table khach_hang(
+id_khach_hang int primary key auto_increment,
+ten_khach_hang varchar(45) not null,
+id_loai_khach int,
+ngay_sinh date,
+so_cmtnd varchar(45),
+sdt varchar(45),
+email varchar(45),
+dia_chi varchar(45),
+foreign key (id_loai_khach) references loai_khach(id_loai_khach)
+ON DELETE CASCADE
 );
 
-create table LoaiDichVu(
-IDLoaiDichVu int primary key auto_increment,
-TenLoaiDichVu varchar(45) not null
+create table kieu_thue(
+id_kieu_thue int primary key auto_increment,
+ten_kieu_thue varchar(45) not null,
+gia int not null
 );
 
-create table DichVu(
-IDDichVu int primary key auto_increment,
-TenDichVu varchar(45) not null,
-DienTich int,
-SoTang int,
-SoNguoiToiDa varchar(45),
-ChiPhiThue varchar(45),
-IDKieuThue int,
-IDLoaiDichVu int,
-TrangThai varchar(45),
-foreign key (IDKieuThue) references KieuThue(IDKieuThue),
-foreign key (IDLoaiDichVu) references LoaiDichVu(IDLoaiDichVu)
+create table loai_dich_vu(
+id_loai_dich_vu int primary key auto_increment,
+ten_loai_dich_vu varchar(45) not null
 );
 
-create table DichVuDiKem(
-IDDichVuDiKem int primary key auto_increment,
-TenDichVuDiKem varchar(45) not null,
-Gia int not null,
-DonVi int,
-TrangThaiKhaDung varchar(45)
+create table dich_vu(
+id_dich_vu int primary key auto_increment,
+ten_dich_vu varchar(45) not null,
+dien_tich int,
+so_tang int,
+so_nguoi_toi_da varchar(45),
+chi_phi_thue varchar(45),
+id_kieu_thue int,
+id_loai_dich_vu int,
+trang_thai varchar(45),
+foreign key (id_kieu_thue) references kieu_thue(id_kieu_thue),
+foreign key (id_loai_dich_vu) references loai_dich_vu(id_loai_dich_vu)
+ON DELETE CASCADE
 );
 
-create table HopDong(
-IDHopDong int primary key auto_increment,
-IDNhanVien int,
-IDKhachHang int, 
-IDDichVu int,
-NgayLamHopDong date,
-NgayKetThuc date,
-TienDatCoc int,
-TongTien int,
-foreign key (IDNhanVien) references NhanVien(IDNhanVien),
-foreign key (IDKhachHang) references KhachHang(IDKhachHang),
-foreign key (IDDichVu) references DichVu(IDDichVu)
+create table dich_vu_di_kem(
+id_dich_vu_di_kem int primary key auto_increment,
+ten_dich_vu_di_kem varchar(45) not null,
+gia int not null,
+don_vi int,
+trang_thai_kha_dung varchar(45)
 );
 
-create table HopDongChiTiet(
-IDHopDongChiTiet int primary key auto_increment,
-IDHopDong int,
-IDDichVuDiKem int,
-SoLuong int,
-foreign key (IDHopDong) references HopDong(IDHopDong),
-foreign key (IDDichVuDiKem) references DichVuDiKem(IDDichVuDiKem),
-unique (IDHopDong,IDDichVuDiKem)
+create table hop_dong(
+id_hop_dong int primary key auto_increment,
+id_nhan_vien int,
+id_khach_hang int, 
+id_dich_vu int,
+ngay_lam_hop_dong date,
+ngay_ket_thuc date,
+tien_dat_coc int,
+tong_tien int,
+foreign key (id_nhan_vien) references nhan_vien(id_nhan_vien),
+foreign key (id_khach_hang) references khach_hang(id_khach_hang)
+ON DELETE CASCADE,
+foreign key (id_dich_vu) references dich_vu(id_dich_vu)
+ON DELETE CASCADE
 );
 
-insert into nhanvien (TenNhanVien,NgaySinh,DiaChi)
-value ("Hoang AAA","1991-2-3","DaNang"),
-	  ("Hoa V","1991-2-3","DaNang"),
-	  ("Toa V","2010-2-3","QuangTri"),
-	  ("Aoa V","1999-2-3","SaiGon"),
-	  ("Boa B","2000-2-3","DaNang"),
-	  ("Koa K","2011-2-3","DaNang");
+create table hop_dong_chi_tiet(
+id_hop_dong_chi_tiet int primary key auto_increment,
+id_hop_dong int,
+id_dich_vu_di_kem int,
+so_luong int,
+foreign key (id_hop_dong) references hop_dong(id_hop_dong)
+ON DELETE CASCADE,
+foreign key (id_dich_vu_di_kem) references dich_vu_di_kem(id_dich_vu_di_kem),
+unique (id_hop_dong,id_dich_vu_di_kem)
+);
+
+insert into bo_phan(ten_bo_phan)
+value ("RECEPTIONIST"),
+	  ("WAITER"),
+	  ("SPECIALIST"),
+	  ("SUPERVISOR"),
+	  ("MANAGER"),
+	  ("PRESIDENT");
+
+insert into nhan_vien (ten_nhan_vien,ngay_sinh,dia_chi,id_bo_phan)
+value ("Hoang AAA","1991-2-3","DaNang",1),
+	  ("Hoa V","1991-2-3","DaNang",1),
+	  ("Toa V","2010-2-3","QuangTri",2),
+	  ("Aoa V","1999-2-3","SaiGon",3),
+	  ("Boa B","2000-2-3","DaNang",4),
+	  ("Koa K","2011-2-3","DaNang",5);
     
-insert into LoaiKhach (TenLoaiKhach)
+insert into loai_khach (ten_loai_khach)
 value ("Diamond"),
 	  ("Platinum"),   
 	  ("Gold"),   
 	  ("Silver"),   
       ("Member");
       
-insert into KhachHang (TenKhachHang,IDLoaiKhach,DiaChi)
-value ("Nguyen A",1,"DaNang"),
+insert into khach_hang (ten_khach_hang,id_loai_khach,dia_chi)
+value ("Nguyen A",2,"DaNang"),
        ("Tran C",2,"Vinh"),
-       ("Nguyen C",1,"QuangNgai"),
-       ("Le C",1,"Vinh"),
-       ("Nguyen C",3,"DaNang"),
-       ("Tran DDDD",3,"Vinh");      
+       ("Nguyen C",2,"QuangNgai"),
+       ("Le C",2,"Vinh"),
+       ("Nguyen C",2,"DaNang"),
+       ("Tran DDDD",2,"Vinh");      
        
        
-insert into LoaiDichVu (TenLoaiDichVu)
+insert into loai_dich_vu (ten_loai_dich_vu)
 value ("Villa"),
 	  ("House"),   
 	  ("Room"); 
       
-insert into DichVu (TenDichVu,IDLoaiDichVu,ChiPhiThue)
+insert into dich_vu (ten_dich_vu,id_loai_dich_vu,chi_phi_thue)
 value ("Villa1",1,120),
        ("Villa2",1,100),
        ("Villa3",1,200),
@@ -150,21 +163,21 @@ value ("Villa1",1,120),
        ("Room1",3,10),
        ("Room2",3,15);
        
-insert into DichVuDiKem(TenDichVuDiKem,Gia)
+insert into dich_vu_di_kem(ten_dich_vu_di_kem,gia)
 value ("AAA",5),
       ("BBB",1), 
       ("CCC",3), 
       ("DDD",10); 
       
-insert into HopDong (IDNhanVien,IDKhachHang,IDDichVu,NgayLamHopDong) 
-value (2,1,2,"2018-2-3"),     
-      (1,1,2,"2019-2-3"), 
-      (2,2,3,"2018-2-3"), 
-      (4,3,4,"2019-11-3"), 
-      (3,4,5,"2019-4-3"),
-      (3,5,5,"2019-11-3");
+insert into hop_dong (id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hop_dong,tong_tien) 
+value (2,1,2,"2016-2-3",55),     
+      (1,1,2,"2019-2-3",90), 
+      (2,2,3,"2018-2-3",120), 
+      (4,3,4,"2019-11-3",120), 
+      (3,4,5,"2019-4-3",99),
+      (3,5,5,"2019-11-3",50);
        
-insert into HopDongChiTiet  (IDHopDong,IDDichVuDiKem,SoLuong)
+insert into hop_dong_chi_tiet  (id_hop_dong,id_dich_vu_di_kem,so_luong)
 value (1,1,2),
 	  (2,2,3),
 	  (2,1,2),
