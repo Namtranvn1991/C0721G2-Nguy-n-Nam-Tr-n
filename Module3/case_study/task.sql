@@ -359,6 +359,27 @@ end;
 
 select func_1();
 
+
+drop function func_2;
+
+delimiter //
+create function func_2 (id int)
+returns int
+deterministic
+begin
+	declare diff int;
+    set diff = (
+    select max(datediff(ngay_ket_thuc,ngay_lam_hop_dong))
+    from khach_hang
+    join hop_dong on hop_dong.id_khach_hang = khach_hang.id_khach_hang
+    where khach_hang.id_khach_hang = id
+    );
+	return diff;
+end;
+// delimiter ;
+
+select func_2(1);
+
 -- task 28
 drop PROCEDURE sp_3;
 
