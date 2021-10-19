@@ -236,12 +236,156 @@ union
 select id_khach_hang as id, ten_khach_hang as ho_ten , sdt, ngay_sinh, email, dia_chi
 from khach_hang;
 
+-- task 21
+drop view if exists view_nhan_vien;
 
+create view view_nhan_vien as
+select nhan_vien.id_nhan_vien, nhan_vien.ten_nhan_vien, nhan_vien.dia_chi
+from nhan_vien
+join hop_dong on hop_dong.id_nhan_vien = nhan_vien.id_nhan_vien
+where hop_dong.ngay_lam_hop_dong = "2019-12-12"
+WITH CHECK OPTION;
 
+select *
+from view_nhan_vien;
 
+-- task 22
+update view_nhan_vien
+set dia_chi = "lien chieu";
 
+-- task 23
+drop PROCEDURE sp_remove_khach_hang;
 
+DELIMITER //
 
+CREATE PROCEDURE sp_remove_khach_hang(id int)
 
+BEGIN
+delete from khach_hang
+where khach_hang.id_khach_hang = id;
+END //
+
+DELIMITER ;
+
+call sp_remove_khach_hang(6);
+
+select *
+from khach_hang;
+
+-- task 24
+drop PROCEDURE sp_insert_hop_dong;
+
+DELIMITER //
+CREATE PROCEDURE sp_insert_hop_dong(id_nv int, id_kh int, id_dv int, ngay_hd date, ngay_kt date, tdc int, tt int)
+
+BEGIN
+if id_nv in (
+select id_nhan_vien
+from nhan_vien
+) and id_kh in (
+select id_khach_hang
+from khach_hang
+) and id_dv in (
+select id_dich_vu
+from dich_vu
+) then 
+insert into hop_dong (id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc,tong_tien)
+value (id_nv, id_kh, id_dv, ngay_hd, ngay_kt, tdc, tt);
+END IF;
+END //
+
+DELIMITER ;
+
+call sp_insert_hop_dong(1,5,6,"2019-12-12","2019-12-12",123,123);
+
+select *
+from hop_dong;
+
+-- task 25
+delimiter //
+CREATE TRIGGER  tr_1
+AFTER delete
+ON hop_dong FOR EACH ROW 
+BEGIN
+	set @temp = (select count(id_hop_dong)
+    from hop_dong);
+END //
+delimiter ;
+
+DROP TRIGGER tr_1;
+
+delete from hop_dong
+where id_hop_dong = 2;
+
+select @temp;
+
+-- task 26
+delimiter //
+CREATE TRIGGER  tr_2
+before update
+ON hop_dong FOR EACH ROW 
+BEGIN
+	if datediff(new.ngay_ket_thuc,old.ngay_lam_hop_dong) <2
+    then set @tr_2 = (select "Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày");
+    end if;
+END //
+delimiter ;
+
+DROP TRIGGER tr_2;
+
+update hop_dong
+set hop_dong.ngay_ket_thuc = "2019-11-3"
+where id_hop_dong = 6;
+select @tr_2;
+
+-- task 27
+drop function func_1;
+
+delimiter //
+create function func_1 ()
+returns int
+deterministic
+begin
+	declare count_1 int;
+    set count_1 = (
+    select count(dich_vu.id_dich_vu)
+    from dich_vu
+    join hop_dong on hop_dong.id_dich_vu = dich_vu.id_dich_vu
+    where tong_tien>100
+    );
+	return count_1;
+end;
+// delimiter ;
+
+select func_1();
+
+-- task 28
+drop PROCEDURE sp_3;
+
+DELIMITER //
+
+CREATE PROCEDURE sp_3(loai_dv varchar(45), year_1 int, year_2 int)
+
+BEGIN
+update dich_vu
+set status_dv = 0
+where dich_vu.id_dich_vu in (
+select *
+from (select dich_vu.id_dich_vu
+from dich_vu
+join loai_dich_vu on loai_dich_vu.id_loai_dich_vu = dich_vu.id_loai_dich_vu
+join hop_dong on hop_dong.id_dich_vu = dich_vu.id_dich_vu
+where loai_dich_vu.ten_loai_dich_vu like loai_dv
+and year(hop_dong.ngay_lam_hop_dong) > year_1 and year(hop_dong.ngay_lam_hop_dong) < year_2)
+tdlTmp)
+;
+END //
+
+DELIMITER ;
+
+call sp_3("room",2015,2019);
+
+select *
+from dich_vu;
 
 

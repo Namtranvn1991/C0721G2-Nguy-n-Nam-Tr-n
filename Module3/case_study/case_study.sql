@@ -76,6 +76,7 @@ chi_phi_thue varchar(45),
 id_kieu_thue int,
 id_loai_dich_vu int,
 trang_thai varchar(45),
+status_dv bit default 1,
 foreign key (id_kieu_thue) references kieu_thue(id_kieu_thue),
 foreign key (id_loai_dich_vu) references loai_dich_vu(id_loai_dich_vu)
 ON DELETE CASCADE
@@ -145,6 +146,7 @@ value ("Nguyen A",2,"DaNang"),
        ("Nguyen C",2,"QuangNgai"),
        ("Le C",2,"Vinh"),
        ("Nguyen C",2,"DaNang"),
+       ("Vo thi ZZ",1,"DaNang"),
        ("Tran DDDD",2,"Vinh");      
        
        
@@ -169,13 +171,13 @@ value ("AAA",5),
       ("CCC",3), 
       ("DDD",10); 
       
-insert into hop_dong (id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hop_dong,tong_tien) 
-value (2,1,2,"2016-2-3",55),     
-      (1,1,2,"2019-2-3",90), 
-      (2,2,3,"2018-2-3",120), 
-      (4,3,4,"2019-11-3",120), 
-      (3,4,5,"2019-4-3",99),
-      (3,5,5,"2019-11-3",50);
+insert into hop_dong (id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hop_dong,ngay_ket_thuc,tong_tien) 
+value (2,1,2,"2019-12-12","2019-12-12",55),     
+      (1,1,2,"2019-2-3","2019-2-3",90), 
+      (2,2,3,"2018-2-3","2018-2-3",120), 
+      (4,3,4,"2019-11-3","2018-2-3",120), 
+      (3,4,8,"2018-4-3","2018-2-3",99),
+      (3,5,8,"2019-11-3","2018-2-3",50);
        
 insert into hop_dong_chi_tiet  (id_hop_dong,id_dich_vu_di_kem,so_luong)
 value (1,1,2),
