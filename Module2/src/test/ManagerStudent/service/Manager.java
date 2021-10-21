@@ -15,7 +15,7 @@ public class Manager {
 
     }
     public static void add(){
-        // code thêm mới
+        // codeIPv4 thêm mới
         Scanner scanner = new Scanner(System.in);
         System.out.println("nhập tên");
         String name = scanner.nextLine();

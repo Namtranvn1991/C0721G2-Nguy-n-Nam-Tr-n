@@ -39,7 +39,11 @@ select dich_vu.id_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.chi_p
 from dich_vu
 join loai_dich_vu on loai_dich_vu.id_loai_dich_vu = dich_vu.id_loai_dich_vu
 join hop_dong on hop_dong.id_dich_vu = dich_vu.id_dich_vu
-where (year(hop_dong.ngay_lam_hop_dong ) = 2019) and (month(hop_dong.ngay_lam_hop_dong ) between 1 and 3);
+where dich_vu.id_dich_vu not in
+(select hop_dong.id_dich_vu
+ from hop_dong
+ where year(hop_dong.ngay_lam_hop_dong ) = 2019 and month(hop_dong.ngay_lam_hop_dong ) between 1 and 3);
+ -- hop_dong.ngay_lam_hop_dong between "2019-01-01" and "2019-03-31"
 
 -- task 7 cach 1
 select dich_vu.id_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu, hop_dong.ngay_lam_hop_dong
@@ -79,17 +83,18 @@ group by ten_khach_hang;
 -- cach 1 
 drop table if exists tempT; 
 create temporary table tempT (
-select hop_dong.id_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, 
+select  date_format(hop_dong.ngay_lam_hop_dong,'%m') as `month`,
 		(dich_vu.chi_phi_thue + sum(dich_vu_di_kem.gia*hop_dong_chi_tiet.so_luong)) as tong_tien
 from hop_dong
 join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
 join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
 join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
-group by hop_dong.id_hop_dong
-having year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) = 2);
+where year(hop_dong.ngay_lam_hop_dong) = 2019
+group by hop_dong.id_hop_dong);
 
-select sum(tong_tien) as TongDoanhThu
-from tempT;  
+select `month`, sum(tong_tien) as TongDoanhThu
+from tempT
+group by `month`;  
 
 -- cach 2 
 select sum(tong_tien)
@@ -99,8 +104,8 @@ from hop_dong
 join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
 join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
 join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
-group by hop_dong.id_hop_dong
-having year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) = 2) as A;
+where year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) = 2
+group by hop_dong.id_hop_dong) as A;
 
 select hop_dong.id_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, 
 		(dich_vu.chi_phi_thue + sum(dich_vu_di_kem.gia*hop_dong_chi_tiet.so_luong)) as tong_tien
@@ -117,6 +122,19 @@ from hop_dong
 join khach_hang on hop_dong.id_khach_hang = khach_hang.id_khach_hang
 where year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) = 2;
 
+-- cach 3 
+select date_format(hop_dong.ngay_lam_hop_dong,'%m') as `month`, count(hop_dong.id_hop_dong), sum(dich_vu.chi_phi_thue + total)
+from hop_dong
+join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
+join (
+select hop_dong.id_hop_dong,  sum(dich_vu_di_kem.gia*hop_dong_chi_tiet.so_luong) as total
+from hop_dong_chi_tiet
+join hop_dong on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+group by hop_dong.id_hop_dong
+) hop_dong_1  on hop_dong_1.id_hop_dong = hop_dong.id_hop_dong
+where year(hop_dong.ngay_lam_hop_dong) = 2019
+group by `month`;
 -- task 10
 select hop_dong.id_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.tien_dat_coc,
 		count(hop_dong.id_hop_dong) as Sodich_vu_di_kem

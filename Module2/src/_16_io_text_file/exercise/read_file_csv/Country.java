@@ -32,7 +32,7 @@ public class Country {
     public String toString() {
         return "Country{" +
                 "name='" + name + '\'' +
-                ", code='" + code + '\'' +
+                ", codeIPv4='" + code + '\'' +
                 '}';
     }
 }

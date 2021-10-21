@@ -16,7 +16,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
 
     public void add() {
-        // code thêm mới
+        // codeIPv4 thêm mới
         Scanner scanner = new Scanner(System.in);
         System.out.println("nhập tên");
         String name = scanner.nextLine();

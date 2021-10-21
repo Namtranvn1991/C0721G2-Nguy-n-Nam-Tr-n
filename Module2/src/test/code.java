@@ -1,44 +1,41 @@
 package test;
-import java.util.*;
+
+import java.lang.reflect.Array;
+import java.util.Scanner;
+
 public class code {
     public static void main(String[] args) {
-        String input = "33.254.255.2";
-        System.out.println(isIPv4Address(input));
-        System.out.println("123");
-
-    }
-
-    public static boolean check (String input){
-        String regex = "((\\d{1,2}|[01]\\d{1,2}|[0-2][0-4]\\d|25[0-5])\\.){3}(\\d{1,2}|[01]\\d{1,2}|[0-2][0-4]\\d|25[0-5])";
-        return input.matches(regex);
-    }
-
-    public static boolean isIPv4Address (String input){
-        String [] arrays = input.split("\\.");
-        if (arrays.length!=4){
-            return false;
+        Scanner sc = new Scanner(System.in);
+        int n;
+        System.out.println("Nhập số vào mảng:");
+        n = sc.nextInt();
+        int [] nums = new int[n];
+        for(int i=0;i<n;i++){
+            System.out.println("");
+            nums[i] = sc.nextInt();
         }
-        boolean flag = true;
-        for (String s: arrays) {
-            try {
-                Integer.parseInt(s);
-            } catch (NumberFormatException ex) {
-                return false;
+        dayConLienTiep(nums);
+    }
+    static void dayConLienTiep(int a[])
+    {
+        int sum=0,dau=0,cuoi=0,max=sum-1,temp=0;
+        for(int i=0;i<a.length;i++)
+        {
+            sum+=a[i];
+            if(sum>max)
+            {
+                max=sum;
+                dau=temp;
+                cuoi=i;
             }
-            int number = Integer.parseInt(s);
-            if (number<0||number>255){
-                flag = false;
+            if(sum<0)
+            {
+                temp=i+1;
+                sum=0;
             }
         }
-        return flag;
-    }
-
-    static public boolean isStringInt(String s) {
-        try {
-            Integer.parseInt(s);
-            return true;
-        } catch (NumberFormatException ex) {
-            return false;
-        }
+        for(int i=dau;i<=cuoi;i++)
+            System.out.println(a[i]);
+        System.out.println("Max="+max);
     }
 }
