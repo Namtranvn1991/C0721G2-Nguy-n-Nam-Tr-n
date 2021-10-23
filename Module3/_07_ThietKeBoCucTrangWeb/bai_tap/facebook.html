@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 31.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+            border: 1px solid;
+        }
+        .row::after {
+            content: "";
+            clear: both;
+            display: contents;
+        }
+
+        .search-container {
+            float: left;
+        }
+        .toolbar{
+            text-align: center;
+            width: 20%;
+            float: left;
+            padding: 0px;
+        }
+        div.header_M{
+            padding: 0px;
+            border: 0px;
+        }
+
+        .toolbar_R{
+            text-align: center;
+            float: right;
+            width: 10%;
+            padding: 0px;
+        }
+
+        .toolbar:hover{
+            background-color: lightgray;
+        }
+        .toolbar_R:hover{
+            background-color: lightgray;
+        }
+        .header_R div{
+            float: right;
+        }
+        .header_L div{
+            float: left;
+        }
+
+        li{
+            list-style: none;
+            position: relative;
+        }
+        a{
+            text-decoration: none;
+        }
+
+    </style>
+    <script src="https://kit.fontawesome.com/1c7f7651a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="row header" style="height: 50px">
+    <div class="col-4 header_L" style="height: 50px">
+        <div>
+            <i class="fab fa-facebook-square" style="font-size: 20px; width: 30px;color: blue"></i>
+        </div>
+        <div class="search-container">
+            <form action="/action_page.php">
+                <button type="submit"><i class="fas fa-search"></i></button>
+                <input type="text" placeholder="Search.." name="search">
+            </form>
+        </div>
+    </div>
+
+    <div class="col-4 header_M" style="height: 50px">
+        <div class="toolbar">
+            <i class="fas fa-home" style="font-size: 40px"></i>
+        </div>
+        <div class="toolbar">
+            <i class="fas fa-video" style="font-size: 40px"></i>
+        </div>
+        <div class="toolbar">
+            <i class="fas fa-store" style="font-size: 40px"></i>
+        </div>
+        <div class="toolbar">
+            <i class="fas fa-user-friends" style="font-size: 40px"></i>
+        </div>
+        <div class="toolbar">
+            <i class="fas fa-dice" style="font-size: 40px"></i>
+        </div>
+    </div>
+
+    <div class="col-4 header_R" style="height: 50px">
+        <div class="toolbar_R">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="toolbar_R">
+            <i class="fas fa-bell"></i>
+        </div>
+        <div class="toolbar_R">
+            <i class="fab fa-facebook-messenger"></i>
+        </div>
+        <div class="toolbar_R">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="toolbar_R">
+            <i class="fas fa-user"></i>
+        </div>
+    </div>
+</div>
+
+<div class="row content">
+    <div class="col-4">
+        <ul>
+            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
+            <li><div><i class="fas fa-user-friends"></i><a href="#">Friend</a></div></li>
+            <li><div><i class="fas fa-users"></i><a href="#">Group</a></div></li>
+        </ul>
+    </div>
+
+    <div class="col-4">
+        <div class="">
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+        </div>
+        <div class="">
+            <form action="/action_page.php">
+                <button type="submit"><i class="fas fa-user"></i></button>
+                <input type="text" placeholder="What are U thinking?" name="search">
+            </form>
+        </div>
+        <div class="">
+            <p>
+                Điều này là do DDR5 sẽ đi kèm với một số công nghệ như mạch tích hợp quản lý năng lượng trên chip (PMIC) và mã sửa lỗi ngay lập tức (ODECC) làm cho bộ nhớ đắt hơn để sản xuất. Tất cả điều này khiến giá dự kiến cho DDR5 cao hơn 50 - 60% so với DDR4 khi ra mắt.
+                “Trong lịch sử, công nghệ bộ nhớ mới hơn luôn đạt mức cao hơn 30 - 40% so với thế hệ trước. Tuy nhiên, lần này, DDR5 bao gồm các thành phần bổ sung khiến chi phí tăng thêm. Do đó, chúng tôi kỳ vọng giá cao hơn 50 - 60% so với DDR4 khi ra mắt. Thường mất khoảng 2 năm để đạt được mức giá tương đương với các thế hệ trước, và chúng tôi hy vọng xu hướng cũng sẽ tương tự với các mô-đun DDR5”, MSI cho biết.
+            </p>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <ul>
+            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
+            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
+            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
+            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
+            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

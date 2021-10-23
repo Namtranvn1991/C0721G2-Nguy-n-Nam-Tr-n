@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-family: Arial;
+            font-size: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        [class*="col-"] {
+            float: left;
+        }
+
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+
+        @media only screen and (max-width: 768px) {
+            [class*="col-"] {
+                width: 100%;
+            }
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
+        .header{
+            background-color:#191919;
+        }
+
+        .header ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header div ul li {
+            color: white;
+            width: 100px;
+            float: left;
+            text-align: center;
+        }
+        .header li{
+            list-style: none;
+            cursor: pointer;
+            float: left;
+            position: relative;
+        }
+
+        .header li a{
+            width: 100px;
+            display: block;
+            text-decoration: none;
+            color: #5e5d5b;
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 50px;
+        }
+
+        .header ul ul {
+            position: absolute;
+            visibility: hidden;
+            top: 50px;
+            left: 25px;
+            background-color: lightgrey;
+        }
+
+        .header li a:hover{
+            color: white;
+            background-color:gray;
+        }
+
+
+        .header ul li:hover ul{
+            visibility: visible;
+        }
+
+        .header, .footer {
+            background-color: #191919;
+        }
+
+        .content_M {
+            text-align: justify;
+        }
+
+        .link {
+            position: relative;
+            top:10px;
+            height: 50px;
+        }
+
+        .link a{
+            text-decoration: none;
+        }
+        .content{
+            background-color: blanchedalmond;
+        }
+        .content_M{
+            background-color: white;
+            padding: 20px;
+        }
+        .content_L {
+            height: 150px;
+
+        }
+        .content_R{
+            text-align: center;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0px;
+            height: 200px;
+        }
+
+        .ads {
+            border: solid 1px;
+            margin: 30px;
+        }
+        .footer{
+            color:white ;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div class="row header">
+    <div class="col-10">
+        <ul>
+            <li><a href="#">Logo</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a>
+                <ul class="dropdown">
+                    <li><a href="#">A</a></li>
+                    <li><a href="#">B</a></li>
+                    <li><a href="#">C</a></li>
+                    <li><a href="#">D</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Project</a>
+                <ul class="dropdown">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a>
+                <ul class="dropdown">
+                    <li><a href="#">A</a></li>
+                    <li><a href="#">a</a></li>
+                    <li><a href="#">s</a></li>
+                    <li><a href="#">d</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-2">
+        <ul>
+            <li>
+                <a href="#" class="login">Login</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row content">
+    <div class="col-3 content_L" style="text-align: center">
+        <div class="row link">
+            <div class="col-12">
+                <a href="#">Link</a>
+
+            </div>
+        </div>
+        <div class="row link">
+            <div class="col-12">
+                <a href="#">Link</a>
+
+            </div>
+        </div>
+        <div class="row link">
+            <div class="col-12">
+                <a href="#">Link</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 content_M"><h1>Content</h1>
+        <p>Content (media), information or experience provided to audience or end-users by publishers or media producers
+            Content industry, an umbrella term that encompasses companies owning and providing mass media and media metadata
+            Content provider, a provider of non-core services in the telecommunications industry
+            Free content, published material that can be used, copied, and modified without significant legal restriction
+            Open content, published material licensed to authorize copying and modification by anyone
+            Web content, information published on the World Wide Web
+            Content format, an encoded format for converting a specific type of data to displayable information
+            Digital content
+            Table of contents, a list of chapters or sections in a document</p>
+        <p>Content (media), information or experience provided to audience or end-users by publishers or media producers
+            Content industry, an umbrella term that encompasses companies owning and providing mass media and media metadata
+            Content provider, a provider of non-core services in the telecommunications industry
+            Free content, published material that can be used, copied, and modified without significant legal restriction
+            Open content, published material licensed to authorize copying and modification by anyone
+            Web content, information published on the World Wide Web
+            Content format, an encoded format for converting a specific type of data to displayable information
+            Digital content
+            Table of contents, a list of chapters or sections in a document</p>
+        <p>Content (media), information or experience provided to audience or end-users by publishers or media producers
+            Content industry, an umbrella term that encompasses companies owning and providing mass media and media metadata
+            Content provider, a provider of non-core services in the telecommunications industry
+            Free content, published material that can be used, copied, and modified without significant legal restriction
+            Open content, published material licensed to authorize copying and modification by anyone
+            Web content, information published on the World Wide Web
+            Content format, an encoded format for converting a specific type of data to displayable information
+            Digital content
+            Table of contents, a list of chapters or sections in a document</p>
+        <p>Content (media), information or experience provided to audience or end-users by publishers or media producers
+            Content industry, an umbrella term that encompasses companies owning and providing mass media and media metadata
+            Content provider, a provider of non-core services in the telecommunications industry
+            Free content, published material that can be used, copied, and modified without significant legal restriction
+            Open content, published material licensed to authorize copying and modification by anyone
+            Web content, information published on the World Wide Web
+            Content format, an encoded format for converting a specific type of data to displayable information
+            Digital content
+            Table of contents, a list of chapters or sections in a document</p>
+        <p>Content (media), information or experience provided to audience or end-users by publishers or media producers
+            Content industry, an umbrella term that encompasses companies owning and providing mass media and media metadata
+            Content provider, a provider of non-core services in the telecommunications industry
+            Free content, published material that can be used, copied, and modified without significant legal restriction
+            Open content, published material licensed to authorize copying and modification by anyone
+            Web content, information published on the World Wide Web
+            Content format, an encoded format for converting a specific type of data to displayable information
+            Digital content
+            Table of contents, a list of chapters or sections in a document</p>
+        <p>Content (media), information or experience provided to audience or end-users by publishers or media producers
+            Content industry, an umbrella term that encompasses companies owning and providing mass media and media metadata
+            Content provider, a provider of non-core services in the telecommunications industry
+            Free content, published material that can be used, copied, and modified without significant legal restriction
+            Open content, published material licensed to authorize copying and modification by anyone
+            Web content, information published on the World Wide Web
+            Content format, an encoded format for converting a specific type of data to displayable information
+            Digital content
+            Table of contents, a list of chapters or sections in a document</p>
+        <p>Content (media), information or experience provided to audience or end-users by publishers or media producers
+            Content industry, an umbrella term that encompasses companies owning and providing mass media and media metadata
+            Content provider, a provider of non-core services in the telecommunications industry
+            Free content, published material that can be used, copied, and modified without significant legal restriction
+            Open content, published material licensed to authorize copying and modification by anyone
+            Web content, information published on the World Wide Web
+            Content format, an encoded format for converting a specific type of data to displayable information
+            Digital content
+            Table of contents, a list of chapters or sections in a document</p>
+        </div>
+    <div class="col-3 content_R">
+        <div class="row ads">
+            <div class="col-12">
+                <p>ADS</p>
+            </div>
+        </div>
+        <div class="row ads">
+            <div class="col-12">
+                <p>ADS</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row footer">
+    <div class="col-12">
+        <p>Footer Text</p>
+    </div>
+</div>
+
+</body>
+</html>

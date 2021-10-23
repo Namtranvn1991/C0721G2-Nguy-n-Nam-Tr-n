@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 5px;
+        }
+
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .col-1 {width: 8.33%;}
+            .col-2 {width: 16.66%;}
+            .col-3 {width: 25%;}
+            .col-4 {width: 33.33%;}
+            .col-5 {width: 41.66%;}
+            .col-6 {width: 50%;}
+            .col-7 {width: 58.33%;}
+            .col-8 {width: 66.66%;}
+            .col-9 {width: 75%;}
+            .col-10 {width: 83.33%;}
+            .col-11 {width: 91.66%;}
+            .col-12 {width: 100%;}
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
+        .row {
+            background-color: lightgray;
+            margin: 10px 10px;
+        }
+        .menu {
+            text-align: center;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        h2 span {
+            font-size: 80%;
+            color: #5e5d5b;
+        }
+
+    </style>
+</head>
+<body>
+<div class="row" style="height: 50px">
+    <div class="col-12 header" style="padding: 15px">
+        Phim <span class="header-title" style="background-color: red;color: white;border-radius: 5px">Hoạt Hình</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 menu">
+        <a href="#">Phim hoạt hình</a> | <a href="#"> Phim hoạt hình yêu thích </a> | <a href="#">Nhân vật hoạt hình </a> | <a href="#"> Góp ý</a>
+    </div>
+</div>
+
+<div class="row" style="background-color: white">
+    <div class="col-4">
+        <div class="row">
+            <div class="col-12">
+                <video width="100%" controls>
+                    <source src="movie.mp4" type="video/mp4">
+                </video>
+                <h2>khách sạn Nobi - <span class="view-number"> 99999999 lượt xem</span></h2>
+                <h3>Chanel Fun</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <video width="100%" controls>
+                    <source src="movie.mp4" type="video/mp4">
+                </video>
+                <h2>khách sạn Nobi - <span class="view-number"> 99999999 lượt xem</span></h2>
+                <h3>Chanel Fun</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <video width="100%" controls>
+                    <source src="movie.mp4" type="video/mp4">
+                </video>
+                <h2>khách sạn Nobi - <span class="view-number"> 99999999 lượt xem</span></h2>
+                <h3>Chanel Fun</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <video width="100%" controls>
+                    <source src="movie.mp4" type="video/mp4">
+                </video>
+                <h2>khách sạn Nobi - <span class="view-number"> 99999999 lượt xem</span></h2>
+                <h3>Chanel Fun</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <video width="100%" controls>
+            <source src="movie.mp4" type="video/mp4">
+        </video>
+        <h2>khách sạn Nobi - <span class="view-number"> 99999999 lượt xem</span></h2>
+        <h3>Tác giả</h3>
+        <p>123123123123123123123</p>
+    </div>
+</div>
+</body>
+</html>
