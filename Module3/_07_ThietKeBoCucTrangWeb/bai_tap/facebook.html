@@ -4,26 +4,68 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        body {
+            background-color: #efefef;
+        }
+
         * {
             box-sizing: border-box;
         }
-        .col-1 {width: 8.33%;}
-        .col-2 {width: 16.66%;}
-        .col-3 {width: 25%;}
-        .col-4 {width: 31.33%;}
-        .col-5 {width: 41.66%;}
-        .col-6 {width: 50%;}
-        .col-7 {width: 58.33%;}
-        .col-8 {width: 66.66%;}
-        .col-9 {width: 75%;}
-        .col-10 {width: 83.33%;}
-        .col-11 {width: 91.66%;}
-        .col-12 {width: 100%;}
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 31.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
         [class*="col-"] {
             float: left;
             padding: 15px;
-            border: 1px solid;
+            border: 0px solid;
         }
+
         .row::after {
             content: "";
             clear: both;
@@ -33,60 +75,165 @@
         .search-container {
             float: left;
         }
-        .toolbar{
+
+        .toolbar {
             text-align: center;
             width: 20%;
             float: left;
             padding: 0px;
         }
-        div.header_M{
+
+        div.header_M {
             padding: 0px;
             border: 0px;
         }
 
-        .toolbar_R{
+        .toolbar_R {
             text-align: center;
             float: right;
             width: 10%;
             padding: 0px;
         }
 
-        .toolbar:hover{
+        .toolbar:hover {
             background-color: lightgray;
         }
-        .toolbar_R:hover{
+
+        .toolbar_R:hover {
             background-color: lightgray;
         }
-        .header_R div{
+
+        .header_R div {
             float: right;
         }
-        .header_L div{
+
+        .header_L div {
             float: left;
         }
 
-        li{
+        li {
             list-style: none;
             position: relative;
         }
-        a{
+
+        a {
             text-decoration: none;
         }
+
+        .facebook-logo {
+            position: relative;
+            top: -10px;
+            left: -10px;
+        }
+
+        .content{
+            display: flex;
+        }
+
+        .content_L div {
+            padding: 20px 0px;
+            text-align: left;
+        }
+
+        .content_R {
+            position: sticky;
+            top: 0px;
+            height: 500px;
+            background-color: white;
+            margin-top: 20px;
+            padding: 20px 0px;
+            text-align: left;
+            border-radius: 20px;
+        }
+
+        .content_R div {
+            padding: 20px 0px;
+            text-align: left;
+        }
+
+        .option-choice {
+            display: flex;
+        }
+
+        .option{
+            display: flex;
+            margin-left: 5px;
+        }
+
+        .main_1 {
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        .main_2 {
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px 20px;
+            margin-top: 20px;
+        }
+
+        .content_M {
+            padding: 20px 20px;
+        }
+
+        .shortcut-links a {
+            width: 100%;
+        }
+        .story-header{
+            display: flex;
+            align-items: center;
+        }
+
+        .like i{
+            margin-left: 20px;
+            color: dodgerblue;
+        }
+        .comment{
+            display: flex;
+            justify-content: space-between;
+        }
+        .comment-under{
+            margin-right: 18%;
+            font-size: 15px;
+        }
+        .like-and-comment{
+            display: flex;
+            justify-content: space-between;
+        }
+        .like1{
+            width: 45%;
+            display: flex;
+            align-items: center;
+        }
+        .comment1{
+            width: 45%;
+            margin-right: 10%;
+            display: flex;
+            align-items: center;
+        }
+
 
     </style>
     <script src="https://kit.fontawesome.com/1c7f7651a0.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="row header" style="height: 50px">
+<div class="row header" style="height: 50px;background-color: #0a53be">
     <div class="col-4 header_L" style="height: 50px">
-        <div>
-            <i class="fab fa-facebook-square" style="font-size: 20px; width: 30px;color: blue"></i>
+        <div class="facebook-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#3d8ff4" class="bi bi-facebook"
+                 viewBox="0 0 16 16">
+                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
         </div>
-        <div class="search-container">
-            <form action="/action_page.php">
-                <button type="submit"><i class="fas fa-search"></i></button>
-                <input type="text" placeholder="Search.." name="search">
-            </form>
-        </div>
+        <label class="search-label ">
+            <div class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </div>
+            <input class="search-input" placeholder="Tìm kiếm trên Facebook">
+        </label>
     </div>
 
     <div class="col-4 header_M" style="height: 50px">
@@ -127,15 +274,22 @@
 </div>
 
 <div class="row content">
-    <div class="col-4">
-        <ul>
-            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
-            <li><div><i class="fas fa-user-friends"></i><a href="#">Friend</a></div></li>
-            <li><div><i class="fas fa-users"></i><a href="#">Group</a></div></li>
-        </ul>
+    <div class="col-4 content_L">
+
+        <div><i class="fas fa-user"></i><a href="#">User</a></div>
+        <div><i class="fas fa-user-friends"></i><a href="#">Friend</a></div>
+        <div><i class="fas fa-users"></i><a href="#">Group</a></div>
+        <div><a href="#" style="color: #0a58ca">See More</a></div>
+        <div class="shortcut-links">
+            <p>Your Shortcuts</p>
+            <div><i class="fas fa-user"></i><a href="#">User</a></div>
+            <div><i class="fas fa-user-friends"></i><a href="#">Friend</a></div>
+            <div><i class="fas fa-users"></i><a href="#">Group</a></div>
+            <div><a href="#" style="color: #0a58ca">See More</a></div>
+        </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-4 content_M">
         <div class="">
             <div class="col-2"></div>
             <div class="col-2"></div>
@@ -144,27 +298,166 @@
             <div class="col-2"></div>
             <div class="col-2"></div>
         </div>
-        <div class="">
+        <div class="main_1">
             <form action="/action_page.php">
                 <button type="submit"><i class="fas fa-user"></i></button>
                 <input type="text" placeholder="What are U thinking?" name="search">
+
             </form>
+            <div class="option-choice">
+                <div class="option">
+                    <a href="#"><i class="far fa-images" id="icon1"></i></a>
+                    <p>Ảnh/Video</p>
+                </div>
+                <div class="option">
+                    <a href="#"><i class="fas fa-user-friends" id="icon2"></i></a>
+                    <p>Gắn thẻ bạn bè</p>
+                </div>
+                <div class="option">
+                    <a href="#"><i class="fas fa-laugh-squint" id="icon3"></i></a>
+                    <p>Cảm xúc/Hoạt động</p>
+                </div>
+            </div>
         </div>
-        <div class="">
+        <div class="main_2">
+            <div class="story-header">
+                <div class="img">
+                    <a href="#"><img src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png" style="width: 50px; margin-right: 10px"></a>
+                </div>
+
+                <div class="name-owns">
+                    <p class="name-user" style="font-weight: bold">Face</p>
+                    <p class="hours" style="font-size: 70%">3 giờ</p>
+                </div>
+            </div>
             <p>
-                Điều này là do DDR5 sẽ đi kèm với một số công nghệ như mạch tích hợp quản lý năng lượng trên chip (PMIC) và mã sửa lỗi ngay lập tức (ODECC) làm cho bộ nhớ đắt hơn để sản xuất. Tất cả điều này khiến giá dự kiến cho DDR5 cao hơn 50 - 60% so với DDR4 khi ra mắt.
-                “Trong lịch sử, công nghệ bộ nhớ mới hơn luôn đạt mức cao hơn 30 - 40% so với thế hệ trước. Tuy nhiên, lần này, DDR5 bao gồm các thành phần bổ sung khiến chi phí tăng thêm. Do đó, chúng tôi kỳ vọng giá cao hơn 50 - 60% so với DDR4 khi ra mắt. Thường mất khoảng 2 năm để đạt được mức giá tương đương với các thế hệ trước, và chúng tôi hy vọng xu hướng cũng sẽ tương tự với các mô-đun DDR5”, MSI cho biết.
+                Điều này là do DDR5 sẽ đi kèm với một số công nghệ như mạch tích hợp quản lý năng lượng trên chip (PMIC)
+                và mã sửa lỗi ngay lập tức (ODECC) làm cho bộ nhớ đắt hơn để sản xuất. Tất cả điều này khiến giá dự kiến
+                cho DDR5 cao hơn 50 - 60% so với DDR4 khi ra mắt.
+                “Trong lịch sử, công nghệ bộ nhớ mới hơn luôn đạt mức cao hơn 30 - 40% so với thế hệ trước. Tuy nhiên,
+                lần này, DDR5 bao gồm các thành phần bổ sung khiến chi phí tăng thêm. Do đó, chúng tôi kỳ vọng giá cao
+                hơn 50 - 60% so với DDR4 khi ra mắt. Thường mất khoảng 2 năm để đạt được mức giá tương đương với các thế
+                hệ trước, và chúng tôi hy vọng xu hướng cũng sẽ tương tự với các mô-đun DDR5”, MSI cho biết.
             </p>
+            <div class="comment">
+                <div class="like">
+                    <i class="fas fa-thumbs-up"> 17</i>
+                </div>
+                <div class="comment-under">
+                    <p>36 bình luận 1 lượt chia sẽ</p>
+                </div>
+            </div>
+
+            <div class="like-and-comment">
+                <div class="like1">
+                    <i class="far fa-thumbs-up"></i>
+                    <p>Like</p>
+                </div>
+                <div class="comment1">
+                    <i class="far fa-comments"></i>
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div>
+        <div class="main_2">
+            <div class="story-header">
+                <div class="img">
+                    <a href="#"><img src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png" style="width: 50px; margin-right: 10px"></a>
+                </div>
+
+                <div class="name-owns">
+                    <p class="name-user" style="font-weight: bold">Face</p>
+                    <p class="hours" style="font-size: 70%">3 giờ</p>
+                </div>
+            </div>
+            <p>
+                Điều này là do DDR5 sẽ đi kèm với một số công nghệ như mạch tích hợp quản lý năng lượng trên chip (PMIC)
+                và mã sửa lỗi ngay lập tức (ODECC) làm cho bộ nhớ đắt hơn để sản xuất. Tất cả điều này khiến giá dự kiến
+                cho DDR5 cao hơn 50 - 60% so với DDR4 khi ra mắt.
+                “Trong lịch sử, công nghệ bộ nhớ mới hơn luôn đạt mức cao hơn 30 - 40% so với thế hệ trước. Tuy nhiên,
+                lần này, DDR5 bao gồm các thành phần bổ sung khiến chi phí tăng thêm. Do đó, chúng tôi kỳ vọng giá cao
+                hơn 50 - 60% so với DDR4 khi ra mắt. Thường mất khoảng 2 năm để đạt được mức giá tương đương với các thế
+                hệ trước, và chúng tôi hy vọng xu hướng cũng sẽ tương tự với các mô-đun DDR5”, MSI cho biết.
+            </p>
+            <div class="comment">
+                <div class="like">
+                    <i class="fas fa-thumbs-up"> 17</i>
+                </div>
+                <div class="comment-under">
+                    <p>36 bình luận 1 lượt chia sẽ</p>
+                </div>
+            </div>
+
+            <div class="like-and-comment">
+                <div class="like1">
+                    <i class="far fa-thumbs-up"></i>
+                    <p>Like</p>
+                </div>
+                <div class="comment1">
+                    <i class="far fa-comments"></i>
+                    <p>Comment</p>
+                </div>
+            </div>
+        </div>
+        <div class="main_2">
+            <div class="story-header">
+                <div class="img">
+                    <a href="#"><img src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png" style="width: 50px; margin-right: 10px"></a>
+                </div>
+
+                <div class="name-owns">
+                    <p class="name-user" style="font-weight: bold">Face</p>
+                    <p class="hours" style="font-size: 70%">3 giờ</p>
+                </div>
+            </div>
+            <p>
+                Điều này là do DDR5 sẽ đi kèm với một số công nghệ như mạch tích hợp quản lý năng lượng trên chip (PMIC)
+                và mã sửa lỗi ngay lập tức (ODECC) làm cho bộ nhớ đắt hơn để sản xuất. Tất cả điều này khiến giá dự kiến
+                cho DDR5 cao hơn 50 - 60% so với DDR4 khi ra mắt.
+                “Trong lịch sử, công nghệ bộ nhớ mới hơn luôn đạt mức cao hơn 30 - 40% so với thế hệ trước. Tuy nhiên,
+                lần này, DDR5 bao gồm các thành phần bổ sung khiến chi phí tăng thêm. Do đó, chúng tôi kỳ vọng giá cao
+                hơn 50 - 60% so với DDR4 khi ra mắt. Thường mất khoảng 2 năm để đạt được mức giá tương đương với các thế
+                hệ trước, và chúng tôi hy vọng xu hướng cũng sẽ tương tự với các mô-đun DDR5”, MSI cho biết.
+            </p>
+            <div class="comment">
+                <div class="like">
+                    <i class="fas fa-thumbs-up"> 17</i>
+                </div>
+                <div class="comment-under">
+                    <p>36 bình luận 1 lượt chia sẽ</p>
+                </div>
+            </div>
+
+            <div class="like-and-comment">
+                <div class="like1">
+                    <i class="far fa-thumbs-up"></i>
+                    <p>Like</p>
+                </div>
+                <div class="comment1">
+                    <i class="far fa-comments"></i>
+                    <p>Comment</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-4 content_R">
         <ul>
-            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
-            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
-            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
-            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
-            <li><div><i class="fas fa-user"></i><a href="#">User</a></div></li>
+            <li>
+                <div><i class="fas fa-user"></i><a href="#">User</a></div>
+            </li>
+            <li>
+                <div><i class="fas fa-user"></i><a href="#">User</a></div>
+            </li>
+            <li>
+                <div><i class="fas fa-user"></i><a href="#">User</a></div>
+            </li>
+            <li>
+                <div><i class="fas fa-user"></i><a href="#">User</a></div>
+            </li>
+            <li>
+                <div><i class="fas fa-user"></i><a href="#">User</a></div>
+            </li>
         </ul>
     </div>
 </div>
