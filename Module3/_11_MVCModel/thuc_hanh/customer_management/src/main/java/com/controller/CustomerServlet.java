@@ -92,15 +92,17 @@ public class CustomerServlet extends HttpServlet {
 
         Customer customer = new Customer(id, name, email, address);
         this.customerService.save(customer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/create.jsp");
-        request.setAttribute("message", "New customer was created");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/create.jsp");
+//        request.setAttribute("message", "New customer was created");
+//
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        listCustomers(request,response);
     }
 
     private int createID(){

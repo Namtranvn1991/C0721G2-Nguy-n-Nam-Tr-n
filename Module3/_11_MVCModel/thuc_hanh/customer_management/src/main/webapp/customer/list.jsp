@@ -27,6 +27,9 @@
         </tr>
     </c:forEach>
 </table>
+<p>
+    <a href="/">Back to home</a>
+</p>
 <form action="/home">
     <input type="submit" value="Back to home">
 </form>
