@@ -20,7 +20,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public List<Product> findAll() {
-        return new  LinkedList<>(productMap.values());
+        return new LinkedList<>(productMap.values());
     }
 
     @Override
@@ -53,7 +53,11 @@ public class ProductRepository implements IProductRepository {
                 searchList.add(product);
             }
         }
-        return searchList;
+        if(searchList.isEmpty()){
+            return null;
+        } else {
+            return searchList;
+        }
     }
 
     public static void main(String[] args) {

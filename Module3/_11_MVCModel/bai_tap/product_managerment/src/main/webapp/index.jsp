@@ -7,7 +7,7 @@
   <body>
   <h2>List product</h2>
   <a href="/product_servlet?actionUser=create"> Create new product</a>
-  <p></p>
+  <br>
   <a href="/product_servlet?actionUser=search"> search product</a>
   <table border="1">
     <tr>
