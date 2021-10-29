@@ -1,11 +1,11 @@
-package repository;
+package service;
 
 import beam.User;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IUserDAO {
+public interface IUserDAOService {
 
     public List<User> selectUsersByName(String nameSearch);
 

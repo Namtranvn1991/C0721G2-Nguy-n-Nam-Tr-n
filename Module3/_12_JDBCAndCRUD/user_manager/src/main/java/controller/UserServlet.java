@@ -4,6 +4,8 @@ package controller;
 
 import beam.User;
 import repository.impl.UserDAO;
+import service.IUserDAOService;
+import service.impl.UserDAOService;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -19,10 +21,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "UserServlet", urlPatterns = {"/users",""})
 public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private UserDAO userDAO;
+    private IUserDAOService iUserDAOService;
 
     public void init() {
-        userDAO = new UserDAO();
+        iUserDAOService = new UserDAOService();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -53,7 +55,7 @@ public class UserServlet extends HttpServlet {
             throws SQLException, IOException, ServletException {
         String name = request.getParameter("name");
         String messenger = name + " is not found";
-        List<User> listSearchUser = userDAO.selectUsersByName(name);
+        List<User> listSearchUser = iUserDAOService.selectUsersByName(name);
         if(listSearchUser.isEmpty()){
             request.setAttribute("messenger", messenger);
         }
@@ -99,7 +101,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void sortList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<User> listUser = userDAO.sortByName();
+        List<User> listUser = iUserDAOService.sortByName();
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
         dispatcher.forward(request, response);
@@ -114,7 +116,7 @@ public class UserServlet extends HttpServlet {
 
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-        List<User> listUser = userDAO.selectAllUsers();
+        List<User> listUser = iUserDAOService.selectAllUsers();
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
         dispatcher.forward(request, response);
@@ -129,7 +131,7 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        User existingUser = userDAO.selectUser(id);
+        User existingUser = iUserDAOService.selectUser(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);
@@ -142,7 +144,7 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String country = request.getParameter("country");
         User newUser = new User(name, email, country);
-        userDAO.insertUser(newUser);
+        iUserDAOService.insertUser(newUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
         dispatcher.forward(request, response);
     }
@@ -155,7 +157,7 @@ public class UserServlet extends HttpServlet {
         String country = request.getParameter("country");
 
         User book = new User(id, name, email, country);
-        userDAO.updateUser(book);
+        iUserDAOService.updateUser(book);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         dispatcher.forward(request, response);
     }
@@ -163,9 +165,9 @@ public class UserServlet extends HttpServlet {
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
-        userDAO.deleteUser(id);
+        iUserDAOService.deleteUser(id);
 
-        List<User> listUser = userDAO.selectAllUsers();
+        List<User> listUser = iUserDAOService.selectAllUsers();
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
         dispatcher.forward(request, response);
