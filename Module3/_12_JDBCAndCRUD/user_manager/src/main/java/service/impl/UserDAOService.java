@@ -50,4 +50,34 @@ public class UserDAOService implements IUserDAOService {
     public boolean updateUser(User user) throws SQLException {
         return iUserDAO.updateUser(user);
     }
+
+    @Override
+    public User getUserById(int id) {
+        return iUserDAO.getUserById(id);
+    }
+
+    @Override
+    public void insertUserStore(User user) throws SQLException {
+        iUserDAO.insertUserStore(user);
+    }
+
+    @Override
+    public void addUserTransaction(User user, int[] permision) {
+        iUserDAO.addUserTransaction(user,permision);
+    }
+
+    @Override
+    public void insertUpdateWithoutTransaction() {
+        iUserDAO.insertUpdateWithoutTransaction();
+    }
+
+    @Override
+    public void insertUpdateUseTransaction() {
+        iUserDAO.insertUpdateUseTransaction();
+    }
+
+    @Override
+    public void addUserTransaction() {
+        iUserDAO.addUserTransaction();
+    }
 }

@@ -31,6 +31,7 @@ luong varchar(45),
 sdt varchar(45),
 email varchar(45),
 dia_chi varchar(45),
+status_dv bit default 1,
 foreign key (id_vi_tri) references vi_tri(id_vi_tri),
 foreign key (id_trinh_do) references trinh_do(id_trinh_do),
 foreign key (id_bo_phan) references bo_phan(id_bo_phan)
@@ -51,6 +52,7 @@ so_cmtnd varchar(45),
 sdt varchar(45),
 email varchar(45),
 dia_chi varchar(45),
+status_dv bit(2) default 1,
 foreign key (id_loai_khach) references loai_khach(id_loai_khach)
 ON DELETE CASCADE
 );
@@ -99,6 +101,7 @@ ngay_lam_hop_dong date,
 ngay_ket_thuc date,
 tien_dat_coc int,
 tong_tien int,
+status_dv bit default 1,
 foreign key (id_nhan_vien) references nhan_vien(id_nhan_vien),
 foreign key (id_khach_hang) references khach_hang(id_khach_hang)
 ON DELETE CASCADE,
@@ -124,6 +127,9 @@ value ("RECEPTIONIST"),
 	  ("SUPERVISOR"),
 	  ("MANAGER"),
 	  ("PRESIDENT");
+      
+insert into vi_tri(ten_vi_tri)
+value ("");
 
 insert into nhan_vien (ten_nhan_vien,ngay_sinh,dia_chi,id_bo_phan)
 value ("Hoang AAA","1991-2-3","DaNang",1),
@@ -140,14 +146,14 @@ value ("Diamond"),
 	  ("Silver"),   
       ("Member");
       
-insert into khach_hang (ten_khach_hang,id_loai_khach,dia_chi)
-value ("Nguyen A",2,"DaNang"),
-       ("Tran C",2,"Vinh"),
-       ("Nguyen C",2,"QuangNgai"),
-       ("Le C",2,"Vinh"),
-       ("Nguyen C",2,"DaNang"),
-       ("Vo thi ZZ",1,"DaNang"),
-       ("Tran DDDD",2,"Vinh");      
+insert into khach_hang (ten_khach_hang,ngay_sinh,id_loai_khach,dia_chi)
+value ("Nguyen A","1994-2-3",2,"DaNang"),
+       ("Tran C","1989-2-3",2,"Vinh"),
+       ("Nguyen C","1990-2-3",2,"QuangNgai"),
+       ("Le C","1991-12-3",2,"Vinh"),
+       ("Nguyen C","1991-2-3",2,"DaNang"),
+       ("Vo thi ZZ","1992-2-11",1,"DaNang"),
+       ("Tran DDDD","1991-2-3",2,"Vinh");      
        
        
 insert into loai_dich_vu (ten_loai_dich_vu)
@@ -166,10 +172,10 @@ value ("Villa1",1,120),
        ("Room2",3,15);
        
 insert into dich_vu_di_kem(ten_dich_vu_di_kem,gia)
-value ("AAA",5),
-      ("BBB",1), 
-      ("CCC",3), 
-      ("DDD",10); 
+value ("Massage",5),
+      ("FreeDrink",1), 
+      ("Gym",3), 
+      ("AZ",10); 
       
 insert into hop_dong (id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hop_dong,ngay_ket_thuc,tong_tien) 
 value (2,1,2,"2019-2-12","2019-12-15",55),     

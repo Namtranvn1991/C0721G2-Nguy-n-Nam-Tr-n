@@ -18,11 +18,11 @@ public class ProductServlet extends HttpServlet {
     private final IProductService iProductService = new ProductService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("actionUser");
-        if (action == null) {
-            action = "";
+        String actionUser = request.getParameter("actionUser");
+        if (actionUser == null) {
+            actionUser = "";
         }
-        switch (action) {
+        switch (actionUser) {
             case "create":
                 createProduct(request,response);
                 break;
@@ -127,11 +127,11 @@ public class ProductServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("actionUser");
-        if (action == null) {
-            action = "";
+        String actionUser = request.getParameter("actionUser");
+        if (actionUser == null) {
+            actionUser = "";
         }
-        switch (action) {
+        switch (actionUser) {
             case "create":
                 showCreateForm(request,response);
                 break;

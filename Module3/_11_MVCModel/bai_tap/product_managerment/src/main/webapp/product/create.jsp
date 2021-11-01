@@ -19,7 +19,8 @@
 <p>
     <a href="/">Back to home</a>
 </p>
-<form method="post">
+<form action="/product_servlet" method="post">
+    <input type="hidden" name="actionUser" value="create">
     <fieldset>
         <legend>Product information</legend>
         <table>
