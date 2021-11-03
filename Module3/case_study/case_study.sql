@@ -121,6 +121,7 @@ foreign key (id_dich_vu_di_kem) references dich_vu_di_kem(id_dich_vu_di_kem),
 unique (id_hop_dong,id_dich_vu_di_kem)
 );
 
+
 insert into bo_phan(ten_bo_phan)
 value ("Bussiness"),
 	  ("Technical"),
@@ -170,16 +171,29 @@ insert into loai_dich_vu (ten_loai_dich_vu)
 value ("Villa"),
 	  ("House"),   
 	  ("Room"); 
+
+insert into kieu_thue (ten_kieu_thue,gia)
+value 	("Hour1",50),
+		("Hour2",70),
+		("Hour3",90),
+		("Day1",200),
+		("Day2",400),
+		("Day3",500),
+		("Month1",1000),
+		("Month2",2000),
+		("Month3",3000);
+        
+	
       
-insert into dich_vu (ten_dich_vu,id_loai_dich_vu,chi_phi_thue)
-value ("Villa1",1,120),
-       ("Villa2",1,100),
-       ("Villa3",1,200),
-       ("House1",2,50),
-       ("House2",2,80),
-       ("House3",2,50),
-       ("Room1",3,10),
-       ("Room2",3,15);
+insert into dich_vu (ten_dich_vu,id_loai_dich_vu,id_kieu_thue,chi_phi_thue)
+value ("DV-0001",1,3,120),
+       ("DV-0002",1,6,200),
+       ("DV-0003",1,9,200),
+       ("DV-0004",2,2,50),
+       ("DV-0005",2,5,80),
+       ("DV-0006",2,7,50),
+       ("DV-0007",3,1,10),
+       ("DV-0008",3,4,15);
        
 insert into dich_vu_di_kem(ten_dich_vu_di_kem,gia)
 value ("Massage",5),

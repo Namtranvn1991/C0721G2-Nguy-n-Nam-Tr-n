@@ -15,6 +15,4 @@ public interface IEmployeeRepository {
     public boolean deleteEmployee(int id);
 
     public boolean updateEmployee(Employee employee);
-
-
 }

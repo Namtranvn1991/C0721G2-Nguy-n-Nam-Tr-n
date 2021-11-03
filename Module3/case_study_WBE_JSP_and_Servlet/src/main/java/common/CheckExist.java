@@ -22,7 +22,6 @@ public class CheckExist {
             while (resultSet.next()){
                 result += resultSet.getInt(1);
             }
-
             exist = result>0;
             return exist;
         } catch (SQLException throwables) {

@@ -1,38 +1,42 @@
 package model;
 
 public class TypeOfRent {
-    private int id_type;
-    private String type;
+    private int idTypeOfRent;
+    private String typeOfRent;
     private double price;
 
     public TypeOfRent() {
     }
 
+    public TypeOfRent(int idTypeOfRent) {
+        this.idTypeOfRent = idTypeOfRent;
+    }
+
     public TypeOfRent(int id_type, String type, double price) {
-        this.id_type = id_type;
-        this.type = type;
+        this.idTypeOfRent = id_type;
+        this.typeOfRent = type;
         this.price = price;
     }
 
     public TypeOfRent(String type, double price) {
-        this.type = type;
+        this.typeOfRent = type;
         this.price = price;
     }
 
-    public int getId_type() {
-        return id_type;
+    public int getIdTypeOfRent() {
+        return idTypeOfRent;
     }
 
-    public void setId_type(int id_type) {
-        this.id_type = id_type;
+    public void setIdTypeOfRent(int idTypeOfRent) {
+        this.idTypeOfRent = idTypeOfRent;
     }
 
-    public String getType() {
-        return type;
+    public String getTypeOfRent() {
+        return typeOfRent;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeOfRent(String typeOfRent) {
+        this.typeOfRent = typeOfRent;
     }
 
     public double getPrice() {
@@ -41,5 +45,14 @@ public class TypeOfRent {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "TypeOfRent{" +
+                "id_type_of_rent=" + idTypeOfRent +
+                ", type_of_rent='" + typeOfRent + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
