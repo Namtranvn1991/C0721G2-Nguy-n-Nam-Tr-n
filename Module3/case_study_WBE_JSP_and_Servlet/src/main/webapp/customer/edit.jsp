@@ -16,7 +16,6 @@
     <input type="hidden" name="id" value="${customer.id_customer}">
 <div align="center">
     <table border="1" cellpadding="5">
-        <caption><h2>List of Customers</h2></caption>
         <tr>
             <th>Name</th>
             <th>Email</th>

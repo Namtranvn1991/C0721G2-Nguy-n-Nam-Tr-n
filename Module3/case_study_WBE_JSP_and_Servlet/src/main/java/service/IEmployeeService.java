@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IEmployeeService {
-    public void insertEmployee(Employee employee) throws SQLException;
+    public boolean insertEmployee(Employee employee) throws SQLException;
 
     public Employee selectEmployee(int id);
 

@@ -18,18 +18,19 @@ public class EmployeeRepository implements IEmployeeRepository {
     private static final String SELECT_EMPLOYEE_BY_ID = "SELECT * FROM case_study.nhan_vien where id_nhan_vien = ?;";
     private static final String SELECT_ALL_EMPLOYEES = "SELECT * FROM case_study.nhan_vien where status_nv = 1;";
     private static final String DELETE_EMPLOYEE_SQL = "UPDATE case_study.nhan_vien SET status_nv = 0 WHERE (id_nhan_vien = ?);";
-    private static final String UPDATE_EMPLOYEE_SQL = "UPDATE case_study.nhan_vien SET nhan_vien_code =?, ten_nhan_vien=?, " +
-            "ngay_sinh = ?, so_cmtnd = ?, sdt =?, email = ?, dia_chi =?, id_vi_tri=?, id_trinh_do=?, id_bo_phan=?, luong=? where id_khach_hang =?;";
+    private static final String UPDATE_EMPLOYEE_SQL = "UPDATE case_study.nhan_vien SET nhan_vien_code =?, ten_nhan_vien=?, ngay_sinh = ?, so_cmtnd = ?, sdt =?, email = ?, dia_chi =?, id_vi_tri=?, id_trinh_do=?, id_bo_phan=?, luong=? where id_nhan_vien =?;";
 
 
     @Override
-    public void insertEmployee(Employee employee){
+    public boolean insertEmployee(Employee employee){
+        boolean rowInsert =false;
         try {
             Connection connection = BaseRepository.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_EMPLOYEE_SQL);
             preparedStatement.setString(1,employee.getEmployee_code());
             preparedStatement.setString(2,employee.getName());
-            preparedStatement.setString(3,employee.getBirthday().toString());
+            java.sql.Date birth_day = convertJavaDateToSqlDate(employee.getBirthday());
+            preparedStatement.setDate(3,birth_day);
             preparedStatement.setString(4,employee.getId_card());
             preparedStatement.setString(5,employee.getPhone_number());
             preparedStatement.setString(6,employee.getEmail());
@@ -39,10 +40,13 @@ public class EmployeeRepository implements IEmployeeRepository {
             preparedStatement.setString(10,employee.getDepartment()+"");
             preparedStatement.setString(11,employee.getSalary()+"");
 
-            preparedStatement.executeUpdate();
+            int rowAffected = preparedStatement.executeUpdate();
+            rowInsert = rowAffected>0;
+            return rowInsert;
         } catch (SQLException throwables) {
             printSQLException(throwables);
         }
+        return rowInsert;
     }
 
     @Override
@@ -111,12 +115,53 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public boolean deleteEmployee(int id) {
-        return false;
+        boolean rowDelete = false;
+        try {
+            Connection connection = BaseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_EMPLOYEE_SQL);
+
+            preparedStatement.setString(1,id+"");
+            int rowAffected = preparedStatement.executeUpdate();
+            rowDelete = rowAffected>0;
+            return rowDelete;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return rowDelete;
     }
+
 
     @Override
     public boolean updateEmployee(Employee employee){
-        return false;
+        boolean rowUpdate =false;
+        try {
+            Connection connection = BaseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EMPLOYEE_SQL);
+            preparedStatement.setString(1,employee.getEmployee_code());
+            preparedStatement.setString(2,employee.getName());
+            java.sql.Date birth_day = convertJavaDateToSqlDate(employee.getBirthday());
+            preparedStatement.setDate(3,birth_day);
+            preparedStatement.setString(4,employee.getId_card());
+            preparedStatement.setString(5,employee.getPhone_number());
+            preparedStatement.setString(6,employee.getEmail());
+            preparedStatement.setString(7,employee.getAddress());
+            preparedStatement.setString(8,employee.getPosition()+"");
+            preparedStatement.setString(9,employee.getDegree()+"");
+            preparedStatement.setString(10,employee.getDepartment()+"");
+            preparedStatement.setString(11,employee.getSalary()+"");
+            preparedStatement.setString(12,employee.getId_employee()+"");
+
+            int rowAffected = preparedStatement.executeUpdate();
+            rowUpdate = rowAffected >0;
+            return rowUpdate;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return rowUpdate;
+    }
+
+    public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) {
+        return new java.sql.Date(date.getTime());
     }
 
     private void printSQLException(SQLException ex) {

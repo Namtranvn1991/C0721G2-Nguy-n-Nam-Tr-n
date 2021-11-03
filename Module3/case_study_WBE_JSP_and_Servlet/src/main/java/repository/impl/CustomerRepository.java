@@ -164,6 +164,8 @@ public class CustomerRepository implements ICustomerRepository {
 
     @Override
     public boolean updateCustomer(Customer customer) throws SQLException {
+        boolean rowUpdate =false;
+
         Connection connection = BaseRepository.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CUSTOMER_SQL);
         preparedStatement.setString(1,customer.getName());
@@ -175,9 +177,10 @@ public class CustomerRepository implements ICustomerRepository {
         preparedStatement.setString(6,customer.getEmail());
         preparedStatement.setString(7,customer.getAddress());
         preparedStatement.setString(8,customer.getId_customer()+"");
-        preparedStatement.executeUpdate();
+        int rowAffected = preparedStatement.executeUpdate();
+        rowUpdate = rowAffected >0;
 
-        return false;
+        return rowUpdate;
     }
 
     private void printSQLException(SQLException ex) {

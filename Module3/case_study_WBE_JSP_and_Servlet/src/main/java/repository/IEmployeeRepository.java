@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IEmployeeRepository {
-    public void insertEmployee(Employee employee);
+    public boolean insertEmployee(Employee employee);
 
     public Employee selectEmployee(int id);
 

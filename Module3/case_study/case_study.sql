@@ -21,6 +21,7 @@ ten_bo_phan varchar(45) not null
 
 create table nhan_vien(
 id_nhan_vien int primary key auto_increment,
+nhan_vien_code varchar(10) unique,
 ten_nhan_vien varchar(45) not null,
 id_vi_tri int,
 id_trinh_do int,
@@ -31,7 +32,7 @@ luong varchar(45),
 sdt varchar(45),
 email varchar(45),
 dia_chi varchar(45),
-status_dv bit default 1,
+status_nv bit default 1,
 foreign key (id_vi_tri) references vi_tri(id_vi_tri),
 foreign key (id_trinh_do) references trinh_do(id_trinh_do),
 foreign key (id_bo_phan) references bo_phan(id_bo_phan)
@@ -52,7 +53,7 @@ so_cmtnd varchar(45),
 sdt varchar(45),
 email varchar(45),
 dia_chi varchar(45),
-status_dv bit(2) default 1,
+status_kh bit default 1,
 foreign key (id_loai_khach) references loai_khach(id_loai_khach)
 ON DELETE CASCADE
 );
@@ -101,7 +102,7 @@ ngay_lam_hop_dong date,
 ngay_ket_thuc date,
 tien_dat_coc int,
 tong_tien int,
-status_dv bit default 1,
+status_hd bit default 1,
 foreign key (id_nhan_vien) references nhan_vien(id_nhan_vien),
 foreign key (id_khach_hang) references khach_hang(id_khach_hang)
 ON DELETE CASCADE,
@@ -121,23 +122,32 @@ unique (id_hop_dong,id_dich_vu_di_kem)
 );
 
 insert into bo_phan(ten_bo_phan)
-value ("RECEPTIONIST"),
-	  ("WAITER"),
-	  ("SPECIALIST"),
-	  ("SUPERVISOR"),
-	  ("MANAGER"),
-	  ("PRESIDENT");
+value ("Bussiness"),
+	  ("Technical"),
+	  ("Administrative"),
+	  ("Management"),
+	  ("Service");
       
 insert into vi_tri(ten_vi_tri)
-value ("");
+value ("Manager"),
+	  ("Deputy"),
+	  ("Staff");  
+      
+insert into trinh_do(ten_trinh_do)
+value ("High school graduated"),
+	  ("Bachelor"),
+	  ("Engineer"),
+	  ("Master"); 
+      
+      
 
-insert into nhan_vien (ten_nhan_vien,ngay_sinh,dia_chi,id_bo_phan)
-value ("Hoang AAA","1991-2-3","DaNang",1),
-	  ("Hoa V","1991-2-3","DaNang",1),
-	  ("Toa V","2010-2-3","QuangTri",2),
-	  ("Aoa V","1999-2-3","SaiGon",3),
-	  ("Boa B","2000-2-3","DaNang",4),
-	  ("Koa K","2011-2-3","DaNang",5);
+insert into nhan_vien (nhan_vien_code, ten_nhan_vien,ngay_sinh,dia_chi,id_bo_phan)
+value ("NV-0001","Hoang AAA","1991-2-3","DaNang",1),
+	  ("NV-0002","Hoa V","1991-2-3","DaNang",1),
+	  ("NV-0003","Toa V","2010-2-3","QuangTri",2),
+	  ("NV-0004","Aoa V","1999-2-3","SaiGon",3),
+	  ("NV-0005","Boa B","2000-2-3","DaNang",4),
+	  ("NV-0006","Koa K","2011-2-3","DaNang",5);
     
 insert into loai_khach (ten_loai_khach)
 value ("Diamond"),

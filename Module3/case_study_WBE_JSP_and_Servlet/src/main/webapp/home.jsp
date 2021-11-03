@@ -12,7 +12,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a href="#" class="navbar-brand d-flex align-items-center">
-            <img src="microsoft-logo.png" style="width: 100px">
+            <img src="https://1000logos.net/wp-content/uploads/2021/10/logo-Meta-500x281.png" style="width: 100px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="">
             <span class="navbar-toggler-icon"></span>

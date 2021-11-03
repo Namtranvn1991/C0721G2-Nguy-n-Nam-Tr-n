@@ -6,11 +6,25 @@ import java.util.Scanner;
 
 public class code {
     public static void main(String[] args) {
-        Date date = new Date(99,2,8);
-        System.out.println(dateToString(date));
-        System.out.println(date.toString());
+        try {
+            boolean a = validate(-4);
+            System.out.println(a);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
+
+
+
+    static boolean validate(int number) throws Exception {
+        if (number<0){
+            throw new Exception("123");
+        }
+        return true;
+    }
+
 
 
     static String dateToString (Date date){
