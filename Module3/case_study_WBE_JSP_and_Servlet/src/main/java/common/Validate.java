@@ -1,6 +1,7 @@
 package common;
 
 import model.Employee;
+import model.Service;
 
 public class Validate {
     public static boolean validateEmail(String email) {
@@ -28,8 +29,17 @@ public class Validate {
         return id_card.matches(regex);
     }
 
-    public static boolean validateSalary(double salary){
-        return salary>=0;
+    public static boolean validateServiceName(String name) {
+        String regex = "^DV-\\d{4}$";
+        return name.matches(regex);
+    }
+
+    public static boolean validatePositiveDouble(double number){
+        return number>=0;
+    }
+
+    public static boolean validatePositiveInt(int number){
+        return number>=0;
     }
 
 
@@ -49,9 +59,32 @@ public class Validate {
         if(!validateIDcard(employee.getId_card())){
             throw new MenuException("validate Id_card failed. 9 number or 12 number");
         }
-        if(!validateSalary(employee.getSalary())){
+        if(!validatePositiveDouble(employee.getSalary())){
             throw new MenuException("Salary is Positive Number");
         }
         return true;
     }
+
+    public static boolean validateService(Service service) throws MenuException {
+        if(!validateServiceName(service.getName_service())) {
+            throw new MenuException("validate Service name failed. DV-XXXX");
+        }
+        if(!validatePositiveInt(service.getArea())){
+            throw new MenuException("Area is Positive Number");
+        }
+        if(!validatePositiveInt(service.getFloor())){
+            throw new MenuException("Floor is Positive Number");
+        }
+        if(!validatePositiveInt(service.getMax_people())){
+            throw new MenuException("Max_people is Positive Number");
+        }
+        if(!validatePositiveInt(service.getTypeOfRent().getIdTypeOfRent())){
+            throw new MenuException("Pls input TypeOfRent");
+        }
+        if(!validatePositiveInt(service.getTypeOfService().getIdTypeOfService())){
+            throw new MenuException("Pls input TypeOfService");
+        }
+        return true;
+    }
+
 }

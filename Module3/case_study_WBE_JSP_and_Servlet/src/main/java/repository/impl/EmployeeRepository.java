@@ -19,6 +19,50 @@ public class EmployeeRepository implements IEmployeeRepository {
     private static final String SELECT_ALL_EMPLOYEES = "SELECT * FROM case_study.nhan_vien where status_nv = 1;";
     private static final String DELETE_EMPLOYEE_SQL = "UPDATE case_study.nhan_vien SET status_nv = 0 WHERE (id_nhan_vien = ?);";
     private static final String UPDATE_EMPLOYEE_SQL = "UPDATE case_study.nhan_vien SET nhan_vien_code =?, ten_nhan_vien=?, ngay_sinh = ?, so_cmtnd = ?, sdt =?, email = ?, dia_chi =?, id_vi_tri=?, id_trinh_do=?, id_bo_phan=?, luong=? where id_nhan_vien =?;";
+    private static final String SEARCH_EMPLOYEE = "SELECT * FROM case_study.nhan_vien where ten_nhan_vien like ? or sdt like ? or dia_chi like ? ;";
+
+
+    @Override
+    public List<Employee> searchEmployee(String name, String phone, String address){
+        List<Employee> listSearch = new ArrayList<>();
+        try {
+            Connection connection = BaseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_EMPLOYEE);
+            String nameSearch ="";
+            if(name==""){
+                nameSearch = "";
+            }else {
+                nameSearch = "%" + name + "%";
+            }
+            preparedStatement.setString(1,nameSearch);
+            preparedStatement.setString(2,phone);
+            preparedStatement.setString(3,address);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id_employee = resultSet.getInt("id_nhan_vien");
+                String employee_code = resultSet.getString("nhan_vien_code");
+                String nameE = resultSet.getString("ten_nhan_vien");
+                Date birthday = resultSet.getDate("ngay_sinh");
+                String id_card = resultSet.getString("so_cmtnd");
+                String phone_number = resultSet.getString("sdt");
+                String addressE = resultSet.getString("dia_chi");
+                String email = resultSet.getString("email");
+                int position = resultSet.getInt("id_vi_tri");
+                int degree = resultSet.getInt("id_trinh_do");
+                int department = resultSet.getInt("id_bo_phan");
+                double salary = resultSet.getDouble("luong");
+
+                Employee employee = new Employee(id_employee,employee_code,nameE,birthday,id_card,phone_number,addressE,email,position,degree,department,salary);
+                listSearch.add(employee);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+        return listSearch;
+    }
+
 
 
     @Override

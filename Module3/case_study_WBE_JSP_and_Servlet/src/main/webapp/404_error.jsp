@@ -6,6 +6,6 @@
 </head>
 <body>
 <p>${error_messenger}</p>
-<p><a href="/employee_servlet">Go back home</a></p>
+<p><a href="/home">Go back home</a></p>
 </body>
 </html>

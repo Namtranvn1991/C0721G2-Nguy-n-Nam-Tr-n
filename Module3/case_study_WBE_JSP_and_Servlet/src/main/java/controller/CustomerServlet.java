@@ -1,5 +1,6 @@
 package controller;
 
+import common.Validate;
 import model.Customer;
 import service.impl.CustomerService;
 import service.ICustomerService;
@@ -62,6 +63,13 @@ public class CustomerServlet extends HttpServlet {
 
     private void insertCustomer(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
+        String errorName = null;
+        String errorIdCard = null;
+        String errorPhone = null;
+        String errorEmail = null;
+        String errorDate = null;
+        boolean flag = true;
+
         String name = request.getParameter("name");
         String id_card = request.getParameter("id_card");
         String phone_number = request.getParameter("phone_number");
@@ -69,14 +77,44 @@ public class CustomerServlet extends HttpServlet {
         String email = request.getParameter("email");
         int type_customer = Integer.parseInt(request.getParameter("type_customer"));
 
-//        String date = request.getParameter("birthday");
+        Date birthday = null;
+        if(!Validate.validateName(name)){
+            flag = false;
+            errorName = "Validate name failed";
+        }
+        if(!Validate.validateIDcard(id_card)){
+            flag = false;
+            errorIdCard = "Validate id_card failed";
+        }
+        if(!Validate.validatePhoneNumber(phone_number)){
+            flag = false;
+            errorPhone = "Validate phone_number failed";
+        }
+        if(!Validate.validateEmail(email)){
+            flag = false;
+            errorEmail = "Validate email failed";
+        }
 
         try {
-            Date birthday = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("birthday"));
-            Customer customer = new Customer(name,birthday,id_card,phone_number,address,email,type_customer);
-            iCustomerService.insertCustomer(customer);
+            birthday = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("birthday"));
+
         } catch (ParseException e) {
+            flag = false;
+            errorDate = "Validate date failed";
             e.printStackTrace();
+        } finally {
+            Customer customer = new Customer(name,birthday,id_card,phone_number,address,email,type_customer);
+            if(flag==false){
+                request.setAttribute("errorName",errorName);
+                request.setAttribute("errorIdCard",errorIdCard);
+                request.setAttribute("errorPhone",errorPhone);
+                request.setAttribute("errorEmail",errorEmail);
+                request.setAttribute("errorDate",errorDate);
+                request.setAttribute("customer",customer);
+                request.getRequestDispatcher("customer/create.jsp").forward(request,response);
+            }else {
+                iCustomerService.insertCustomer(customer);
+            }
         }
         listCustomer(request,response);
     }

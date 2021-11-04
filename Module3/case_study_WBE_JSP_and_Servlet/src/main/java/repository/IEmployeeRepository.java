@@ -15,4 +15,6 @@ public interface IEmployeeRepository {
     public boolean deleteEmployee(int id);
 
     public boolean updateEmployee(Employee employee);
+
+    public List<Employee> searchEmployee(String name, String phone, String address);
 }

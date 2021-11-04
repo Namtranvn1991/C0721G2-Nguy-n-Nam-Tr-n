@@ -17,4 +17,6 @@ public interface IEmployeeService {
     public boolean deleteEmployee(int id);
 
     public boolean updateEmployee(Employee employee) throws SQLException;
+
+    public List<Employee> searchEmployee(String name, String phone, String address);
 }

@@ -35,4 +35,9 @@ public class EmployeeService implements IEmployeeService {
     public boolean updateEmployee(Employee employee) throws SQLException {
         return iEmployeeRepository.updateEmployee(employee);
     }
+
+    @Override
+    public List<Employee> searchEmployee(String name, String phone, String address) {
+        return iEmployeeRepository.searchEmployee(name,phone,address);
+    }
 }

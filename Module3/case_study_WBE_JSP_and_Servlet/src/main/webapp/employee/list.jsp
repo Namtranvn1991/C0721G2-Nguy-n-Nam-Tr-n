@@ -10,6 +10,9 @@
     <h2>
         <a href="/employee_servlet?action_employee_get=create">Add New Employee</a>
     </h2>
+    <h2>
+        <a href="/employee_servlet?action_employee_get=search">Search Employee</a>
+    </h2>
 </center>
 
 <div align="center">

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ServiceRepository implements IServiceRepository {
 
-    private static final String INSERT_EMPLOYEE_SQL = "INSERT INTO case_study.nhan_vien (nhan_vien_code, ten_nhan_vien, ngay_sinh, so_cmtnd, sdt, email, dia_chi, id_vi_tri, id_trinh_do, id_bo_phan, luong) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    private static final String INSERT_SERVICE_SQL = "INSERT INTO case_study.dich_vu (ten_dich_vu, dien_tich, so_tang, so_nguoi_toi_da, id_kieu_thue, id_loai_dich_vu, trang_thai) VALUES (?, ?, ?, ?, ?, ?, ?);";
     private static final String SELECT_SERVICE_BY_ID = "SELECT * FROM case_study.dich_vu " +
             " join case_study.loai_dich_vu on dich_vu.id_loai_dich_vu = loai_dich_vu.id_loai_dich_vu " +
             " join case_study.kieu_thue on dich_vu.id_kieu_thue = kieu_thue.id_kieu_thue " +
@@ -27,13 +27,26 @@ public class ServiceRepository implements IServiceRepository {
             " join case_study.kieu_thue on dich_vu.id_kieu_thue = kieu_thue.id_kieu_thue " +
             " where status_dv = 1;";
 
-    private static final String DELETE_EMPLOYEE_SQL = "UPDATE case_study.nhan_vien SET status_nv = 0 WHERE (id_nhan_vien = ?);";
-    private static final String UPDATE_EMPLOYEE_SQL = "UPDATE case_study.nhan_vien SET nhan_vien_code =?, ten_nhan_vien=?, ngay_sinh = ?, so_cmtnd = ?, sdt =?, email = ?, dia_chi =?, id_vi_tri=?, id_trinh_do=?, id_bo_phan=?, luong=? where id_nhan_vien =?;";
+    private static final String DELETE_SERVICE_SQL = "UPDATE case_study.dich_vu SET status_dv = 0 WHERE (id_dich_vu = ?);";
+    private static final String UPDATE_SERVICE_SQL = "UPDATE case_study.dich_vu SET dien_tich =?, so_tang=?, so_nguoi_toi_da = ?, id_kieu_thue = ?, id_loai_dich_vu =?, trang_thai = ? where id_dich_vu =?;";
 
 
     @Override
-    public boolean insertService(Service service) {
-        return false;
+    public void insertService(Service service) {
+        try {
+            Connection connection = BaseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_SERVICE_SQL);
+            preparedStatement.setString(1,service.getName_service());
+            preparedStatement.setString(2,service.getArea()+"");
+            preparedStatement.setString(3,service.getFloor()+"");
+            preparedStatement.setString(4,service.getMax_people()+"");
+            preparedStatement.setString(5,service.getTypeOfRent().getIdTypeOfRent()+"");
+            preparedStatement.setString(6,service.getTypeOfService().getIdTypeOfService()+"");
+            preparedStatement.setString(7,service.getStatus());
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override
@@ -97,12 +110,32 @@ public class ServiceRepository implements IServiceRepository {
     }
 
     @Override
-    public boolean deleteService(int id) {
-        return false;
+    public void deleteService(int id) {
+        try {
+            Connection connection = BaseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SERVICE_SQL);
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override
-    public boolean updateService(Service Service) {
-        return false;
+    public void updateService(Service service) {
+        try {
+            Connection connection = BaseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SERVICE_SQL);
+            preparedStatement.setString(1,service.getArea()+"");
+            preparedStatement.setString(2,service.getFloor()+"");
+            preparedStatement.setString(3,service.getMax_people()+"");
+            preparedStatement.setString(4,service.getTypeOfRent().getIdTypeOfRent()+"");
+            preparedStatement.setString(5,service.getTypeOfService().getIdTypeOfService()+"");
+            preparedStatement.setString(6,service.getStatus());
+            preparedStatement.setString(7,service.getId_service()+"");
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

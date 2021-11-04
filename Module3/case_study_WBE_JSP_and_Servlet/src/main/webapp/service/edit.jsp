@@ -2,92 +2,94 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Employee Detail</title>
+    <title>Service Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <center>
-    <h1>Employee Detail</h1>
+    <h1>Service Detail</h1>
     <h2>
-        <a href="/employee_servlet">Go back</a>
+        <a href="/service_servlet">Go back</a>
     </h2>
 </center>
-<form action="/employee_servlet" method="post">
-    <input type="hidden" name="action_employee_post" value="edit">
-    <input type="hidden" name="code" value="${employee.employee_code}">
-    <input type="hidden" name="id" value="${employee.id_employee}">
-<div align="center">
-    <table border="1" cellpadding="5">
-        <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>birthday</th>
-            <th>id_card</th>
-            <th>phone_number</th>
-            <th>address</th>
-            <th>salary</th>
-            <th>degree</th>
-            <th>department</th>
-            <th>position</th>
-        </tr>
-        <tr>
-            <td>${employee.employee_code}</td>
-            <td><input type="text" name="name" value="${employee.name}"></td>
-            <td><input type="text" name="email" value="${employee.email}"></td>
-            <td><input type="date" name="birthday" value="${employee.birthday}"></td>
-            <td><input type="text" name="id_card" value="${employee.id_card}"></td>
-            <td><input type="text" name="phone_number" value="${employee.phone_number}"></td>
-            <td><input type="text" name="address" value="${employee.address}"></td>
-            <td><input type="text" name="salary" value="${employee.salary}"></td>
-            <td><select name="position">
-                <option value="1">
-                    Manager
-                </option>
-                <option value="2">
-                    Deputy
-                </option>
-                <option value="3">
-                    Staff
-                </option>
-            </select>
-            </td>
-            <td><select name="degree">
-                <option value="1">
-                    High school graduated
-                </option>
-                <option value="2">
-                    Bachelor
-                </option>
-                <option value="3">
-                    Engineer
-                </option>
-                <option value="4">
-                    Master
-                </option>
-            </select>
-            </td>
-            <td><select name="department">
-                <option value="1">
-                    Bussiness
-                </option>
-                <option value="2">
-                    Technical
-                </option>
-                <option value="3">
-                    Administrative
-                </option>
-                <option value="4">
-                    Management
-                </option>
-                <option value="5">
-                    Service
-                </option>
-            </select>
-            </td>
-        </tr>
-    </table>
-    <input type="submit" value="Edit Employee">
-</div>
+<c:if test='${requestScope["error_messenger"] != null}'>
+    <span class="col-12 border bg-light">${requestScope["error_messenger"]}</span>
+</c:if>
+<form action="/service_servlet" class="col-12" method="post">
+    <input type="hidden" name="action_service_post" value="edit">
+    <input type="hidden" name="id" value="${service.id_service}">
+    <div class="form-group col-12">
+        <label class="col-12 float-left">name_service</label>
+        <input type="text" name="name_service" class="form-control col-12 float-left mt-2"
+               value="${service.name_service}" readonly>
+    </div>
+    <div class="form-group col-12">
+        <label class="col-12 float-left">area</label>
+        <input type="number" name="area" class="form-control col-12 float-left mt-2" value="${service.area}">
+    </div>
+    <div class="form-group col-12">
+        <label class="col-12 float-left">floor</label>
+        <input type="number" name="floor" class="form-control col-12 float-left mt-2" value="${service.floor}">
+    </div>
+    <div class="form-group col-12">
+        <label class="col-12 float-left">max_people</label>
+        <input type="number" name="max_people" class="form-control col-12 float-left mt-2"
+               value="${service.max_people}">
+    </div>
+    <div class="form-group col-12">
+        <label class="col-12 float-left">status</label>
+        <input type="text" name="status" class="form-control col-12 float-left mt-2" value="${service.status}">
+    </div>
+
+    <div class="form-group col-12">
+        <label class="col-12 float-left mt-1">typeOfRent</label>
+        <select name="idTypeOfRent" class="form-control col-12 float-left">
+            <c:forEach var="typeOfRentSV" items="${typeOfRentList}">
+                <c:choose>
+                    <c:when test="${service.getTypeOfRent().getIdTypeOfRent() == typeOfRentSV.idTypeOfRent}">
+                        <option value="${typeOfRentSV.idTypeOfRent}" selected> ${typeOfRentSV.idTypeOfRent}
+                            - ${typeOfRentSV.typeOfRent} - ${typeOfRentSV.price}</option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="${typeOfRentSV.idTypeOfRent}"> ${typeOfRentSV.idTypeOfRent}
+                            - ${typeOfRentSV.typeOfRent} - ${typeOfRentSV.price}</option>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </select>
+    </div>
+
+    <div class="form-group col-12">
+        <label class="col-12 float-left mt-1">TypeOfService</label>
+        <select name="idTypeOfService" class="form-control col-12 float-left">
+            <c:forEach var="typeOfService" items="${typeOfServiceList}">
+                <c:choose>
+                    <c:when test="${service.typeOfService.idTypeOfService == typeOfService.idTypeOfService}">
+                        <option value="${typeOfService.idTypeOfService}" selected> ${typeOfService.idTypeOfService} - ${typeOfService.typeOfService} </option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="${typeOfService.idTypeOfService}"> ${typeOfService.idTypeOfService} - ${typeOfService.typeOfService} </option>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary float-right">Edit</button>
+    <a href="/service_servlet">
+        <button type="button" class="btn btn-info float-right">Back</button>
+    </a>
 </form>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>

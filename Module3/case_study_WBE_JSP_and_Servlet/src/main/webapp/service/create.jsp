@@ -19,11 +19,11 @@
                     <div class="col-12 text-center">
                         <h1>create service</h1>
                     </div>
-                    <c:if test='${requestScope["message"] != null}'>
-                        <span class="col-12 border bg-light">${requestScope["message"]}</span>
+                    <c:if test='${requestScope["error_messenger"] != null}'>
+                        <span class="col-12 border bg-light">${requestScope["error_messenger"]}</span>
                     </c:if>
                     <form action="/service_servlet" class="col-12" method="post">
-
+                        <input type="hidden" name="action_service_post" value="create">
                         <div class="form-group col-12">
                             <label class="col-12 float-left">name_service</label>
                             <input type="text" name="name_service" class="form-control col-12 float-left mt-2" placeholder="Enter Name">
@@ -47,17 +47,17 @@
 
                         <div class="form-group col-12">
                             <label class="col-12 float-left mt-1">typeOfRent</label>
-                            <select name="id_customer_type" class="form-control col-12 float-left">
+                            <select name="idTypeOfRent" class="form-control col-12 float-left">
                                 <option>typeOfRent</option>
-                                <c:forEach var="typeOfRent" items="${typeOfRentList}">
-                                    <option value="${typeOfRent.idTypeOfRent}"> ${typeOfRent.idTypeOfRent} - ${typeOfRent.typeOfRent} - ${typeOfRent.price}</option>
+                                <c:forEach var="typeOfRentSV" items="${typeOfRentList}">
+                                    <option value="${typeOfRentSV.idTypeOfRent}"> ${typeOfRentSV.idTypeOfRent} - ${typeOfRentSV.typeOfRent} - ${typeOfRentSV.price}</option>
                                 </c:forEach>
                             </select>
                         </div>
 
                         <div class="form-group col-12">
                             <label class="col-12 float-left mt-1">TypeOfService</label>
-                            <select name="id_customer_type" class="form-control col-12 float-left">
+                            <select name="idTypeOfService" class="form-control col-12 float-left">
                                 <option>TypeOfService</option>
                                 <c:forEach var="typeOfService" items="${typeOfServiceList}">
                                     <option value="${typeOfService.idTypeOfService}"> ${typeOfService.idTypeOfService} - ${typeOfService.typeOfService} </option>

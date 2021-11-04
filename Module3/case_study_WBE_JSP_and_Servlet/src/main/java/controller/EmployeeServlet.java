@@ -38,20 +38,32 @@ public class EmployeeServlet extends HttpServlet {
                 case "edit":
                     editEmployee(request,response);
                     break;
+                case "search":
+                    searchEmployee(request,response);
+                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
     }
 
+    private void searchEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("nameSearch");
+        String phone = request.getParameter("phoneSearch");
+        String address = request.getParameter("addressSearch");
+        List<Employee> listSearch = iEmployeeService.searchEmployee(name,phone,address);
+        request.setAttribute("listSearch",listSearch);
+        request.getRequestDispatcher("employee/search.jsp").forward(request,response);
+    }
+
     private void editEmployee (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
         String code = request.getParameter("code");
-//        if(CheckExist.checkEmployee(code)){
-//            String messenger = "Employee code is exist";
-//            request.setAttribute("error_messenger",messenger);
-//            request.getRequestDispatcher("404_error.jsp").forward(request,response);
-//        }
+        if(CheckExist.checkEmployee(code)){
+            String messenger = "Employee code is exist";
+            request.setAttribute("error_messenger",messenger);
+            request.getRequestDispatcher("404_error.jsp").forward(request,response);
+        }
         String name = request.getParameter("name");
         String id_card = request.getParameter("id_card");
         String phone_number = request.getParameter("phone_number");
@@ -142,6 +154,9 @@ public class EmployeeServlet extends HttpServlet {
                 case "detail":
                     showDetail(request, response);
                     break;
+                case "search":
+                    showSearchForm(request, response);
+                    break;
                 default:
                     listEmployee(request, response);
                     break;
@@ -149,6 +164,11 @@ public class EmployeeServlet extends HttpServlet {
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+
+    private void showSearchForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.sendRedirect("employee/search.jsp");
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

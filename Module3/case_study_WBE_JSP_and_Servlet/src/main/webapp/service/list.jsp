@@ -98,7 +98,7 @@
         $('#serviceList').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 4
+            "pageLength": 10
         });
     });
 </script>
