@@ -61,5 +61,6 @@
 <h2>
     <a href="/home">Back to Home</a>
 </h2>
+<a href="javascript:history.back()">Go Back</a>
 </body>
 </html>

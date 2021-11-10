@@ -97,4 +97,18 @@ public class Service {
     public void setTypeOfService(TypeOfService typeOfService) {
         this.typeOfService = typeOfService;
     }
+
+    @Override
+    public String toString() {
+        return "Service{" +
+                "id_service=" + id_service +
+                ", name_service='" + name_service + '\'' +
+                ", area=" + area +
+                ", floor=" + floor +
+                ", max_people=" + max_people +
+                ", status='" + status + '\'' +
+                ", typeOfRent=" + typeOfRent +
+                ", typeOfService=" + typeOfService +
+                '}';
+    }
 }

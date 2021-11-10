@@ -69,7 +69,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary"><a href="/customer_servlet?action_customer_get=delete&id=${customer.id_customer}">Delete</a></button>
+                            <button type="button" class="btn btn-danger"><a href="/customer_servlet?action_customer_get=delete&id=${customer.id_customer}">Delete</a></button>
                         </div>
                     </div>
                 </div>

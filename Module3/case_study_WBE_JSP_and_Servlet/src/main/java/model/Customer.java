@@ -41,4 +41,12 @@ public class Customer extends Person {
     public void setType_customer(int type_customer) {
         this.type_customer = type_customer;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" + super.toString() +
+                "id_customer=" + id_customer +
+                ", type_customer=" + type_customer +
+                '}';
+    }
 }

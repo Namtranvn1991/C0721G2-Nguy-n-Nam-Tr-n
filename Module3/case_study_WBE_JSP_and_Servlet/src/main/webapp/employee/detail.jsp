@@ -8,7 +8,7 @@
 <center>
     <h1>Employee Detail</h1>
     <h2>
-        <a href="/employee_servlet">Go back</a>
+        <a href="javascript:history.back()">Go Back</a>
     </h2>
 </center>
 

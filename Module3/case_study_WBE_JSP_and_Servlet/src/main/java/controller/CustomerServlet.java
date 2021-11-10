@@ -120,7 +120,6 @@ public class CustomerServlet extends HttpServlet {
     }
 
 
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action_customer_get");
         if (action == null) {
