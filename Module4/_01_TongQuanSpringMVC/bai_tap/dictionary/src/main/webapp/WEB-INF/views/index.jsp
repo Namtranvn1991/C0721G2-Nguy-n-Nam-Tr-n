@@ -13,7 +13,7 @@
         <p>${output}</p>
 
   <c:if test="${error==1}">
-      <script>alert("Not found")</script>
+      <script>alert ("${input} Not found")</script>
   </c:if>
   </body>
 </html>

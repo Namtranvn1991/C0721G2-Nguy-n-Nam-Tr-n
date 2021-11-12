@@ -26,6 +26,7 @@ public class DictionaryController {
             model.addAttribute("output",output);
             return "index";
         }else {
+            model.addAttribute("input",input);
             model.addAttribute("error",1);
             return "index";
         }
