@@ -32,10 +32,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public String updateCustomer(
-            Customer customer
-    ) {
-
+    public String updateCustomer(Customer customer) {
         customerService.save(customer);
         return "redirect:/customers";
     }
