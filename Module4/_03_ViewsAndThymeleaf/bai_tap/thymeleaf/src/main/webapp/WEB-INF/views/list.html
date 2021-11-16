@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="/layout::header">
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+<a th:href="@{/create/}" th:text="Create"></a>
+<div th:if="${massage}">
+    <span th:text="${massage}"></span>
+</div>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>Stt</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="product,rowStat:${products}">
+            <td th:text="${rowStat.count}"></td>
+            <td><a th:href="@{/detail/{id}(id=${product.getId()})}" th:text="${product.name}">123</a></td>
+            <td><a th:href="@{/edit/{id}(id=${product.getId()})}">edit</a></td>
+            <td><a th:href="@{/delete/{id}(id=${product.getId()})}">delete</a></td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" th:data-target= "'#target'+${product.id}" >
+                    delete
+                </button>
+
+                <div class="modal fade" th:id="'target'+${product.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary"><a th:href="@{/delete/{id}(id=${product.getId()})}">delete</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

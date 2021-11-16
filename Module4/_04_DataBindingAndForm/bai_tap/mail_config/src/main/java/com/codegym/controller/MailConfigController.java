@@ -26,10 +26,6 @@ public class MailConfigController {
         Integer[] pageSizeList = new Integer[]{10,25,50};
         model.addAttribute("pageSizeList",pageSizeList);
 
-//        Boolean[] spams_filter = new Boolean[]{true};
-//        model.addAttribute("spams_filter",spams_filter);
-
-
         modelAndView.addObject("languageList",languageList);
         modelAndView.addObject("pageSizeList",pageSizeList);
         modelAndView.addObject("mailConfig",new MailConfig());
@@ -41,5 +37,19 @@ public class MailConfigController {
         model.addAttribute("mailConfig",mailConfig);
         return "show_config";
     }
+
+    @PostMapping(value = "/edit")
+    public String edit(@ModelAttribute("mailConfig")MailConfig mailConfig, Model model){
+
+        String[] languageList = new String[]{"English","Vietnamese","Japanese","Chinese"};
+        model.addAttribute("languageList",languageList);
+        Integer[] pageSizeList = new Integer[]{10,25,50};
+        model.addAttribute("pageSizeList",pageSizeList);
+
+
+        model.addAttribute("mailConfig",mailConfig);
+        return "edit";
+    }
+
 
 }
