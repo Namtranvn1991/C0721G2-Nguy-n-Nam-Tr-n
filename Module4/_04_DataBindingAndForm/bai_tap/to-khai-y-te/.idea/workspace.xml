@@ -2,44 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d959bb10-f5bf-44dd-9039-d3f937bf3a05" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/java/com/main/configuration/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/java/com/main/configuration/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/java/com/main/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/java/com/main/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/java/com/main/service/IService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/java/com/main/service/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/webapp/WEB-INF/views/detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/bai_tap/thymeleaf/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/java/com/codegym/configuration/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/java/com/codegym/configuration/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/java/com/codegym/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/java/com/codegym/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/java/com/codegym/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/webapp/WEB-INF/views/delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_03_ViewsAndThymeleaf/thuc_hanh/thymeleaf/src/main/webapp/WEB-INF/views/view.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mail_config/src/main/webapp/WEB-INF/views/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/AppInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/controller/MusicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/model/Music.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/model/MusicForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/service/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/service/IMusicService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/service/MusicService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/resources/upload_file.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/.idea/modules/customer-management.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/AppInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/service/impl/HibernateCustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/webapp/WEB-INF/templates/customers/info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/webapp/WEB-INF/templates/customers/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../_01_TongQuanSpringMVC/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../_01_TongQuanSpringMVC/thuc_hanh/customer-management" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/build/classes/java/main/com/codegym/controller/MailConfigController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/build/classes/java/main/com/codegym/controller/MailConfigController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/build/libs/mail_config-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/build/libs/mail_config-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/src/main/java/com/codegym/controller/MailConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/src/main/java/com/codegym/controller/MailConfigController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mail_config/src/main/webapp/WEB-INF/views/show_config.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../mail_config/src/main/webapp/WEB-INF/views/show_config.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +168,8 @@
       <option name="presentableId" value="Default" />
       <updated>1636951869046</updated>
       <workItem from="1636951877078" duration="11217000" />
-      <workItem from="1637026363184" duration="1834000" />
+      <workItem from="1637026363184" duration="2077000" />
+      <workItem from="1637112585393" duration="594000" />
     </task>
     <servers />
   </component>
