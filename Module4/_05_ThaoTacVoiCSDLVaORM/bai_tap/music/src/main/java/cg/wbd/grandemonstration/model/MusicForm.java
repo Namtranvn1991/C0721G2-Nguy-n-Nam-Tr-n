@@ -22,13 +22,20 @@ public class MusicForm {
     public MusicForm() {
     }
 
-    public MusicForm(Integer id, String nameOfSong, String singer, String type, MultipartFile path) {
-        this.id = id;
+    public MusicForm(String nameOfSong, String singer, String type, MultipartFile path) {
         this.nameOfSong = nameOfSong;
         this.singer = singer;
         this.type = type;
         this.path = path;
     }
+
+//    public MusicForm(Integer id, String nameOfSong, String singer, String type, MultipartFile path) {
+//        this.id = id;
+//        this.nameOfSong = nameOfSong;
+//        this.singer = singer;
+//        this.type = type;
+//        this.path = path;
+//    }
 
     public Integer getId() {
         return id;

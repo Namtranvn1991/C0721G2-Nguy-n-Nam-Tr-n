@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d959bb10-f5bf-44dd-9039-d3f937bf3a05" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/AppInit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/controller/MusicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/model/Music.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/model/MusicForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/service/BaseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/service/IMusicService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/java/cg/wbd/grandemonstration/service/MusicService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/resources/hibernate.conf.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/resources/upload_file.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/bai_tap/music/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/.idea/modules/customer-management.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/AppInit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/service/impl/HibernateCustomerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/java/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/resources/hibernate.conf.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/webapp/WEB-INF/templates/customers/info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../_05_ThaoTacVoiCSDLVaORM/thuc_hanh/customer-management/src/main/webapp/WEB-INF/templates/customers/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../_01_TongQuanSpringMVC/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../_01_TongQuanSpringMVC/thuc_hanh/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/upload_file/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

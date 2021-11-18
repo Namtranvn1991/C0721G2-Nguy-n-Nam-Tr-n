@@ -20,7 +20,7 @@ public class SandwichController {
     }
 
     @GetMapping(value = "/save")
-    public String saveSandwich(@RequestParam(value = "condiments") String[] condiments, Model model){
+    public String saveSandwich(@RequestParam(value = "condiments",defaultValue = "no") String[] condiments, Model model){
         System.out.println(Arrays.toString(condiments));
         model.addAttribute("condiments",condiments);
         return "save";
