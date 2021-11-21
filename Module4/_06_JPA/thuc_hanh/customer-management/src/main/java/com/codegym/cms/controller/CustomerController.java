@@ -49,7 +49,6 @@ public class CustomerController {
             ModelAndView modelAndView = new ModelAndView("/customer/edit");
             modelAndView.addObject("customer", customer);
             return modelAndView;
-
         } else {
             ModelAndView modelAndView = new ModelAndView("/error.404");
             return modelAndView;

@@ -1,7 +1,11 @@
 package com.main.blog.model;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 public class Blog {
@@ -10,7 +14,12 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String description;
+
+    @Column(columnDefinition = "VARCHAR(1000)")
     private String context;
+
+    @Column(columnDefinition = "DATETIME")
+    private LocalDateTime creationTime;
 
     @ManyToOne(targetEntity = BlogUser.class)
     private BlogUser blogUser;
@@ -19,12 +28,19 @@ public class Blog {
     public Blog() {
     }
 
+    public LocalDateTime getCreationTime() {
+        return creationTime;
+    }
 
-    public BlogUser getUser() {
+    public void setCreationTime(LocalDateTime creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    public BlogUser getBlogUser() {
         return blogUser;
     }
 
-    public void setUser(BlogUser blogUser) {
+    public void setBlogUser(BlogUser blogUser) {
         this.blogUser = blogUser;
     }
 

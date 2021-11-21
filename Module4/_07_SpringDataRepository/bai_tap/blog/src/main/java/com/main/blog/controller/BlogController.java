@@ -15,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -42,14 +44,35 @@ public class BlogController {
         return "blog/list";
     }
 
+    @GetMapping(value = "/sortbytime")
+    public String sortBlogsByTime(@PageableDefault() Pageable pageable, Model model){
+        Page<Blog> blogs =iBlogService.findAllByTime(pageable);
+        model.addAttribute("blogs",blogs);
+        model.addAttribute("newBlog",new Blog());
+        model.addAttribute("userBlog",new BlogUser());
+        return "blog/list";
+    }
+
+
+    @PostMapping(value = "/findbyuser")
+    public String findByUser(@PageableDefault() Pageable pageable,@RequestParam("userNameFind") String name, Model model){
+        Page<Blog> blogs =iBlogService.findBlogByUser(name,pageable);
+        model.addAttribute("blogs",blogs);
+        model.addAttribute("newBlog",new Blog());
+        model.addAttribute("userBlog",new BlogUser());
+        return "blog/list";
+    }
+
     @PostMapping(value = "/create")
     public String createBlog(@ModelAttribute(value = "newBlog") Blog blog, RedirectAttributes redirectAttributes){
-        if(blog.getUser()==null){
+        if(blog.getBlogUser()==null){
             redirectAttributes.addFlashAttribute("msg","choose user");
             List<Blog> blogs =iBlogService.findAll();
             redirectAttributes.addFlashAttribute("blogs",blogs);
             return "redirect:/";
         }
+        LocalDateTime localDateTime = LocalDateTime.now();
+        blog.setCreationTime(localDateTime);
         iBlogService.save(blog);
         List<Blog> blogs =iBlogService.findAll();
         redirectAttributes.addFlashAttribute("blogs",blogs);
@@ -74,6 +97,8 @@ public class BlogController {
 
     @PostMapping(value = "/edit")
     public String edit(@ModelAttribute(value = "blog") Blog blog, RedirectAttributes redirectAttributes){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        blog.setCreationTime(localDateTime);
         iBlogService.save(blog);
         List<Blog> blogs =iBlogService.findAll();
         redirectAttributes.addFlashAttribute("blogs",blogs);

@@ -6,12 +6,14 @@
     <title>Title</title>
 </head>
 <body>
-<table>
+<a th:href="@{user}">Users</a>
+
+<div>
     <form action="/create" method="post" th:object="${newBlog}">
         Description<input type="text" th:field="*{description}">
-        Context<input type="text" th:field="*{context}">
+        Context<textarea th:field="*{context}"></textarea>
         User
-        <select th:field="*{user}" th:value="*{user}">
+        <select th:field="*{blogUser}" th:value="*{blogUser}">
             <option value="" disabled selected>Choose</option>
             <th:block th:each="userB:${users}">
                 <option th:value="${userB.id}" th:text="${userB.getUserName()}"></option>
@@ -20,6 +22,13 @@
         <input type="submit" value="submit">
     </form>
     <p th:if="${msg}" th:text="${msg}"></p>
+</div>
+<a th:href="@{/sortbytime}">Sort by time</a>
+<form action="/findbyuser" method="post">
+    Find by user name <input th:name="userNameFind" type="text">
+    <input type="submit" value="submit">
+</form>
+<table border="1">
     <tr>
         <th>STT</th>
         <th>description</th>
@@ -32,7 +41,7 @@
         <td th:text="${blogStat.count}"></td>
         <td th:text="${blog.description}"></td>
         <td th:text="${blog.context}"></td>
-        <td th:text="${blog.getUser().getUserName()}"></td>
+        <td th:text="${blog.getBlogUser().getUserName()}"></td>
         <td><a th:href="@{edit/{id}(id=${blog.getId()})}">Edit</a></td>
         <td><a th:href="@{delete/{id}(id=${blog.getId()})}">Delete</a></td>
     </tr>

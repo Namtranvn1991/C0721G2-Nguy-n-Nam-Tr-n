@@ -1,7 +1,10 @@
 package com.main.blog.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class BlogUser {
@@ -10,6 +13,7 @@ public class BlogUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(unique=true)
     private String userName;
 
     private String password;

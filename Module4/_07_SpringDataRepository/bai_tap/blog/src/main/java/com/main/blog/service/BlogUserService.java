@@ -29,12 +29,12 @@ public class BlogUserService implements IBlogUserService {
 
     @Override
     public void save(BlogUser blogUser) {
-
+        iBlogUserRepository.save(blogUser);
     }
 
     @Override
     public void remove(Integer id) {
-
+        iBlogUserRepository.deleteById(id);
     }
 
     @Override

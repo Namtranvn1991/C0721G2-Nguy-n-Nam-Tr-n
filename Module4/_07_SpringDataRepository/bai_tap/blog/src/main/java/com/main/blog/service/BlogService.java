@@ -41,4 +41,14 @@ public class BlogService implements IBlogService {
     public Page<Blog> findAll(Pageable pageable) {
         return iBlogRepository.findAll(pageable);
     }
+
+    @Override
+    public Page<Blog> findAllByTime(Pageable pageable) {
+        return iBlogRepository.findAllSortByTime(pageable);
+    }
+
+    @Override
+    public Page<Blog> findBlogByUser(String name,Pageable pageable) {
+        return iBlogRepository.findBlogByUserName(name, pageable);
+    }
 }
