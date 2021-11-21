@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <form action="/create" method="post" th:object="${newBlog}">
+        Description<input type="text" th:field="*{description}">
+        Context<input type="text" th:field="*{context}">
+        User
+        <select th:field="*{user}" th:value="*{user}">
+            <option value="" disabled selected>Choose</option>
+            <th:block th:each="userB:${users}">
+                <option th:value="${userB.id}" th:text="${userB.getUserName()}"></option>
+            </th:block>
+        </select>
+        <input type="submit" value="submit">
+    </form>
+    <p th:if="${msg}" th:text="${msg}"></p>
+    <tr>
+        <th>STT</th>
+        <th>description</th>
+        <th>context</th>
+        <th>User</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+    <tr th:each="blog,blogStat: ${blogs}">
+        <td th:text="${blogStat.count}"></td>
+        <td th:text="${blog.description}"></td>
+        <td th:text="${blog.context}"></td>
+        <td th:text="${blog.getUser().getUserName()}"></td>
+        <td><a th:href="@{edit/{id}(id=${blog.getId()})}">Edit</a></td>
+        <td><a th:href="@{delete/{id}(id=${blog.getId()})}">Delete</a></td>
+    </tr>
+</table>
+<div>
+    <a th:href="@{'/'(page=${blogs.number - 1})}" th:if="${blogs.hasPrevious()}">Previous</a>
+    <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
+    <a th:href="@{'/'(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">Next</a>
+</div>
+</body>
+</html>
