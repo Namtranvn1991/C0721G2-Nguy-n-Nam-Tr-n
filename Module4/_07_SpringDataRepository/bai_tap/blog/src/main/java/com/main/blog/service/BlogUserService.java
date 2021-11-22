@@ -42,4 +42,10 @@ public class BlogUserService implements IBlogUserService {
         return iBlogUserRepository.findAll(pageable);
     }
 
+
+    @Override
+    public boolean checkExistsByName(String userName){
+        return iBlogUserRepository.existsBlogUserByUserName(userName);
+    }
+
 }

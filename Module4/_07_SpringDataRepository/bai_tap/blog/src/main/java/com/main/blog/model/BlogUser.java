@@ -3,6 +3,8 @@ package com.main.blog.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,11 +16,15 @@ public class BlogUser {
     private Integer id;
 
     @Column(unique=true)
+    @Size(min=6,max=10,message = "Username length 6-10 characters")
+    @Pattern(regexp = "[A-Za-z0-9]*",message = "Username does not contain special characters")
     private String userName;
 
+    @Size(min=6,max=10,message = "Password length 6-10 characters")
+    @Pattern(regexp = "[A-Za-z0-9]*",message = "Password does not contain special characters")
     private String password;
 
-    @OneToMany(mappedBy = "blogUser")
+    @OneToMany(mappedBy = "blogUser",cascade = CascadeType.ALL)
     private List<Blog> blogList;
 
     public BlogUser() {

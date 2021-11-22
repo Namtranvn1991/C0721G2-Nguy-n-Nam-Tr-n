@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Phone</th>
+            <th>Age</th>
+            <th>Email</th>
+        </tr>
+        <th:block th:each="acc,accStat: ${listAcc}">
+            <tr>
+                <td th:text="${acc.id}"></td>
+                <td th:text="${acc.firstName}"></td>
+                <td th:text="${acc.lastName}"></td>
+                <td th:text="${acc.phoneNumber}"></td>
+                <td th:text="${acc.age}"></td>
+                <td th:text="${acc.email}"></td>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>

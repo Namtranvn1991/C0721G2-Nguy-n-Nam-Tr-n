@@ -9,4 +9,6 @@ public interface IBlogService extends IGeneralService<Blog> {
     Page<Blog> findAllByTime(Pageable pageable);
 
     Page<Blog> findBlogByUser(String name,Pageable pageable);
+
+
 }

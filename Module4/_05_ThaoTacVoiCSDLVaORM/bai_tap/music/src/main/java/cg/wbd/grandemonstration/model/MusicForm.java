@@ -1,16 +1,20 @@
 package cg.wbd.grandemonstration.model;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
+@Component
 public class MusicForm {
 
     private Integer id;
 
+    @NotNull
     private String nameOfSong;
 
     private String singer;

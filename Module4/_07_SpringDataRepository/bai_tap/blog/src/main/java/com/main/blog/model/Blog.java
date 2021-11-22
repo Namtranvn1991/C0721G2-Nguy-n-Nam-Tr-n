@@ -24,7 +24,6 @@ public class Blog {
     @ManyToOne(targetEntity = BlogUser.class)
     private BlogUser blogUser;
 
-
     public Blog() {
     }
 
