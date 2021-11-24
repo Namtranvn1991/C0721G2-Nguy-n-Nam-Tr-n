@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/">Back Home</a>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>code</th>
+        <th>student</th>
+        <th>date</th>
+        <th>status</th>
+        <th>book</th>
+        <th>Return</th>
+    </tr>
+    <th:block th:each="b:${borrows}">
+        <tr>
+            <td th:text="${b.id_borrow_book}"></td>
+            <td th:text="${b.code_borrow_book}"></td>
+            <td th:text="${b.studentName}"></td>
+            <td th:text="${b.date_borrow}"></td>
+            <td th:text="${b.status}"></td>
+            <td th:if="${b.book}" th:text="${b.book.name_book}"></td>
+            <td th:if="${b.status==true}">
+                <a th:href="@{/return/{id}(id=${b.id_borrow_book})}">Return</a>
+            </td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

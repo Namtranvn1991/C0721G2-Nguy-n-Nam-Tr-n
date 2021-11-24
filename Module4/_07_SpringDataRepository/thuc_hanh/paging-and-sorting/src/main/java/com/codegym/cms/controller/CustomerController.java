@@ -115,6 +115,19 @@ public class CustomerController {
         return "redirect:customers";
     }
 
+    @GetMapping("/customers/{id}")
+    public ModelAndView showInformation(@PathVariable Long id) {
+        try {
+            ModelAndView modelAndView = new ModelAndView("/customer/info");
+            Optional<Customer> customerOptional = customerService.findOne(id);
+            modelAndView.addObject("customer", customerOptional.get());
+            return modelAndView;
+        } catch (Exception e) {
+            return new ModelAndView("redirect:customers");
+        }
+    }
+
+
 }
 
 

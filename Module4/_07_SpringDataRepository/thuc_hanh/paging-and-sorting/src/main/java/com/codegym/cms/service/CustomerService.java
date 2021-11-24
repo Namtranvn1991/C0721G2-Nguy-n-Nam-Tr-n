@@ -54,4 +54,13 @@ public class CustomerService implements ICustomerService {
     public Iterable<Customer> findAllByProvince(Province province) {
         return customerRepository.findAllByProvince(province);
     }
+
+    @Override
+    public Optional<Customer> findOne(Long id) throws Exception {
+        Optional<Customer> customerOptional = customerRepository.findById(id);
+        if (!customerOptional.isPresent()) {
+            throw new Exception("customer not found!");
+        }
+        return customerOptional;
+    }
 }

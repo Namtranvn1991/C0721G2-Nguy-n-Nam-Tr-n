@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="/layout::header">
+</head>
+
+<body>
+
+<a th:href="@{customer/create}">Create</a>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>Stt</th>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <th:block th:each="customer,customerStat:${customerList}">
+            <tr>
+                <td th:text="${customerStat.count}"></td>
+                <td th:text="${customer.customerName}"></td>
+                <td th:text="${customer.customerBirthday}"></td>
+                <th:block th:switch="${customer.gender}">
+                    <td th:case="true">Male</td>
+                    <td th:case="false">Female</td>
+                </th:block>
+                <td>
+                    <a th:href="@{customer/edit/{id}(id=${customer.customerId})}">Edit</a>
+                </td>
+<!--                <td>-->
+<!--                    <a th:href="@{customer/delete/{id}(id=${customer.customerId})}">delete</a>-->
+<!--                </td>-->
+                <td>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" th:data-target= "'#target'+${customer.customerId}" >
+                        delete
+                    </button>
+
+                    <div class="modal fade" th:id="'target'+${customer.customerId}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary"><a th:href="@{customer/delete/{id}(id=${customer.customerId})}">delete</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

@@ -1,9 +1,8 @@
 package com.casestudy.main.model.user;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import com.casestudy.main.model.employee.Employee;
+
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -14,6 +13,9 @@ public class User {
 
     @Column(columnDefinition = "VARCHAR(255)")
     private String password;
+
+    @OneToOne(mappedBy = "username")
+    private Employee employee;
 
     @ManyToMany(mappedBy = "users")
     private List<Role> roles;

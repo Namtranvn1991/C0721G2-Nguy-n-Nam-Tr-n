@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:object="${borrow}" th:action="@{/borrowbook}" method="post">
+        <input type="hidden" th:field="*{book}">
+        <p th:text="${borrow.book.name_book}"></p>
+        code_borrow_book<input th:field="*{code_borrow_book}">
+        studentName<input th:field="*{studentName}">
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

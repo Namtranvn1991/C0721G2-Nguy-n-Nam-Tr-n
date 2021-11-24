@@ -1,6 +1,10 @@
 package com.casestudy.main.model.employee;
 
+import com.casestudy.main.model.user.User;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Employee {
@@ -8,18 +12,23 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
 
+    @NotBlank
     @Column(columnDefinition = "VARCHAR(45)")
     private String employeeName;
 
+    @NotNull
     @Column(columnDefinition = "DATE")
     private String employeeBirthday;
 
+    @NotBlank
     @Column(unique=true,columnDefinition = "VARCHAR(45)")
     private String employeeIdCard;
 
+    @NotNull
     @Column(columnDefinition = "DOUBLE")
     private Double employeeSalary;
 
+    @NotBlank
     @Column(unique=true,columnDefinition = "VARCHAR(45)")
     private String employeePhone;
 
@@ -29,8 +38,9 @@ public class Employee {
     @Column(columnDefinition = "VARCHAR(45)")
     private String employeeAddress;
 
-    @Column(columnDefinition = "VARCHAR(255)")
-    private String username;
+    @OneToOne(targetEntity = User.class)
+    @JoinColumn(name = "username")
+    private User username;
 
     @ManyToOne(targetEntity = Position.class)
     @JoinColumn(name = "positionId")
@@ -111,11 +121,11 @@ public class Employee {
         this.employeeAddress = employeeAddress;
     }
 
-    public String getUsername() {
+    public User getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(User username) {
         this.username = username;
     }
 

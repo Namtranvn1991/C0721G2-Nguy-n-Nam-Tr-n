@@ -16,7 +16,7 @@ public class Service {
     @Column(columnDefinition = "VARCHAR(45)")
     private String serviceName;
 
-    @NotNull
+
     @Column(columnDefinition = "INT")
     private Integer serviceArea;
 
@@ -24,23 +24,23 @@ public class Service {
     @Column(columnDefinition = "DOUBLE")
     private Double serviceCost;
 
-    @NotNull
+
     @Column(columnDefinition = "INT")
     private Integer serviceMaxPeople;
 
-    @NotBlank
+
     @Column(columnDefinition = "VARCHAR(45)")
     private String standardRoom;
 
-    @NotBlank
+
     @Column(columnDefinition = "VARCHAR(45)")
     private String descriptionOtherConvenience;
 
-    @NotNull
+
     @Column(columnDefinition = "DOUBLE")
     private Double poolArea;
 
-    @NotNull
+
     @Column(columnDefinition = "INT")
     private Integer numberOfFloors;
 

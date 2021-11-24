@@ -14,6 +14,7 @@
 </form>
 <table border="1">
     <tr>
+        <th>id</th>
         <th>First name</th>
         <th>Last name</th>
         <th>Province</th>
@@ -22,6 +23,7 @@
     </tr>
     <th:block th:each="customer : ${customers}">
         <tr>
+            <td><a th:href="@{/customers/{id}(id=${customer.id})}" th:text="${customer.id}"></a></td>
             <td th:text="${customer.firstName}"></td>
             <td th:text="${customer.lastName}"></td>
             <td th:if="${customer.province}" th:text="${customer.province.name}"></td>
