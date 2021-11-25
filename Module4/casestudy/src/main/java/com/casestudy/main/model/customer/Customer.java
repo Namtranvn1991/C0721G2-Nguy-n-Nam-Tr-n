@@ -4,10 +4,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -136,14 +133,22 @@ public class Customer  implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Customer customer =(Customer)target;
-        LocalDate birthDate = LocalDate.parse(customer.customerBirthday);
-        LocalDate today = LocalDate.now();
+
+        try {
+            LocalDate birthDate = LocalDate.parse(customer.customerBirthday);
+            LocalDate today = LocalDate.now();
+            if(Period.between(birthDate,today).getYears()<18){
+                errors.rejectValue("customerBirthday","birthday18");
+            }
+        } catch (Exception e){
+            errors.rejectValue("customerBirthday","birthday.empty");
+        }
+
         if(!customer.customerPhone.matches("090\\d{7}||091\\d{7}||[(]84[)][+]90\\d{7}||[(]84[)][+]91\\d{7}")){
             errors.rejectValue("customerPhone","phone.format");
         }
-        if(Period.between(birthDate,today).getYears()<18){
-            errors.rejectValue("customerBirthday","birthday18");
-        }
+
+
 
      }
 }
