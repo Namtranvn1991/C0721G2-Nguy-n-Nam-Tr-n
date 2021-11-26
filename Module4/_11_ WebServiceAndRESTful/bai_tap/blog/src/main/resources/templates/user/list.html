@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/}">Back to home</a>
+<a href="user/create">create</a>
+<table>
+    <tr>
+        <th>STT</th>
+        <th>UserID</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+    <tr th:each="user,usersStat: ${blogUsers}">
+        <td th:text="${usersStat.count}"></td>
+        <td th:text="*{user.id}"></td>
+        <td th:text="*{user.userName}"></td>
+        <td th:text="${user.password}"></td>
+        <td><a th:href="@{/user/edit/{id}(id=${user.getId()})}">Edit</a></td>
+        <td><a th:href="@{/user/delete/{id}(id=${user.getId()})}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>

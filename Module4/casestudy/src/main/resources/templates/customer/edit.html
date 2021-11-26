@@ -1,10 +1,89 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="/layout::header">
 </head>
 <body>
+<div class="container">
+    <form th:object="${customer}" method="post" th:action="@{/customer/edit}">
+        <input type="hidden" th:field="*{customerId}" th:value="${customer.customerId}">
+        <div class="form-group row">
+            <label for="customerName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="customerName" placeholder="Name" th:field="*{customerName}">
+                <span style="color: red" th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="customerIdCard" class="col-sm-2 col-form-label">customerIdCard</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="customerIdCard" placeholder="customerIdCard" th:field="*{customerIdCard}">
+                <span style="color: red" th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="customerBirthday" class="col-sm-2 col-form-label">customerBirthday</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="customerBirthday"  th:field="*{customerBirthday}">
+                <span style="color: red" th:if="${#fields.hasErrors('customerBirthday')}" th:errors="*{customerBirthday}"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="customerPhone" class="col-sm-2 col-form-label">customerPhone</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="customerPhone" placeholder="customerPhone" th:field="*{customerPhone}">
+                <span style="color: red" th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="customerAddress" class="col-sm-2 col-form-label">customerAddress</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="customerAddress" placeholder="customerAddress" th:field="*{customerAddress}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="customerEmail" class="col-sm-2 col-form-label">customerEmail</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="customerEmail" placeholder="customerEmail" th:field="*{customerEmail}">
+                <span style="color: red" th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"></span>
+            </div>
+        </div>
 
+
+        <fieldset class="form-group" >
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input th:field="*{gender}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" th:value="true" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input th:field="*{gender}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" th:value="false">
+                        <label class="form-check-label" for="gridRadios2">
+                            Female
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-group row" >
+            <label for="customerType" class="col-sm-2 col-form-label">customerType</label>
+            <div class="col-sm-10">
+                <select th:field="*{customerType}">
+                    <option th:each="t : ${customerType}" th:value="${t.customerTypeId}" th:text="${t.customerTypeName}" id="customerType"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>
