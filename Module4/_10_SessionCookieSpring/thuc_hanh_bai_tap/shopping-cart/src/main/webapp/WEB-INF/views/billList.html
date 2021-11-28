@@ -1,10 +1,31 @@
 <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<th:block th:each="bill:${billCartMap}">
+    <div>
+        Customer Name: <p th:text="${bill.key.customerName}"></p>
+        Bill id: <p th:text="${bill.key.id}"></p>
+        <table border="1">
+            <tr>
+                <th>Product</th>
+                <th>price</th>
+                <th>Quantity</th>
+            </tr>
+            <th:block th:each="cart123:${bill.getValue().products}">
+                <tr>
+                    <td th:text="${cart123.key.name}"></td>
+                    <td th:text="${cart123.key.price}"></td>
+                    <td th:text="${cart123.value}"></td>
+                </tr>
+            </th:block>
 
+        </table>
+    </div>
+</th:block>
 </body>
 </html>

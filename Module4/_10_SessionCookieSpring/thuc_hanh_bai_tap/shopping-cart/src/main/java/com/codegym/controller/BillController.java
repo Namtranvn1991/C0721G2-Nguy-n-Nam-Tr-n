@@ -6,6 +6,7 @@ import com.codegym.model.Cart;
 import com.codegym.model.Product;
 import com.codegym.service.IBillDetailService;
 import com.codegym.service.IBillService;
+import com.codegym.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +15,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Controller
 public class BillController {
     @Autowired
     IBillDetailService iBillDetailService;
+
+    @Autowired
+    IProductService iProductService;
 
     @Autowired
     IBillService iBillService;
@@ -53,5 +61,25 @@ public class BillController {
         }
         cart.getProducts().clear();
         return "/pay";
+    }
+
+    @GetMapping("/listBill")
+    public String showListBill(Model model){
+        List<BillDetail> billDetails = iBillDetailService.findAll();
+        Map<Bill,Cart> billCartMap =new HashMap<>();
+        for (BillDetail billDetail:billDetails) {
+            if (!billCartMap.containsKey(billDetail.getBill())){
+                Cart cart = new Cart();
+                cart.addProduct(billDetail.getProduct());
+                cart.setValue(billDetail.getProduct(),billDetail.getQuantity());
+                billCartMap.put(billDetail.getBill(),cart);
+            } else {
+                billCartMap.get(billDetail.getBill()).addProduct(billDetail.getProduct());
+                billCartMap.get(billDetail.getBill()).setValue(billDetail.getProduct(),billDetail.getQuantity());
+            }
+        }
+
+        model.addAttribute("billCartMap",billCartMap);
+        return "/billList";
     }
 }

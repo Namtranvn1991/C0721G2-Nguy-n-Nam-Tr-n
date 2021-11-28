@@ -13,9 +13,9 @@ public interface IBillRepository extends JpaRepository<Bill, Integer> {
     @Query
     Bill findBillByCustomerNameContaining(String name);
 
-
-    static String query = "";
-
-    @Query(value = query, nativeQuery = true)
-    List<Bill> findAllBills();
+//
+//    static String query = "";
+//
+//    @Query(value = query, nativeQuery = true)
+//    List<Bill> findAllBills();
 }

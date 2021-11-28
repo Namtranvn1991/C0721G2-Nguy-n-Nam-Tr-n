@@ -9,6 +9,7 @@ public class Cart {
     public Cart() {
     }
 
+
     public Cart(Map<Product, Integer> products) {
         this.products = products;
     }

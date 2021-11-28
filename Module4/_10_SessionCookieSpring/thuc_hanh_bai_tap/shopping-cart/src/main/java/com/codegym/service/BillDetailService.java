@@ -5,6 +5,7 @@ import com.codegym.repository.IBillDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,8 +15,8 @@ public class BillDetailService implements IBillDetailService {
     IBillDetailRepository iBillDetailRepository;
 
     @Override
-    public Iterable<BillDetail> findAll() {
-        return null;
+    public List<BillDetail> findAll() {
+        return iBillDetailRepository.findAll();
     }
 
     @Override
