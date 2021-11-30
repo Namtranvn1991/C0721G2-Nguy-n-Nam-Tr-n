@@ -104,4 +104,11 @@ public class BlogController {
         redirectAttributes.addFlashAttribute("blogs",blogs);
         return "redirect:/";
     }
+
+    @GetMapping("/search/{description}")
+    public String searchBlog(@PathVariable("description") String description, Model model) {
+        model.addAttribute("blogs", iBlogService.findAllBlogByDescription(description));
+        model.addAttribute("description",description);
+        return "/blog/search";
+    }
 }

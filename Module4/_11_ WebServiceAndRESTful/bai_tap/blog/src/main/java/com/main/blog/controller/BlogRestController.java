@@ -6,7 +6,9 @@ import com.main.blog.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Optional;
@@ -64,5 +66,15 @@ public class BlogRestController {
         }
         iBlogService.remove(id);
         return new ResponseEntity<>(customerOptional.get(), HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/search/{description}")
+    public ModelAndView searchBlog(@PathVariable("description") String description) {
+        ModelAndView modelAndView = new ModelAndView("/blog/search");
+//        model.addAttribute("blogs", iBlogService.findAllBlogByDescription(description));
+//        model.addAttribute("description",description);
+        modelAndView.addObject("blogs",iBlogService.findAllBlogByDescription(description));
+        modelAndView.addObject("description",description);
+        return modelAndView;
     }
 }

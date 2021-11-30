@@ -4,10 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+    </script>
 </head>
 <body>
 <a th:href="@{user}">Users</a>
-
+<form id="search">
+    <label for="title">Search by description</label>
+    <input type="text" id="title" th:name="description" th:value="${description}">
+    <button type="submit">Search</button>
+</form>
 <div>
     <form action="/create" method="post" th:object="${newBlog}">
         Description<input type="text" th:field="*{description}">
@@ -28,7 +40,7 @@
     Find by user name <input th:name="userNameFind" type="text">
     <input type="submit" value="submit">
 </form>
-<table border="1">
+<table border="1" id="tableSearch">
     <tr>
         <th>STT</th>
         <th>description</th>
@@ -51,5 +63,23 @@
     <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
     <a th:href="@{'/'(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">Next</a>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#search").submit(function (event) {
+            let description = $("input").val();
+            $.ajax({
+                type: "GET",
+                url: "api/blogs/search/" + description,
+                dataType: "HTMl",
+                success: function (data) {
+                    console.log(data)
+                    $("#tableSearch").html(data);
+                }
+            })
+            event.preventDefault();
+        });
+    });
+</script>
 </body>
 </html>
