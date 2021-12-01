@@ -39,8 +39,8 @@ public class Employee {
     private String employeeAddress;
 
     @OneToOne(targetEntity = User.class)
-    @JoinColumn(name = "username")
-    private User username;
+    @JoinColumn(name = "userName")
+    private User userName;
 
     @ManyToOne(targetEntity = Position.class)
     @JoinColumn(name = "positionId")
@@ -122,11 +122,11 @@ public class Employee {
     }
 
     public User getUsername() {
-        return username;
+        return userName;
     }
 
     public void setUsername(User username) {
-        this.username = username;
+        this.userName = username;
     }
 
     public Position getPosition() {

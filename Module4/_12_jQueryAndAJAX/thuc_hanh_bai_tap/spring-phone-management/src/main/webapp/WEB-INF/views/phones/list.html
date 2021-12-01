@@ -34,6 +34,7 @@
                 //xử lý khi thành công
                 success: successHandler,
                 error: function (error) {
+                    console.log(error)
                     console.log(error.responseText)
                     // var response = JSON.parse(error.responseText);
                     var errors = $.parseJSON(error.responseText);
@@ -82,9 +83,8 @@
                 type: "DELETE",
                 //tên API
                 url: `/smartphones/` +id,
-                success: function (data) {
-                    successHandler();
-                }
+                success: successHandler
+
             });
             event.preventDefault();
         }
@@ -111,7 +111,7 @@
     </script>
 </head>
 <body>
-
+Language: <a href="?lang=en">English</a> | <a href="?lang=haw">Hawaii</a>| <a href="?lang=vi">VN</a>| <a href="?lang=ja">JP</a>
 <form id="add-smartphone">
     <table>
         <tr>
@@ -136,7 +136,6 @@
     </table>
 </form>
 <h1>Smartphone List</h1>
-<table ></table>
 <table id="smartphoneList">
     <tr>
         <td>Producer</td>

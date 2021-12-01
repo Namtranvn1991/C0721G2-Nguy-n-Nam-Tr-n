@@ -9,12 +9,12 @@ import java.util.List;
 public class User {
     @Id
     @Column(columnDefinition = "VARCHAR(255)")
-    private String username;
+    private String userName;
 
     @Column(columnDefinition = "VARCHAR(255)")
     private String password;
 
-    @OneToOne(mappedBy = "username")
+    @OneToOne(mappedBy = "userName")
     private Employee employee;
 
     @ManyToMany(mappedBy = "users")
@@ -24,11 +24,11 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.userName = username;
     }
 
     public String getPassword() {

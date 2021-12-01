@@ -2,6 +2,7 @@ package com.casestudy.main.controller;
 
 import com.casestudy.main.model.customer.Customer;
 import com.casestudy.main.model.customer.CustomerType;
+import com.casestudy.main.repository.employee.IUserRepo;
 import com.casestudy.main.service.customer.ICustomerService;
 import com.casestudy.main.service.customer.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class CustomerController {
     @Autowired
     ICustomerTypeService iCustomerTypeService;
 
+    @Autowired
+    IUserRepo iUserRepo;
+
     @ModelAttribute("customerType")
     public List<CustomerType> customerTypes(){
         return iCustomerTypeService.findAll();
@@ -43,7 +47,7 @@ public class CustomerController {
     public String getListPage(Model model,@PageableDefault(size = 5) Pageable pageable){
 //        Page<Customer> customers;
 //        customers = iCustomerService.findAll(pageable);
-//
+
         model.addAttribute("customerList",iCustomerService.findAll(pageable));
         return "customer/list";
     }
