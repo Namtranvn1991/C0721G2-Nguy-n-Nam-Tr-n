@@ -36,9 +36,10 @@ public class Customer  implements Validator {
 
     @NotBlank(message = "input this")
     @Column(columnDefinition = "VARCHAR(45)",unique=true)
-    @NotBlank(message = "input this")
+    @Pattern(regexp = "090\\d{7}||091\\d{7}||[(]84[)][+]90\\d{7}||[(]84[)][+]91\\d{7}",message = "phoneNumber wrong format 090xxxxxxx  091xxxxxxx (84)+90xxxxxxx (84)+91xxxxxxx")
     private String customerPhone;
 
+    @NotBlank(message = "input this")
     @Column(columnDefinition = "VARCHAR(45)",unique=true)
     @Pattern(regexp = "[^\\s@]+@[^\\s@]+\\.[^\\s@]+",message = "Email wrong format. xxx@xx.xx")
     private String customerEmail;
@@ -144,11 +145,8 @@ public class Customer  implements Validator {
             errors.rejectValue("customerBirthday","birthday.empty");
         }
 
-        if(!customer.customerPhone.matches("090\\d{7}||091\\d{7}||[(]84[)][+]90\\d{7}||[(]84[)][+]91\\d{7}")){
-            errors.rejectValue("customerPhone","phone.format");
-        }
-
-
-
+//        if(!customer.customerPhone.matches("090\\d{7}||091\\d{7}||[(]84[)][+]90\\d{7}||[(]84[)][+]91\\d{7}")){
+//            errors.rejectValue("customerPhone","phone.format");
+//        }
      }
 }

@@ -4,6 +4,7 @@ package com.casestudy.main.model.service;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Service {
@@ -13,7 +14,8 @@ public class Service {
     private Integer serviceId;
 
     @NotBlank
-    @Column(columnDefinition = "VARCHAR(45)")
+    @Pattern(regexp = "DV-\\d{4}",message = "Name wrong format, DV-XXXX")
+    @Column(columnDefinition = "VARCHAR(45)",unique = true)
     private String serviceName;
 
 

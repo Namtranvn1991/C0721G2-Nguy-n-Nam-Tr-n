@@ -1,70 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head th:replace="/layout::header">
+<head th:replace="home/layout::header">
 </head>
 
 <body>
-
-<a th:href="@{customer/create}">Create</a>
-<div class="container">
-    <table class="table">
-        <tr>
-            <th>Stt</th>
-            <th>Name</th>
-            <th>Birthday</th>
-            <th>Gender</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        <th:block th:each="customer,customerStat:${customerList}">
-            <tr>
-                <td th:text="${customerStat.count}"></td>
-                <td th:text="${customer.customerName}"></td>
-                <td th:text="${customer.customerBirthday}"></td>
-                <th:block th:switch="${customer.gender}">
-                    <td th:case="true">Male</td>
-                    <td th:case="false">Female</td>
+<div class="wrapper">
+    <div th:replace="home/layout::sidebar"></div>
+    <div class="main-panel" style="height: 100vh;">
+        <div class="container-fluid">
+            <div th:replace="home/layout::navbar"></div>
+        </div>
+        <div class="content">
+            <div>
+                <a th:href="@{customer/create}">Create</a>
+                <th:block>
+                    <p style="color: red" th:if="${msg}" th:text="${msg}"></p>
                 </th:block>
-                <td>
-                    <a th:href="@{customer/edit/{id}(id=${customer.customerId})}">Edit</a>
-                </td>
-<!--                <td>-->
-<!--                    <a th:href="@{customer/delete/{id}(id=${customer.customerId})}">delete</a>-->
-<!--                </td>-->
-                <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" th:data-target= "'#target'+${customer.customerId}" >
-                        delete
-                    </button>
+                <form th:action="@{customer}" method="get">
+                    Search by name <input name="keyword" type="text">
+                    <button type="submit">search</button>
+                </form>
+            </div>
+            <div>
+                <table class="table">
+                    <tr>
+                        <th>Stt</th>
+                        <th>Name</th>
+                        <th>Birthday</th>
+                        <th>Type</th>
+                        <th>Gender</th>
+                        <th>Edit</th>
+                        <th>Detail</th>
+                        <th>Delete</th>
+                    </tr>
+                    <th:block th:each="customer,customerStat:${customerList}">
+                        <tr>
+                            <td>
+                                <a th:href="@{customer/detail/{id}(id=${customer.customerId})}" th:text="${customerStat.count}"></a>
+                            </td>
+                            <td th:text="${customer.customerName}"></td>
+                            <td th:text="${customer.customerBirthday}"></td>
+                            <td th:text="${customer.customerType.customerTypeName}"></td>
+                            <th:block th:switch="${customer.gender}">
+                                <td th:case="true">Male</td>
+                                <td th:case="false">Female</td>
+                            </th:block>
+                            <td>
+                                <a th:href="@{customer/edit/{id}(id=${customer.customerId})}">Edit</a>
+                            </td>
+                            <td><button type="button" class="btn btn-primary" data-toggle="modal" id="btnModalDetail" th:onclick="'javascript:detailView(\''+ ${customer.customerId}+'\')'">
+                                detail
+                            </button></td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" th:data-target= "'#target'+${customer.customerId}" >
+                                    delete
+                                </button>
 
-                    <div class="modal fade" th:id="'target'+${customer.customerId}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                <div class="modal fade" th:id="'target'+${customer.customerId}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <th:block th:text="${customer.customerName}">
+                                                </th:block>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-secondary"><a th:href="@{customer/delete/{id}(id=${customer.customerId})}">delete</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-secondary"><a th:href="@{customer/delete/{id}(id=${customer.customerId})}">delete</a></button>
-                                </div>
+                            </td>
+                        </tr>
+                    </th:block>
+                </table>
+                <div>
+                    <a th:href="@{'/customer'(page=${customerList.number - 1},keyword=${keyword})}" th:if="${customerList.hasPrevious()}">Previous</a>
+                    <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>
+                    <a th:href="@{'/customer'(page=${customerList.number + 1},keyword=${keyword})}" th:if="${customerList.hasNext()}">Next</a>
+                </div>
+
+                <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body modalDetail">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <!--                    <button type="button" class="btn btn-primary" id="editBtnModal">Save changes</button>-->
                             </div>
                         </div>
                     </div>
-                </td>
-            </tr>
-        </th:block>
-    </table>
-    <div>
-        <a th:href="@{'/customer'(page=${customerList.number - 1})}" th:if="${customerList.hasPrevious()}">Previous</a>
-        <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>
-        <a th:href="@{'/customer'(page=${customerList.number + 1})}" th:if="${customerList.hasNext()}">Next</a>
+                </div>
+        </div>
+
+        </div>
     </div>
 </div>
+<th:block th:replace="home/layout::bootstrapJS"></th:block>
+<script>
+    function detailView(id) {
+        console.log(id)
+        $.ajax({
+            type: "GET",
+            url: `/customer/detail/` +id,
+            dataType: "HTML",
+            success: function (data) {
+                $(".modalDetail").html(data);
+                $("#modalId").modal("show");
+            }
+        });
+        event.preventDefault();
+    }
+</script>
 </body>
 </html>

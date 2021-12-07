@@ -1,38 +1,51 @@
 package com.casestudy.main.model.employee;
 
+
 import com.casestudy.main.model.user.User;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
-public class Employee {
+public class Employee implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
 
-    @NotBlank
+//    @NotBlank
     @Column(columnDefinition = "VARCHAR(45)")
+//    @Pattern(regexp = "[A-Z][a-z]*([ ][A-Z][a-z]*)*",message = "Name wrong format")
+//    @Size(min = 6,max = 40,message = "Name too short or too long. 6-40 chars")
     private String employeeName;
 
-    @NotNull
+//    @NotBlank(message = "input date")
     @Column(columnDefinition = "DATE")
     private String employeeBirthday;
 
-    @NotBlank
-    @Column(unique=true,columnDefinition = "VARCHAR(45)")
+//    @NotBlank(message = "input this")
+    @Column(columnDefinition = "VARCHAR(45)")
+//    @Pattern(regexp = "\\d{9}||\\d{12}",message = "XXXXXXXXX hoặc XXXXXXXXXXXX (X là số 0-9)")
     private String employeeIdCard;
 
     @NotNull
     @Column(columnDefinition = "DOUBLE")
     private Double employeeSalary;
 
-    @NotBlank
-    @Column(unique=true,columnDefinition = "VARCHAR(45)")
+//    @NotBlank(message = "input this")
+    @Column(columnDefinition = "VARCHAR(45)")
+//    @Pattern(regexp = "090\\d{7}||091\\d{7}||[(]84[)][+]90\\d{7}||[(]84[)][+]91\\d{7}",message = "phoneNumber wrong format 090xxxxxxx  091xxxxxxx (84)+90xxxxxxx (84)+91xxxxxxx")
     private String employeePhone;
 
-    @Column(unique=true,columnDefinition = "VARCHAR(45)")
+//    @NotBlank(message = "input this")
+    @Column(columnDefinition = "VARCHAR(45)")
+//    @Pattern(regexp = "[^\\s@]+@[^\\s@]+\\.[^\\s@]+",message = "Email wrong format. xxx@xx.xx")
     private String employeeEmail;
 
     @Column(columnDefinition = "VARCHAR(45)")
@@ -121,12 +134,12 @@ public class Employee {
         this.employeeAddress = employeeAddress;
     }
 
-    public User getUsername() {
+    public User getUserName() {
         return userName;
     }
 
-    public void setUsername(User username) {
-        this.userName = username;
+    public void setUserName(User userName) {
+        this.userName = userName;
     }
 
     public Position getPosition() {
@@ -151,5 +164,26 @@ public class Employee {
 
     public void setDivision(Division division) {
         this.division = division;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Employee employee =(Employee) target;
+
+        try {
+            LocalDate birthDate = LocalDate.parse(employee.employeeBirthday);
+            LocalDate today = LocalDate.now();
+            if(Period.between(birthDate,today).getYears()<18){
+                errors.rejectValue("customerBirthday","birthday18");
+            }
+        } catch (Exception e){
+            errors.rejectValue("customerBirthday","birthday.empty");
+        }
+
     }
 }

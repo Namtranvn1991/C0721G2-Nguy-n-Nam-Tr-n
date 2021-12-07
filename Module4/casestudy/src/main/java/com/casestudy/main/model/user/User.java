@@ -17,7 +17,7 @@ public class User {
     @OneToOne(mappedBy = "userName")
     private Employee employee;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "users",fetch = FetchType.EAGER)
     private List<Role> roles;
 
     public User() {

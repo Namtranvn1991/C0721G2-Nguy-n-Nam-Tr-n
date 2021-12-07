@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="home/layout::header">
+</head>
+
+<body>
+<div class="wrapper">
+    <div th:replace="home/layout::sidebar"></div>
+    <div class="main-panel" style="height: 100vh;">
+        <div class="container-fluid">
+            <div th:replace="home/layout::navbar"></div>
+        </div>
+        <div class="content">
+            <div>
+                <a th:href="@{service/create}">Create</a>
+                <th:block>
+                    <p style="color: red" th:if="${msg}" th:text="${msg}"></p>
+                </th:block>
+                <form th:action="@{service/search/}" method="get">
+                    Search by name <input onchange="this.form.submit()" type="text">
+                </form>
+            </div>
+            <div>
+                <table class="table">
+                    <tr>
+                        <th>Stt</th>
+                        <th>
+                            <a th:href="@{'/service/' + ${currentPage} + '?sortField=serviceName&sortDir=' + ${reverseSortDir}}">Name</a>
+                        </th>
+                        <th>
+                            <a th:href="@{'/service/' + ${currentPage} + '?sortField=serviceArea&sortDir=' + ${reverseSortDir}}">serviceArea</a>
+                        </th>
+                        <th>
+                            <a th:href="@{'/service/' + ${currentPage} + '?sortField=serviceCost&sortDir=' + ${reverseSortDir}}">serviceCost</a>
+                        </th>
+                        <th>serviceMaxPeople</th>
+                        <th>standardRoom</th>
+                        <th>descriptionOtherConvenience</th>
+                        <th>poolArea</th>
+                        <th>numberOfFloors</th>
+                        <th>serviceType</th>
+                        <th>rentType</th>
+                        <th>Detail</th>
+                        <th>Delete</th>
+                    </tr>
+                    <th:block th:each="service,serviceStat:${serviceList}">
+                        <tr>
+                            <td>
+                                <a th:href="@{service/detail/{id}(id=${service.serviceId})}" th:text="${serviceStat.count}"></a>
+                            </td>
+                            <td th:text="${service.serviceName}"></td>
+                            <td th:text="${service.serviceArea}"></td>
+                            <td th:text="${service.serviceCost}"></td>
+                            <td th:text="${service.serviceMaxPeople}"></td>
+                            <td th:text="${service.standardRoom}"></td>
+                            <td th:text="${service.descriptionOtherConvenience}"></td>
+                            <td th:text="${service.poolArea}"></td>
+                            <td th:text="${service.numberOfFloors}"></td>
+
+                            <td>
+                                <a th:href="@{service/edit/{id}(id=${service.serviceId})}">Edit</a>
+                            </td>
+                            <td><button type="button" class="btn btn-primary" data-toggle="modal" id="btnModalDetail" th:onclick="'javascript:detailView(\''+ ${service.serviceId}+'\')'">
+                                detail
+                            </button></td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" th:data-target= "'#target'+${service.serviceId}" >
+                                    delete
+                                </button>
+
+                                <div class="modal fade" th:id="'target'+${service.serviceId}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <th:block th:text="${service.serviceName}">
+                                                </th:block>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-secondary"><a th:href="@{service/delete/{id}(id=${service.serviceId})}">delete</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </th:block>
+                </table>
+<!--                <div>-->
+<!--                    <a th:href="@{'/service'(page=${serviceList.number - 1})}" th:if="${serviceList.hasPrevious()}">Previous</a>-->
+<!--                    <span th:text="${serviceList.number + 1}"></span>/<span th:text="${serviceList.totalPages}"></span>-->
+<!--                    <a th:href="@{'/service'(page=${serviceList.number + 1})}" th:if="${serviceList.hasNext()}">Next</a>-->
+<!--                </div>-->
+                <div th:if = "${totalPages > 1}">
+                    <div class = "row col-sm-10">
+                        <div class = "col-sm-2">
+                            Total Rows: [[${totalItems}]]
+                        </div>
+                        <div class = "col-sm-1">
+					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+						<a th:if="${currentPage != i}" th:href="@{'/service/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
+					</span>
+                        </div>
+                        <div class = "col-sm-1">
+                            <a th:if="${currentPage < totalPages}" th:href="@{'/service/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                            <span th:unless="${currentPage < totalPages}">Next</span>
+                        </div>
+
+                        <div class="col-sm-1">
+                            <a th:if="${currentPage < totalPages}" th:href="@{'/service/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                            <span th:unless="${currentPage < totalPages}">Last</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body modalDetail">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <!--                    <button type="button" class="btn btn-primary" id="editBtnModal">Save changes</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+<th:block th:replace="home/layout::bootstrapJS"></th:block>
+<script>
+    function detailView(id) {
+        console.log(id)
+        $.ajax({
+            type: "GET",
+            url: `/service/detail/` +id,
+            dataType: "HTML",
+            success: function (data) {
+                $(".modalDetail").html(data);
+                $("#modalId").modal("show");
+            }
+        });
+        event.preventDefault();
+    }
+</script>
+</body>
+</html>

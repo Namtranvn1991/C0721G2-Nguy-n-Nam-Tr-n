@@ -15,8 +15,10 @@ public interface IUserRepo extends JpaRepository<User,Integer> {
 //
 //    @Modifying
 //    @Transactional
-    @Query
+
     User findByUserName(String userName);
+
+    Boolean existsByUserName(String userName);
 
     @Query(value = "select role_name from user " +
             "join user_role on user_role.user_name = user.user_name " +

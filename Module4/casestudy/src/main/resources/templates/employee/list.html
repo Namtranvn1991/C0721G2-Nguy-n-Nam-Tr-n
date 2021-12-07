@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="home/layout::header"></head>
+
+
+<body>
+<div class="wrapper">
+    <div th:replace="home/layout::sidebar"></div>
+    <div class="main-panel" style="height: 100vh;">
+        <div class="container-fluid">
+            <div th:replace="home/layout::navbar"></div>
+        </div>
+        <div class="content">
+            <div>
+                <a th:href="@{employee/create}">Create</a>
+                <th:block>
+                    <p style="color: red" th:if="${msg}" th:text="${msg}"></p>
+                </th:block>
+                <form th:action="@{employee/search/}" method="get">
+                    Search by name <input onchange="this.form.submit()" type="text">
+                </form>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Stt</th>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <th:block th:each="employee,employeeStat:${employeeList}">
+                    <tr>
+                        <td th:text="${employeeStat.count}"></td>
+                        <td th:text="${employee.employeeName}"></td>
+                        <td th:text="${employee.employeeBirthday}"></td>
+                        <td>
+                            <a th:href="@{employee/edit/{id}(id=${employee.getEmployeeId()})}">Edit</a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" th:data-target= "'#target'+${employee.employeeId}" >
+                                delete
+                            </button>
+
+                            <div class="modal fade" th:id="'target'+${employee.employeeId}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary"><a th:href="@{employee/delete/{id}(id=${employee.employeeId})}">delete</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </th:block>
+            </table>
+            <div>
+                <a th:href="@{'/employee'(page=${employeeList.number - 1})}" th:if="${employeeList.hasPrevious()}">Previous</a>
+                <span th:text="${employeeList.number + 1}"></span>/<span th:text="${employeeList.totalPages}"></span>
+                <a th:href="@{'/employee'(page=${employeeList.number + 1})}" th:if="${employeeList.hasNext()}">Next</a>
+            </div>
+            <div th:replace="home/layout::footer"></div>
+        </div>
+    </div>
+</div>
+<th:block th:replace="home/layout::bootstrapJS"></th:block>
+</body>
+</html>

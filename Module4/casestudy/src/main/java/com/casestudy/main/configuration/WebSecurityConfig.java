@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
         // Các trang không yêu cầu login
-        http.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
+
 
 
         // Cấu hình cho Login Form.
@@ -60,13 +60,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // Submit URL của trang login
 //                .loginProcessingUrl("/j_spring_security") // Submit URL
 //                .loginPage("/login")//
-                .defaultSuccessUrl("/userInfo")//
+                .defaultSuccessUrl("/")//
                 .failureUrl("/login?error=true")//
                 .usernameParameter("username")//
                 .passwordParameter("password")
-
+                .and().authorizeRequests().antMatchers("/", "/login", "/logout","/static/assets/**","/**/*.js", "/**/*.css").permitAll()
 // form mau
-                .and().authorizeRequests().antMatchers("/customer").hasRole("ADMIN")
+                .and().authorizeRequests().antMatchers("/customer/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
 
 

@@ -1,9 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head th:replace="/layout::header">
+<head th:replace="home/layout::header">
+
 </head>
 <body>
-
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <td th:text="${customer.customerName}"></td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td th:text="${customer.customerBirthday}"></td>
+        </tr>
+        <tr>
+            <th>customerIdCard</th>
+            <td th:text="${customer.customerIdCard}"></td>
+        </tr>
+        <tr>
+            <th>customerPhone</th>
+            <td th:text="${customer.customerPhone}"></td>
+        </tr>
+        <tr>
+            <th>customerAddress</th>
+            <td th:text="${customer.customerAddress}"></td>
+        </tr>
+        <tr>
+            <th>customerEmail</th>
+            <td th:text="${customer.customerEmail}"></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <th:block th:switch="${customer.gender}">
+                <td th:case="true">Male</td>
+                <td th:case="false">Female</td>
+            </th:block>
+        </tr>
+    </table>
+</div>
+<th:block th:replace="home/layout::bootstrapJS"></th:block>
 </body>
 </html>
