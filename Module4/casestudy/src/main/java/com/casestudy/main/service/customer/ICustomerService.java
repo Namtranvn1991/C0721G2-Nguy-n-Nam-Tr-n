@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 public interface ICustomerService extends IGeneralService<Customer> {
     Page<Customer> findAll(Pageable pageable);
     Page<Customer> findAllByNameContaining(String name, Pageable pageable);
+    Page<Customer> findAllByCustomerType(Integer id, Pageable pageable);
     Page<Customer> search(String keyword,Pageable pageable);
 
     Boolean existsByCustomerEmail(String email);

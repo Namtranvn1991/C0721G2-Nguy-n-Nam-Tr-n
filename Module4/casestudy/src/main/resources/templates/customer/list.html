@@ -12,11 +12,20 @@
             <div th:replace="home/layout::navbar"></div>
         </div>
         <div class="content">
+
             <div>
                 <a th:href="@{customer/create}">Create</a>
                 <th:block>
                     <p style="color: red" th:if="${msg}" th:text="${msg}"></p>
                 </th:block>
+                <form>
+                    <select onchange="this.form.submit()" th:name="cusType" th:value="${cusType}">
+                        <option value="" selected>Choose</option>
+                        <th:block th:each="type: ${customerType}">
+                            <option th:value="${type.customerTypeId}" th:text="${type.customerTypeName}"></option>
+                        </th:block>
+                    </select>
+                </form>
                 <form th:action="@{customer}" method="get">
                     Search by name <input name="keyword" type="text">
                     <button type="submit">search</button>
@@ -82,9 +91,9 @@
                     </th:block>
                 </table>
                 <div>
-                    <a th:href="@{'/customer'(page=${customerList.number - 1},keyword=${keyword})}" th:if="${customerList.hasPrevious()}">Previous</a>
+                    <a th:href="@{'/customer'(page=${customerList.number - 1},keyword=${keyword},cusType=${cusType})}" th:if="${customerList.hasPrevious()}">Previous</a>
                     <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>
-                    <a th:href="@{'/customer'(page=${customerList.number + 1},keyword=${keyword})}" th:if="${customerList.hasNext()}">Next</a>
+                    <a th:href="@{'/customer'(page=${customerList.number + 1},keyword=${keyword},cusType=${cusType})}" th:if="${customerList.hasNext()}">Next</a>
                 </div>
 
                 <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

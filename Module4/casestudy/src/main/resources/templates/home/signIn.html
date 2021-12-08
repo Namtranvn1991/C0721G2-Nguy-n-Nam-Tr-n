@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="home/layout::header">
+</head>
+<body>
+<th:block>
+    <p style="color: red" th:if="${msg}" th:text="${msg}"></p>
+</th:block>
+    <form th:action="@{sign_in}" method="post">
+        <select th:name="user" th:value="${user}">
+            <option value="" selected>Choose</option>
+            <th:block th:each="user: ${users}">
+                <option th:value="${user.username}" th:text="${user.username}"></option>
+            </th:block>
+        </select>
+        <select th:name="role" th:value="${role}">
+            <option value="0" selected>Choose</option>
+            <th:block th:each="role: ${roles}">
+                <option th:value="${role.roleId}" th:text="${role.roleName}"></option>
+            </th:block>
+        </select>
+        <button type="submit">submit</button>
+    </form>
+
+</body>
+</html>

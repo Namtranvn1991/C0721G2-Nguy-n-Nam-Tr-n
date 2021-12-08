@@ -1,11 +1,18 @@
 package com.casestudy.main.controller;
 
 
+import com.casestudy.main.repository.employee.IRoleRepo;
+import com.casestudy.main.repository.employee.IUserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.sql.SQLDataException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Optional;
 
 @Controller
 public class MainController {
@@ -16,6 +23,30 @@ public class MainController {
 //        model.addAttribute("message", "This is welcome page!");
 //        return "welcomePage";
 //    }
+
+    @Autowired
+    IUserRepo iUserRepo;
+
+    @Autowired
+    IRoleRepo iRoleRepo;
+
+    @GetMapping(value = "sign_in")
+    public String signInPage(Model model){
+        model.addAttribute("users",iUserRepo.findAll());
+        model.addAttribute("roles",iRoleRepo.findAll());
+        return "home/signIn";
+    }
+
+    @PostMapping(value = "sign_in")
+    public String addUserRole(@RequestParam("user") Optional<String> userName, @RequestParam("role") Optional<Integer> roleId,Model model){
+        if(userName.get().equals("")||roleId.get()==0){
+            return signInPage(model);
+        }
+        iUserRepo.addUserRole(userName.get(),roleId.get());
+        return "home/signIn";
+    }
+
+
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {
@@ -48,5 +79,12 @@ public class MainController {
 //
 //        return "userInfoPage";
 //    }
+    @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
+    public ModelAndView showInputNotAcceptable(SQLIntegrityConstraintViolationException e) {
+        e.printStackTrace();
+        ModelAndView modelAndView = new ModelAndView("home/signIn");
+        modelAndView.addObject("msg","DuplicateKeyException");
+        return modelAndView;
 
+    }
 }

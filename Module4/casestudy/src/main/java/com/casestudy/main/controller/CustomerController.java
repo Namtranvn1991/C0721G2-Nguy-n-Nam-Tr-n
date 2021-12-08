@@ -53,12 +53,17 @@ public class CustomerController {
 //    }
 
     @GetMapping(value = "")
-    public String getListPageCustomer(Model model,@PageableDefault(size = 1) Pageable pageable,@RequestParam ("keyword") Optional<String> keyword){
-        if (keyword.isPresent()){
+    public String getListPageCustomer(Model model,@PageableDefault(size = 1) Pageable pageable,@RequestParam ("keyword") Optional<String> keyword, @RequestParam ("cusType") Optional<Integer> cusType){
+        if (!keyword.isPresent()||keyword.get().equals("")){
+            if (cusType.isPresent()){
+                model.addAttribute("customerList",iCustomerService.findAllByCustomerType(cusType.get(),pageable));
+                model.addAttribute("cusType",cusType.get());
+            }else {
+                model.addAttribute("customerList",iCustomerService.findAll(pageable));
+            }
+        } else {
             model.addAttribute("customerList",iCustomerService.search(keyword.get(),pageable));
             model.addAttribute("keyword",keyword);
-        } else {
-            model.addAttribute("customerList",iCustomerService.findAll(pageable));
         }
         return "customer/list";
     }
