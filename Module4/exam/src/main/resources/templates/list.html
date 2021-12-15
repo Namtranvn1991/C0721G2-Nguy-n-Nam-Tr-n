@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="layout::header">
+</head>
+
+<body>
+<div class="wrapper">
+    <div th:replace="layout::sidebar"></div>
+    <div class="main-panel" style="height: 100vh;">
+        <div class="container-fluid">
+            <div th:replace="layout::navbar"></div>
+        </div>
+        <div class="content">
+            <div>
+                <a class="btn btn-link" th:href="@{create}">Create</a>
+                <th:block>
+                    <p style="color: red" th:if="${msg}" th:text="${msg}"></p>
+                </th:block>
+
+<!--                <form>-->
+<!--                   -->
+<!--                    -->
+<!--                </form>-->
+                <form th:action="@{/}" method="get">
+                    <select class="form-control" onchange="this.form.submit()" th:name="qType" th:value="${qType}">
+                        <option value="" selected>Choose</option>
+                        <th:block th:each="qt: ${questionType}">
+                            <option th:value="${qt.questionTypeId}" th:text="${qt.name}"></option>
+                        </th:block>
+                    </select>
+                    Search by title <input name="keyword" type="text">
+                    <button type="submit">search</button>
+                </form>
+            </div>
+            <div>
+                <table class="table">
+                    <tr>
+                        <th>STT</th>
+                        <th>title</th>
+                        <th>questionType</th>
+                        <th>dateCreate</th>
+                        <th>status</th>
+                        <th>Edit</th>
+                        <th>Detail</th>
+                        <th>Delete</th>
+                    </tr>
+                    <th:block th:each="q,qStat:${list}">
+                        <tr>
+                            <td>
+                                <a th:href="@{detail/{id}(id=${q.id})}" th:text="${qStat.count}"></a>
+                            </td>
+                            <td th:text="${q.title}"></td>
+                            <td th:text="${q.questionType.name}"></td>
+                            <td th:text="${q.dateCreate}"></td>
+                            <th:block th:switch="${q.status}">
+                                <td th:case="true">Cho phan hoi</td>
+                                <td th:case="false">Da phan hoi</td>
+                            </th:block>
+                            <td>
+                                <a class="btn btn-primary" th:href="@{edit/{id}(id=${q.id})}">Edit</a>
+                            </td>
+                            <td><button type="button" class="btn btn-primary" data-toggle="modal" id="btnModalDetail" th:onclick="'javascript:detailView(\''+ ${q.id}+'\')'">
+                                detail
+                            </button></td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" th:data-target= "'#target'+${q.id}" >
+                                    delete
+                                </button>
+
+                                <div class="modal fade" th:id="'target'+${q.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <th:block th:text="${q.title}">
+                                                </th:block>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-secondary"><a th:href="@{delete/{id}(id=${q.id})}">delete</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </th:block>
+                </table>
+                <div>
+                    <a th:href="@{'/'(page=${list.number - 1},keyword=${keyword},qType=${qType})}" th:if="${list.hasPrevious()}">Previous</a>
+                    <span th:text="${list.number + 1}"></span>/<span th:text="${list.totalPages}"></span>
+                    <a th:href="@{'/'(page=${list.number + 1},keyword=${keyword},qType=${qType})}" th:if="${list.hasNext()}">Next</a>
+                </div>
+
+                <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body modalDetail">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <!--                    <button type="button" class="btn btn-primary" id="editBtnModal">Save changes</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<th:block th:replace="layout::bootstrapJS"></th:block>
+<script>
+    function detailView(id) {
+        console.log(id)
+        $.ajax({
+            type: "GET",
+            url: `/detail/` +id,
+            dataType: "HTML",
+            success: function (data) {
+                $(".modalDetail").html(data);
+                $("#modalId").modal("show");
+            }
+        });
+        event.preventDefault();
+    }
+</script>
+</body>
+</html>

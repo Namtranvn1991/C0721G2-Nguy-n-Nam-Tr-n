@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a277189d-076a-4bce-a395-6810c1d14d3f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/configuration/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/controller/QuestionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/exception/DuplicateException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/model/IdGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/model/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/model/QuestionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/repository/IQuestionRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/repository/IQuestionTypeRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/service/IGeneralService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/service/IQuestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/service/IQuestionTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/service/QuestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/java/com/exam/demo/service/QuestionTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/ValidationForm.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/css/paper-dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/css/paper-dashboard.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/css/paper-dashboard.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/demo/demo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/demo/demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/fonts/nucleo-icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/fonts/nucleo-icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/fonts/nucleo-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/fonts/nucleo-icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/apple-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/bg5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/damir-bosnjak.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/default-avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/ayo-ogunseinde-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/ayo-ogunseinde-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/clem-onojeghuo-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/clem-onojeghuo-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/clem-onojeghuo-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/clem-onojeghuo-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/erik-lucatero-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/erik-lucatero-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/joe-gardner-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/joe-gardner-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/kaci-baum-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/faces/kaci-baum-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/header.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/img/furama_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/jan-sendereks.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/logo-small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/img/mike.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/js/core/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/js/core/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/js/core/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/js/paper-dashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/js/paper-dashboard.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/js/paper-dashboard.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/js/plugins/bootstrap-notify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/js/plugins/chartjs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/js/plugins/perfect-scrollbar.jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_alerts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_animated-buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_cards.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_checkboxes-radio.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_dropdown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_fixed-plugin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_footers.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_images.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_inputs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_misc.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_navbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_nucleo-outline.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_page-header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_responsive.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_sidebar-and-main-panel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_tables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-chart.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-map.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-plain.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-stats.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-user.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/mixins/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/mixins/_cards.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/mixins/_dropdown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/mixins/_inputs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/mixins/_page-header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/mixins/_transparency.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/mixins/_vendor-prefixes.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/plugins/_plugin-animate-bootstrap-notify.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/static/assets/scss/paper-dashboard/plugins/_plugin-perfect-scrollbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/templates/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/templates/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/templates/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/templates/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/exam/src/main/resources/templates/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/controller/TheaterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/model/IdGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/model/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/model/Theater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/repository/IMovieRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/repository/ITheaterRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/service/IGeneralServiceT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/service/IMovieService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/service/ITheaterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/service/MovieService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/java/com/example/demo/service/TheaterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/resources/ValidationForm.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/resources/templates/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/resources/templates/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/resources/templates/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Module4/example/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module4/_01_TongQuanSpringMVC/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module4/_01_TongQuanSpringMVC/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module4/_09_AOPAndExceptionHandling/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module4/_09_AOPAndExceptionHandling/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module4/_13_I18N/bai_tap/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module4/_13_I18N/bai_tap/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module4/_15_PhanQuyen/thuc_hanh/spring-jwt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module4/_15_PhanQuyen/thuc_hanh/spring-jwt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module4/_15_PhanQuyen/thuc_hanh/spring-role-based-authorization" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module4/_15_PhanQuyen/thuc_hanh/spring-role-based-authorization" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Module4/casestudy/src/main/resources/ValidationForm.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Module4/casestudy/src/main/resources/ValidationForm.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="22IiEzjEThORUSABA649uclDQWp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a277189d-076a-4bce-a395-6810c1d14d3f" name="Default Changelist" comment="" />
+      <created>1639531394323</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639531394323</updated>
+      <workItem from="1639531395449" duration="594000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

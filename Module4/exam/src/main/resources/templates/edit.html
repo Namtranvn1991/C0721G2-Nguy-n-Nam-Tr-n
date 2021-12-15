@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="layout::header"></head>
+<body>
+<div class="wrapper">
+    <div th:replace="layout::sidebar"></div>
+    <div class="main-panel" style="height: 100vh;">
+        <div th:replace="layout::navbar"></div>
+        <div class="content">
+            <div class="container">
+                <form th:object="${questionObj}" method="post" th:action="@{/edit123}">
+                    <input type="hidden" th:field="*{id}" th:value="${questionObj.id}">
+                    <input type="hidden" th:field="*{title}" th:value="${questionObj.title}">
+                    <input type="hidden" th:field="*{questionQ}" th:value="${questionObj.questionQ}">
+<!--                    <div class="form-group row">-->
+<!--                        <label for="question" class="col-sm-2 col-form-label">question</label>-->
+<!--                        <div class="col-sm-10">-->
+<!--                            <input type="text" class="form-control" id="question" th:placeholder="${questionObj.questionQ}" th:field="*{questionQ}"></input>-->
+<!--                            <span style="color: red" th:if="${#fields.hasErrors('question')}" th:errors="*{questionQ}"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <input type="hidden" th:field="*{dateCreate}" th:value="${questionObj.dateCreate}">
+                    <input type="hidden" th:field="*{questionType}" th:value="${questionObj.questionType}">
+                    <input type="hidden" th:field="*{status}" th:value="${questionObj.status}">
+                    <div>
+                        <h5>title</h5>
+                        <p th:text="${questionObj.title}"></p>
+                    </div>
+                    <div>
+                        <h5>question</h5>
+                        <p th:text="${questionObj.questionQ}"></p>
+                    </div>
+                    <div>
+                        <h5>questionType</h5>
+                        <p th:text="${questionObj.questionType.name}"></p>
+                    </div>
+                    <div>
+                        <h5>dateCreate</h5>
+                        <p th:text="${questionObj.dateCreate}"></p>
+                    </div>
+                    <div class="form-group row">
+                        <label for="answer" class="col-sm-2 col-form-label">answer</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="answer" placeholder="answer" th:field="*{answer}">
+                            <span style="color: red" th:if="${#fields.hasErrors('answer')}" th:errors="*{answer}"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="color: red" th:if="${msg}" th:text="${msg}"></p>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="layout::bootstrapJS"></th:block>
+</body>
+</html>

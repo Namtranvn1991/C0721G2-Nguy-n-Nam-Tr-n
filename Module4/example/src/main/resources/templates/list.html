@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="layout::header">
+</head>
+
+<body>
+<div class="wrapper">
+    <div th:replace="layout::sidebar"></div>
+    <div class="main-panel" style="height: 100vh;">
+        <div class="container-fluid">
+            <div th:replace="layout::navbar"></div>
+        </div>
+        <div class="content">
+            <div>
+                <a class="btn btn-link" th:href="@{create}">Create</a>
+                <th:block>
+                    <p style="color: red" th:if="${msg}" th:text="${msg}"></p>
+                </th:block>
+                <form>
+                    <select class="form-control" onchange="this.form.submit()" th:name="movie" th:value="${movie}">
+                        <option value="" selected>Choose</option>
+                        <th:block th:each="m: ${movies}">
+                            <option th:value="${m.movieId}" th:text="${m.name}"></option>
+                        </th:block>
+                    </select>
+                </form>
+
+            </div>
+            <div>
+                <table class="table">
+                    <tr>
+                        <th>STT</th>
+                        <th>showtimeId</th>
+                        <th>releaseDay</th>
+                        <th>movie</th>
+                        <th>quantity</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <th:block th:each="theater,theaterStat:${theaterList}">
+                        <tr>
+                            <td>
+                                <a th:href="@{detail/{id}(id=${theater.id})}" th:text="${theaterStat.count}"></a>
+                            </td>
+                            <td th:text="${theater.showtimeId}"></td>
+                            <td th:text="${theater.releaseDay}"></td>
+                            <td th:text="${theater.movie.name}"></td>
+                            <td th:text="${theater.quantity}"></td>
+                            <td>
+                                <a class="btn btn-primary" th:href="@{edit/{id}(id=${theater.id})}">Edit</a>
+                            </td>
+<!--                            <td><button type="button" class="btn btn-primary" data-toggle="modal" id="btnModalDetail" th:onclick="'javascript:detailView(\''+ ${theater.id}+'\')'">-->
+<!--                                detail-->
+<!--                            </button></td>-->
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" th:data-target= "'#target'+${theater.id}" >
+                                    delete
+                                </button>
+
+                                <div class="modal fade" th:id="'target'+${theater.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Do you want to delete?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <th:block th:text="${theater.showtimeId}">
+                                                </th:block>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-secondary"><a th:href="@{delete/{id}(id=${theater.id})}">delete</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </th:block>
+                </table>
+                <div>
+                    <a th:href="@{'/'(page=${theaterList.number - 1},movie=${movie})}" th:if="${theaterList.hasPrevious()}">Previous</a>
+                    <span th:text="${theaterList.number + 1}"></span>/<span th:text="${theaterList.totalPages}"></span>
+                    <a th:href="@{'/'(page=${theaterList.number + 1},movie=${movie})}" th:if="${theaterList.hasNext()}">Next</a>
+                </div>
+
+<!--                <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                    <div class="modal-dialog" role="document">-->
+<!--                        <div class="modal-content">-->
+<!--                            <div class="modal-header">-->
+<!--                                <h5 class="modal-title" id="exampleModalLabel">Detail</h5>-->
+<!--                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                                    <span aria-hidden="true">&times;</span>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                            <div class="modal-body modalDetail">-->
+<!--                                ...-->
+<!--                            </div>-->
+<!--                            <div class="modal-footer">-->
+<!--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                                &lt;!&ndash;                    <button type="button" class="btn btn-primary" id="editBtnModal">Save changes</button>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<th:block th:replace="layout::bootstrapJS"></th:block>
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"/>
+    <!-- Google Fonts Roboto -->
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css"/>
+    <style>
+        .flex-1 {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+<!-- Start your project here-->
+<!-- Background image -->
+<div
+        class="bg-image"
+        style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/new/standard/city/041.jpg');
+    height: 100vh;
+  "
+></div>
+<!-- Background image -->
+<!-- Image and text -->
+<div class="fixed-top">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+                src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.png"
+                class="me-2"
+                height="20"
+                alt="MDB Logo"
+                loading="lazy"
+        />
+        <small>Tài liệu PYTHON căn bản cho người mới bắt đầu</small>
+      </a>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CODE GYM</a>
+      <button
+              class="navbar-toggler"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a
+                    class="nav-link dropdown-toggle text-light"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+            >
+              Khóa học
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="#">Action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Another action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+                    class="nav-link dropdown-toggle text-light"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+            >
+              Trung tâm
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="#">Action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Another action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+                    class="nav-link dropdown-toggle text-light"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+            >
+             Blog
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="#">Action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Another action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+                    class="nav-link dropdown-toggle text-light"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+            >
+              Tin tức
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="#">Action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Another action</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="ms-auto">
+          <form class="d-flex input-group w-auto">
+            <input
+                    type="search"
+                    class="form-control rounded"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+            />
+            <span class="input-group-text text-white border-0" id="search-addon">
+                <i class="fas fa-search"></i></span>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="text-center">
+            <div class="ratio ratio-4x3">
+                <iframe
+                        src="https://www.youtube.com/embed/vlDzYIIOYmM"
+                        title="YouTube video"
+                        allowfullscreen
+                ></iframe>
+            </div>
+
+            <h5 class="mb-3"><span class="text-light">-------------------------------------------------------------------------------------------------------</span></h5>
+
+
+            <a class="btn btn-black btn-lg mt-2" href="https://mdbootstrap.com/bf/sale/" target="_blank" role="button">
+                <i class="fas fa-shopping-cart"></i> Get the offer</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 text-center">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sự nghiệp bắt đầu ngay từ ngày đầu tiên</h5>
+                    <p class="card-text" style="text-align: justify">
+                        Sự nghiệp trở thành lập trình viên full-stack sẽ bắt đầu ngay từ ngày đầu tiên.
+                        Học viên giống như là nhân viên tập sự tại CodeGym, tuân thủ các quy định về kỷ luật và văn hoá
+                        của CodeGym.
+                        Trong vòng 20 tuần, CodeGym giúp bạn trở thành lập trình viên có đầy đủ các kỹ năng quan trọng
+                        để phát triển sự nghiệp lâu dài.
+                    </p>
+                    <button type="button" class="btn btn-primary">xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sự nghiệp bắt đầu ngay từ ngày đầu tiên</h5>
+                    <p class="card-text" style="text-align: justify">
+                        Sự nghiệp trở thành lập trình viên full-stack sẽ bắt đầu ngay từ ngày đầu tiên.
+                        Học viên giống như là nhân viên tập sự tại CodeGym, tuân thủ các quy định về kỷ luật và văn hoá
+                        của CodeGym.
+                        Trong vòng 20 tuần, CodeGym giúp bạn trở thành lập trình viên có đầy đủ các kỹ năng quan trọng
+                        để phát triển sự nghiệp lâu dài.
+                    </p>
+                    <button type="button" class="btn btn-primary">xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sự nghiệp bắt đầu ngay từ ngày đầu tiên</h5>
+                    <p class="card-text" style="text-align: justify">
+                        Sự nghiệp trở thành lập trình viên full-stack sẽ bắt đầu ngay từ ngày đầu tiên.
+                        Học viên giống như là nhân viên tập sự tại CodeGym, tuân thủ các quy định về kỷ luật và văn hoá
+                        của CodeGym.
+                        Trong vòng 20 tuần, CodeGym giúp bạn trở thành lập trình viên có đầy đủ các kỹ năng quan trọng
+                        để phát triển sự nghiệp lâu dài.
+                    </p>
+                    <button type="button" class="btn btn-primary">xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sự nghiệp bắt đầu ngay từ ngày đầu tiên</h5>
+                    <p class="card-text" style="text-align: justify">
+                        Sự nghiệp trở thành lập trình viên full-stack sẽ bắt đầu ngay từ ngày đầu tiên.
+                        Học viên giống như là nhân viên tập sự tại CodeGym, tuân thủ các quy định về kỷ luật và văn hoá
+                        của CodeGym.
+                        Trong vòng 20 tuần, CodeGym giúp bạn trở thành lập trình viên có đầy đủ các kỹ năng quan trọng
+                        để phát triển sự nghiệp lâu dài.
+                    </p>
+                    <button type="button" class="btn btn-primary">xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sự nghiệp bắt đầu ngay từ ngày đầu tiên</h5>
+                    <p class="card-text" style="text-align: justify">
+                        Sự nghiệp trở thành lập trình viên full-stack sẽ bắt đầu ngay từ ngày đầu tiên.
+                        Học viên giống như là nhân viên tập sự tại CodeGym, tuân thủ các quy định về kỷ luật và văn hoá
+                        của CodeGym.
+                        Trong vòng 20 tuần, CodeGym giúp bạn trở thành lập trình viên có đầy đủ các kỹ năng quan trọng
+                        để phát triển sự nghiệp lâu dài.
+                    </p>
+                    <button type="button" class="btn btn-primary">xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sự nghiệp bắt đầu ngay từ ngày đầu tiên</h5>
+                    <p class="card-text" style="text-align: justify">
+                        Sự nghiệp trở thành lập trình viên full-stack sẽ bắt đầu ngay từ ngày đầu tiên.
+                        Học viên giống như là nhân viên tập sự tại CodeGym, tuân thủ các quy định về kỷ luật và văn hoá
+                        của CodeGym.
+                        Trong vòng 20 tuần, CodeGym giúp bạn trở thành lập trình viên có đầy đủ các kỹ năng quan trọng
+                        để phát triển sự nghiệp lâu dài.
+                    </p>
+                    <button type="button" class="btn btn-primary">xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card">
+
+        <!--Card image-->
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img(120).jpg" alt="Card image cap">
+
+        <!--Card content-->
+        <div class="card-body">
+
+            <!-- Container -->
+            <div class="d-block d-md-flex">
+
+                <!-- Column -->
+                <div class="p-3 flex-1">
+
+                    <h2 class="pb-3 font-weight-bold">News title</h2>
+                    <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                </div>
+                <!-- Column -->
+
+                <!-- Column -->
+                <div class="p-3 flex-1">
+
+                    <h2 class="pb-3 font-weight-bold">News title</h2>
+                    <p align="justify">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                        architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+                        aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
+                        quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut
+                        enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+                        aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit
+                        esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+                </div>
+                <!-- Column -->
+
+                <!-- Column -->
+                <div class="p-3 flex-1">
+
+                    <h2 class="pb-3 font-weight-bold">News title</h2>
+                    <p align="justify">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                        praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                        occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id
+                        est laborum et dolorum fuga.</p>
+
+                </div>
+                <!-- Column -->
+
+            </div>
+            <!-- Container -->
+
+        </div>
+    </div>
+</div>
+<div class="container text-center">
+  <img src="img/cg.png" class="img-fluid" alt="Wild Landscape" />
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>
+                Bạn đã sẵn sàng?
+                <br>
+                Gọi ngay!
+                <br>
+                0246.253.8829
+            </h2>
+        </div>
+        <div class="col-6">
+            <form>
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="form4Example1" class="form-control" />
+                    <label class="form-label" for="form4Example1">Name</label>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="email" id="form4Example2" class="form-control" />
+                    <label class="form-label" for="form4Example2">Email address</label>
+                </div>
+
+                <!-- Message input -->
+                <div class="form-outline mb-4">
+                    <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                    <label class="form-label" for="form4Example3">Message</label>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-center mb-4">
+                    <input
+                            class="form-check-input me-2"
+                            type="checkbox"
+                            value=""
+                            id="form4Example4"
+                            checked
+                    />
+                    <label class="form-check-label" for="form4Example4">
+                        Send me a copy of this message
+                    </label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section
+            class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+    >
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+            <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-7 col-xl-7 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i>CODEGYM
+                    </h6>
+                    <p>
+                        Trụ sở chính: Số 23, Lô TT01, KĐT Mon City, Mỹ Đình 2, Nam Từ Liêm, Hà Nội.
+                        <br>
+                        Huế: Tầng 4, 28 Nguyễn Tri Phương, Phường Phú Nhuận, TP Huế, Tỉnh Thừa Thiên Huế.
+                        <br>
+                        Đà Nẵng: Tầng 10, 295 Nguyễn Tất Thành, Phường Thanh Bình, Quận Hải Châu, TP Đà Nẵng.
+                        <br>
+                        Quảng Trị: 133 Lý Thường Kiệt, TP Đông Hà, Tỉnh Quảng Trị.
+                        <br>
+                        Văn phòng tuyển sinh Việt Trì: Băng 1, Đường Quang Trung, P. Dữu Lâu, TP Việt Trì, Phú Thọ.
+                        <br>
+                        Văn phòng tuyển sinh Thái Nguyên: 36A Cách Mạng Tháng Tám, Phường Phan Đình Phùng.
+                        <br>
+                        Văn phòng tuyển sinh Vinh: 50 Hà Huy Tập, TP Vinh, Tỉnh Nghệ An.
+                    </p>
+                </div>
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Useful links
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">Pricing</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Settings</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Orders</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Help</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Contact
+                    </h6>
+                    <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                    <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        info@example.com
+                    </p>
+                    <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                    <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+<!-- MDB -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Custom scripts -->
+<script type="text/javascript"></script>
+</body>
+</html>
