@@ -1,0 +1,29 @@
+.color-board {
+  width:105px;
+  background:#f3f3f3;
+  height:105px;
+  padding:5px;
+  border:5px solid #fff;
+  box-shadow:0px 0px 3px 1px #ddd;
+  position:absolute;
+  top:50px;
+  left:20px;
+}
+
+.color-board .color-tag {
+  cursor:pointer;
+  width:20px;
+  height:20px;
+  list-style-type:none;
+  float:left;
+  margin:2px;
+  border-radius: 50%;
+  border:1px solid #ddd;
+}
+
+.color-picked{
+  width: 120px;
+  border:1px solid;
+  position:absolute;
+  left:20px;
+}

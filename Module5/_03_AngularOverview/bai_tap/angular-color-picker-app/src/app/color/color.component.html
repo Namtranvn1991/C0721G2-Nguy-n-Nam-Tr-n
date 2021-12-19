@@ -1,0 +1,4 @@
+<div class="color-picked" [style.backgroundColor]="colorPicker"><span>color: {{colorPicker}}</span></div>
+<div class="color-board">
+  <li *ngFor="let color of colorList" [style.backgroundColor]="color" class="color-tag" (click)="pickColor(color)"></li>
+</div>

@@ -1,0 +1,11 @@
+<p>calculator works!</p>
+number1<input type="number" [(ngModel)]="number1">
+number2<input type="number" [(ngModel)]="number2">
+<select (change)="calculate($event.target.value)">
+  <option>select</option>
+  <option [value]="1">+</option>
+  <option [value]="2">-</option>
+  <option [value]="3">x</option>
+  <option [value]="4">/</option>
+</select>
+<h3>Result: {{result}}</h3>
