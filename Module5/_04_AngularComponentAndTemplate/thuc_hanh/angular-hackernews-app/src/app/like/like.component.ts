@@ -16,5 +16,4 @@ export class LikeComponent implements OnInit {
   likeThis() {
     this.like++;
   }
-
 }
