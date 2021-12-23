@@ -1,0 +1,11 @@
+npm init
+npm install -g json-server
+json-server --watch db.json
+https://github.com/typicode/json-server
+
+
+http://localhost:3000/customer?_page=1&_limit=3
+GET /posts?_sort=views&_order=asc
+GET /posts?_sort=user,views&_order=desc,asc
+
+http://localhost:3000/customer?q=dn

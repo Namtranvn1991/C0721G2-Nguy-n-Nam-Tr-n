@@ -1,0 +1,79 @@
+<div class="card">
+  <div class="card-body">
+    <form class="form-group" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" class="form-control" formControlName="email">
+        <small *ngIf="registerForm.controls.email.errors?.required && (registerForm.controls.email.touched || registerForm.controls.email.dirty) "
+               class="text-warning fst-italic">Please fill out this field!</small>
+        <small *ngIf="registerForm.controls.email.errors?.email && registerForm.controls.email.dirty"
+               class="text-warning fst-italic">Please enter a valid e-mail address!</small>
+        <div class="error-messages">
+          <ng-container *ngFor="let error of errorMessages.email">
+            <div class="error-message text-danger fst-italic" *ngIf="email().hasError(error.type) && (email().dirty || email().touched)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" class="form-control" formControlName="password">
+        <small *ngIf="(registerForm.controls.password.dirty || registerForm.controls.password.touched) && registerForm.controls.password.errors?.required"
+               class="text-warning fst-italic">Please fill out this field!</small>
+        <small *ngIf="registerForm.controls.password.errors?.minlength && registerForm.controls.password.dirty"
+               class="text-warning fst-italic">Please enter a valid password. Passwords are at least 6 characters long</small>
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+        <small *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.errors?.required"
+               class="text-warning fst-italic">Please fill out this field!</small>
+        <small *ngIf="((registerForm.controls.confirmPassword.dirty || registerForm.controls.confirmPassword.touched) || registerForm.controls.confirmPassword.touched) && registerForm.value.password!==registerForm.value.confirmPassword &&
+                        registerForm.value.confirmPassword!==''"
+               class="text-warning fst-italic">Confirm password must be equal to password!</small>
+      </div>
+      <small class="text-warning fst-italic" *ngIf="registerForm.errors && ((registerForm.controls.confirmPassword.dirty || registerForm.controls.confirmPassword.touched) || (registerForm.controls.password.dirty || registerForm.controls.password.touched))">
+        {{ registerForm.errors | json }}
+      </small>
+
+      <div>
+        <label for="country">Country</label>
+        <select name="country" id="country" class="form-control" formControlName="country">
+          <option *ngFor="let c of countryList" ngValue="{{c}}">{{c}}</option>
+        </select>
+        <small *ngIf="(registerForm.controls.country.touched || registerForm.controls.country.dirty)  && registerForm.controls.country.errors?.required"
+               class="text-warning fst-italic">Please fill out this field!</small>
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input type="text" name="age" id="age" class="form-control" formControlName="age">
+        <small *ngIf="registerForm.controls.age.touched && registerForm.controls.age.errors?.required"
+               class="text-warning fst-italic">Please fill out this field!</small>
+        <small *ngIf="registerForm.controls.age.dirty && registerForm.controls.age?.invalid"
+               class="text-warning fst-italic">Age must greater than 18 and lower 100!</small>
+      </div>
+      <div>
+        Gender:
+      </div>
+      <div class="btn-group">
+        <label>
+          <input type="radio" name="gender" value="Male" formControlName="gender" >Male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="Female" formControlName="gender">Female
+        </label>
+      </div>
+      <div>
+        <label for="phoneNumber">Phone number:</label>
+        <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" formControlName="phoneNumber">
+        <small *ngIf="registerForm.controls.phoneNumber.touched && registerForm.controls.phoneNumber.errors?.required"
+               class="text-warning fst-italic">Please fill out this field!</small>
+        <small *ngIf="registerForm.controls.phoneNumber.dirty && registerForm.controls.phoneNumber.errors?.pattern"
+               class="text-warning fst-italic">The phone number must start with +84 and have 9 or 10 digits number! </small>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+</div>

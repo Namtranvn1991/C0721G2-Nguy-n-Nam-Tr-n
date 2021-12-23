@@ -1,0 +1,98 @@
+{
+  "customer_type": [
+    {
+      "id": 1,
+      "type_name": "gold"
+    },
+    {
+      "id": 2,
+      "type_name": "diamond"
+    },
+    {
+      "id": 3,
+      "type_name": "vip"
+    }
+  ],
+  "customer": [
+    {
+      "name": "dddddd",
+      "type": 1,
+      "address": "AAAA",
+      "id": 2
+    },
+    {
+      "name": "new",
+      "type": 2,
+      "address": "DN",
+      "id": 4
+    },
+    {
+      "name": "newCUstomer",
+      "type": 3,
+      "address": "HN",
+      "id": 5
+    },
+    {
+      "name": "newCUstomer",
+      "type": 3,
+      "address": "HN",
+      "id": 6
+    },
+    {
+      "name": "newCUstomer",
+      "type": 3,
+      "address": "HN",
+      "id": 7
+    },
+    {
+      "name": "newCUstomer",
+      "type": 3,
+      "address": "HN",
+      "id": 8
+    },
+    {
+      "name": "newCUstomer",
+      "type": 3,
+      "address": "HN",
+      "id": 9
+    },
+    {
+      "name": "newCUstomer",
+      "type": 3,
+      "address": "HN",
+      "id": 10
+    },
+    {
+      "name": "newCUstomer",
+      "type": 3,
+      "address": "HN",
+      "id": 11
+    },
+    {
+      "name": "newCUstomer",
+      "type": 3,
+      "address": "HN",
+      "id": 12
+    }
+  ],
+  "employee": [
+    {
+      "name": "dddddd",
+      "type": 3,
+      "address": "AAAA",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "aaaa",
+      "type": 2,
+      "address": "DN"
+    },
+    {
+      "id": 4,
+      "name": "dsdddd",
+      "type": 1,
+      "address": "DN"
+    }
+  ]
+}
