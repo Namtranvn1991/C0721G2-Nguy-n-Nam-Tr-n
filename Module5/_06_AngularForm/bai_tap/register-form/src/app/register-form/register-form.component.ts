@@ -7,7 +7,6 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
-
   registerForm: FormGroup;
   countryList: string[] = ['VN', 'USA', 'JP'];
 
