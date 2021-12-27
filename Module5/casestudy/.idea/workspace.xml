@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd8ee195-f14e-456e-a413-c45918b24f8d" name="Default Changelist" comment="" />
+    <list default="true" id="dd8ee195-f14e-456e-a413-c45918b24f8d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Module4/_01_TongQuanSpringMVC/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/_01_TongQuanSpringMVC/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/_09_AOPAndExceptionHandling/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/_09_AOPAndExceptionHandling/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/_13_I18N/bai_tap/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/_13_I18N/bai_tap/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/_15_PhanQuyen/thuc_hanh/spring-jwt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/_15_PhanQuyen/thuc_hanh/spring-jwt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/_15_PhanQuyen/thuc_hanh/spring-role-based-authorization" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/_15_PhanQuyen/thuc_hanh/spring-role-based-authorization" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_02_Typescript/thuc_hanh/typescript-is-prime" beforeDir="false" afterPath="$PROJECT_DIR$/../_02_Typescript/thuc_hanh/typescript-is-prime" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_02_Typescript/thuc_hanh/typescript-promise" beforeDir="false" afterPath="$PROJECT_DIR$/../_02_Typescript/thuc_hanh/typescript-promise" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/data/config.text" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/data/config.text" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/data/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-create/customer-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-create/customer-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-create/customer-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-create/customer-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-list/customer-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-list/customer-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-list/customer-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-list/customer-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/module/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/module/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/service/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/service/customer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +45,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/case-study" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../_08_ModulesAndDependencyInjection/bai_tap/slide-app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,6 +72,8 @@
       <updated>1640335984113</updated>
       <workItem from="1640335985224" duration="6388000" />
       <workItem from="1640415936259" duration="36000" />
+      <workItem from="1640501997871" duration="2840000" />
+      <workItem from="1640569308600" duration="607000" />
     </task>
     <servers />
   </component>
@@ -58,11 +85,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1640337315852" />
-    <state x="526" y="193" key="FileChooserDialogImpl" timestamp="1640415969624">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1640570105660">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="526" y="193" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1640415969624" />
-    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1640341117087" />
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1640570105660" />
     <state x="186" y="10" key="SettingsEditor" timestamp="1640415952937">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

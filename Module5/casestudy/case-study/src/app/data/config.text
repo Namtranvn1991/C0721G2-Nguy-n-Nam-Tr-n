@@ -1,1 +1,3 @@
-123456789
+npm init
+npm install -g json-server
+json-server --watch data.json

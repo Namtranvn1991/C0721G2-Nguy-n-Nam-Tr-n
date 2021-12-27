@@ -3,6 +3,7 @@ import {CustomerService} from '../../../service/customer.service';
 import {Customer} from '../../../mode/customer/customer';
 import {CustomerType} from '../../../mode/customer/customer-type';
 import {Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -15,12 +16,13 @@ export class CustomerListComponent implements OnInit, OnDestroy {
   cusTypeList: CustomerType[] | undefined;
   private subscription: Subscription | undefined;
 
-  constructor(private cusService: CustomerService) { }
+  constructor(private cusService: CustomerService, private router: Router) { }
 
   ngOnInit(): void {
     this.subscription = this.cusService.getAll().subscribe(
       data => {
         this.customerList = data;
+        console.log(data);
       }, error => {
         console.log(error);
       }

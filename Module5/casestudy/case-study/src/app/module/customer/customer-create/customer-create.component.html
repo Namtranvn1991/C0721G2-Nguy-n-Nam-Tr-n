@@ -54,9 +54,9 @@
       <div>
         <label for="cusType">cusType:</label>
         <div>
-          <select id="cusType">
+          <select id="cusType" formControlName="cusType">
            <ng-container *ngFor="let c of cusTypes">
-             <option value="{{c.id}}">{{c.type}}</option>
+             <option ngValue="{{c.id}}">{{c.type}}</option>
            </ng-container>
           </select>
         </div>
@@ -68,13 +68,11 @@
       </div>
       <div class="btn-group">
         <label>
-          <input type="radio" name="gender" value="Male" formControlName="gender">Male
+          <input type="radio" name="gender" value='1' formControlName="gender">Male
         </label>
         <label>
-          <input type="radio" name="gender" value="Female" formControlName="gender">Female
+          <input type="radio" name="gender" value='2' formControlName="gender">Female
         </label>
-        <small *ngIf="form.controls.gender.errors?.required && (onSubmit()) "
-               class="text-warning fst-italic">Please fill out this field!</small>
       </div>
 
       <div>
@@ -84,7 +82,7 @@
       <pre>
         Form Error - {{ form.errors | json }}
       </pre>
-      <button class="btn-primary" type="submit" [disabled]="form.errors===null">Submit</button>
+      <button class="btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
     </form>
   </div>
 

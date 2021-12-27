@@ -57,7 +57,7 @@ export class CustomerCreateComponent implements OnInit {
         phone: ['', [Validators.required, Validators.pattern('^090\\d{7}$|^091\\d{7}$|^[(]84[)][+]90\\d{7}$|^[(]84[)][+]91\\d{7}$')]],
         email: ['', [Validators.required, Validators.email]],
         address: ['', [Validators.required]],
-        cusType: ['', [Validators.required]],
+        cusType: [''],
       }, {validators: this.checkDOB.bind(this)}
     );
   }
@@ -93,10 +93,18 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(123);
     console.log(this.form);
-    console.log(this.form.valid);
-    console.log(this.form.errors);
-    console.log(123);
+
+    this.cusTypes.forEach(value => {
+      if (this.form.value.cusType === (value.id + '')){
+        this.form.value.cusType = value;
+      }
+    });
+    console.log(this.form.value);
+    this.customerService.create(this.form.value).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 }

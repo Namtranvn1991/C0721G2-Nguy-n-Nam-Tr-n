@@ -31,8 +31,10 @@
       "phone": "09123456",
       "email": "a@ff.ff",
       "address": "DN",
-      "cusType": {"id": 1,
-        "type": "Diamond"}
+      "cusType": {
+        "id": 1,
+        "type": "Diamond"
+      }
     },
     {
       "id": 2,
@@ -43,8 +45,10 @@
       "phone": "09123456",
       "email": "a@ff.ff",
       "address": "HN",
-      "cusType": {"id": 2,
-        "type": "Platinium"}
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      }
     },
     {
       "id": 3,
@@ -55,8 +59,52 @@
       "phone": "09123456",
       "email": "a@ff.ff",
       "address": "HCM",
-      "cusType": {"id": 2,
-        "type": "Platinium"}
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      }
+    },
+    {
+      "name": "Nguyen C",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 4
+    },
+    {
+      "name": "Hoang An",
+      "dateOfBirth": "1992-01-02",
+      "gender": "Male",
+      "idCard": "123123133",
+      "phone": "0901231233",
+      "email": "namtranvn1991@gmail.com",
+      "address": "123",
+      "cusType": {
+        "id": 5,
+        "type": "Member"
+      },
+      "id": 5
+    },
+    {
+      "name": "Hoang An Addd",
+      "dateOfBirth": "1992-01-02",
+      "gender": "Male",
+      "idCard": "123131311",
+      "phone": "0901231233",
+      "email": "namtranvn1991@gmail.com",
+      "address": "0901234565",
+      "cusType": {
+        "id": 5,
+        "type": "Member"
+      },
+      "id": 6
     }
   ]
 }

@@ -32,7 +32,7 @@
       <td *ngSwitchCase="1">Male</td>
       <td *ngSwitchCase="0">Female</td>
     </ng-container>
-    <td><a [routerLink]="['/customer/detail',c.id]">Edit</a></td>
+    <td><a [routerLink]="['/customer/edit',c.id]">Edit</a></td>
     <td><a [routerLink]="['/customer/delete',c.id]">Delete</a></td>
   </tr>
 </table>
