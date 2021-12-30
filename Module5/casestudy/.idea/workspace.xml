@@ -21,6 +21,7 @@
       <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-create/customer-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-create/customer-create.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-list/customer-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-list/customer-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-list/customer-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-list/customer-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-study/src/app/module/customer/customer.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/customer/customer.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-study/src/app/module/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-study/src/app/module/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/case-study/src/app/module/home/home.component.ts" afterDir="false" />
@@ -45,7 +46,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../_08_ModulesAndDependencyInjection/bai_tap/slide-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/case-study" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -73,7 +74,7 @@
       <workItem from="1640335985224" duration="6388000" />
       <workItem from="1640415936259" duration="36000" />
       <workItem from="1640501997871" duration="2840000" />
-      <workItem from="1640569308600" duration="607000" />
+      <workItem from="1640569308600" duration="5927000" />
     </task>
     <servers />
   </component>
@@ -85,11 +86,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1640337315852" />
-    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1640570105660">
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1640575419774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="526" y="193" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1640415969624" />
-    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1640570105660" />
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1640575419774" />
     <state x="186" y="10" key="SettingsEditor" timestamp="1640415952937">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

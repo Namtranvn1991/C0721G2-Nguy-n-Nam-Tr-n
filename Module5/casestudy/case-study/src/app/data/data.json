@@ -23,10 +23,23 @@
   ],
   "customer": [
     {
-      "id": 1,
-      "name": "Nguyen A",
+      "name": "Hoang An",
+      "dateOfBirth": "1992-01-02",
+      "gender": "1",
+      "idCard": "123131312",
+      "phone": "0901231233",
+      "email": "namtranvn1991@gmail.com",
+      "address": "address123",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 1
+    },
+    {
+      "name": "Nguyen C",
       "dateOfBirth": "1991-02-23",
-      "gender": 0,
+      "gender": 1,
       "idCard": "123456789",
       "phone": "09123456",
       "email": "a@ff.ff",
@@ -34,13 +47,41 @@
       "cusType": {
         "id": 1,
         "type": "Diamond"
-      }
+      },
+      "id": 2
     },
     {
-      "id": 2,
-      "name": "Nguyen B",
-      "dateOfBirth": "1991-04-23",
-      "gender": 0,
+      "name": "Nguyen A",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 3
+    },
+    {
+      "name": "Nguyen A",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 1,
+        "type": "Diamond"
+      },
+      "id": 4
+    },
+    {
+      "name": "Nguyen A",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
       "idCard": "123456789",
       "phone": "09123456",
       "email": "a@ff.ff",
@@ -48,63 +89,302 @@
       "cusType": {
         "id": 2,
         "type": "Platinium"
-      }
-    },
-    {
-      "id": 3,
-      "name": "Nguyen C",
-      "dateOfBirth": "1991-02-23",
-      "gender": 1,
-      "idCard": "123456789",
-      "phone": "09123456",
-      "email": "a@ff.ff",
-      "address": "HCM",
-      "cusType": {
-        "id": 2,
-        "type": "Platinium"
-      }
-    },
-    {
-      "name": "Nguyen C",
-      "dateOfBirth": "1991-02-23",
-      "gender": 1,
-      "idCard": "123456789",
-      "phone": "09123456",
-      "email": "a@ff.ff",
-      "address": "HCM",
-      "cusType": {
-        "id": 2,
-        "type": "Platinium"
-      },
-      "id": 4
-    },
-    {
-      "name": "Hoang An",
-      "dateOfBirth": "1992-01-02",
-      "gender": "Male",
-      "idCard": "123123133",
-      "phone": "0901231233",
-      "email": "namtranvn1991@gmail.com",
-      "address": "123",
-      "cusType": {
-        "id": 5,
-        "type": "Member"
       },
       "id": 5
     },
     {
-      "name": "Hoang An Addd",
-      "dateOfBirth": "1992-01-02",
-      "gender": "Male",
-      "idCard": "123131311",
-      "phone": "0901231233",
-      "email": "namtranvn1991@gmail.com",
-      "address": "0901234565",
+      "name": "Nguyen A",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 1,
+        "type": "Diamond"
+      },
+      "id": 6
+    },
+    {
+      "name": "Nguyen A",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "QN",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 7
+    },
+    {
+      "name": "Nguyen A",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "H",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 8
+    },
+    {
+      "name": "Nguyen E",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "QN",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 9
+    },
+    {
+      "name": "Nguyen Et",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "DN",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 10
+    },
+    {
+      "name": "Nguyen Ei",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 4,
+        "type": "Silver"
+      },
+      "id": 11
+    },
+    {
+      "name": "Nguyen En",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HN",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 12
+    },
+    {
+      "name": "Nguyen Dang",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 4,
+        "type": "Silver"
+      },
+      "id": 13
+    },
+    {
+      "name": "Nguyen Dong",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "H",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 14
+    },
+    {
+      "name": "Nguyen Dinh",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 4,
+        "type": "Silver"
+      },
+      "id": 15
+    },
+    {
+      "name": "Nguyen De",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HN",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 16
+    },
+    {
+      "name": "Nguyen Van Da",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 17
+    },
+    {
+      "name": "Nguyen G",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "DN",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 18
+    },
+    {
+      "name": "Nguyen Tran Gut",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "DN",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 19
+    },
+    {
+      "name": "Nguyen Ga",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 20
+    },
+    {
+      "name": "Nguyen G",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "QN",
       "cusType": {
         "id": 5,
         "type": "Member"
       },
-      "id": 6
+      "id": 21
+    },
+    {
+      "name": "Ly A Bi",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 22
+    },
+    {
+      "name": "Le B",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "H",
+      "cusType": {
+        "id": 5,
+        "type": "Member"
+      },
+      "id": 23
+    },
+    {
+      "name": "Hoan B",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 24
+    },
+    {
+      "name": "Tran Thi B",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "QN",
+      "cusType": {
+        "id": 2,
+        "type": "Platinium"
+      },
+      "id": 25
+    },
+    {
+      "name": "Tran B",
+      "dateOfBirth": "1991-02-23",
+      "gender": 1,
+      "idCard": "123456789",
+      "phone": "09123456",
+      "email": "a@ff.ff",
+      "address": "HCM",
+      "cusType": {
+        "id": 3,
+        "type": "Gold"
+      },
+      "id": 26
     }
   ]
 }

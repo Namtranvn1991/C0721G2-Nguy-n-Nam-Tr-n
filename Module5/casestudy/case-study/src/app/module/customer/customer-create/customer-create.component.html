@@ -56,7 +56,7 @@
         <div>
           <select id="cusType" formControlName="cusType">
            <ng-container *ngFor="let c of cusTypes">
-             <option ngValue="{{c.id}}">{{c.type}}</option>
+             <option [ngValue]="c">{{c.type}}</option>
            </ng-container>
           </select>
         </div>

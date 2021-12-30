@@ -4,6 +4,7 @@ import {CustomerType} from '../../../mode/customer/customer-type';
 import {CustomerService} from '../../../service/customer.service';
 import {Subscription} from 'rxjs';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-customer-create',
@@ -36,7 +37,7 @@ export class CustomerCreateComponent implements OnInit {
 
 
   constructor(private customerService: CustomerService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -57,7 +58,7 @@ export class CustomerCreateComponent implements OnInit {
         phone: ['', [Validators.required, Validators.pattern('^090\\d{7}$|^091\\d{7}$|^[(]84[)][+]90\\d{7}$|^[(]84[)][+]91\\d{7}$')]],
         email: ['', [Validators.required, Validators.email]],
         address: ['', [Validators.required]],
-        cusType: [''],
+        cusType: ['', [Validators.required]],
       }, {validators: this.checkDOB.bind(this)}
     );
   }
@@ -93,16 +94,15 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
-
-    this.cusTypes.forEach(value => {
-      if (this.form.value.cusType === (value.id + '')){
-        this.form.value.cusType = value;
-      }
-    });
+    // this.cusTypes.forEach(value => {
+    //   if (this.form.value.cusType === (value.id + '')){
+    //     this.form.value.cusType = value;
+    //   }
+    // });
     console.log(this.form.value);
     this.customerService.create(this.form.value).subscribe(data => {
       console.log(data);
+      this.router.navigateByUrl('/customer');
     }, error => {
       console.log(error);
     });
