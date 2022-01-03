@@ -13,7 +13,6 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
 
   getAll(page: number): Observable<Medical[]>{
-    console.log(page);
     return this.http.get<Medical[]>(this.url + '?page=' + page);
   }
 

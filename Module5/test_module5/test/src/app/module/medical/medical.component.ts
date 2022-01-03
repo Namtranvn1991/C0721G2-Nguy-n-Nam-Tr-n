@@ -27,7 +27,6 @@ export class MedicalComponent implements OnInit {
       data => {
         this.medicalList = data['content'];
         this.pages = new Array(data['totalPages']);
-        console.log(data);
       }, error => {
         console.log(error);
       }
@@ -36,6 +35,7 @@ export class MedicalComponent implements OnInit {
 
   delete(id: string) {
     this.service.delete(id).subscribe(data => {
+      console.log(data);
       this.ngOnInit();
     }, error => {
       console.log(error);
@@ -45,7 +45,6 @@ export class MedicalComponent implements OnInit {
 
   setPage(i: number) {
     this.page = i;
-    console.log(this.page);
     this.sub();
   }
 }
