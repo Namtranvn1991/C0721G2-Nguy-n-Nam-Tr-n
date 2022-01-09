@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "projectbds-c1826": {
+      "hosting": {
+        "test": [
+          "projectbds-c1826"
+        ]
+      }
+    }
+  }
+}

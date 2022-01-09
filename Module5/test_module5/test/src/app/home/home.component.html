@@ -1,3 +1,36 @@
 <router-outlet></router-outlet>
-<input type="file" multiple="multiple" (change)="fileSelected($event)">
-<button type="button" (click)="upload()">Upload</button>
+<!--<input type="file" multiple="multiple" (change)="fileSelected($event)">-->
+<form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="id">id:</label>
+    <input type="number" name="id" id="id" class="form-control" formControlName="id">
+  </div>
+<!--  <div>-->
+<!--    <label for="imgUrl">imgUrl:</label>-->
+<!--    <input type="file" name="imgUrl" id="imgUrl" class="form-control" formControlName="imgUrl" multiple="multiple" (change)="fileSelected($event)">-->
+
+<!--  </div>-->
+  <div class="col-md-12 position-relative field">
+    <label for="files" class="form-label">Thêm ảnh (tối thiểu 1 ảnh)</label>
+    <input type="file" multiple="multiple" class="form-control" id="files" required
+           name="files[]" (change)="detectFiles($event)">
+<!--    <div class="row">-->
+<!--      <img style="width: 100px" id="imgDefault"-->
+<!--           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZDIhaDquGUI5gSoIEkpNuaOFAZoNfiTJpg&usqp=CAU"-->
+<!--           class="col-md-4 rounded float-start" alt="...">-->
+<!--    </div>-->
+    <div class="text-center row">
+      <ng-container *ngFor="let item of urls">
+        <div class="col-md-2">
+          <img [src]="item" width="350px" height="250px">
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div>
+    <label for="note">note:</label>
+    <input type="text" name="note" id="note" class="form-control" formControlName="note">
+  </div>
+  <button type="submit">enter</button>
+</form>
+
